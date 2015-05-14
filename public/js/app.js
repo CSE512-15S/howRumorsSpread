@@ -1,6 +1,5 @@
 var $ = require('jquery');
+var ko = require('knockout');
 
 $(document).ready(function() {
-  console.log("test");
-  console.log("test2");
 });
