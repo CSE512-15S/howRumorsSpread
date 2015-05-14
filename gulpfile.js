@@ -1,7 +1,68 @@
+'use strict';
 var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
   livereload = require('gulp-livereload'),
-  sass = require('gulp-sass');
+  sass = require('gulp-sass'),
+  browserify = require('browserify'),
+  source = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer'),
+  gutil = require('gulp-util'),
+  uglify = require('gulp-uglify'),
+  sourcemaps = require('gulp-sourcemaps'),
+  _ = require('underscore'),
+  watchify = require('watchify');
+
+
+var browserifyTask = function(devMode) {
+  var bundleConfig = {
+    entries: './public/js/app.js',
+    debug: true
+  };
+
+  if (devMode) {
+    _.extend(bundleConfig, watchify.args);
+  }
+
+  var b = browserify(bundleConfig);
+
+  var bundle = function() {
+    return b
+        .bundle()
+        // Use vinyl-source-stream to make the
+        // stream gulp compatible. Specify the
+        // desired output filename here.
+        .pipe(source('bundle.js'))
+        // Specify the output destination
+        .pipe(gulp.dest('./public/dist/'));
+
+    };
+
+  if(devMode) {
+      // Wrap with watchify and rebundle on changes
+      b = watchify(b);
+      // Rebundle on update
+      b.on('update', bundle);
+    } else {
+      // Sort out shared dependencies.
+      // b.require exposes modules externally
+      // if(bundleConfig.require) b.require(bundleConfig.require);
+      // // b.external excludes modules from the bundle, and expects
+      // // they'll be available externally
+      // if(bundleConfig.external) b.external(bundleConfig.external);
+    }
+
+    return bundle();
+
+}
+
+gulp.task('broswerify', function () {
+ return browserifyTask();
+});
+
+gulp.task('watchify', function() {
+  return browserifyTask(true);
+});
+
 
 gulp.task('sass', function () {
   gulp.src('./public/css/*.scss')
@@ -10,7 +71,7 @@ gulp.task('sass', function () {
     .pipe(livereload());
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', ['watchify'], function() {
   gulp.watch('./public/css/*.scss', ['sass']);
 });
 
@@ -28,6 +89,7 @@ gulp.task('develop', function () {
 
 gulp.task('default', [
   'sass',
+  'broswerify',
   'develop',
   'watch'
 ]);
