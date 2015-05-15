@@ -3,3 +3,4 @@ public/components
 .sass-cache
 syndeysiege.tar.gz
 public/dist/
+mongoquery.js

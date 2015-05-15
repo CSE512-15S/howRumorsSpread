@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .row
+    .col-md-12
+      h1 Visualizing the Spread of Rumors on Twitter
+      button(data-bind="click: test") Test Btn
+
+      .form-group
+        label 
+          span Select a rumor
+          select(name='rumor-collection-selector', data-bind="foreach: collectionNames")
+            option(data-bind="value: name, text: name")

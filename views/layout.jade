@@ -5,10 +5,13 @@ html(lang='en')
     meta(name='viewport', content='width=device-width')
     title= title
     block css
+      link(rel='styleshee', href='/components/bootstrap/dist/css/bootstrap.min.css')
       link(rel='stylesheet', href='/css/style.css')
     block js
       script(src='/dist/bundle.js')
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
   body
-    block content
+    div.container-fluid
+      block content
+        h1 This wont show up!
