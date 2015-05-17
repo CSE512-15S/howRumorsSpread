@@ -1,7 +1,11 @@
 extends layout
 
+block customCSS
+    link(rel='stylesheet', href='/css/spaghetti.css')
+
 block content
   .row#spaghetti
     .col-md-12
       h1 Spaghetti Prototype
-
+      #svgContainer
+      #tweet
