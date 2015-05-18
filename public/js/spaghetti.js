@@ -2,9 +2,9 @@ var d3 = require('d3');
 
 var data;
 var svg;
-var margin = { top: 10, right: 70, bottom: 20, left: 90 },
+var margin = { top: 20, right: 70, bottom: 30, left: 90 },
 			    width = 1200 - margin.left - margin.right,
-			    height = 500 - margin.top - margin.bottom;
+			    height = 520 - margin.top - margin.bottom;
 var xScale, yScale, yAxis, linecolor;
 
 var init = function() {
@@ -93,10 +93,12 @@ var update = function(data, isLinearScale) {
 
     // Add Hover events
     enter.on("mouseover", function(d) {
-    	d3.select('#tweet').html(d.text);
+    	d3.select('#tweetView .screen_name').html(d.user.screen_name + ": ");
+    	d3.select('#tweetView .text').html(d.text);
     });
     enter.on("mouseout", function(d) {
-    	d3.select('#tweet').html('');
+    	d3.select('#tweetView .screen_name').html('');
+    	d3.select('#tweetView .text').html('');
     });
 }
 
