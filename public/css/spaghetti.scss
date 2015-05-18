@@ -1,0 +1,17 @@
+svg {
+	margin: 0 auto;
+	font: 12px sans-serif;
+	display: block;
+}
+#svgContainer {
+	overflow: scroll;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #888;
+    shape-rendering: crispEdges;
+}
+.line path:hover {
+    stroke-width:4;
+}

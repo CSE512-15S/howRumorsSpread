@@ -36,9 +36,12 @@ from numpy import cumsum
 #			}
 #
 
-# Do not include retweets older than
-tresh_time = 5 # minutes
+# Do not include retweets with more than
+tresh_time = 5 # minutes since last retweet
 tresh_time = tresh_time * 60 * 1000
+
+# Only include data within
+time_bounds = [0, 1418613811596]
 
 with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 	data = json.load(infile)
@@ -61,19 +64,24 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 		timestamps = [tweet["created_ts"]["$date"]]
 		followers = [tweet["user"]["followers_count"]]
 
-		# Join on tweet id
-		for retweet in retweets:
-			if id == retweet["retweeted_status"]["id"]:
-				ts = retweet["created_ts"]["$date"]
-				fo = retweet["user"]["followers_count"]
-				if tresh_time < ts - timestamps[-1]:	
-					break # too much time passed since last retweet, stale
-				timestamps.append(ts)
-				followers.append(fo)
-		
-		popularity = list(cumsum(followers))
-		points = [{"timestamp": t, "popularity": p} for (t,p) in zip(timestamps, popularity)]
-		grouped.append({"id":id, "text":text, "user": user, "first_code":first_code, "points":points})
+		# check time bounds
+		if (time_bounds[0] <= timestamps[0] <= time_bounds[1]):
+			
+			# Join on tweet id
+			for retweet in retweets:
+				if id == retweet["retweeted_status"]["id"]:
+					ts = retweet["created_ts"]["$date"]
+					fo = retweet["user"]["followers_count"]
+					if tresh_time < ts - timestamps[-1]:	
+						break # too much time passed since last retweet, stale
+					timestamps.append(ts)
+					followers.append(fo)
+			
+			popularity = list(cumsum(followers))
+			points = [{"timestamp": t, "popularity": p} for (t,p) in zip(timestamps, popularity)]
+			grouped.append({"id":id, "text":text, "user": user, "first_code":first_code, "points":points})
+
+
 	json.dump({'tweets': grouped}, outfile, indent=4)
 
 

@@ -23,13 +23,26 @@ function MainViewModel() {
   self.test = function() {
     alert('test!');
   };
+
+  // Spaghetti
+  self.isLinearScale = ko.observable(true);
+  self.isLinearScale.ForEditing = ko.computed({
+    read: function() {
+      return self.isLinearScale().toString();  
+    },
+    write: function(newValue) {
+      self.isLinearScale(newValue === "true");
+      spaghetti.changeScale(self.isLinearScale());
+    },
+    owner: self        
+  });  
   
   getCollectionNames();
 }
 
 $(document).ready(function() {
   if($('#spaghetti').length !== 0) {
-    spaghetti();
+    spaghetti.init();
   }
   if($('#stream').length !== 0) {
     stream();

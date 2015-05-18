@@ -8,4 +8,10 @@ block content
     .col-md-12
       h1 Spaghetti Prototype
       #svgContainer
+      form(action='')
+        input(type='radio', name='scale-radio', id='scale-linear', value='true', data-bind='checked:isLinearScale.ForEditing')
+        label(for='scale-linear') Linear
+        br
+        input(type='radio', name='scale-radio', id='scale-log', value='false', data-bind='checked:isLinearScale.ForEditing')
+        label(for='scale-log') Log
       #tweet
