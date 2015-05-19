@@ -11,5 +11,13 @@ svg {
   stroke: #888;
   shape-rendering: crispEdges; }
 
-.line path:hover {
+.voronoi path {
+  fill: none; }
+
+.scanline line {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 1; }
+
+.tweet-hover {
   stroke-width: 4; }
