@@ -2,9 +2,9 @@ var d3 = require('d3');
 
 var data;
 var svg, xScale, yScale, yAxis, voronoiGroup;
-var screenName, tweetText;
+var screenName, tweetText, clock, clockText;
 var isLinearScale = true;
-var margin = { top: 20, right: 70, bottom: 30, left: 90 },
+var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    width = 1200 - margin.left - margin.right,
 			    height = 520 - margin.top - margin.bottom;
 
@@ -73,12 +73,29 @@ var init = function() {
 			.scale(yScale.linear)
 			.orient("left");
 
+		// General setup
 		svg.append("g")
 			.attr("class", "y axis")
 			.attr("transform", "translate(-10,0)");
 
 		svg.append("g")
 			.attr("class", "tweets");
+
+		clock = svg.append("g")
+			.attr("class", "clock")
+			.attr("transform", "translate(0," + 460 + ")");
+		
+		clock.append("rect")
+		  	.attr("width", 80)
+		  	.attr("height", 25);
+
+		clockText = clock.append("text")
+			.attr("x", 9)
+			.attr("y", 18)
+			.attr("font-size", "16px")
+			.text("Time");
+
+		svg.on("mousemove", mousemove);
 
 		// Data join
 		var tweets = d3.select(".tweets").selectAll("path")
@@ -188,7 +205,14 @@ var changeScale = function(isLinearScale) {
 	update(isLinearScale);
 };
 
-var mouseover = function(d) {
+var mousemove = function(d) { // attatch to svg
+	// move clock, change time
+	var x = d3.mouse(this)[0];
+	clock.attr("transform", "translate(" + x + ",460)");
+	clockText.text(new Date(xScale.invert(x)).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1"));
+}
+
+var mouseover = function(d) { // attach to voronoi
 	// Highlight line
 	d3.select(d.tweet.line).classed("tweet-hover", true);
 	d.tweet.line.parentNode.appendChild(d.tweet.line);
@@ -197,7 +221,7 @@ var mouseover = function(d) {
 	tweetText.html(d.tweet.text);
 }
 
-var mouseout = function(d) {
+var mouseout = function(d) { // attach to svg
 	// Unhighlight line
 	d3.select(d.tweet.line).classed("tweet-hover", false);
 }

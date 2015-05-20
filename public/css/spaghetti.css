@@ -14,10 +14,12 @@ svg {
 .voronoi path {
   fill: none; }
 
-.scanline line {
-  fill: none;
-  stroke: #aaa;
-  stroke-width: 1; }
+.clock rect {
+  fill: #888;
+  stroke: none; }
+
+.clock text {
+  fill: #fff; }
 
 .tweet-hover {
   stroke-width: 4; }

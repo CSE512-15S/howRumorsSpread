@@ -12,6 +12,7 @@ html(lang='en')
       script(src='/dist/bundle.js')
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
+      block customJS
   body
     div.container-fluid
       block content
