@@ -11,11 +11,9 @@ from numpy import cumsum
 #				"retweets": [Tweet] <-- All tweets with retweeted_status
 #			}
 # 	Tweets & retweets with necessary fields for this script can be exported using
-#	
-#		mongoexport --db test --collection lakemba --query '{retweeted_status: {$exists: true}}' --fields 'created_ts,user.followers_count,retweeted_status.id' -o 'retweets.json'
-#		mongoexport --db test -c lakemba -q '{retweeted_status: {$exists: false}}' -f 'id,text,codes,created_ts,user' -o 'tweets.json'
+#	getData.js as follows:
+# 		mongo --quiet getData.js > data.json
 
-#
 #
 # Output: grouped.json, formatted
 #
@@ -49,8 +47,8 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 	retweets = data["retweets"]
 
 	# sort by timestamp
-	tweets = sorted(tweets, key=lambda t: t[u'created_ts'][u'$date'])
-	retweets = sorted(retweets, key=lambda t: t[u'created_ts'][u'$date'])
+	tweets = sorted(tweets, key=lambda t: t[u'created_ts'])
+	retweets = sorted(retweets, key=lambda t: t[u'created_ts'])
 
 	grouped = []
 	for tweet in tweets:
@@ -61,7 +59,7 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 		user = {"id": tweet["user"]["id"],\
 				"name": tweet["user"]["name"],\
 				"screen_name": tweet["user"]["screen_name"]}
-		timestamps = [tweet["created_ts"]["$date"]]
+		timestamps = [tweet["created_ts"]]
 		followers = [tweet["user"]["followers_count"]]
 
 		# check time bounds
@@ -70,7 +68,7 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 			# Join on tweet id
 			for retweet in retweets:
 				if id == retweet["retweeted_status"]["id"]:
-					ts = retweet["created_ts"]["$date"]
+					ts = retweet["created_ts"]
 					fo = retweet["user"]["followers_count"]
 					if tresh_time < ts - timestamps[-1]:	
 						break # too much time passed since last retweet, stale
