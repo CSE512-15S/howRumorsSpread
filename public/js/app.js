@@ -4,7 +4,8 @@ var $ = require('jquery'),
     _ = require('underscore'),
     ko = require('knockout'),
     spaghetti = require('./spaghetti.js'),
-    stream    = require('./stream.js');
+    volumeChart = require('./volumechart.js');
+
 
 
 function MainViewModel() {
