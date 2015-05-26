@@ -4,3 +4,4 @@ public/components
 syndeysiege.tar.gz
 public/dist/
 mongoquery.js
+.DS_Store

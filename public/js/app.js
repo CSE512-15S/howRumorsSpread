@@ -3,13 +3,12 @@
 var $ = require('jquery'),
     _ = require('underscore'),
     ko = require('knockout'),
-    spaghetti = require('./spaghetti.js'),
-    stream    = require('./stream.js');
-
+    spaghetti = require('./spaghetti.js');
 
 function MainViewModel() {
   var self = this;
   self.collectionNames = ko.observableArray();
+  getCollectionNames();
 
   function getCollectionNames() {
     $.get('/list-collections', {}, function(data) {
@@ -20,11 +19,15 @@ function MainViewModel() {
     });
   }
 
-  self.test = function() {
-    alert('test!');
-  };
+  /*
+  *  TO DO: 
+  *  add currentTime observable
+  *  That is updated on mousemove of either spaghetti or stream
+  *  an update may trigger a change of the scanlines, leaderboards
+  *  and tweetviews
+  */
 
-  // Spaghetti
+  // Spaghetti: Lin / Log value
   self.isLinearScale = ko.observable(true);
   self.isLinearScale.ForEditing = ko.computed({
     read: function() {
@@ -36,16 +39,11 @@ function MainViewModel() {
     },
     owner: self        
   });  
-  
-  getCollectionNames();
 }
 
 $(document).ready(function() {
   if($('#spaghetti').length !== 0) {
     spaghetti.init();
-  }
-  if($('#stream').length !== 0) {
-    stream();
   }
   
   ko.applyBindings(new MainViewModel());

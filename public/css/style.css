@@ -4,3 +4,119 @@ body {
 
 a {
   color: #00B7FF; }
+
+/* STREAM
+----------------------------------------*/
+#stream {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  background-color: #eee; }
+
+/* SPAGHETTI
+----------------------------------------*/
+#spaghetti {
+  position: relative; }
+  #spaghetti svg {
+    margin: 0 auto;
+    font: 12px sans-serif;
+    display: block; }
+  #spaghetti .svgContainer {
+    overflow: scroll; }
+  #spaghetti .controls {
+    position: absolute;
+    top: 10px;
+    left: 100px; }
+  #spaghetti .axis path, #spaghetti .axis line {
+    fill: none;
+    stroke: #888;
+    shape-rendering: crispEdges; }
+  #spaghetti .voronoi path {
+    fill: none; }
+  #spaghetti .clock rect {
+    fill: none;
+    stroke: #bbb; }
+  #spaghetti .clock line {
+    stroke: #bbb;
+    stroke-width: 1; }
+  #spaghetti .clock text {
+    fill: #333; }
+  #spaghetti .tweet-hover {
+    stroke-width: 4; }
+
+/* STREAM
+----------------------------------------*/
+#stream {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  background-color: #eee; }
+  #stream .svgContainer {
+    width: 100%; }
+
+/* SPAGHETTI
+----------------------------------------*/
+#spaghetti {
+  position: relative; }
+  #spaghetti svg {
+    margin: 0 auto;
+    font: 12px sans-serif;
+    display: block; }
+  #spaghetti .svgContainer {
+    overflow: scroll; }
+  #spaghetti .controls {
+    position: absolute;
+    top: 10px;
+    left: 100px; }
+  #spaghetti .axis path, #spaghetti .axis line {
+    fill: none;
+    stroke: #888;
+    shape-rendering: crispEdges; }
+  #spaghetti .voronoi path {
+    fill: none; }
+  #spaghetti .clock rect {
+    fill: none;
+    stroke: #bbb; }
+  #spaghetti .clock line {
+    stroke: #bbb;
+    stroke-width: 1; }
+  #spaghetti .clock text {
+    fill: #333; }
+  #spaghetti .tweet-hover {
+    stroke-width: 4; }
+
+/* LEADERBOARD
+----------------------------------------*/
+#leaderboard {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background-color: #eee;
+  margin-bottom: 20px; }
+
+/* TWEETLIST
+----------------------------------------*/
+#tweetlist {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #eee; }
+
+/* SCRATCH -- only for development
+----------------------------------------*/
+.bg-text {
+  background-color: #aaa;
+  overflow: hidden;
+  padding: 20px 20px 100px 20px;
+  position: relative;
+  width: 400px; }
+
+.bg-text::after {
+  color: #fff;
+  content: attr(data-bg-text);
+  display: block;
+  font-size: 50px;
+  line-height: 1;
+  position: absolute;
+  bottom: 0px;
+  right: 10px; }

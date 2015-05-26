@@ -3,11 +3,20 @@ extends layout
 block content
   .row
     .col-md-12
-      h1 Visualizing the Spread of Rumors on Twitter
-      button(data-bind="click: test") Test Btn
+      // h1 Visualizing the Spread of Rumors on Twitter
 
-      .form-group
-        label 
-          span Select a rumor
-          select(name='rumor-collection-selector', data-bind="foreach: collectionNames")
-            option(data-bind="value: name, text: name")
+      .row
+        .col-md-8#master
+            #stream.bg-text(data-bg-text="stream graph")
+                .svgContainer
+            #spaghetti
+                .svgContainer
+                .controls
+                    input(type='radio', name='scale-radio', id='scale-linear', value='true', data-bind='checked:isLinearScale.ForEditing')
+                    label(for='scale-linear') &nbsp;Linear
+                    br
+                    input(type='radio', name='scale-radio', id='scale-log', value='false', data-bind='checked:isLinearScale.ForEditing')
+                    label(for='scale-log') &nbsp;Log
+        .col-md-4#detail
+            #leaderboard.bg-text(data-bg-text="leaderboard")
+            #tweetlist.bg-text(data-bg-text="tweetlist")

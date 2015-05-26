@@ -5,23 +5,16 @@ var svg, xScale, yScale, yAxis, voronoiGroup;
 var screenName, tweetText, clock, clockText;
 var isLinearScale = true;
 var margin = { top: 20, right: 70, bottom: 60, left: 90 },
-			    width = 1200 - margin.left - margin.right,
+			    width = 860 - margin.left - margin.right,
 			    height = 520 - margin.top - margin.bottom;
 
 var init = function() {
-	screenName = d3.select('#tweetView .screen_name');
-	tweetText = d3.select('#tweetView .text');
-
-	svg = d3.select("body #svgContainer")
+	svg = d3.select("#spaghetti .svgContainer")
 	  .append("svg")
 	  	.attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-		.on("mouseout", function(d) { // hide tweet, scanline on mouseout
-			screenName.html('');
-			tweetText.html('');
-		});
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -221,15 +214,14 @@ var mouseover = function(d) { // attach to voronoi
 	// Highlight line
 	d3.select(d.tweet.line).classed("tweet-hover", true);
 	d.tweet.line.parentNode.appendChild(d.tweet.line);
-	// Show corresponding tweet
-	screenName.html(d.tweet.user.screen_name + ": ");
-	tweetText.html(d.tweet.text);
+	// Highlight corresponding tweet
+	// TO DO
 }
 
 var mouseout = function(d) { // attach to svg
 	// Unhighlight line
 	d3.select(d.tweet.line).classed("tweet-hover", false);
-	// move clock away
+	// Hide clock
 	clock.attr("transform", "translate(-200,0)");
 }
 
