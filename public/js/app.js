@@ -1,6 +1,8 @@
 
 
-var $ = require('jquery'),
+var $ = require('jquery');
+    global.jQuery = $; 
+    bootstrap = require('bootstrap'),
     _ = require('underscore'),
     ko = require('knockout'),
     spaghetti = require('./spaghetti.js');
