@@ -15,11 +15,15 @@ svg {
   fill: none; }
 
 .clock rect {
-  fill: #888;
-  stroke: none; }
+  fill: none;
+  stroke: #bbb; }
+
+.clock line {
+  stroke: #bbb;
+  stroke-width: 1; }
 
 .clock text {
-  fill: #fff; }
+  fill: #333; }
 
 .tweet-hover {
   stroke-width: 4; }

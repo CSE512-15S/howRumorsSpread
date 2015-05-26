@@ -86,13 +86,18 @@ var init = function() {
 			.attr("transform", "translate(0," + 460 + ")");
 		
 		clock.append("rect")
-		  	.attr("width", 80)
-		  	.attr("height", 25);
+		  	.attr("width", 70)
+		  	.attr("height", 25)
+		  	.attr("transform", "translate(-35, 0)");
+
+		clock.append("line")
+			.attr("x1", 0).attr("y1", 0)
+			.attr("x2", 0).attr("y2", -460);
 
 		clockText = clock.append("text")
-			.attr("x", 9)
-			.attr("y", 18)
-			.attr("font-size", "16px")
+			.attr("font-size", "14px")
+			.attr("font-weight", "bold")
+			.attr("transform", "translate(-28,18)")
 			.text("Time");
 
 		svg.on("mousemove", mousemove);
@@ -224,6 +229,8 @@ var mouseover = function(d) { // attach to voronoi
 var mouseout = function(d) { // attach to svg
 	// Unhighlight line
 	d3.select(d.tweet.line).classed("tweet-hover", false);
+	// move clock away
+	clock.attr("transform", "translate(-200,0)");
 }
 
 exports.init = init;
