@@ -13,6 +13,7 @@
     "express": "~4.12.0",
     "jade": "~1.9.1",
     "jquery": "^2.1.4",
+    "bootstrap": "3.3.4",
     "knockout": "^3.3.0",
     "mongodb": "^2.0.31",
     "mongojs": "^0.18.2",
