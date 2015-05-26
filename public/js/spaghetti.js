@@ -12,6 +12,14 @@ var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 var init = function(model) {
 	mainViewModel = model;
 
+	// Event listeners for lin / log scale buttons
+	d3.select('#scale-linear').on("click", function() {
+		changeScale(true);
+	});
+	d3.select('#scale-log').on("click", function() {
+		changeScale(false);
+	});
+
 	svg = d3.select("#spaghetti .svgContainer")
 	  .append("svg")
 	  	.attr("width", width + margin.left + margin.right)
@@ -229,5 +237,4 @@ var mouseout = function(d) { // attach to svg
 }
 
 exports.init = init;
-exports.changeScale = changeScale;
 module.exports = exports;

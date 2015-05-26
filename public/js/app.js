@@ -28,19 +28,6 @@ function MainViewModel() {
     // - trigger change of scanlines in spaghetti / stream
     // - update leaderboards and tweetviews
   }
-
-  // Spaghetti: Lin / Log value
-  self.isLinearScale = ko.observable(true);
-  self.isLinearScale.ForEditing = ko.computed({
-    read: function() {
-      return self.isLinearScale().toString();  
-    },
-    write: function(newValue) {
-      self.isLinearScale(newValue === "true");
-      spaghetti.changeScale(self.isLinearScale());
-    },
-    owner: self        
-  });  
 }
 
 $(document).ready(function() {
