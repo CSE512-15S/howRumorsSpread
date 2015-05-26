@@ -2,13 +2,16 @@ var d3 = require('d3');
 
 var data;
 var svg, xScale, yScale, yAxis, voronoiGroup;
-var screenName, tweetText, clock, clockText;
+var clock, clockText;
+var mainViewModel;
 var isLinearScale = true;
 var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    width = 860 - margin.left - margin.right,
 			    height = 520 - margin.top - margin.bottom;
 
-var init = function() {
+var init = function(model) {
+	mainViewModel = model;
+
 	svg = d3.select("#spaghetti .svgContainer")
 	  .append("svg")
 	  	.attr("width", width + margin.left + margin.right)
