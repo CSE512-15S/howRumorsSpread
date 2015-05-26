@@ -99,77 +99,94 @@ function projectAndAggregate(db, collectionName, cb) {
 
   // Groups data by times and codes and strips nearly everything else out
   function volumeProjection (binBy) {
-    var binModVal = null;
+    var binDivVal = null;
     
     switch(binBy) {
       case 'hour':
-        binModVal = 1000 * 60 * 60;
+        binDivVal = 1000 * 60 * 60;
         break;
       case 'minute':
-        binModVal = 1000 * 60;
+        binDivVal = 1000 * 60;
         break;
       case 'second':
-        binModVal = 1000;
+        binDivVal = 1000;
         break;
       case 'millisecond':
-        binModVal = 1;
+        binDivVal = 1;
         break;
       default:
         console.error('Invalid binBy in volumeProjection');
         return;
     }
     
-    var docs = db.collection('collection-projected').find({}).toArray();
-    docs = docs.map(function(doc, index) {
-      return {
-        retweet_count : doc.retweet_count,
-        timestamp : doc.timestamp_ms,
-        favorite_count : doc.favorite_count,
-        code : doc.codes[0]
-      }
-    });
-
-    var binnedByCode = {};
-    docs.forEach(function(doc, index) {
-      if (! binnedByCode.hasOwnProperty(doc.code)) {
-        binnedByCode[doc.code] = [];
-      }
-
-      binnedByCode[doc.code].push(doc);
-    });
-
-    var finalMapping = [];
-
-    // Process each code bin to group tweets by the binBy val
-    Object.keys(binnedByCode).forEach(function(code) {
-      var retObj = {
-        'key'  : code,
-        'values' : []
-      };
-
-      var tweets = binnedByCode[code];
-      binnedByCode[code] = [];
-
-      var timeBins = {};
-      tweets.forEach(function(tweet) {
-        var timeBin = tweet.timestamp % binModVal;
-
-        if (! timeBins.hasOwnProperty(timeBin)) {
-          timeBins[timeBin] = [];
+    db.collection('collection-projected').find({}).toArray(function(err, docs) {
+      if (err) return console.error(err);
+      docs = docs.map(function(doc, index) {
+        return {
+          retweet_count : doc.retweet_count,
+          timestamp : doc.timestamp_ms,
+          favorite_count : doc.favorite_count,
+          code : doc.codes[0]
         }
-        // TODO:
       });
 
+      var binnedByCode = {};
+      docs.forEach(function(doc, index) {
+        if (! binnedByCode.hasOwnProperty(doc.code)) {
+          binnedByCode[doc.code] = [];
+        }
 
-      finalMapping.push(retObj);
-    });
+        binnedByCode[doc.code].push(doc);
+      });
 
-    var cacheDir = './public/data/' + collectionName +'/',
-        cachePath = cacheDir + binBy + '-volume.json';
+      // Process each code bin to group tweets by the binBy val
+      var finalMapping = Object.keys(binnedByCode).map(function(code) {
+        var tweets = binnedByCode[code];
+        binnedByCode[code] = [];
+        var timeBins = {};
+        tweets.forEach(function(tweet) {
+          var timeBin = parseInt(tweet.timestamp / binDivVal);
+
+          if (! timeBins.hasOwnProperty(timeBin)) {
+            timeBins[timeBin] = [];
+          }
+          timeBins[timeBin].push(tweet);
+        });
+
+        var binnedByTime = Object.keys(timeBins).map(function(timeBinKey) {
+          var timeBin = timeBins[timeBinKey],
+              numTweets = 0,
+              numFavorites = 0,
+              numRetweets = 0;
+
+          timeBin.forEach(function(tweet) {
+            numTweets++;
+            numFavorites += tweet.favorite_count;
+            numRetweets += tweet.retweet_count;
+          });
+
+          return {
+            timeBin : timeBinKey,
+            numTweets : numTweets,
+            numFavorites : numFavorites,
+            numRetweets : numRetweets
+          };
+        });
+
+        return {
+          'key' : code,
+          'values' : binnedByTime
+        };
+      });
+
+      var cacheDir = './public/data/' + collectionName +'/',
+          cachePath = cacheDir + binBy + '-volume.json';
+      
+      mkdirp(cacheDir, function(err) {
+        if (err) console.err(err);
+        writeToFile(cachePath, JSON.stringify(finalMapping));
+      });
     
-    mkdirp(cacheDir, function(err) {
-      if (err) console.err(err);
-      writeToFile(cachePath, JSON.stringify(finalMapping));
     });
     
   }
