@@ -68,11 +68,11 @@ function projectAndAggregate(db, collectionName, cb) {
       }
       cb(db, collectionName, 'raw.json');
 
-      fixDocumentFieldTypes(function() {
-        timeBins.forEach(function(bin) {
-          volumeProjection(bin);
-        });  
-      })
+      // fixDocumentFieldTypes(function() {
+      timeBins.forEach(function(bin) {
+        volumeProjection(bin);
+      });
+      // })
     });
   }
 
@@ -99,81 +99,78 @@ function projectAndAggregate(db, collectionName, cb) {
 
   // Groups data by times and codes and strips nearly everything else out
   function volumeProjection (binBy) {
+    var binModVal = null;
+    
     switch(binBy) {
       case 'hour':
+        binModVal = 1000 * 60 * 60;
+        break;
       case 'minute':
+        binModVal = 1000 * 60;
+        break;
       case 'second':
+        binModVal = 1000;
+        break;
       case 'millisecond':
-        var binOperator = '$' + binBy;
-
-        var timeBin = {};
-        timeBin[binOperator] = '$dt';
-
-        db.collection('collection-projected').aggregate([
-          {'$unwind' : '$codes'},
-          {'$group' : {
-            '_id' : {
-              '_id' : '$_id',
-              'retweet_count' : '$retweet_count',
-              'favorite_count' : '$favorite_count',
-              'timestamp_ms' : '$timestamp_ms'
-            },
-            'code' : {'$first' : '$codes'}
-          }},
-          {'$project' : {
-            'retweet_count' : '$_id.retweet_count',
-            'favorite_count' : '$_id.favorite_count',
-            // More info on this hack here: http://stackoverflow.com/a/27828951/1408490
-            'dt' : {'$add' : [new Date(0), '$_id.timestamp_ms']},
-            'code' : 1
-          }},
-          {'$project' : {
-            'retweet_count' : '$_id.retweet_count',
-            'favorite_count' : '$_id.favorite_count',
-            'code' : 1,
-            'time_bin' : timeBin
-          }},
-          {'$group' : {
-            '_id' : {
-              'code' : '$code',
-              'time_bin': '$time_bin'
-            },
-            'num_tweets' : {'$sum' : 1},
-            'num_favorites' : {'$sum' : '$favorite_count'},
-            'num_retweets' : {'$sum' : '$retweet_count'}
-          }},
-          {'$group' : {
-            '_id' : {
-              'key' : '$_id.code'
-            },
-            'values' : {
-              '$push' : {
-                'time_bin' : '$_id.time_bin',
-                'num_tweets' : '$num_tweets',
-                'num_favorites' : '$num_favorites',
-                'num_retweets' : '$num_retweets'
-              }
-            }
-          }},
-          {'$project' : {
-            '_id' : 0,
-            'key' : '$_id.key',
-            'values' : 1
-          }}
-        ], function(err, docs) {
-          if (err) console.log(err);
-          var cacheDir = './public/data/' + collectionName +'/',
-              cachePath = cacheDir + binBy + '-volume.json';
-          mkdirp(cacheDir, function(err) {
-            if (err) console.err(err);
-            writeToFile(cachePath, JSON.stringify(docs));  
-          });
-        });
+        binModVal = 1;
         break;
       default:
         console.error('Invalid binBy in volumeProjection');
         return;
     }
+    
+    var docs = db.collection('collection-projected').find({}).toArray();
+    docs = docs.map(function(doc, index) {
+      return {
+        retweet_count : doc.retweet_count,
+        timestamp : doc.timestamp_ms,
+        favorite_count : doc.favorite_count,
+        code : doc.codes[0]
+      }
+    });
+
+    var binnedByCode = {};
+    docs.forEach(function(doc, index) {
+      if (! binnedByCode.hasOwnProperty(doc.code)) {
+        binnedByCode[doc.code] = [];
+      }
+
+      binnedByCode[doc.code].push(doc);
+    });
+
+    var finalMapping = [];
+
+    // Process each code bin to group tweets by the binBy val
+    Object.keys(binnedByCode).forEach(function(code) {
+      var retObj = {
+        'key'  : code,
+        'values' : []
+      };
+
+      var tweets = binnedByCode[code];
+      binnedByCode[code] = [];
+
+      var timeBins = {};
+      tweets.forEach(function(tweet) {
+        var timeBin = tweet.timestamp % binModVal;
+
+        if (! timeBins.hasOwnProperty(timeBin)) {
+          timeBins[timeBin] = [];
+        }
+        // TODO:
+      });
+
+
+      finalMapping.push(retObj);
+    });
+
+    var cacheDir = './public/data/' + collectionName +'/',
+        cachePath = cacheDir + binBy + '-volume.json';
+    
+    mkdirp(cacheDir, function(err) {
+      if (err) console.err(err);
+      writeToFile(cachePath, JSON.stringify(finalMapping));
+    });
     
   }
 
