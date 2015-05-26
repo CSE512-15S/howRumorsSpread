@@ -1,7 +1,7 @@
 var d3 = require('d3');
 
 var data;
-var svg, xScale, yScale, yAxis, voronoiGroup;
+var svg, xScale, yScale, yAxis, linecolor, voronoiGroup;
 var clock, clockText;
 var mainViewModel;
 var isLinearScale = true;
@@ -20,12 +20,47 @@ var init = function(model) {
 		updateScale(false);
 	});
 
+	// One-time setup
 	svg = d3.select("#spaghetti .svgContainer")
 	  .append("svg")
 	  	.attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	linecolor = d3.scale.ordinal()
+		.domain(["Affirm", "Deny", "Unrelated"])
+		.range(["#2c7fb8", "#c51b8a", "#bdbdbd"]);
+
+	// General setup
+	svg.append("g")
+		.attr("class", "y axis")
+		.attr("transform", "translate(-10,0)");
+
+	svg.append("g")
+		.attr("class", "tweets");
+
+	clock = svg.append("g")
+		.attr("class", "clock")
+		.attr("transform", "translate(0," + 460 + ")");
+	
+	clock.append("rect")
+	  	.attr("width", 70)
+	  	.attr("height", 25)
+	  	.attr("transform", "translate(-35, 0)");
+
+	clock.append("line")
+		.attr("x1", 0).attr("y1", 0)
+		.attr("x2", 0).attr("y2", -460);
+
+	clockText = clock.append("text")
+		.attr("font-size", "14px")
+		.attr("font-weight", "bold")
+		.attr("transform", "translate(-28,18)")
+		.text("Time");
+
+	svg.on("mousemove", mousemove);
+
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -69,42 +104,9 @@ var init = function(model) {
 				.nice()
 		};
 
-		var linecolor = d3.scale.ordinal()
-			.domain(["Affirm", "Deny", "Unrelated"])
-			.range(["#2c7fb8", "#c51b8a", "#bdbdbd"]);
-
 		yAxis = d3.svg.axis()
 			.scale(yScale.linear)
 			.orient("left");
-
-		// General setup
-		svg.append("g")
-			.attr("class", "y axis")
-			.attr("transform", "translate(-10,0)");
-
-		svg.append("g")
-			.attr("class", "tweets");
-
-		clock = svg.append("g")
-			.attr("class", "clock")
-			.attr("transform", "translate(0," + 460 + ")");
-		
-		clock.append("rect")
-		  	.attr("width", 70)
-		  	.attr("height", 25)
-		  	.attr("transform", "translate(-35, 0)");
-
-		clock.append("line")
-			.attr("x1", 0).attr("y1", 0)
-			.attr("x2", 0).attr("y2", -460);
-
-		clockText = clock.append("text")
-			.attr("font-size", "14px")
-			.attr("font-weight", "bold")
-			.attr("transform", "translate(-28,18)")
-			.text("Time");
-
-		svg.on("mousemove", mousemove);
 
 		// Data join
 		var tweets = d3.select(".tweets").selectAll("path")
