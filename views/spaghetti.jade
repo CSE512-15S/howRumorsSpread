@@ -1,23 +1,14 @@
 extends layout
 
-block customCSS
-  link(rel='stylesheet', href='/css/spaghetti.css')
-
-block customJS
-  script(src='components/bootstrap/dist/js/bootstrap.min.js')
-
 block content
   .row#spaghetti
-    .col-md-12
-      h2 Spaghetti Prototype
-      #svgContainer
-      .row
-        .col-md-1
-            input(type='radio', name='scale-radio', id='scale-linear', value='true', data-bind='checked:isLinearScale.ForEditing')
-            label(for='scale-linear') &nbsp;Linear
-            br
-            input(type='radio', name='scale-radio', id='scale-log', value='false', data-bind='checked:isLinearScale.ForEditing')
-            label(for='scale-log') &nbsp;Log
+    .svgContainer
+    .controls
+        input(type='radio', name='scale-radio', id='scale-linear', value='true', data-bind='checked:isLinearScale.ForEditing')
+        label(for='scale-linear') &nbsp;Linear
+        br
+        input(type='radio', name='scale-radio', id='scale-log', value='false', data-bind='checked:isLinearScale.ForEditing')
+        label(for='scale-log') &nbsp;Log
         .col-md-11
             #tweetView
                 strong.screen_name

@@ -5,23 +5,16 @@ var svg, xScale, yScale, yAxis, voronoiGroup;
 var screenName, tweetText, clock, clockText;
 var isLinearScale = true;
 var margin = { top: 20, right: 70, bottom: 60, left: 90 },
-			    width = 1200 - margin.left - margin.right,
+			    width = 860 - margin.left - margin.right,
 			    height = 520 - margin.top - margin.bottom;
 
 var init = function() {
-	screenName = d3.select('#tweetView .screen_name');
-	tweetText = d3.select('#tweetView .text');
-
-	svg = d3.select("body #svgContainer")
+	svg = d3.select("#spaghetti .svgContainer")
 	  .append("svg")
 	  	.attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-		.on("mouseout", function(d) { // hide tweet, scanline on mouseout
-			screenName.html('');
-			tweetText.html('');
-		});
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -86,13 +79,18 @@ var init = function() {
 			.attr("transform", "translate(0," + 460 + ")");
 		
 		clock.append("rect")
-		  	.attr("width", 80)
-		  	.attr("height", 25);
+		  	.attr("width", 70)
+		  	.attr("height", 25)
+		  	.attr("transform", "translate(-35, 0)");
+
+		clock.append("line")
+			.attr("x1", 0).attr("y1", 0)
+			.attr("x2", 0).attr("y2", -460);
 
 		clockText = clock.append("text")
-			.attr("x", 9)
-			.attr("y", 18)
-			.attr("font-size", "16px")
+			.attr("font-size", "14px")
+			.attr("font-weight", "bold")
+			.attr("transform", "translate(-28,18)")
 			.text("Time");
 
 		svg.on("mousemove", mousemove);
@@ -216,14 +214,15 @@ var mouseover = function(d) { // attach to voronoi
 	// Highlight line
 	d3.select(d.tweet.line).classed("tweet-hover", true);
 	d.tweet.line.parentNode.appendChild(d.tweet.line);
-	// Show corresponding tweet
-	screenName.html(d.tweet.user.screen_name + ": ");
-	tweetText.html(d.tweet.text);
+	// Highlight corresponding tweet
+	// TO DO
 }
 
 var mouseout = function(d) { // attach to svg
 	// Unhighlight line
 	d3.select(d.tweet.line).classed("tweet-hover", false);
+	// Hide clock
+	clock.attr("transform", "translate(-200,0)");
 }
 
 exports.init = init;
