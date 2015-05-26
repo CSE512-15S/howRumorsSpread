@@ -145,7 +145,10 @@ function projectAndAggregate(db, collectionName, cb) {
         binnedByCode[code] = [];
         var timeBins = {};
         tweets.forEach(function(tweet) {
-          var timeBin = parseInt(tweet.timestamp / binDivVal);
+          // We use this truncated timestamp to bin the times
+          // We cast back up to a timestamp scale though 
+          // so that date conversions work in our views
+          var timeBin = parseInt(tweet.timestamp / binDivVal) * binDivVal;
 
           if (! timeBins.hasOwnProperty(timeBin)) {
             timeBins[timeBin] = [];
@@ -166,7 +169,7 @@ function projectAndAggregate(db, collectionName, cb) {
           });
 
           return {
-            timeBin : timeBinKey,
+            timestamp : timeBinKey,
             numTweets : numTweets,
             numFavorites : numFavorites,
             numRetweets : numRetweets
