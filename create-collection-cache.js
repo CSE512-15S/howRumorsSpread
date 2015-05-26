@@ -13,7 +13,8 @@ if (commandLineArgs.length == 0 || commandLineArgs.length > 2) {
 var DBServer = new Server('localhost', 27017),
     databaseName = (commandLineArgs.length == 2) ? commandLineArgs[1] : 'sydneysiege',
     collectionName = commandLineArgs[0],
-    db = new DB(databaseName, DBServer);
+    db = new DB(databaseName, DBServer),
+    timeBins = ['millisecond', 'second', 'minute'];
 
 
 // First perform aggregation
@@ -65,10 +66,36 @@ function projectAndAggregate(db, collectionName, cb) {
       if (err) {
         console.log(err);
       }
-      cb(db, 'lakemba', 'raw.json');
-      volumeProjection('second');
+      cb(db, collectionName, 'raw.json');
+
+      fixDocumentFieldTypes(function() {
+        timeBins.forEach(function(bin) {
+          volumeProjection(bin);
+        });  
+      })
     });
   }
+
+  // Casts timestamps that are strings into numerics 
+  function fixDocumentFieldTypes (cb) {
+    db.collection('collection-projected').find({}).toArray(function(err, docs) {
+      docs.forEach(function(doc, index, docsArray) {
+        db.collection('collection-projected').update(
+          {_id: doc._id}, 
+          {$set: {
+            timestamp_ms : parseInt(doc.timestamp_ms)
+          }},
+          {},
+          function() {
+            if (index === docsArray.length - 1) {
+              cb();
+            }
+          }
+        );
+      });
+    });
+  }  
+  
 
   // Groups data by times and codes and strips nearly everything else out
   function volumeProjection (binBy) {
@@ -76,7 +103,7 @@ function projectAndAggregate(db, collectionName, cb) {
       case 'hour':
       case 'minute':
       case 'second':
-      case 'milisecond':
+      case 'millisecond':
         var binOperator = '$' + binBy;
 
         var timeBin = {};
@@ -97,7 +124,7 @@ function projectAndAggregate(db, collectionName, cb) {
             'retweet_count' : '$_id.retweet_count',
             'favorite_count' : '$_id.favorite_count',
             // More info on this hack here: http://stackoverflow.com/a/27828951/1408490
-            'dt' : {'$add' : [new Date('$_id.timestamp_ms'), 0]},
+            'dt' : {'$add' : [new Date(0), '$_id.timestamp_ms']},
             'code' : 1
           }},
           {'$project' : {
@@ -147,6 +174,7 @@ function projectAndAggregate(db, collectionName, cb) {
         console.error('Invalid binBy in volumeProjection');
         return;
     }
+    
   }
 
   rawProjection();
