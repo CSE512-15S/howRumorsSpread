@@ -5,7 +5,8 @@ var $ = require('jquery');
     bootstrap = require('bootstrap'),
     _ = require('underscore'),
     ko = require('knockout'),
-    spaghetti = require('./spaghetti.js');
+    spaghetti = require('./spaghetti.js'),
+    stream = require('./stream.js');
 
 function MainViewModel() {
   var self = this;
@@ -46,6 +47,10 @@ function MainViewModel() {
 $(document).ready(function() {
   if($('#spaghetti').length !== 0) {
     spaghetti.init();
+  }
+
+  if($('#stream').length !== 0) {
+    stream();
   }
   
   ko.applyBindings(new MainViewModel());
