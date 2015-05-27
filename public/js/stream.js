@@ -9,7 +9,7 @@ var StreamGraph = function() {
       margin = { top: 0, right: 70, bottom: 20, left: 90 },
       width = 860 - margin.left - margin.right,
       height = 150 - margin.top - margin.bottom,
-      duration = 1000;
+      duration = 750;
 
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
               .attr('width', width)
@@ -42,7 +42,7 @@ var StreamGraph = function() {
                 .values(function(d) { return d.values; })
                 .x(function(d) { return d.date; })
                 .y(function(d) { return d.volume; })
-                .out(function(d, y0, y) { return d.volume0 = y0; })
+                .out(function(d, y0, y) { d.volume0 = y0; })
                 .order('reverse');
   /* /End Chart initilization code */
 
@@ -53,6 +53,7 @@ var StreamGraph = function() {
     // Update domain of scales with this date range
     xScale.domain([minDate, maxDate]);
     
+    // Make streamgraph enamate from center of chart
     area.y0(height / 2)
         .y1(height / 2);
 
@@ -60,7 +61,7 @@ var StreamGraph = function() {
                 .data(data)
                 .enter();
     var codes = g.append('g')
-                    .attr('class', 'code');
+                  .attr('class', 'code');
 
     // add some paths that will
     // be used to display the lines and
@@ -72,29 +73,35 @@ var StreamGraph = function() {
 
     codes.append('path')
             .attr('class', 'line')
-            .style('stroke-opacity', .000001);
+            .style('stroke-opacity', 0.0001);
 
     
     streamgraph(data);
   }
 
   function streamgraph(data) {
-    stack.offset('wiggle');
+    stack.offset('expand');
     stack(data);
     
     var yMax = d3.max(data[0].values.map(function(d) { return d.volume0 + d.volume; }));
     yScale.domain([0, yMax])
           .range([height, 0]);
 
+    line.y(function(d) { return yScale(d.volume0); });
+
     area.y0(function(d) { return yScale(d.volume0); })
         .y1(function(d) { return yScale(d.volume0 + d.volume); });
 
-    var t = svg.selectAll('.codes')
+    var t = svg.selectAll('.code')
                 .transition()
                 .duration(duration);
     t.select('path.area')
       .style('fill-opacity', 1.0)
       .attr('d', function(d) { return area(d.values); });
+
+    t.select('path.line')
+      .style('stroke-opacity', 0.0001)
+      .attr('d', function(d) { return line(d.values); });
   }
 
   function init(collectionName, timeGrouping) {
@@ -108,6 +115,7 @@ var StreamGraph = function() {
       }
 
       data.forEach(function(codeGroup) {
+        console.log('CodeGroup - ' + codeGroup.key, 'length: ', codeGroup.values.length);
         codeGroup.values.forEach(function(d) {
           d.date = new Date(parseInt(d.timestamp));
           d.volume = tweetVolume(d);
@@ -120,7 +128,7 @@ var StreamGraph = function() {
       data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
       dataset = data;
       console.log('dataset: ', dataset);
-      // drawChart(dataset);
+      drawChart(dataset);
     });  
   }
 
