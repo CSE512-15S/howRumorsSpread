@@ -8,7 +8,7 @@ var StreamGraph = function() {
       parentDiv = '#stream',
       margin = { top: 0, right: 70, bottom: 20, left: 90 },
       width = 860 - margin.left - margin.right,
-      height = 150 - margin.top - margin.bottom,
+      height = 500 - margin.top - margin.bottom,
       duration = 750;
 
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
@@ -61,7 +61,11 @@ var StreamGraph = function() {
                 .data(data)
                 .enter();
     var codes = g.append('g')
-                  .attr('class', 'code');
+                  .attr('class', 'code')
+                  .on('mouseover', function(d) {
+                    console.log(d);
+                    console.log('code=', d.key);
+                  });
 
     // add some paths that will
     // be used to display the lines and
@@ -80,7 +84,7 @@ var StreamGraph = function() {
   }
 
   function streamgraph(data) {
-    stack.offset('expand');
+    stack.offset('zero');
     stack(data);
     
     var yMax = d3.max(data[0].values.map(function(d) { return d.volume0 + d.volume; }));
@@ -105,6 +109,23 @@ var StreamGraph = function() {
   }
 
   function init(collectionName, timeGrouping) {
+    // d3.csv('/data/test.csv', function(err, data) {
+    //   var format = d3.time.format("%m/%d/%y");
+    //   data.forEach(function(d) {
+    //     d.date = format.parse(d.date);
+    //     d.volume = +d.value;
+    //   });
+
+    //   var nest= d3.nest().key(function(d) {
+    //     return d.key;
+    //   });
+
+    //   var nested = nest.entries(data);
+    //   console.log(nested);
+
+    //   drawChart(nested);
+    // });
+
 
     // Initialize by loading the data
     d3.json(dataPath(), function(err, data) {
@@ -119,17 +140,22 @@ var StreamGraph = function() {
         codeGroup.values.forEach(function(d) {
           d.date = new Date(parseInt(d.timestamp));
           d.volume = tweetVolume(d);
+          d.key = codeGroup.key;
+        });
+
+        codeGroup.values.sort(function(a, b) {
+          return a.date - b.date;
         });
 
         codeGroup.maxVolume = d3.max(codeGroup.values, function(d) { return d.volume; });
       });
 
-      // Sort dates to show them in order
+      
       data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
       dataset = data;
       console.log('dataset: ', dataset);
       drawChart(dataset);
-    });  
+    });
   }
 
   init(collectionName, timeGrouping);

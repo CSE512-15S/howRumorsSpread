@@ -56,7 +56,7 @@ function projectAndAggregate(db, collectionName, cb) {
       {'$match' : {
         'codes.rumor' : collectionName,
         'codes.first_code' : {
-          '$ne' : 'Unrelated'
+          '$in' : ['Neutral', 'Affirm', 'Deny']
         }
       }}, projection1,
       {'$out' : 'collection-projected'}
@@ -66,11 +66,11 @@ function projectAndAggregate(db, collectionName, cb) {
       if (err) {
         console.log(err);
       }
-      cb(db, collectionName, 'raw.json');
+      createCache(db, collectionName, 'raw.json');
 
       // fixDocumentFieldTypes(function() {
       timeBins.forEach(function(bin) {
-        volumeProjection(bin);
+        volumeProjections(bin);
       });
       // })
     });
@@ -94,136 +94,144 @@ function projectAndAggregate(db, collectionName, cb) {
         );
       });
     });
-  }  
-  
-
-  // Groups data by times and codes and strips nearly everything else out
-  function volumeProjection (binBy) {
-    var binDivVal = null;
-    
-    switch(binBy) {
-      case 'hour':
-        binDivVal = 1000 * 60 * 60;
-        break;
-      case 'minute':
-        binDivVal = 1000 * 60;
-        break;
-      case 'second':
-        binDivVal = 1000;
-        break;
-      case 'millisecond':
-        binDivVal = 1;
-        break;
-      default:
-        console.error('Invalid binBy in volumeProjection');
-        return;
-    }
-    
-    db.collection('collection-projected').find({}).toArray(function(err, docs) {
-      if (err) return console.error(err);
-      docs = docs.map(function(doc, index) {
-        return {
-          retweet_count : doc.retweet_count,
-          timestamp : doc.timestamp_ms,
-          favorite_count : doc.favorite_count,
-          code : doc.codes[0]
-        }
-      });
-
-
-      // First group all tweets by their timestamp 
-      // and then by their coded value
-      var binnedByTime = {}
-          codes = [];
-      docs.forEach(function(tweet) {
-        // We use this truncated timestamp to bin the times
-        // We cast back up to a timestamp scale though 
-        // so that date conversions work in our views
-        var timeBin = parseInt(tweet.timestamp / binDivVal) * binDivVal;
-        if (! binnedByTime.hasOwnProperty(timeBin)) {
-          binnedByTime[timeBin] = {};
-        }
-        var bin = binnedByTime[timeBin];
-
-        if (! bin.hasOwnProperty(tweet.code) ) {
-          bin[tweet.code] = [];
-        }
-
-        bin[tweet.code].push({
-          numFavorites : tweet.favorite_count,
-          numRetweets : tweet.retweet_count
-        });
-
-        if (codes.indexOf(tweet.code) === -1) {
-          codes.push(tweet.code);
-        }
-      });
-
-      // All codes for a given timestamp 
-      // need to have the same number of entries
-      // to work with d3's stack layout
-      // This code ensures this
-      Object.keys(binnedByTime).forEach(function (timestamp) {
-        var timeBin = binnedByTime[timestamp];
-
-        // Make sure each timeBin represents all codes
-        codes.forEach(function(code) {
-          if (! timeBin.hasOwnProperty(code)) {
-            timeBin[code] = [];
-          }
-        });
-
-        // Aggregate values for each code 
-        // into single object for this timestamp
-        Object.keys(timeBin).forEach(function(code) {
-          timeBin[code] = timeBin[code].reduce(function (prev, curr) {
-              return {
-                numFavorites : prev.numFavorites + curr.numFavorites,
-                numRetweets : prev.numRetweets + curr.numRetweets,
-                numTweets : prev.numTweets + 1
-              };
-            }, { numFavorites : 0, numRetweets : 0, numTweets : 0 }
-          );
-        });
-      });
-
-      // Group data by code to prepare for final transformation
-      var binnedByCode = {};
-      Object.keys(binnedByTime).forEach(function(timestamp) {
-        var timeBin = binnedByTime[timestamp]; 
-        Object.keys(timeBin).forEach(function(code) {
-          if (! binnedByCode.hasOwnProperty(code)) {
-            binnedByCode[code] = [];
-          }
-
-          var aggregatedVal = timeBin[code];
-          aggregatedVal['timestamp'] = timestamp;
-          binnedByCode[code].push(aggregatedVal);
-        });
-      });
-
-      // Transform structure into final format expected by visualization
-      // [{code : <codename>, aggregatedTweets: [<aggregated tweets at timestamps>]}]
-      var finalMapping = codes.map(function(code) {
-        return {
-          key : code,
-          values : binnedByCode[code]
-        };
-      });
-
-      var cacheDir = './public/data/' + collectionName +'/',
-          cachePath = cacheDir + binBy + '-volume.json';
-      
-      mkdirp(cacheDir, function(err) {
-        if (err) console.err(err);
-        writeToFile(cachePath, JSON.stringify(finalMapping));
-      });
-    
-    });
-    
   }
 
   rawProjection();
+}
+
+// Groups data by times and codes and strips nearly everything else out
+function volumeProjections (binBy) {
+  var binDivVal = null;
+  
+  switch(binBy) {
+    case 'hour':
+      binDivVal = 1000 * 60 * 60;
+      break;
+    case 'minute':
+      binDivVal = 1000 * 60;
+      break;
+    case 'second':
+      binDivVal = 1000;
+      break;
+    case 'millisecond':
+      binDivVal = 1;
+      break;
+    default:
+      console.error('Invalid binBy in volumeProjection');
+      return;
+  }
+
+  function codedVolumeProjection(tweets) {
+    // First group all tweets by their timestamp 
+    // and then by their coded value
+    var binnedByTime = {}
+        codes = [];
+    tweets.forEach(function(tweet) {
+      // We use this truncated timestamp to bin the times
+      // We cast back up to a timestamp scale though 
+      // so that date conversions work in our views
+      var timeBin = parseInt(tweet.timestamp / binDivVal) * binDivVal;
+      if (! binnedByTime.hasOwnProperty(timeBin)) {
+        binnedByTime[timeBin] = {};
+      }
+      var bin = binnedByTime[timeBin];
+
+      if (! bin.hasOwnProperty(tweet.code) ) {
+        bin[tweet.code] = [];
+      }
+
+      bin[tweet.code].push({
+        numFavorites : tweet.favorite_count,
+        numRetweets : tweet.retweet_count
+      });
+
+      if (codes.indexOf(tweet.code) === -1) {
+        codes.push(tweet.code);
+      }
+    });
+
+    // All codes for a given timestamp 
+    // need to have the same number of entries
+    // to work with d3's stack layout
+    // This code ensures this
+    Object.keys(binnedByTime).forEach(function (timestamp) {
+      var timeBin = binnedByTime[timestamp];
+
+      // Make sure each timeBin represents all codes
+      codes.forEach(function(code) {
+        if (! timeBin.hasOwnProperty(code)) {
+          timeBin[code] = [];
+        }
+      });
+
+      // Aggregate values for each code 
+      // into single object for this timestamp
+      Object.keys(timeBin).forEach(function(code) {
+        timeBin[code] = timeBin[code].reduce(function (prev, curr) {
+            return {
+              numFavorites : prev.numFavorites + curr.numFavorites,
+              numRetweets : prev.numRetweets + curr.numRetweets,
+              numTweets : prev.numTweets + 1
+            };
+          }, { numFavorites : 0, numRetweets : 0, numTweets : 0 }
+        );
+      });
+    });
+
+    // Group data by code to prepare for final transformation
+    var binnedByCode = {};
+    Object.keys(binnedByTime).forEach(function(timestamp) {
+      var timeBin = binnedByTime[timestamp]; 
+      Object.keys(timeBin).forEach(function(code) {
+        if (! binnedByCode.hasOwnProperty(code)) {
+          binnedByCode[code] = [];
+        }
+
+        var aggregatedVal = timeBin[code];
+        aggregatedVal['timestamp'] = timestamp;
+        binnedByCode[code].push(aggregatedVal);
+      });
+    });
+
+    // Transform structure into final format expected by visualization
+    // [{code : <codename>, aggregatedTweets: [<aggregated tweets at timestamps>]}]
+    var finalMapping = codes.map(function(code) {
+      return {
+        key : code,
+        values : binnedByCode[code]
+      };
+    });
+
+    writeToCache(binBy + '-coded-volume.json', finalMapping);
+  }
+
+  function totalVolumeProjection(tweets) {
+
+  }
+
+  function writeToCache(cacheName, json) {
+    var cacheDir = './public/data/' + collectionName +'/',
+        cachePath = cacheDir + cacheName;
+    
+    mkdirp(cacheDir, function(err) {
+      if (err) console.err(err);
+      writeToFile(cachePath, JSON.stringify(json));
+    });
+  }
+  
+  db.collection('collection-projected').find({}).toArray(function(err, docs) {
+    if (err) return console.error(err);
+    docs = docs.map(function(doc, index) {
+      return {
+        retweet_count : doc.retweet_count,
+        timestamp : doc.timestamp_ms,
+        favorite_count : doc.favorite_count,
+        code : doc.codes[0]
+      }
+    });
+    codedVolumeProjection(docs);
+    totalVolumeProjection(docs);
+  });
 }
 
 function createIndexes (db, cb) {
@@ -258,7 +266,7 @@ function writeToFile(filename, string) {
 }
 
 db.open(function(err, db) {
-  projectAndAggregate(db, collectionName, createCache)
+  projectAndAggregate(db, collectionName);
 });
 
 function usage () {

@@ -15,6 +15,9 @@ router.get('/', function(req, res) {
 router.get('/spaghetti', function(req, res) {
   res.render('spaghetti');
 });
+router.get('/stream', function(req, res) {
+  res.render('stream');
+});
 
 router.get('/list-collections', function (req, res) {
   // If we use more than one database, we need to pass this in the request
