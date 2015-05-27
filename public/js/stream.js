@@ -3,12 +3,12 @@ var d3 = require('d3');
 
 var StreamGraph = function() {
   var self = this,
-      timeGrouping = 'second', // TODO: variable
+      timeGrouping = 'minute', // TODO: variable
       collectionName = 'lakemba', // TODO: variable 
       parentDiv = '#stream',
       margin = { top: 0, right: 70, bottom: 20, left: 90 },
       width = 860 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom,
+      height = 150 - margin.top - margin.bottom,
       duration = 750;
 
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
@@ -17,7 +17,7 @@ var StreamGraph = function() {
 
   console.log('StreamGraph');
   function dataPath() {
-    return '/data/' + collectionName + '/' + timeGrouping + '-volume.json';
+    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
   }
 
   
@@ -84,7 +84,7 @@ var StreamGraph = function() {
   }
 
   function streamgraph(data) {
-    stack.offset('zero');
+    stack.offset('silhouette');
     stack(data);
     
     var yMax = d3.max(data[0].values.map(function(d) { return d.volume0 + d.volume; }));
@@ -126,6 +126,7 @@ var StreamGraph = function() {
     //   drawChart(nested);
     // });
 
+    var path = '/data/airspace/second-total-volume.json';
 
     // Initialize by loading the data
     d3.json(dataPath(), function(err, data) {

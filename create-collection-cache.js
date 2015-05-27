@@ -206,7 +206,43 @@ function volumeProjections (binBy) {
   }
 
   function totalVolumeProjection(tweets) {
+    var binnedByTime = {};
+    tweets.forEach(function(tweet) {
+      // We use this truncated timestamp to bin the times
+      // We cast back up to a timestamp scale though 
+      // so that date conversions work in our views
+      var timeBin = parseInt(tweet.timestamp / binDivVal) * binDivVal;
+      if (! binnedByTime.hasOwnProperty(timeBin)) {
+        binnedByTime[timeBin] = [];
+      }
+      var bin = binnedByTime[timeBin];
 
+      bin.push({
+        numFavorites : tweet.favorite_count,
+        numRetweets : tweet.retweet_count,
+        code : 'total-volume'
+      });
+    });
+
+    // Aggregate
+    var aggregated = Object.keys(binnedByTime).map(function(timestamp) {
+      var bin = binnedByTime[timestamp];
+
+      return bin.reduce(function (prev, curr) {
+                    return {
+                      numFavorites : prev.numFavorites + curr.numFavorites,
+                      numRetweets : prev.numRetweets + curr.numRetweets,
+                      numTweets : prev.numTweets + 1,
+                      code : 'total-volume',
+                      timestamp : timestamp
+                    };
+                  }, { numFavorites : 0, numRetweets : 0, numTweets : 0, code : 'total-volume' });
+    });
+    var finalMapping = [{
+      'key' : 'total-volume',
+      'values' : aggregated
+    }];
+    writeToCache(binBy + '-total-volume.json', finalMapping);
   }
 
   function writeToCache(cacheName, json) {
