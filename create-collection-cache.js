@@ -130,55 +130,84 @@ function projectAndAggregate(db, collectionName, cb) {
         }
       });
 
-      var binnedByCode = {};
-      docs.forEach(function(doc, index) {
-        if (! binnedByCode.hasOwnProperty(doc.code)) {
-          binnedByCode[doc.code] = [];
+
+      // First group all tweets by their timestamp 
+      // and then by their coded value
+      var binnedByTime = {}
+          codes = [];
+      docs.forEach(function(tweet) {
+        // We use this truncated timestamp to bin the times
+        // We cast back up to a timestamp scale though 
+        // so that date conversions work in our views
+        var timeBin = parseInt(tweet.timestamp / binDivVal) * binDivVal;
+        if (! binnedByTime.hasOwnProperty(timeBin)) {
+          binnedByTime[timeBin] = {};
+        }
+        var bin = binnedByTime[timeBin];
+
+        if (! bin.hasOwnProperty(tweet.code) ) {
+          bin[tweet.code] = [];
         }
 
-        binnedByCode[doc.code].push(doc);
+        bin[tweet.code].push({
+          numFavorites : tweet.favorite_count,
+          numRetweets : tweet.retweet_count
+        });
+
+        if (codes.indexOf(tweet.code) === -1) {
+          codes.push(tweet.code);
+        }
       });
 
-      // Process each code bin to group tweets by the binBy val
-      var finalMapping = Object.keys(binnedByCode).map(function(code) {
-        var tweets = binnedByCode[code];
-        binnedByCode[code] = [];
-        var timeBins = {};
-        tweets.forEach(function(tweet) {
-          // We use this truncated timestamp to bin the times
-          // We cast back up to a timestamp scale though 
-          // so that date conversions work in our views
-          var timeBin = parseInt(tweet.timestamp / binDivVal) * binDivVal;
+      // All codes for a given timestamp 
+      // need to have the same number of entries
+      // to work with d3's stack layout
+      // This code ensures this
+      Object.keys(binnedByTime).forEach(function (timestamp) {
+        var timeBin = binnedByTime[timestamp];
 
-          if (! timeBins.hasOwnProperty(timeBin)) {
-            timeBins[timeBin] = [];
+        // Make sure each timeBin represents all codes
+        codes.forEach(function(code) {
+          if (! timeBin.hasOwnProperty(code)) {
+            timeBin[code] = [];
           }
-          timeBins[timeBin].push(tweet);
         });
 
-        var binnedByTime = Object.keys(timeBins).map(function(timeBinKey) {
-          var timeBin = timeBins[timeBinKey],
-              numTweets = 0,
-              numFavorites = 0,
-              numRetweets = 0;
-
-          timeBin.forEach(function(tweet) {
-            numTweets++;
-            numFavorites += tweet.favorite_count;
-            numRetweets += tweet.retweet_count;
-          });
-
-          return {
-            timestamp : timeBinKey,
-            numTweets : numTweets,
-            numFavorites : numFavorites,
-            numRetweets : numRetweets
-          };
+        // Aggregate values for each code 
+        // into single object for this timestamp
+        Object.keys(timeBin).forEach(function(code) {
+          timeBin[code] = timeBin[code].reduce(function (prev, curr) {
+              return {
+                numFavorites : prev.numFavorites + curr.numFavorites,
+                numRetweets : prev.numRetweets + curr.numRetweets,
+                numTweets : prev.numTweets + 1
+              };
+            }, { numFavorites : 0, numRetweets : 0, numTweets : 0 }
+          );
         });
+      });
 
+      // Group data by code to prepare for final transformation
+      var binnedByCode = {};
+      Object.keys(binnedByTime).forEach(function(timestamp) {
+        var timeBin = binnedByTime[timestamp]; 
+        Object.keys(timeBin).forEach(function(code) {
+          if (! binnedByCode.hasOwnProperty(code)) {
+            binnedByCode[code] = [];
+          }
+
+          var aggregatedVal = timeBin[code];
+          aggregatedVal['timestamp'] = timestamp;
+          binnedByCode[code].push(aggregatedVal);
+        });
+      });
+
+      // Transform structure into final format expected by visualization
+      // [{code : <codename>, aggregatedTweets: [<aggregated tweets at timestamps>]}]
+      var finalMapping = codes.map(function(code) {
         return {
-          'key' : code,
-          'values' : binnedByTime
+          key : code,
+          values : binnedByCode[code]
         };
       });
 
