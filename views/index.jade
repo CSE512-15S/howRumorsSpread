@@ -11,12 +11,13 @@ block content
                 .svgContainer
             #spaghetti
                 .svgContainer
-                .controls
-                    input(type='radio', name='scale-radio', id='scale-linear', value='true', data-bind='checked:isLinearScale.ForEditing')
-                    label(for='scale-linear') &nbsp;Linear
-                    br
-                    input(type='radio', name='scale-radio', id='scale-log', value='false', data-bind='checked:isLinearScale.ForEditing')
-                    label(for='scale-log') &nbsp;Log
+                .controls.btn-group(data-toggle="buttons")
+                    label.btn.btn-default.active(id='scale-linear') 
+                        input(type='radio') 
+                        | Linear
+                    label.btn.btn-default(id='scale-log')
+                        input(type='radio') 
+                        | Log
         .col-md-4#detail
             #leaderboard.bg-text(data-bg-text="leaderboard")
             #tweetlist.bg-text(data-bg-text="tweetlist")

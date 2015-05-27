@@ -21,26 +21,13 @@ function MainViewModel() {
     });
   }
 
-  /*
-  *  TO DO: 
-  *  add currentTime observable
-  *  That is updated on mousemove of either spaghetti or stream
-  *  an update may trigger a change of the scanlines, leaderboards
-  *  and tweetviews
-  */
-
-  // Spaghetti: Lin / Log value
-  self.isLinearScale = ko.observable(true);
-  self.isLinearScale.ForEditing = ko.computed({
-    read: function() {
-      return self.isLinearScale().toString();  
-    },
-    write: function(newValue) {
-      self.isLinearScale(newValue === "true");
-      spaghetti.changeScale(self.isLinearScale());
-    },
-    owner: self        
-  });  
+  self.currentTime = 0;
+  function setCurrentTime(currentTime) {
+    self.currentTime = currentTime;
+    // TO DO
+    // - trigger change of scanlines in spaghetti / stream
+    // - update leaderboards and tweetviews
+  }
 }
 
 $(document).ready(function() {
@@ -48,5 +35,7 @@ $(document).ready(function() {
     spaghetti.init();
   }
   
-  ko.applyBindings(new MainViewModel());
+  mainViewModel = new MainViewModel();
+
+  ko.applyBindings(mainViewModel);
 });
