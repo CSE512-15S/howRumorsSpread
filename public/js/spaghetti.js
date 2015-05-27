@@ -1,7 +1,7 @@
 var d3 = require('d3');
 
 var data;
-var svg, spaghetti, voronoi;
+var svg, spaghetti, dataTweets, voronoi;
 var mainViewModel;
 var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    width = 860 - margin.left - margin.right,
@@ -43,7 +43,7 @@ var Spaghetti = function() {
 		      	.attr("stroke", function(d) {  return linecolor(d.first_code); });
 			
 			// Bind line and precomputed paths to the data for fast lin / log update
-			enter.each(function(d) {
+			tweets.each(function(d) {
 				d.line = this;
 				d.paths = {};
 				d.paths.linear = line.linear(d.points);
@@ -51,14 +51,14 @@ var Spaghetti = function() {
 			});
 		});
 
-		selection.call(spaghetti.draw);
+		spaghetti.draw(selection, false);
 	};
 
 	// Does the actual path drawing. Useful to change the scale
-	spaghetti.draw = function(selection) {
+	spaghetti.draw = function(selection, animate) {
 		selection.each(function(data) { 
 			d3.select(this).selectAll("path")
-				.transition().duration(1000)
+				.transition().duration(animate ? 1000 : 0)
 				.attr("d", function(d) { return isLinearScale ? d.paths.linear : d.paths.log });
 		});
 	}
@@ -200,7 +200,7 @@ var init = function(model) {
 		})]));
 
 		// scale & axis setup
-		var xScale = d3.scale.linear()
+		xScale = d3.scale.linear()
 			.domain(xBounds)
 			.range([0,width]);
 		var yScale = {};
@@ -222,13 +222,13 @@ var init = function(model) {
 			.yScale(yScale);
 
 		// Bind data to a selection and call the chart
-		d3.select('.tweets')
+		dataTweets = d3.select('.tweets')
 			.datum(data)
 			.call(spaghetti);
 
 		// Event listeners for lin / log scale buttons
-		d3.select('#scale-linear').on("click", function() { changeScale(true) });
-		d3.select('#scale-log').on("click", function() { changeScale(false) });
+		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
+		d3.select('#scale-log').on("click", function() { updateYScale(false) });
 
 		// Add voronoi tesselations
 		var voronoi = {};
@@ -257,9 +257,17 @@ var init = function(model) {
 	});
 };
 
-var changeScale = function(isLinearScale) {
+// Update x domain
+var updateXScale = function(domain) {
+	spaghetti.xScale().domain(domain);
+	dataTweets.call(spaghetti);
+    // TO DO: d3.select('.x.axis').call(xAxis);
+}
+
+// Change between lin / log scale
+var updateYScale = function(isLinearScale) {
 	spaghetti.isLinearScale(isLinearScale);
-	d3.select('.tweets').call(spaghetti.draw);
+	spaghetti.draw(dataTweets, true);
 
 	// Switch voronoi tesselations
 	voronoiLinear = d3.select('.voronoi.linear');
@@ -303,4 +311,5 @@ var mouseoutVoronoi = function(d) {
 }
 
 exports.init = init;
+exports.updateXScale = updateXScale;
 module.exports = exports;
