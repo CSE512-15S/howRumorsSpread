@@ -37,7 +37,6 @@ function Legend(mainViewModel) {
 
     // textSize = 70 * index;
     var offset = (rectSize + (2 * horzPadding)) * index + textSize;
-    console.log('offset at ', index, ' is ', offset);
     return offset;
   }
 
