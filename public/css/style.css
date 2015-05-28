@@ -84,6 +84,14 @@ a {
   #spaghetti .tweet-hover {
     stroke-width: 4; }
 
+/* LEGEND
+----------------------------------------*/
+#legend {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  font-size: 10px; }
+
 /* LEADERBOARD
 ----------------------------------------*/
 #leaderboard {

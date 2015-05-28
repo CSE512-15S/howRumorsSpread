@@ -1,12 +1,11 @@
-
-
 var $ = require('jquery');
     global.jQuery = $; 
     bootstrap = require('bootstrap'),
     _ = require('underscore'),
     ko = require('knockout'),
     spaghetti = require('./spaghetti.js'),
-    stream = require('./stream.js');
+    stream = require('./stream.js'),
+    legend = require('./legend.js');
 
 function MainViewModel() {
   var self = this;
@@ -45,6 +44,7 @@ function MainViewModel() {
   }
 }
 
+
 $(document).ready(function() {
   mainViewModel = new MainViewModel();
 
@@ -54,6 +54,10 @@ $(document).ready(function() {
 
   if($('#stream').length !== 0) {
     stream(mainViewModel);
+  }
+
+  if($('#legend').length !== 0) {
+    legend(mainViewModel);
   }
   
   ko.applyBindings(mainViewModel);
