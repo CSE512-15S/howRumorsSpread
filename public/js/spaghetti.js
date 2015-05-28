@@ -1,7 +1,7 @@
 var d3 = require('d3');
 
 var data;
-var svg, spaghetti, dataTweets, voronoi;
+var svg, spaghetti, dataTweets, voronoi, dataVoronoi, xScale;
 var mainViewModel;
 var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    width = 860 - margin.left - margin.right,
@@ -102,33 +102,25 @@ var Voronoi = function() {
 		.y(function(d) { return yScale(d.popularity); })
 		.clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
 
-	var voronoiData;
-
 	var voronoi = function(selection) {
 		selection.each(function(data) { 
 			// Do data setup
-			voronoiData = voronoiFunction(d3.nest()
+			var voronoiData = voronoiFunction(d3.nest()
 		        .key(function(d) { return xScale(d.timestamp) + "," + yScale(d.popularity); })
 		        .rollup(function(v) { return v[0]; })
 		        .entries(d3.merge(data.map(function(d) { return d.points; })))
 		        .map(function(d) { return d.values; }));
+
+			d3.select(this).selectAll("path")
+				.data(voronoiData)
+			  .enter().append("path")
+				.attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+	      		.datum(function(d) { return d.point; })
+	      		.on("mouseover", mouseoverVoronoi)
+		    	.on("mouseout", mouseoutVoronoi);
 		});
-		selection.call(voronoi.draw);
 	}	
 	
-	// Does the actual drawing
-	voronoi.draw = function(selection) {
-		selection.each(function(data) { 
-			d3.select(this).selectAll("path")
-					.data(voronoiData)
-				  .enter().append("path")
-					.attr("d", function(d) { return "M" + d.join("L") + "Z"; })
-		      		.datum(function(d) { return d.point; })
-		      		.on("mouseover", mouseoverVoronoi)
-			    	.on("mouseout", mouseoutVoronoi);
-		});
-	}
-
 	// Setter/Getter methods
 	voronoi.xScale = function(value) {
         if (!arguments.length) {
@@ -231,7 +223,7 @@ var init = function(model) {
 		d3.select('#scale-log').on("click", function() { updateYScale(false) });
 
 		// Add voronoi tesselations
-		var voronoi = {};
+		voronoi = {};
 		voronoi.linear = Voronoi()
 			.xScale(xScale)
 			.yScale(yScale.linear);
@@ -239,29 +231,42 @@ var init = function(model) {
 			.xScale(xScale)
 			.yScale(yScale.log);
 
-		voronoiGroup = {};
-		voronoiGroup.linear = svg.append("g").attr("class", "voronoi linear");
-		voronoiGroup.log = svg.append("g").attr("class", "voronoi log");
+		svg.append("g").attr("class", "voronoi linear");
+		svg.append("g").attr("class", "voronoi log");
 
 		// Bind data to voronoi selections and call to setup
-		voronoiGroup.linear
+		dataVoronoi = {};
+		dataVoronoi.linear = d3.select('.voronoi.linear')
 			.datum(data)
 			.call(voronoi.linear);
-		voronoiGroup.log
+		dataVoronoi.log = d3.select('.voronoi.log')
 			.datum(data)
 			.call(voronoi.log);
 
 		// Set pointer events
-		voronoiGroup.linear.selectAll("path").attr("pointer-events", "all");
-		voronoiGroup.log.selectAll("path").attr("pointer-events", "none");
+		dataVoronoi.linear.selectAll("path").attr("pointer-events", "all");
+		dataVoronoi.log.selectAll("path").attr("pointer-events", "none");
 	});
 };
 
-// Update x domain
+// Update x domain. To be called on a brush event in the stream graph
 var updateXScale = function(domain) {
-	spaghetti.xScale().domain(domain);
+	xScale.domain(domain);
 	dataTweets.call(spaghetti);
     // TO DO: d3.select('.x.axis').call(xAxis);
+}
+
+// Update voronoi. To be called on a brushend event in the stream graph
+var updateVoronoi = function() {
+	// We assume that the xScale.domain has already been updated in the updateXScale
+
+	// TO DO:
+	// - filter the data points here 
+	//var filteredData = data.filter(function(d) { 
+
+	//});
+
+	// - make entirely new Voronoi tesselations
 }
 
 // Change between lin / log scale
@@ -312,4 +317,5 @@ var mouseoutVoronoi = function(d) {
 
 exports.init = init;
 exports.updateXScale = updateXScale;
+exports.updateVoronoi = updateVoronoi;
 module.exports = exports;
