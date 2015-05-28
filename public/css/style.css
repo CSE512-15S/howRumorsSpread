@@ -48,6 +48,10 @@ a {
       fill: none;
       stroke: #000;
       stroke-width: 2px; }
+    #stream .svgContainer .viewport {
+      stroke: #888;
+      fill: #000;
+      fill-opacity: 0.2; }
 
 /* SPAGHETTI
 ----------------------------------------*/

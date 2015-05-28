@@ -1,7 +1,6 @@
 var d3 = require('d3');
 
-
-var StreamGraph = function() {
+var StreamGraph = function(mainViewModel) {
   var self = this,
       timeGrouping = 'minute', // TODO: variable
       collectionName = 'lakemba', // TODO: variable 
@@ -11,22 +10,36 @@ var StreamGraph = function() {
       height = 150 - margin.top - margin.bottom,
       duration = 750;
 
-  var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
-              .attr('width', width)
-              .attr('height', height);
+ 
 
-  console.log('StreamGraph');
+
+  console.log('StreamGraph', 'mainViewModel=', mainViewModel);
   function dataPath() {
     return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
   }
 
   
   /* /Begin Chart initilization code */
+  var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
+            .attr('width', width)
+            .attr('height', height);
+
   var xScale = d3.time.scale()
               .range([0, width]),
       yScale = d3.scale.linear()
                  .range([height, 0]),
-      color  = d3.scale.category10();
+      color  = d3.scale.category10(),
+      viewport = d3.svg.brush()
+                    .x(xScale)
+                    .on('brush', function() {
+                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                    });
+
+  svg.append('g')
+      .attr('class', 'viewport')
+      .call(viewport)
+      .selectAll('rect')
+      .attr('height', height);
 
   // Area generator for stream graph polygons
   var area = d3.svg.area()
@@ -61,11 +74,7 @@ var StreamGraph = function() {
                 .data(data)
                 .enter();
     var codes = g.append('g')
-                  .attr('class', 'code')
-                  .on('mouseover', function(d) {
-                    console.log(d);
-                    console.log('code=', d.key);
-                  });
+                  .attr('class', 'code');
 
     // add some paths that will
     // be used to display the lines and
@@ -108,26 +117,9 @@ var StreamGraph = function() {
       .attr('d', function(d) { return line(d.values); });
   }
 
+
+
   function init(collectionName, timeGrouping) {
-    // d3.csv('/data/test.csv', function(err, data) {
-    //   var format = d3.time.format("%m/%d/%y");
-    //   data.forEach(function(d) {
-    //     d.date = format.parse(d.date);
-    //     d.volume = +d.value;
-    //   });
-
-    //   var nest= d3.nest().key(function(d) {
-    //     return d.key;
-    //   });
-
-    //   var nested = nest.entries(data);
-    //   console.log(nested);
-
-    //   drawChart(nested);
-    // });
-
-    var path = '/data/airspace/second-total-volume.json';
-
     // Initialize by loading the data
     d3.json(dataPath(), function(err, data) {
       if (err) return console.warn(err);
@@ -137,7 +129,6 @@ var StreamGraph = function() {
       }
 
       data.forEach(function(codeGroup) {
-        console.log('CodeGroup - ' + codeGroup.key, 'length: ', codeGroup.values.length);
         codeGroup.values.forEach(function(d) {
           d.date = new Date(parseInt(d.timestamp));
           d.volume = tweetVolume(d);
@@ -154,7 +145,6 @@ var StreamGraph = function() {
       
       data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
       dataset = data;
-      console.log('dataset: ', dataset);
       drawChart(dataset);
     });
   }
