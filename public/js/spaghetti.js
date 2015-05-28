@@ -1,7 +1,7 @@
 var d3 = require('d3');
 
 var data;
-var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale, yScale, xAxis, yAxis;
+var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale, yScale, xAxis, yAxis, linecolor;
 var mainViewModel;
 var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    width = 860 - margin.left - margin.right,
@@ -16,9 +16,9 @@ var Spaghetti = function() {
 		yScale = { linear: d3.scale.linear(),
 				   log: d3.scale.log() };
 
-	var linecolor = d3.scale.ordinal()
-		.domain(["Affirm", "Deny", "Unrelated"])
-		.range(["#2c7fb8", "#c51b8a", "#bdbdbd"]);
+	// var linecolor = d3.scale.ordinal()
+	// 	.domain(["Affirm", "Deny", "Unrelated"])
+	// 	.range(["#2c7fb8", "#c51b8a", "#bdbdbd"]);
 
 	var line = {};
 	line.linear = d3.svg.line()
@@ -144,6 +144,9 @@ var Voronoi = function() {
 
 var init = function(model) {
 	mainViewModel = model;
+
+	// Use same color scale across charts
+	linecolor = mainViewModel.getColorScale();
 
 	// One-time setup
 	svg = d3.select("#spaghetti .svgContainer")

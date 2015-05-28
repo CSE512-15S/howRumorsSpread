@@ -34,13 +34,22 @@ function MainViewModel() {
     console.log('Updating viewport with bounds: ', bounds);
     spaghetti.updateXScale(bounds);
   }
+
+  // Shared color scale for graphics
+  self.colorScale = d3.scale.ordinal()
+   .domain(["Affirm", "Deny", "Unrelated", "Neutral"])
+   .range(['rgb(123,50,148)','rgb(166,219,160)', 'rgb(194,165,207)', 'rgb(0,136,55)']);
+
+  self.getColorScale = function() {
+    return self.colorScale;
+  }
 }
 
 $(document).ready(function() {
   mainViewModel = new MainViewModel();
 
   if($('#spaghetti').length !== 0) {
-    spaghetti.init();
+    spaghetti.init(mainViewModel);
   }
 
   if($('#stream').length !== 0) {

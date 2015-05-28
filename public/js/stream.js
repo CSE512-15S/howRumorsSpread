@@ -28,7 +28,7 @@ var StreamGraph = function(mainViewModel) {
               .range([0, width]),
       yScale = d3.scale.linear()
                  .range([height, 0]),
-      color  = d3.scale.category10(),
+      color = mainViewModel.getColorScale(),
       viewport = d3.svg.brush()
                     .x(xScale)
                     .on('brush', function() {
