@@ -4,7 +4,7 @@
 conn = new Mongo();
 db = conn.getDB("test");
 
-tweets = db.lakemba.find({'retweeted_status': {$exists: false}}, { 'id': 1, 'codes': 1, 'text': 1, 'created_ts': 1, 'user.id': 1, 'user.name': 1, 'user.name': 1, 'user.screen_name': 1, 'user.followers_count': 1 }).toArray();
+tweets = db.lakemba.find({'retweeted_status': {$exists: false}}, { 'id': 1, 'codes': 1, 'text': 1, 'created_ts': 1, 'favorite_count': 1, 'user.id': 1, 'user.name': 1, 'user.name': 1, 'user.screen_name': 1, 'user.followers_count': 1, 'user.profile_image_url': 1, 'user.verified': 1, 'user.favorite_count': 1 }).toArray();
 retweets = db.lakemba.find({retweeted_status: {$exists: true}}, { 'created_ts': 1, 'user.followers_count': 1, 'retweeted_status.id': 1 }).toArray();
 
 // Un-extended mongo json-ify

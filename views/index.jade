@@ -20,4 +20,13 @@ block content
                         | Log
         .col-md-4#detail
             #leaderboard.bg-text(data-bg-text="leaderboard")
-            #tweetlist.bg-text(data-bg-text="tweetlist")
+            #tweetview
+                p
+                    strong.username Username
+                    span &nbsp;
+                    a.screenname(href="http://twitter.com/", target="_blank") @screenname
+                    br
+                    span.time time
+                p.tweet Tweet
+                .avatar &nbsp;
+                .verified.hidden &nbsp;

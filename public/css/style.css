@@ -1,10 +1,15 @@
+/* PARAMS
+----------------------------------------*/
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #777;
+  cursor: pointer; }
 
+/* MIXINS
+----------------------------------------*/
 /* SPAGHETTI
 ----------------------------------------*/
 #spaghetti {
@@ -69,14 +74,6 @@ a {
     shape-rendering: crispEdges; }
   #spaghetti .voronoi path {
     fill: none; }
-  #spaghetti .clock rect {
-    fill: none;
-    stroke: #bbb; }
-  #spaghetti .clock line {
-    stroke: #bbb;
-    stroke-width: 1; }
-  #spaghetti .clock text {
-    fill: #333; }
   #spaghetti .tweet-hover {
     stroke-width: 4; }
 
@@ -85,24 +82,53 @@ a {
 #leaderboard {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 350px;
   background-color: #eee;
   margin-bottom: 20px; }
 
 /* TWEETLIST
 ----------------------------------------*/
-#tweetlist {
+#tweetview {
   position: relative;
   width: 100%;
-  height: 300px;
-  background-color: #eee; }
+  height: 250px;
+  padding: 18px 10px 10px 75px;
+  background-color: #F7F7F7; }
+  #tweetview .username {
+    display: inline;
+    font-size: 16px; }
+  #tweetview .time {
+    font-size: 12px; }
+  #tweetview .avatar {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 20px;
+    left: 15px;
+    background-size: cover;
+    background-position: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #aaa; }
+  #tweetview .verified {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 15px;
+    left: 56px;
+    background-color: #00B7FF;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    border-radius: 7px; }
 
 /* SCRATCH -- only for development
 ----------------------------------------*/
 .bg-text {
   background-color: #aaa;
   overflow: hidden;
-  padding: 20px 20px 100px 20px;
   position: relative;
   width: 400px; }
 
