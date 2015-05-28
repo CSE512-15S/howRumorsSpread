@@ -1,11 +1,12 @@
 var d3 = require('d3');
 
 var data;
-var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale;
+var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale, yScale, xAxis, yAxis;
 var mainViewModel;
 var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    width = 860 - margin.left - margin.right,
 			    height = 520 - margin.top - margin.bottom;
+var xTicks = 8, yTicks = 10;
 
 var Spaghetti = function() {
 
@@ -158,6 +159,10 @@ var init = function(model) {
 		.attr("transform", "translate(-10,0)");
 
 	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0,"+(height+10)+")");
+
+	svg.append("g")
 		.attr("class", "tweets");
 
 	svg.on("mousemove", mousemoveSVG);
@@ -192,10 +197,10 @@ var init = function(model) {
 		})]));
 
 		// scale & axis setup
-		xScale = d3.scale.linear()
+		xScale = d3.time.scale()
 			.domain(xBounds)
 			.range([0,width]);
-		var yScale = {};
+		yScale = {};
 		yScale.linear = d3.scale.linear()
 				.domain(yBounds)
 				.range([height, 0]);
@@ -204,9 +209,18 @@ var init = function(model) {
 				.range([height, 0])
 				.nice();
 
-		var yAxis = d3.svg.axis()
+		yAxis = d3.svg.axis()
 			.scale(yScale.linear)
-			.orient("left");
+			.orient("left")
+			.ticks(yTicks);
+
+		xAxis = d3.svg.axis()
+		  .scale(xScale)
+		  .orient("bottom")
+		  .ticks(xTicks);
+
+		d3.select(".x.axis").call(xAxis);
+		d3.select(".y.axis").call(yAxis);
 
 		// Create spaghetti chart and bind x and y scales
 		spaghetti = Spaghetti()
@@ -258,13 +272,12 @@ var updateXScale = function(domain) {
 	var translate_x = -xScale(domain[0]); // Need to get translation before domain update
 	xScale.domain(domain);
 	dataTweets.call(spaghetti);
-    // TO DO: d3.select('.x.axis').call(xAxis);
+    d3.select('.x.axis').call(xAxis);
 
     // TO DO: Rescale voronoi diagrams
     var scale_x = (xBounds[1] - xBounds[0]) / (domain[1] - domain[0]);
     translate_x = translate_x * scale_x;
     var matrix = "matrix(" + scale_x + ",0,0,1," + translate_x + ",0)";
-    console.log(matrix);
     voronoiGroup.linear.attr("transform", matrix);
     voronoiGroup.log.attr("transform", matrix);
 }
@@ -283,11 +296,16 @@ var updateYScale = function(isLinearScale) {
 	offGroup.selectAll("path").attr("pointer-events", "none");
 	onGroup.selectAll("path").attr("pointer-events", "all");	
 
-	/*
-	// TO DO: update y Axis
+	// Update y Axis
 	yAxis.scale(isLinearScale ? yScale.linear : yScale.log);
+	if (isLinearScale) {
+		yAxis.ticks(yTicks).tickFormat(d3.format(",d"));
+	} else {
+		yAxis.tickFormat(function (d) {
+        	return yScale.log.tickFormat(yTicks,d3.format(",d"))(d)
+		});
+	}
 	d3.select('.y.axis').transition().duration(1000).call(yAxis);
-	*/
 }
 
 var mousemoveSVG = function(d) { 
