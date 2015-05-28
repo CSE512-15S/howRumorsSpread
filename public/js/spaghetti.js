@@ -347,6 +347,9 @@ var mouseoutVoronoi = function(d) {
 // Fixes tweet currently in focus to the view
 var clickVoronoi = function(d) {
 	if (tweetviewFixed) {
+		// Unhighlight tweet path
+		d3.select('.tweet-hover').classed("tweet-hover", false);
+
 		// Add voronoi mouseover handler events again
 		d3.selectAll('.voronoi path').on("mouseover", mouseoverVoronoi);
 
