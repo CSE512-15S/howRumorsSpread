@@ -7,6 +7,7 @@ var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    width = 860 - margin.left - margin.right,
 			    height = 520 - margin.top - margin.bottom;
 var xTicks = 8, yTicks = 10;
+var tweetview = {};
 
 var Spaghetti = function() {
 
@@ -167,6 +168,14 @@ var init = function(model) {
 
 	svg.on("mousemove", mousemoveSVG);
 
+	// Set up outlets for showing tweet
+	tweetview.username = d3.select('#tweetview .username');
+	tweetview.screenname = d3.select('#tweetview .screenname');
+	tweetview.time = d3.select('#tweetview .time');
+	tweetview.avatar = d3.select('#tweetview .avatar');
+	tweetview.tweet = d3.select('#tweetview .tweet');
+	tweetview.verified = d3.select('#tweetview .verified');
+
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
 		if (error) return console.warn(error);
@@ -189,6 +198,7 @@ var init = function(model) {
 		}), data.map(function(d) {
 			return d.points[d.points.length - 1].timestamp;
 		})]));
+		console.log(xBounds);
 
 		var yBounds = d3.extent(d3.merge([data.map(function(d) {
 			return d.points[0].popularity;
@@ -265,7 +275,7 @@ var init = function(model) {
 
 // Update x domain. To be called on a brush event in the stream graph
 var updateXScale = function(domain) {
-	if (!arguments.length) {
+	if (!domain) {
 		domain = xBounds;
 	}
 
@@ -309,28 +319,40 @@ var updateYScale = function(isLinearScale) {
 }
 
 var mousemoveSVG = function(d) { 
-	// move clock, change time
 	var x = d3.mouse(this)[0];
-	// var timestamp = spaghetti.xScale.invert(x);
-	// var timeString = new Date(timestamp).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-
+	
 	// TO DO: move scanline
 	// TO DO: Call global time update here
+	// var timestamp = spaghetti.xScale.invert(x);
+	// var timeString = timeStampToClockTime(timestamp);
 }
 
 var mouseoverVoronoi = function(d) {
-	// Highlight line
+	// Highlight tweet path
 	d3.select(d.tweet.line).classed("tweet-hover", true);
 	d.tweet.line.parentNode.appendChild(d.tweet.line);
-	// Highlight corresponding tweet
-	// TO DO
+	
+	// Show corresponding tweet
+	tweetview.username.html(d.tweet.user.name);
+	tweetview.screenname
+		.attr("href", "http://twitter.com/" + d.tweet.user.screen_name)
+		.html("@" + d.tweet.user.screen_name);
+	tweetview.time.html(timeStampToClockTime(d.tweet.points[0]["timestamp"]));
+	tweetview.tweet.html(d.tweet.text);
+	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
+	tweetview.avatar.style("background-image", "url(" + d.tweet.user.profile_image_url + ")");
 }
 
 var mouseoutVoronoi = function(d) { 
-	// Unhighlight path
+	// Unhighlight tweet path
 	d3.select(d.tweet.line).classed("tweet-hover", false);
-	// Hide scanline
+	
+	// TO DO: Hide scanline
 	// scanline.attr("transform", "translate(-200,0)");
+}
+
+var timeStampToClockTime = function(timestamp) {
+	return new Date(timestamp).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 }
 
 exports.init = init;
