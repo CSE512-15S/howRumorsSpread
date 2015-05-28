@@ -7,20 +7,6 @@ a {
   color: #00B7FF;
 }
 
-/* STREAM
-----------------------------------------*/
-
-#stream {
-	position: relative;
-	height: 150px;
-	width: 100%;
-	background-color: #eee;
-
-	.svgContainer {
-	}
-
-}
-
 
 /* SPAGHETTI
 ----------------------------------------*/
@@ -76,10 +62,15 @@ a {
 	position: relative;
 	height: 150px;
 	width: 100%;
-	background-color: #eee;
 
 	.svgContainer {
 		width: 100%;
+
+		.line {
+		  fill: none;
+		  stroke: #000;
+		  stroke-width: 2px;
+		}
 	}
 
 }
