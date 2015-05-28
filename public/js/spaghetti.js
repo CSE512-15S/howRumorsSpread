@@ -1,7 +1,7 @@
 var d3 = require('d3');
 
 var data;
-var svg, spaghetti, dataTweets, voronoi, dataVoronoi, xScale;
+var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale;
 var mainViewModel;
 var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    width = 860 - margin.left - margin.right,
@@ -179,7 +179,7 @@ var init = function(model) {
 		});
 
 		// get data bounds
-		var xBounds = d3.extent(d3.merge([data.map(function(d) {
+		xBounds = d3.extent(d3.merge([data.map(function(d) {
 			return d.points[0].timestamp;
 		}), data.map(function(d) {
 			return d.points[d.points.length - 1].timestamp;
@@ -223,7 +223,7 @@ var init = function(model) {
 		d3.select('#scale-log').on("click", function() { updateYScale(false) });
 
 		// Add voronoi tesselations
-		voronoi = {};
+		var voronoi = {};
 		voronoi.linear = Voronoi()
 			.xScale(xScale)
 			.yScale(yScale.linear);
@@ -231,42 +231,42 @@ var init = function(model) {
 			.xScale(xScale)
 			.yScale(yScale.log);
 
-		svg.append("g").attr("class", "voronoi linear");
-		svg.append("g").attr("class", "voronoi log");
+		voronoiGroup = {};
+		voronoiGroup.linear = svg.append("g").attr("class", "voronoi linear");
+		voronoiGroup.log = svg.append("g").attr("class", "voronoi log");
 
 		// Bind data to voronoi selections and call to setup
-		dataVoronoi = {};
-		dataVoronoi.linear = d3.select('.voronoi.linear')
+		voronoiGroup.linear
 			.datum(data)
 			.call(voronoi.linear);
-		dataVoronoi.log = d3.select('.voronoi.log')
+		voronoiGroup.log
 			.datum(data)
 			.call(voronoi.log);
 
 		// Set pointer events
-		dataVoronoi.linear.selectAll("path").attr("pointer-events", "all");
-		dataVoronoi.log.selectAll("path").attr("pointer-events", "none");
+		voronoiGroup.linear.selectAll("path").attr("pointer-events", "all");
+		voronoiGroup.log.selectAll("path").attr("pointer-events", "none");
 	});
 };
 
 // Update x domain. To be called on a brush event in the stream graph
 var updateXScale = function(domain) {
+	if (!arguments.length) {
+		domain = xBounds;
+	}
+
+	var translate_x = -xScale(domain[0]); // Need to get translation before domain update
 	xScale.domain(domain);
 	dataTweets.call(spaghetti);
     // TO DO: d3.select('.x.axis').call(xAxis);
-}
 
-// Update voronoi. To be called on a brushend event in the stream graph
-var updateVoronoi = function() {
-	// We assume that the xScale.domain has already been updated in the updateXScale
-
-	// TO DO:
-	// - filter the data points here 
-	//var filteredData = data.filter(function(d) { 
-
-	//});
-
-	// - make entirely new Voronoi tesselations
+    // TO DO: Rescale voronoi diagrams
+    var scale_x = (xBounds[1] - xBounds[0]) / (domain[1] - domain[0]);
+    translate_x = translate_x * scale_x;
+    var matrix = "matrix(" + scale_x + ",0,0,1," + translate_x + ",0)";
+    console.log(matrix);
+    voronoiGroup.linear.attr("transform", matrix);
+    voronoiGroup.log.attr("transform", matrix);
 }
 
 // Change between lin / log scale
@@ -317,5 +317,4 @@ var mouseoutVoronoi = function(d) {
 
 exports.init = init;
 exports.updateXScale = updateXScale;
-exports.updateVoronoi = updateVoronoi;
 module.exports = exports;
