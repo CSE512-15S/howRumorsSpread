@@ -74,14 +74,6 @@ a {
     shape-rendering: crispEdges; }
   #spaghetti .voronoi path {
     fill: none; }
-  #spaghetti .clock rect {
-    fill: none;
-    stroke: #bbb; }
-  #spaghetti .clock line {
-    stroke: #bbb;
-    stroke-width: 1; }
-  #spaghetti .clock text {
-    fill: #333; }
   #spaghetti .tweet-hover {
     stroke-width: 4; }
 
@@ -124,8 +116,8 @@ a {
     position: absolute;
     width: 14px;
     height: 14px;
-    top: 16px;
-    left: 55px;
+    top: 15px;
+    left: 56px;
     background-color: #00B7FF;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;

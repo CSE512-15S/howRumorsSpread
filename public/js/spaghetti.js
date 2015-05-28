@@ -8,6 +8,7 @@ var margin = { top: 20, right: 70, bottom: 60, left: 90 },
 			    height = 520 - margin.top - margin.bottom;
 var xTicks = 8, yTicks = 10;
 var tweetview = {};
+var tweetviewFixed = false; 
 
 var Spaghetti = function() {
 
@@ -119,7 +120,8 @@ var Voronoi = function() {
 				.attr("d", function(d) { return "M" + d.join("L") + "Z"; })
 	      		.datum(function(d) { return d.point; })
 	      		.on("mouseover", mouseoverVoronoi)
-		    	.on("mouseout", mouseoutVoronoi);
+		    	.on("mouseout", mouseoutVoronoi)
+		    	.on("click", clickVoronoi);
 		});
 	}	
 	
@@ -198,7 +200,6 @@ var init = function(model) {
 		}), data.map(function(d) {
 			return d.points[d.points.length - 1].timestamp;
 		})]));
-		console.log(xBounds);
 
 		var yBounds = d3.extent(d3.merge([data.map(function(d) {
 			return d.points[0].popularity;
@@ -232,6 +233,10 @@ var init = function(model) {
 		d3.select(".x.axis").call(xAxis);
 		d3.select(".y.axis").call(yAxis);
 
+		// Event listeners for lin / log scale buttons
+		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
+		d3.select('#scale-log').on("click", function() { updateYScale(false) });
+
 		// Create spaghetti chart and bind x and y scales
 		spaghetti = Spaghetti()
 			.xScale(xScale)
@@ -241,10 +246,6 @@ var init = function(model) {
 		dataTweets = d3.select('.tweets')
 			.datum(data)
 			.call(spaghetti);
-
-		// Event listeners for lin / log scale buttons
-		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
-		d3.select('#scale-log').on("click", function() { updateYScale(false) });
 
 		// Add voronoi tesselations
 		var voronoi = {};
@@ -298,11 +299,8 @@ var updateYScale = function(isLinearScale) {
 	spaghetti.draw(dataTweets, true);
 
 	// Switch voronoi tesselations
-	voronoiLinear = d3.select('.voronoi.linear');
-	voronoiLog = d3.select('.voronoi.log');
-	var offGroup = isLinearScale ? voronoiLog : voronoiLinear;
-	var onGroup = isLinearScale ? voronoiLinear : voronoiLog;
-
+	var offGroup = isLinearScale ? voronoiGroup.log : voronoiGroup.linear;
+	var onGroup = isLinearScale ? voronoiGroup.linear : voronoiGroup.log;
 	offGroup.selectAll("path").attr("pointer-events", "none");
 	onGroup.selectAll("path").attr("pointer-events", "all");	
 
@@ -332,6 +330,45 @@ var mouseoverVoronoi = function(d) {
 	d3.select(d.tweet.line).classed("tweet-hover", true);
 	d.tweet.line.parentNode.appendChild(d.tweet.line);
 	
+	showTweet(d);
+	}
+
+var mouseoutVoronoi = function(d) { 
+	if (tweetviewFixed) {
+		return;
+	}
+	// Unhighlight tweet path
+	d3.select(d.tweet.line).classed("tweet-hover", false);
+	
+	// TO DO: Hide scanline
+	// scanline.attr("transform", "translate(-200,0)");
+}
+
+// Fixes tweet currently in focus to the view
+var clickVoronoi = function(d) {
+	if (tweetviewFixed) {
+		// Add voronoi mouseover handler events again
+		d3.selectAll('.voronoi path').on("mouseover", mouseoverVoronoi);
+
+		tweetviewFixed = false;
+	} else {
+		// Highlight tweet path
+		d3.select(d.tweet.line).classed("tweet-hover", true);
+		d.tweet.line.parentNode.appendChild(d.tweet.line);
+
+		// Show the corresponding tweet
+		showTweet(d);
+
+		// Remove voronoi mouseover handler
+		d3.selectAll('.voronoi path').on("mouseover", null);
+
+		tweetviewFixed = true;
+	}
+}
+
+
+// Shows the tweet attached to d in #tweetview
+var showTweet = function(d) {
 	// Show corresponding tweet
 	tweetview.username.html(d.tweet.user.name);
 	tweetview.screenname
@@ -341,14 +378,6 @@ var mouseoverVoronoi = function(d) {
 	tweetview.tweet.html(d.tweet.text);
 	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
 	tweetview.avatar.style("background-image", "url(" + d.tweet.user.profile_image_url + ")");
-}
-
-var mouseoutVoronoi = function(d) { 
-	// Unhighlight tweet path
-	d3.select(d.tweet.line).classed("tweet-hover", false);
-	
-	// TO DO: Hide scanline
-	// scanline.attr("transform", "translate(-200,0)");
 }
 
 var timeStampToClockTime = function(timestamp) {

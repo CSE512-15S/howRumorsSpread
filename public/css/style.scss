@@ -103,17 +103,14 @@ a {
 		font: 12px sans-serif;
 		display: block;
 	}
-
 	.svgContainer {
 		overflow: scroll;
 	}
-
 	.controls {
 		position: absolute;
 		top: 20px;
 		left: 100px;
 	}
-
 	.axis path,
 	.axis line {
 	    fill: none;
@@ -122,17 +119,6 @@ a {
 	}
 	.voronoi path {
 	  fill: none;
-	}
-	.clock rect {
-		fill: none;
-		stroke: #bbb;
-	}
-	.clock line {
-		stroke: #bbb;
-		stroke-width: 1;
-	}
-	.clock text {
-		fill: #333;
 	}
 	.tweet-hover {
 	    stroke-width: 4;
@@ -182,8 +168,8 @@ a {
 		position: absolute;
 		width: 14px;
 		height: 14px;
-		top: 16px;
-		left: 55px;
+		top: 15px;
+		left: 56px;
 		background-color: $primary-color;
 		@include border-radius(7px);
 	}
