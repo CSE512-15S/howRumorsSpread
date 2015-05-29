@@ -1,7 +1,7 @@
 var d3 = require('d3');
 
 function Legend(mainViewModel) {
-  var margin = { top: 0, right: 70, bottom: 0, left: 90 },
+  var margin = { top: 0, right: 0, bottom: 0, left: 250 },
       width = 860 - margin.left - margin.right,
       height = 20,
       colorScale = mainViewModel.getColorScale(),

@@ -5,7 +5,8 @@ var $ = require('jquery');
     ko = require('knockout'),
     spaghetti = require('./spaghetti.js'),
     stream = require('./stream.js'),
-    legend = require('./legend.js');
+    legend = require('./legend.js'),
+    leaderboard = require('./leaderboard.js');
 
 function MainViewModel() {
   var self = this;
@@ -30,14 +31,15 @@ function MainViewModel() {
   }
 
   self.updateViewPort = function (bounds) {
-    console.log('Updating viewport with bounds: ', bounds);
+    console.log('Updating charts with bounds: ', bounds);
     spaghetti.updateXScale(bounds);
+    leaderboard.updateBounds(bounds);
   }
 
   // Shared color scale for graphics
   self.colorScale = d3.scale.ordinal()
    .domain(["Affirm", "Deny", "Unrelated", "Neutral"])
-   .range(['rgb(123,50,148)','rgb(166,219,160)', 'rgb(194,165,207)', 'rgb(0,136,55)']);
+   .range(['rgb(202,0,32)','rgb(5,113,176)', 'rgb(244,165,130)','rgb(146,197,222)']);
 
   self.getColorScale = function() {
     return self.colorScale;
@@ -51,13 +53,14 @@ $(document).ready(function() {
   if($('#spaghetti').length !== 0) {
     spaghetti.init(mainViewModel);
   }
-
   if($('#stream').length !== 0) {
     stream(mainViewModel);
   }
-
   if($('#legend').length !== 0) {
     legend(mainViewModel);
+  }
+  if($('#leaderboard').length !== 0) {
+    leaderboard(mainViewModel);
   }
   
   ko.applyBindings(mainViewModel);
