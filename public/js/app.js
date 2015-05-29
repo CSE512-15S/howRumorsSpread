@@ -5,7 +5,8 @@ var $ = require('jquery');
     ko = require('knockout'),
     spaghetti = require('./spaghetti.js'),
     stream = require('./stream.js'),
-    legend = require('./legend.js');
+    legend = require('./legend.js'),
+    leaderboard = require('./leaderboard.js');
 
 function MainViewModel() {
   var self = this;
@@ -51,13 +52,14 @@ $(document).ready(function() {
   if($('#spaghetti').length !== 0) {
     spaghetti.init(mainViewModel);
   }
-
   if($('#stream').length !== 0) {
     stream(mainViewModel);
   }
-
   if($('#legend').length !== 0) {
     legend(mainViewModel);
+  }
+  if($('#leaderboard').length !== 0) {
+    leaderboard(mainViewModel);
   }
   
   ko.applyBindings(mainViewModel);
