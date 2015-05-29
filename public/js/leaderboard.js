@@ -3,7 +3,7 @@ var d3 = require('d3');
 var LeaderBoard = function (mainViewModel) {
   var self = this,
       parentDiv = '#leaderboard',
-      timeBounds = [0, Date.Now()];
+      timeBounds = [0, Date.now()];
 
 
   self.updateBounds = function (newBounds) {
