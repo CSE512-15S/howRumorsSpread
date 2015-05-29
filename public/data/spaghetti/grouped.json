@@ -1,6 +1,7 @@
 {
     "tweets": [
         {
+            "first_code": "Unrelated", 
             "text": "Sydney mmg lubuk Ayrabs. Lakemba, Austin, Punchbowl... u can even get halal KFC.", 
             "points": [
                 {
@@ -8,15 +9,19 @@
                     "popularity": 2980
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544288043549466600, 
             "user": {
+                "verified": false, 
                 "screen_name": "napiez", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000680392627/09393ff0ce1eb7271ec9386876a31b30_normal.png", 
+                "followers_count": 2980, 
                 "id": 128507510, 
                 "name": "Imam Kuda Napiez"
-            }
+            }, 
+            "id": 544288043549466600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Ray Hadley reporting on @2GB873 homes in Lakemba are being raided by police at present #sydneysiege", 
             "points": [
                 {
@@ -28,15 +33,19 @@
                     "popularity": 6607
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544288144971943940, 
             "user": {
+                "verified": false, 
                 "screen_name": "tim_dunlop", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/484518380938883072/blCdLe-N_normal.jpeg", 
+                "followers_count": 2646, 
                 "id": 26192233, 
                 "name": "Tim Dunlop"
-            }
+            }, 
+            "id": 544288144971943940, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "BREAKING: UNCONFIRMED reports of police raids taking place across Lakemba in Sydney's west, which has a large Muslim community", 
             "points": [
                 {
@@ -44,15 +53,19 @@
                     "popularity": 436
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544288386614186000, 
             "user": {
+                "verified": false, 
                 "screen_name": "TypewriterIntl", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/477764712453533696/7UtIHI3G_normal.png", 
+                "followers_count": 436, 
                 "id": 1336965146, 
                 "name": "The Typewriter "
-            }
+            }, 
+            "id": 544288386614186000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "#Sydney #martinplace FYI NSW Police report that houses in the Lakemba Area [large Muslim area] of Sydney are being raided by Police @2GB873", 
             "points": [
                 {
@@ -60,15 +73,19 @@
                     "popularity": 742
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544288661937094660, 
             "user": {
+                "verified": false, 
                 "screen_name": "RF_Jenkins", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/532737837368504322/nIh2Dsv6_normal.png", 
+                "followers_count": 742, 
                 "id": 789501139, 
                 "name": "Francis Jenkins "
-            }
+            }, 
+            "id": 544288661937094660, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "@2GB873 reporting that police raids taking place in Sydney now including Lakemba.", 
             "points": [
                 {
@@ -76,15 +93,19 @@
                     "popularity": 635
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544288874575323140, 
             "user": {
+                "verified": false, 
                 "screen_name": "RossMartin1960", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/540437296193867776/PZtIx9h6_normal.jpeg", 
+                "followers_count": 635, 
                 "id": 1564968534, 
                 "name": "Ross Martin"
-            }
+            }, 
+            "id": 544288874575323140, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "The flag appears to be a Shahada flag, not an Islamic State flag, but is associated with Islamist and jihadist movements. #lakemba", 
             "points": [
                 {
@@ -92,15 +113,19 @@
                     "popularity": 1675
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544290917931163650, 
             "user": {
+                "verified": false, 
                 "screen_name": "TheBonfireMedia", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/540328290053914624/ihwrm_xT_normal.jpeg", 
+                "followers_count": 1675, 
                 "id": 1304556728, 
                 "name": "Jon T Dragon #JTDTBM"
-            }
+            }, 
+            "id": 544290917931163650, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "@PhilipKissick @Welsh58  Lakemba sold out of ISIS flags months ago - way too popular in western Sydney just can't get them anymore", 
             "points": [
                 {
@@ -108,15 +133,19 @@
                     "popularity": 853
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544292117535682560, 
             "user": {
+                "verified": false, 
                 "screen_name": "mickymantell", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000231147492/93599159d5f723c05fe1296f64165f82_normal.jpeg", 
+                "followers_count": 853, 
                 "id": 455699956, 
                 "name": "Micky Mantell"
-            }
+            }, 
+            "id": 544292117535682560, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "News in that houses being raided in Lakemba #sydneysiege", 
             "points": [
                 {
@@ -124,15 +153,19 @@
                     "popularity": 253
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544292733318213600, 
             "user": {
+                "verified": false, 
                 "screen_name": "mrdanielgraham", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/451315099123200000/fYJWpDkz_normal.png", 
+                "followers_count": 253, 
                 "id": 21859275, 
                 "name": "Daniel Graham"
-            }
+            }, 
+            "id": 544292733318213600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Ray Hadley cites direct NSW Police sources that homes in Lakemba are being raided \"right this minute\" #siege", 
             "points": [
                 {
@@ -140,15 +173,19 @@
                     "popularity": 2610
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544292889799307260, 
             "user": {
+                "verified": true, 
                 "screen_name": "HeathJAston", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/537817484309438465/Ii3ABRmr_normal.jpeg", 
+                "followers_count": 2610, 
                 "id": 142951285, 
                 "name": "Heath Aston"
-            }
+            }, 
+            "id": 544292889799307260, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "NSW Police + AFP are raiding several homes in Lakemba right now. More @SkyNewsAust #martinplacesiege #sydneysiege #sydneycafesiege", 
             "points": [
                 {
@@ -316,15 +353,19 @@
                     "popularity": 54228
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544292904416456700, 
             "user": {
+                "verified": true, 
                 "screen_name": "PMOnAir", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2567729121/PMOnAir_normal.jpg", 
+                "followers_count": 26285, 
                 "id": 76628896, 
                 "name": "Paul Murray"
-            }
+            }, 
+            "id": 544292904416456700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Further to earlier report, Ray Hadley reporting NSW Police and AFP currently executing warrant at a home in Sydney suburb of Lakemba.", 
             "points": [
                 {
@@ -332,15 +373,19 @@
                     "popularity": 1304
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544292907508052000, 
             "user": {
+                "verified": false, 
                 "screen_name": "yoni_bashan", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000399563373/f74dcb537c0c589b027fcdeb8ef8e653_normal.jpeg", 
+                "followers_count": 1304, 
                 "id": 149867945, 
                 "name": "Yoni Bashan"
-            }
+            }, 
+            "id": 544292907508052000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "NSW Police + AFP are raiding several homes in Lakemba right now. More  #martinplacesiege #sydneysiege #sydneycafesiege (@PMOnAir)", 
             "points": [
                 {
@@ -856,15 +901,19 @@
                     "popularity": 437787
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544292910578278400, 
             "user": {
+                "verified": true, 
                 "screen_name": "SkyNewsAust", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000441802573/7d7dfe8dd3ef5cb743d617dc62f0aa92_normal.jpeg", 
+                "followers_count": 146022, 
                 "id": 16834659, 
                 "name": "Sky News Australia"
-            }
+            }, 
+            "id": 544292910578278400, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "\u201c@yoni_bashan:  Ray Hadley reporting NSW Police and AFP currently executing warrant at a home in Sydney suburb of Lakemba.\u201d", 
             "points": [
                 {
@@ -872,15 +921,19 @@
                     "popularity": 1464
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544293231874162700, 
             "user": {
+                "verified": true, 
                 "screen_name": "LillSaleh", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/427713513440546816/jZxFvvCY_normal.jpeg", 
+                "followers_count": 1464, 
                 "id": 2313204931, 
                 "name": "Lillian Saleh"
-            }
+            }, 
+            "id": 544293231874162700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Houses in Lakemba, Syd, known for muslim population being raided as part of the siege currently going on in Sydney City.", 
             "points": [
                 {
@@ -888,15 +941,19 @@
                     "popularity": 190
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544293616336633860, 
             "user": {
+                "verified": false, 
                 "screen_name": "justkewrious", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/507040002279088129/lqr_5whO_normal.jpeg", 
+                "followers_count": 190, 
                 "id": 2609462570, 
                 "name": "Curious"
-            }
+            }, 
+            "id": 544293616336633860, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Via @SkyNewsAust: NSW Police + AFP are raiding several homes in Lakemba right now.  #sydneysiege", 
             "points": [
                 {
@@ -908,15 +965,19 @@
                     "popularity": 4664
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544293981715054600, 
             "user": {
+                "verified": false, 
                 "screen_name": "alfroz", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/541577376518262786/FVOMAuGu_normal.jpeg", 
+                "followers_count": 4653, 
                 "id": 54489465, 
                 "name": "Afroz Ali"
-            }
+            }, 
+            "id": 544293981715054600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Multiple media outlets now reporting that terror raids being carried out in Sydney suburb of Lakemba #MartinPlace #Lindt", 
             "points": [
                 {
@@ -964,15 +1025,19 @@
                     "popularity": 107718
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294020994699260, 
             "user": {
+                "verified": true, 
                 "screen_name": "Mamamia", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2682067475/0ca4724dbea5bd2c9426fb38c227538f_normal.png", 
+                "followers_count": 91097, 
                 "id": 19178668, 
                 "name": "Mamamia"
-            }
+            }, 
+            "id": 544294020994699260, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "NSW Police + AFP are raiding several homes in Lakemba right now. More  #martinplacesiege #sydneysiege #sydneycafesiege #cdnpoli", 
             "points": [
                 {
@@ -980,15 +1045,19 @@
                     "popularity": 87
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294385903755260, 
             "user": {
+                "verified": false, 
                 "screen_name": "DWilson2121", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/525732236218613760/bmM6PJHU_normal.jpeg", 
+                "followers_count": 87, 
                 "id": 2742532806, 
                 "name": "DarrenWilson"
-            }
+            }, 
+            "id": 544294385903755260, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "BREAKING NEWS: Australian Police are raiding several homes in Lakemba right now. #SydneySiege", 
             "points": [
                 {
@@ -1128,15 +1197,19 @@
                     "popularity": 38521
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294485208104960, 
             "user": {
+                "verified": false, 
                 "screen_name": "NewsOnTheMin", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/480640180659834880/uOUf4CoB_normal.jpeg", 
+                "followers_count": 4153, 
                 "id": 214007688, 
                 "name": "Breaking News"
-            }
+            }, 
+            "id": 544294485208104960, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "BREAKING NEWS: Australian Police are raiding several homes in Lakemba right now. #SydneySiege #MartinPlaceSiege #Sydney", 
             "points": [
                 {
@@ -1152,15 +1225,19 @@
                     "popularity": 6663
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294668427862000, 
             "user": {
+                "verified": false, 
                 "screen_name": "H0XH4", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542410101219278851/w4eV-oNz_normal.jpeg", 
+                "followers_count": 4181, 
                 "id": 1913804996, 
                 "name": "\u03b1\u03b7\u03b9s"
-            }
+            }, 
+            "id": 544294668427862000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Raids in lakemba .. Im still so worried that these hostages are a distraction to something much bigger ...", 
             "points": [
                 {
@@ -1168,15 +1245,19 @@
                     "popularity": 312
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294735058186240, 
             "user": {
+                "verified": false, 
                 "screen_name": "Parafourth", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/513627318590255107/XKcJ3QWL_normal.jpeg", 
+                "followers_count": 312, 
                 "id": 1265962213, 
                 "name": "Jerem\u03b3"
-            }
+            }, 
+            "id": 544294735058186240, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "My sources in Lakemba are saying there are no raids underway in that suburb. Police are at Lakemba mosque as part of induction day #siege", 
             "points": [
                 {
@@ -1388,15 +1469,19 @@
                     "popularity": 85230
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544294755035660300, 
             "user": {
+                "verified": false, 
                 "screen_name": "safimichael", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/514606884695711744/uiRv10lZ_normal.png", 
+                "followers_count": 1940, 
                 "id": 581726235, 
                 "name": "Michael Safi"
-            }
+            }, 
+            "id": 544294755035660300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "NZ News saying raids now taking place in Lakemba and one earlier today in Beecroft. #MartinPlaceSiege", 
             "points": [
                 {
@@ -1404,15 +1489,19 @@
                     "popularity": 1049
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294781346537500, 
             "user": {
+                "verified": false, 
                 "screen_name": "kimmar", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2749712068/e2e4e335e55ef818c9ba7ce442b09d1c_normal.jpeg", 
+                "followers_count": 1049, 
                 "id": 14443299, 
                 "name": "kimmar"
-            }
+            }, 
+            "id": 544294781346537500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Raids in Lakemba #sydneysiege", 
             "points": [
                 {
@@ -1420,15 +1509,19 @@
                     "popularity": 65
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294805153402900, 
             "user": {
+                "verified": false, 
                 "screen_name": "MichealHay", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/1669179058/image_normal.jpg", 
+                "followers_count": 65, 
                 "id": 33826635, 
                 "name": "Micheal Hay"
-            }
+            }, 
+            "id": 544294805153402900, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Raids in Lakemba underway during the #sydneysiege", 
             "points": [
                 {
@@ -1436,15 +1529,19 @@
                     "popularity": 58
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294936774852600, 
             "user": {
+                "verified": false, 
                 "screen_name": "stilltheone08", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/1277760087/irving-penn3_normal.jpg", 
+                "followers_count": 58, 
                 "id": 268124085, 
                 "name": "James Stillone"
-            }
+            }, 
+            "id": 544294936774852600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Raids taking place in lakemba Sydney right now - possible terror suspects", 
             "points": [
                 {
@@ -1452,15 +1549,19 @@
                     "popularity": 34
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294948309200900, 
             "user": {
+                "verified": false, 
                 "screen_name": "AussieFifaCoins", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/425056116720934912/lhRT0ubu_normal.jpeg", 
+                "followers_count": 34, 
                 "id": 1486577036, 
                 "name": "ULTIMATE TEAM"
-            }
+            }, 
+            "id": 544294948309200900, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "There have been raids in Beecroft, and more recently Lakemba today. #SydneySiege", 
             "points": [
                 {
@@ -1468,15 +1569,19 @@
                     "popularity": 8
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544294958618800100, 
             "user": {
+                "verified": false, 
                 "screen_name": "Cardinal7477", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/1619021129/gta-v-five-logo-v-only_normal.png", 
+                "followers_count": 8, 
                 "id": 403516709, 
                 "name": "Sam Lewis"
-            }
+            }, 
+            "id": 544294958618800100, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Police raids in Lakemba, South West Sydney have taken place, Australian news is reporting.", 
             "points": [
                 {
@@ -1496,15 +1601,19 @@
                     "popularity": 11820
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544295014080466940, 
             "user": {
+                "verified": false, 
                 "screen_name": "RupertMyers", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542034388037283840/QLzGdXxI_normal.png", 
+                "followers_count": 10108, 
                 "id": 21282561, 
                 "name": "Rupert Myers"
-            }
+            }, 
+            "id": 544295014080466940, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of raids in the southwest Sydney suburb of Lakemba, per @Y7News and @SkyNewsAust", 
             "points": [
                 {
@@ -1532,15 +1641,19 @@
                     "popularity": 22548
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544295035228143600, 
             "user": {
+                "verified": true, 
                 "screen_name": "journodave", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/538389746922172417/CxV-TnO-_normal.png", 
+                "followers_count": 8836, 
                 "id": 28376011, 
                 "name": "David Wyllie"
-            }
+            }, 
+            "id": 544295035228143600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of linked police raids in #Lakemba as hostages are held in #Sydney CBD @sunriseon7", 
             "points": [
                 {
@@ -1552,15 +1665,19 @@
                     "popularity": 835
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544295191142608900, 
             "user": {
+                "verified": false, 
                 "screen_name": "gloriamdejesus", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2203918019/profile_normal.jpg", 
+                "followers_count": 426, 
                 "id": 115239442, 
                 "name": "Gloria de Jesus"
-            }
+            }, 
+            "id": 544295191142608900, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Police anti-terror raids are said to be taking place in the #Lakemba suburb of #Sydney in #Australia.", 
             "points": [
                 {
@@ -1568,15 +1685,19 @@
                     "popularity": 127
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544295495766908900, 
             "user": {
+                "verified": false, 
                 "screen_name": "neildoyle01", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/468823476942303233/C3Yn7tEC_normal.jpeg", 
+                "followers_count": 127, 
                 "id": 268786860, 
                 "name": "Neil Doyle"
-            }
+            }, 
+            "id": 544295495766908900, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "13 Hostages that are the full responsibility of the Sydney Lakemba Mullah, who needs to be prosecuted if he cannot garner", 
             "points": [
                 {
@@ -1584,15 +1705,19 @@
                     "popularity": 116
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544295906594402300, 
             "user": {
+                "verified": false, 
                 "screen_name": "death_to_Swifts", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/526114589797130240/GPcU2FUo_normal.png", 
+                "followers_count": 116, 
                 "id": 2540411900, 
                 "name": "Guy Faminely"
-            }
+            }, 
+            "id": 544295906594402300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Media reporting there are currently raids in Sydney's South-West, suburb of Lakemba.", 
             "points": [
                 {
@@ -1600,15 +1725,19 @@
                     "popularity": 1815
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544295931210772500, 
             "user": {
+                "verified": false, 
                 "screen_name": "miniestmini", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/532377121599934464/LOQG_RmQ_normal.jpeg", 
+                "followers_count": 1815, 
                 "id": 568119166, 
                 "name": "Mi\u0646i "
-            }
+            }, 
+            "id": 544295931210772500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Be wary of reports about police raids in Lakemba, Australia -- not true: http://t.co/bFLkjEU9Fh", 
             "points": [
                 {
@@ -1620,15 +1749,19 @@
                     "popularity": 41980
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544296058642526200, 
             "user": {
+                "verified": true, 
                 "screen_name": "moneyries", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/462063048945963009/zRNgzbWC_normal.jpeg", 
+                "followers_count": 12750, 
                 "id": 9507342, 
                 "name": "Brian Ries"
-            }
+            }, 
+            "id": 544296058642526200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Neutral", 
             "text": "NSW Police Media unit do not yet have a statement on reports a police operation is underway in Lakemba #sydneysiege @SkyNewsAust", 
             "points": [
                 {
@@ -1636,15 +1769,19 @@
                     "popularity": 822
                 }
             ], 
-            "first_code": "Neutral", 
-            "id": 544296065017450500, 
             "user": {
+                "verified": false, 
                 "screen_name": "jmodoh", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/449120159647535104/cbq1Alg3_normal.jpeg", 
+                "followers_count": 822, 
                 "id": 47874155, 
                 "name": "James O'Doherty"
-            }
+            }, 
+            "id": 544296065017450500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "CNN are saying that there's a Police raid underway in Lakemba at the moment, in Sydney. #sydneycafesiege", 
             "points": [
                 {
@@ -1652,15 +1789,19 @@
                     "popularity": 3424
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296206201917440, 
             "user": {
+                "verified": false, 
                 "screen_name": "katedoak", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/538679760763617280/EYO6y0ye_normal.jpeg", 
+                "followers_count": 3424, 
                 "id": 16307090, 
                 "name": "Kate Doak"
-            }
+            }, 
+            "id": 544296206201917440, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "#auspoI #siege Muslim's should take and hold hostages in Lakemba mosque ,then they could all be bombed safely without affecting others?..", 
             "points": [
                 {
@@ -1668,15 +1809,19 @@
                     "popularity": 33
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544296207976116200, 
             "user": {
+                "verified": false, 
                 "screen_name": "gtperkins", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000603367513/7a79f03fe8cc44731533fa82028afdac_normal.jpeg", 
+                "followers_count": 33, 
                 "id": 1371167210, 
                 "name": "George"
-            }
+            }, 
+            "id": 544296207976116200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/tBnF1lsqee", 
             "points": [
                 {
@@ -1688,15 +1833,19 @@
                     "popularity": 12684
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296292369694700, 
             "user": {
+                "verified": true, 
                 "screen_name": "7NewsAdelaide", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/451573766124879872/jtG4FUmD_normal.jpeg", 
+                "followers_count": 11416, 
                 "id": 269581619, 
                 "name": "7News Adelaide"
-            }
+            }, 
+            "id": 544296292369694700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/dm9m7MNYAn", 
             "points": [
                 {
@@ -1720,15 +1869,19 @@
                     "popularity": 35477
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296292386476000, 
             "user": {
+                "verified": true, 
                 "screen_name": "7NewsMelbourne", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/476531500150554625/W-aw1jti_normal.jpeg", 
+                "followers_count": 33457, 
                 "id": 121639467, 
                 "name": "7NewsMelbourne"
-            }
+            }, 
+            "id": 544296292386476000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/f8dSKip6Ex", 
             "points": [
                 {
@@ -1844,15 +1997,19 @@
                     "popularity": 89506
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296292399083500, 
             "user": {
+                "verified": true, 
                 "screen_name": "7NewsSydney", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000786835151/056684adc011767536026a3d16759f8d_normal.jpeg", 
+                "followers_count": 35449, 
                 "id": 156464691, 
                 "name": "7 News Sydney"
-            }
+            }, 
+            "id": 544296292399083500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/kaOreCom0d", 
             "points": [
                 {
@@ -1864,15 +2021,19 @@
                     "popularity": 41794
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296292411662340, 
             "user": {
+                "verified": true, 
                 "screen_name": "7NewsBrisbane", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/461694378067496960/Nl84eWD__normal.jpeg", 
+                "followers_count": 41197, 
                 "id": 74382140, 
                 "name": "7News Brisbane"
-            }
+            }, 
+            "id": 544296292411662340, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/jfQHQxCKbb", 
             "points": [
                 {
@@ -1984,15 +2145,19 @@
                     "popularity": 421509
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296292424224800, 
             "user": {
+                "verified": true, 
                 "screen_name": "Y7News", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2723211536/01b3125f900c598b9fba6c6a9890c561_normal.png", 
+                "followers_count": 84790, 
                 "id": 63362429, 
                 "name": "7News Yahoo!7 "
-            }
+            }, 
+            "id": 544296292424224800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Meanwhile @cnni @CNN is a disgrace \u2014reporting 'reports' of raids in Lakemba and multiple packages across Sydney. Arseclowns", 
             "points": [
                 {
@@ -2000,15 +2165,19 @@
                     "popularity": 1086
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296339413008400, 
             "user": {
+                "verified": false, 
                 "screen_name": "Gammonator", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/516832580125999104/SehY0f2Z_normal.jpeg", 
+                "followers_count": 1086, 
                 "id": 139315424, 
                 "name": "Liam Gammon"
-            }
+            }, 
+            "id": 544296339413008400, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "\"@NewsOnTheMin: BREAKING NEWS: Australian Police are raiding several homes in Lakemba right now. #SydneySiege\"", 
             "points": [
                 {
@@ -2020,15 +2189,19 @@
                     "popularity": 4296
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296343465115650, 
             "user": {
+                "verified": false, 
                 "screen_name": "Meir_Taub", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/443537023358750720/36rRdN9u_normal.jpeg", 
+                "followers_count": 1376, 
                 "id": 979302511, 
                 "name": "Meir Taub"
-            }
+            }, 
+            "id": 544296343465115650, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of police raids in homes in Lakemba. #SydneySiege #Sydney (Via 7 news)", 
             "points": [
                 {
@@ -2044,15 +2217,19 @@
                     "popularity": 5148
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296402772185100, 
             "user": {
+                "verified": false, 
                 "screen_name": "_amroali", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2997633383/52784c0d183c26270f58c7aea437fe49_normal.jpeg", 
+                "followers_count": 4551, 
                 "id": 282977213, 
                 "name": "Amro Ali"
-            }
+            }, 
+            "id": 544296402772185100, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "I URGE DRIVERS passing the lakemba Mosque to demand \"STOP THE TERRORIST HOSTAGE TAKERS NOW!\"", 
             "points": [
                 {
@@ -2060,15 +2237,19 @@
                     "popularity": 116
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544296410636492800, 
             "user": {
+                "verified": false, 
                 "screen_name": "death_to_Swifts", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/526114589797130240/GPcU2FUo_normal.png", 
+                "followers_count": 116, 
                 "id": 2540411900, 
                 "name": "Guy Faminely"
-            }
+            }, 
+            "id": 544296410636492800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "@rayhadley2gb ..there are NO police raids in Lakemba now there ARE 20 new police touring the mosque as part of their induction #sydneysiege", 
             "points": [
                 {
@@ -2076,15 +2257,19 @@
                     "popularity": 1030
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544296415308951550, 
             "user": {
+                "verified": false, 
                 "screen_name": "Lisabiartch", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/538557280178823168/HMWyf3xi_normal.jpeg", 
+                "followers_count": 1030, 
                 "id": 975220500, 
                 "name": "Lady Pong de XMAS "
-            }
+            }, 
+            "id": 544296415308951550, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "The @guardian are reporting there are no home raids going on in Lakemba #sydneysiege", 
             "points": [
                 {
@@ -2092,15 +2277,19 @@
                     "popularity": 461
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544296440705855500, 
             "user": {
+                "verified": false, 
                 "screen_name": "Baggsy", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000785161491/ce795f79faad2dfa902fd75a30acf790_normal.jpeg", 
+                "followers_count": 461, 
                 "id": 385567371, 
                 "name": "Michael Baggs"
-            }
+            }, 
+            "id": 544296440705855500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "\u201c@Y7News: Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/exeV5arZXO\u201d", 
             "points": [
                 {
@@ -2124,15 +2313,19 @@
                     "popularity": 19696
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296494510006300, 
             "user": {
+                "verified": false, 
                 "screen_name": "blastedsilver", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/533800853769957376/HZBHZ2k0_normal.jpeg", 
+                "followers_count": 9508, 
                 "id": 2502895924, 
                 "name": "JewishJihadi\u2122"
-            }
+            }, 
+            "id": 544296494510006300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Sydney \"raids of homes in Lakemba, which has a large Muslim population were taking place now. \u2026\" http://t.co/UCsdgDXO7G", 
             "points": [
                 {
@@ -2148,15 +2341,19 @@
                     "popularity": 32022
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296496657485800, 
             "user": {
+                "verified": false, 
                 "screen_name": "DanRiehl", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2305961820/6u211ffv2v2hkvp1mmob_normal.jpeg", 
+                "followers_count": 30428, 
                 "id": 18176907, 
                 "name": "DanRiehl"
-            }
+            }, 
+            "id": 544296496657485800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "guardian reports that ray hadley is full of shit, there are no raids in lakemba: http://t.co/HDKEyUvR0P", 
             "points": [
                 {
@@ -2164,15 +2361,19 @@
                     "popularity": 259
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544296513984151550, 
             "user": {
+                "verified": false, 
                 "screen_name": "goblinpaladin", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/529060954621739009/iuiT1GW4_normal.jpeg", 
+                "followers_count": 259, 
                 "id": 597543632, 
                 "name": "b\u00fdfluga"
-            }
+            }, 
+            "id": 544296513984151550, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/LLy87qdjxU\u201d", 
             "points": [
                 {
@@ -2180,15 +2381,19 @@
                     "popularity": 504
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296669001441300, 
             "user": {
+                "verified": false, 
                 "screen_name": "OpTicISON", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/526534485714939904/jGnOhqPZ_normal.jpeg", 
+                "followers_count": 504, 
                 "id": 2878831764, 
                 "name": "Kyle Mason "
-            }
+            }, 
+            "id": 544296669001441300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Guardian reporting there are NO police raids currently underway in Lakemba http://t.co/yoLCYn5ENl", 
             "points": [
                 {
@@ -2196,15 +2401,19 @@
                     "popularity": 227
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544296730863222800, 
             "user": {
+                "verified": false, 
                 "screen_name": "jockarooo", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/538998447785791488/LZxIOShl_normal.jpeg", 
+                "followers_count": 227, 
                 "id": 171850291, 
                 "name": "Linda"
-            }
+            }, 
+            "id": 544296730863222800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "NSW Police + AFP are raiding several homes in Lakemba right now. More  #martinplacesiege #sydneysiege #sydneycafesiege (@PMOnAir)\u201d", 
             "points": [
                 {
@@ -2212,15 +2421,19 @@
                     "popularity": 0
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296787188531200, 
             "user": {
+                "verified": false, 
                 "screen_name": "newsnow2014", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/544294832177303552/GSt_dAkB_normal.jpeg", 
+                "followers_count": 0, 
                 "id": 2930356255, 
                 "name": "NEWS NOW 2014"
-            }
+            }, 
+            "id": 544296787188531200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "A Martin Place execution-type incident predicted in September. Raids underway in Lakemba.... http://t.co/lkQsNCahDX", 
             "points": [
                 {
@@ -2228,15 +2441,19 @@
                     "popularity": 81
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544296808483401700, 
             "user": {
+                "verified": false, 
                 "screen_name": "nbrayne", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000022903996/bacdfd82cf7e51f5bb8510111443982d_normal.jpeg", 
+                "followers_count": 81, 
                 "id": 52388885, 
                 "name": "Nathanael Brayne"
-            }
+            }, 
+            "id": 544296808483401700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "UPDATE: NO raids in Lakemba. About 20 police are touring the Lakemba mosque as part of a police induction day #terrorism #Sydney #isis", 
             "points": [
                 {
@@ -2244,15 +2461,19 @@
                     "popularity": 39
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544296898228523000, 
             "user": {
+                "verified": false, 
                 "screen_name": "media_triage", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/343871223/Wedding_normal.jpg", 
+                "followers_count": 39, 
                 "id": 62210011, 
                 "name": "James Hyams"
-            }
+            }, 
+            "id": 544296898228523000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Anyone in Lakemba that can confirm police raids in the area? #Australia #Sydney #Sydneysiege", 
             "points": [
                 {
@@ -2260,15 +2481,19 @@
                     "popularity": 571
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544297015299956740, 
             "user": {
+                "verified": true, 
                 "screen_name": "LauraMillanL", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/448696291518709760/Cdce_cF2_normal.jpeg", 
+                "followers_count": 571, 
                 "id": 239345481, 
                 "name": "Laura MillanLombra\u00f1a"
-            }
+            }, 
+            "id": 544297015299956740, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of police raids at #Lakemba, south-west of Sydney. #MartinPlaceSiege #SydneySiege #MartinPlace", 
             "points": [
                 {
@@ -2292,15 +2517,19 @@
                     "popularity": 66793
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544297044869783550, 
             "user": {
+                "verified": true, 
                 "screen_name": "nova969", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/486008115767148546/o22xwarb_normal.png", 
+                "followers_count": 58253, 
                 "id": 22837285, 
                 "name": "Nova 96.9"
-            }
+            }, 
+            "id": 544297044869783550, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports of Police raids in Lakemba @Zero_Risk #Sydneysiege @Channel7 @Studio10au  @ChannelNewsAsia @sunriseon7 @Sandra_Sully @Channel9", 
             "points": [
                 {
@@ -2308,15 +2537,19 @@
                     "popularity": 43
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544297090545758200, 
             "user": {
+                "verified": false, 
                 "screen_name": "Shannon_ZRI", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/518421399040688128/aJ56jp9z_normal.jpeg", 
+                "followers_count": 43, 
                 "id": 2652580129, 
                 "name": "Shannon S"
-            }
+            }, 
+            "id": 544297090545758200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "RT @7NewsBrisbane Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/HVEY95eeVR", 
             "points": [
                 {
@@ -2324,15 +2557,19 @@
                     "popularity": 97
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544297134816645100, 
             "user": {
+                "verified": false, 
                 "screen_name": "HowToLove99", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/535738078573260801/bf2C_mt__normal.jpeg", 
+                "followers_count": 97, 
                 "id": 152264447, 
                 "name": "Mike Elgan "
-            }
+            }, 
+            "id": 544297134816645100, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Uncodable", 
             "text": "Descentes de police signal\u00e9es dans le sud ouest de #Sydney #Lakemba", 
             "points": [
                 {
@@ -2340,15 +2577,19 @@
                     "popularity": 2080
                 }
             ], 
-            "first_code": "Uncodable", 
-            "id": 544297293227520000, 
             "user": {
+                "verified": false, 
                 "screen_name": "nanotousch", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/512230417081303040/eOowRXHD_normal.jpeg", 
+                "followers_count": 2080, 
                 "id": 40301992, 
                 "name": "Arnaud Tousch"
-            }
+            }, 
+            "id": 544297293227520000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Neutral", 
             "text": "@nswpolice any statement on Lakemba raid rumours?", 
             "points": [
                 {
@@ -2356,15 +2597,19 @@
                     "popularity": 37
                 }
             ], 
-            "first_code": "Neutral", 
-            "id": 544297437955751940, 
             "user": {
+                "verified": false, 
                 "screen_name": "tommybooth", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/3528289870/b40753b28d127cf538dc99048900fa0e_normal.jpeg", 
+                "followers_count": 37, 
                 "id": 22749203, 
                 "name": "Tom"
-            }
+            }, 
+            "id": 544297437955751940, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Uncodable", 
             "text": "Hay reportes de raids policiales en Lakemba,en los suburbios de Sydney", 
             "points": [
                 {
@@ -2376,15 +2621,19 @@
                     "popularity": 6852
                 }
             ], 
-            "first_code": "Uncodable", 
-            "id": 544297525277384700, 
             "user": {
+                "verified": false, 
                 "screen_name": "GilVidalJose", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/456139063523676160/BFHC4hNT_normal.jpeg", 
+                "followers_count": 6269, 
                 "id": 291862667, 
                 "name": "Jos\u00e9 Gil Vidal"
-            }
+            }, 
+            "id": 544297525277384700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "@DaveBraimbridge Gday M8, not close 2 siege but close 2 Lakemba which is 1of  main Muslim enclaves in Sydney. Cops raiding homes there now", 
             "points": [
                 {
@@ -2392,15 +2641,19 @@
                     "popularity": 113
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544297564565012500, 
             "user": {
+                "verified": false, 
                 "screen_name": "mikebarlow2", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2274171186/a5z8ubnudosc8o8pwq2w_normal.jpeg", 
+                "followers_count": 113, 
                 "id": 286604009, 
                 "name": "Mike Barlow"
-            }
+            }, 
+            "id": 544297564565012500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Cops touring Lakemba mosque as part of a police induction day, but sure, report raids in the area. More fear is what we need. #SydneySiege", 
             "points": [
                 {
@@ -2424,15 +2677,19 @@
                     "popularity": 2636
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544297632978706400, 
             "user": {
+                "verified": false, 
                 "screen_name": "Gregulator614", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/479010175433441281/7ss4WFHs_normal.jpeg", 
+                "followers_count": 444, 
                 "id": 1853558432, 
                 "name": "Greg Benson"
-            }
+            }, 
+            "id": 544297632978706400, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "@SevenNewsroom reporting police carrying out raids in the #Sydney suburb of #Lakemba, which has many moslem households #SydneyHostageCrisis", 
             "points": [
                 {
@@ -2444,15 +2701,19 @@
                     "popularity": 513
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544297685897850900, 
             "user": {
+                "verified": false, 
                 "screen_name": "AruSivananthan", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/3699713670/2a793f3b73cb67f4f01b13ffe59210c3_normal.jpeg", 
+                "followers_count": 491, 
                 "id": 53464284, 
                 "name": "Aru Sivananthan"
-            }
+            }, 
+            "id": 544297685897850900, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "@bendepear @w0tn0t ignorant assholes. You want to be the hostages. Ur the reason we r in this situation. #Lakemba will burn.", 
             "points": [
                 {
@@ -2460,15 +2721,19 @@
                     "popularity": 116
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544297865808314400, 
             "user": {
+                "verified": false, 
                 "screen_name": "Aussiewill2", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/493058415652921345/HMV7PKhe_normal.jpeg", 
+                "followers_count": 116, 
                 "id": 516103610, 
                 "name": "Aussiewill"
-            }
+            }, 
+            "id": 544297865808314400, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "police raids in lakemba #sydneysiege", 
             "points": [
                 {
@@ -2476,15 +2741,19 @@
                     "popularity": 1116
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544297935949672450, 
             "user": {
+                "verified": false, 
                 "screen_name": "avonsqueen", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/537705133405003776/plkX1CBF_normal.jpeg", 
+                "followers_count": 1116, 
                 "id": 420092533, 
                 "name": "deanna"
-            }
+            }, 
+            "id": 544297935949672450, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#Campsie police confirm no raids are happening in #Lakemba. #sydneysiege", 
             "points": [
                 {
@@ -2492,15 +2761,19 @@
                     "popularity": 74
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544298362195824640, 
             "user": {
+                "verified": false, 
                 "screen_name": "ChrisGeorgak", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/468575166289571840/bpyy-9oH_normal.jpeg", 
+                "followers_count": 74, 
                 "id": 2470392102, 
                 "name": "Chris Georgakopoulos"
-            }
+            }, 
+            "id": 544298362195824640, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "News ch 7 reports Police raids occurring in Lakemba NOW due to ISIS terrorist taking 13 Hostages in (cont) http://t.co/DOObj2QTZS", 
             "points": [
                 {
@@ -2508,15 +2781,19 @@
                     "popularity": 357
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544298812404023300, 
             "user": {
+                "verified": false, 
                 "screen_name": "Kimmaree13", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/471504979757236224/xVgrr0G6_normal.jpeg", 
+                "followers_count": 357, 
                 "id": 395237223, 
                 "name": "Kim Vuga"
-            }
+            }, 
+            "id": 544298812404023300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "UPDATE #sydney #martinplace @2GB873 NSW Police confirm that there was NO raid of houses in Lakemba today.", 
             "points": [
                 {
@@ -2524,15 +2801,19 @@
                     "popularity": 742
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544298970047336450, 
             "user": {
+                "verified": false, 
                 "screen_name": "RF_Jenkins", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/532737837368504322/nIh2Dsv6_normal.png", 
+                "followers_count": 742, 
                 "id": 789501139, 
                 "name": "Francis Jenkins "
-            }
+            }, 
+            "id": 544298970047336450, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "@Eruptifyy Aslong as its not darling harbour, greenacre, martin place, lakemba or bankstown she should be right.", 
             "points": [
                 {
@@ -2540,15 +2821,19 @@
                     "popularity": 1341
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544299217590579200, 
             "user": {
+                "verified": false, 
                 "screen_name": "StitchzStyle", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/535318896786432000/ks8Yl3QT_normal.png", 
+                "followers_count": 1341, 
                 "id": 1455651955, 
                 "name": "Red Stitch BS"
-            }
+            }, 
+            "id": 544299217590579200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Means they've already ID'd the hostage taker MT @PMOnAir: NSW Police + AFP raiding several homes in Lakemba right now #martinplacesiege", 
             "points": [
                 {
@@ -2600,15 +2885,19 @@
                     "popularity": 75662
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544299406808584200, 
             "user": {
+                "verified": false, 
                 "screen_name": "cerenomri", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/465761108062523392/UiXKV85L_normal.jpeg", 
+                "followers_count": 6674, 
                 "id": 25692368, 
                 "name": "Omri Ceren"
-            }
+            }, 
+            "id": 544299406808584200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "@Channel9 Breen(?) just repeated speculation about alleged Lakemba raids, alleged devices etc. That is highly unethical #MartinPlaceSiege", 
             "points": [
                 {
@@ -2616,15 +2905,19 @@
                     "popularity": 258
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544299482557329400, 
             "user": {
+                "verified": false, 
                 "screen_name": "JimLittle1", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/1788040960/x2_aa5e3c0_normal", 
+                "followers_count": 258, 
                 "id": 365381134, 
                 "name": "Jim Little"
-            }
+            }, 
+            "id": 544299482557329400, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "#SydneyCBDHostageCrisis @ #lindt cafe. Gunmen has apparently said he has left 4 devices in and around Sydney. Arrests and raids in Lakemba", 
             "points": [
                 {
@@ -2632,15 +2925,19 @@
                     "popularity": 50
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544299494867619840, 
             "user": {
+                "verified": false, 
                 "screen_name": "SianYefet", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/501811658663006208/yhKghHLH_normal.jpeg", 
+                "followers_count": 50, 
                 "id": 598897494, 
                 "name": "SGS"
-            }
+            }, 
+            "id": 544299494867619840, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "RT 9NewsSyd: Raids occurring at Lakemba homes in south west Sydney. It's unknown if raids are related to siege underway in Sydney's CBD.", 
             "points": [
                 {
@@ -2648,15 +2945,19 @@
                     "popularity": 540
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544299524983103500, 
             "user": {
+                "verified": false, 
                 "screen_name": "NowMediaScott", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542407603637080064/Il8cweSt_normal.jpeg", 
+                "followers_count": 540, 
                 "id": 275765160, 
                 "name": "Now Media News"
-            }
+            }, 
+            "id": 544299524983103500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "Lakemba Mosque needs to to be shown the virtues of a good old fashioned Aussie BBQ  #sydneysiege", 
             "points": [
                 {
@@ -2668,15 +2969,19 @@
                     "popularity": 1808
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544299586618019840, 
             "user": {
+                "verified": false, 
                 "screen_name": "Vassa42", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/530079480002265089/J3V3AWiW_normal.jpeg", 
+                "followers_count": 1341, 
                 "id": 228924029, 
                 "name": "Team Australia- Bill"
-            }
+            }, 
+            "id": 544299586618019840, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT \u201c@ChrisGeorgak: #Campsie police confirm no raids are happening in #Lakemba. #sydneysiege\u201d", 
             "points": [
                 {
@@ -2688,15 +2993,19 @@
                     "popularity": 837
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544299589788905500, 
             "user": {
+                "verified": true, 
                 "screen_name": "jess_clement", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/536889522244423680/wWJtooSv_normal.jpeg", 
+                "followers_count": 824, 
                 "id": 17796830, 
                 "name": "Jessica Clement"
-            }
+            }, 
+            "id": 544299589788905500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "About 20 police are touring the Lakemba mosque as part of a police induction day - not a raid as has been reported #MartinPlaceSiege", 
             "points": [
                 {
@@ -2712,15 +3021,19 @@
                     "popularity": 2092
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544299594411036700, 
             "user": {
+                "verified": false, 
                 "screen_name": "Mildred_Co", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/443885091442266113/I2lvjxDi_normal.jpeg", 
+                "followers_count": 1204, 
                 "id": 1118527543, 
                 "name": "Mildred.Co"
-            }
+            }, 
+            "id": 544299594411036700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "JUST IN: Raids occurring at Lakemba homes in south west Sydney. It's unknown if raids are related to siege underway in Sydney's CBD. #9News", 
             "points": [
                 {
@@ -2736,15 +3049,19 @@
                     "popularity": 2049
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544299695385100300, 
             "user": {
+                "verified": false, 
                 "screen_name": "Callaicus", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/537256429720064001/3wO8EoHv_normal.jpeg", 
+                "followers_count": 911, 
                 "id": 63218040, 
                 "name": "Vasco"
-            }
+            }, 
+            "id": 544299695385100300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Uncodable", 
             "text": "Hay reportes de redadas policiales en Lakemba,en los suburbios de Sydney ubicado a 15 Km del centro de Syndey", 
             "points": [
                 {
@@ -2756,15 +3073,19 @@
                     "popularity": 8855
                 }
             ], 
-            "first_code": "Uncodable", 
-            "id": 544299835768451100, 
             "user": {
+                "verified": false, 
                 "screen_name": "taxicba", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2337716262/jsrhee7pqmxl85v5vbpf_normal.jpeg", 
+                "followers_count": 4372, 
                 "id": 444106180, 
                 "name": "TaxiCba \u00ae "
-            }
+            }, 
+            "id": 544299835768451100, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "JUST IN: Raids occurring at Lakemba homes in south west Sydney. It's unknown if raids are related to siege underway in Sydney's CBD. #9News", 
             "points": [
                 {
@@ -2772,15 +3093,19 @@
                     "popularity": 76
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544300123908341760, 
             "user": {
+                "verified": false, 
                 "screen_name": "o_rips", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/501108799277514752/6SshXw5j_normal.jpeg", 
+                "followers_count": 76, 
                 "id": 2740426550, 
                 "name": "o_rips"
-            }
+            }, 
+            "id": 544300123908341760, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @NewsOnTheMin: BREAKING NEWS: Australian Police are raiding several homes in Lakemba right now. #SydneySiege &lt;&lt; No, no they're not.", 
             "points": [
                 {
@@ -2788,15 +3113,19 @@
                     "popularity": 2781
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544300353714266100, 
             "user": {
+                "verified": false, 
                 "screen_name": "VS_", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000786837560/1eac197890558e854e8ff2204ab0f9f5_normal.jpeg", 
+                "followers_count": 2781, 
                 "id": 20494827, 
                 "name": "Saso Virag"
-            }
+            }, 
+            "id": 544300353714266100, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "@9NewsSyd @ChrisGeorgak: #Campsie police confirm no raids are happening in #Lakemba. #sydneysiege", 
             "points": [
                 {
@@ -2804,15 +3133,19 @@
                     "popularity": 110
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544300370260795400, 
             "user": {
+                "verified": false, 
                 "screen_name": "Mark_Knowfirst", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/1778844010/logo_normal.png", 
+                "followers_count": 110, 
                 "id": 469958169, 
                 "name": "Mark@Knowfirst"
-            }
+            }, 
+            "id": 544300370260795400, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Apparently about 20 police are touring Lakemba mosque as part of an induction day. May have sparked raid rumors http://t.co/1HKVhPi4NO", 
             "points": [
                 {
@@ -2824,15 +3157,19 @@
                     "popularity": 2902
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544300432730751000, 
             "user": {
+                "verified": false, 
                 "screen_name": "ValerioVeo", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/492981269072846849/Oy8_Kgam_normal.jpeg", 
+                "followers_count": 2220, 
                 "id": 6848772, 
                 "name": "Valerio Veo"
-            }
+            }, 
+            "id": 544300432730751000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Police &amp; local community sources have told me there are no raids taking place in Lakemba. #siege @abcnewsSydney @702sydney", 
             "points": [
                 {
@@ -3024,15 +3361,19 @@
                     "popularity": 102859
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544300755893497860, 
             "user": {
+                "verified": false, 
                 "screen_name": "Mo_Taha1", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/436057104244158464/3F-F7IVf_normal.png", 
+                "followers_count": 1643, 
                 "id": 514019413, 
                 "name": "Mohamed Taha"
-            }
+            }, 
+            "id": 544300755893497860, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Ray Hadley has made up info on - explosives around Sydney / raids in lakemba #sydneysiege #MartinPlace", 
             "points": [
                 {
@@ -3040,15 +3381,19 @@
                     "popularity": 83
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544300934759587840, 
             "user": {
+                "verified": false, 
                 "screen_name": "SophScoot", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/482080682735181824/pPhm7Zwh_normal.jpeg", 
+                "followers_count": 83, 
                 "id": 59089593, 
                 "name": "Sophie Scoot"
-            }
+            }, 
+            "id": 544300934759587840, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "#MartinPlace CNN reporting on raids in Lakemba this morning. Reports: a Sydney court heard of a Martin Place terror plot earlier this year.", 
             "points": [
                 {
@@ -3064,15 +3409,19 @@
                     "popularity": 6359
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544301030242934800, 
             "user": {
+                "verified": false, 
                 "screen_name": "AaronKernaghan", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/458757025871044608/x0fFVyJ9_normal.jpeg", 
+                "followers_count": 535, 
                 "id": 252452455, 
                 "name": "Kernaghan Associates"
-            }
+            }, 
+            "id": 544301030242934800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "I think some people are getting hardons that cops are raiding Lakemba #sydneysiege", 
             "points": [
                 {
@@ -3080,15 +3429,19 @@
                     "popularity": 49
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544301426646605800, 
             "user": {
+                "verified": false, 
                 "screen_name": "Rice__Cube", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542803577735892994/FOFWHQmz_normal.jpeg", 
+                "followers_count": 49, 
                 "id": 176706827, 
                 "name": "Naz Black"
-            }
+            }, 
+            "id": 544301426646605800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "JUST IN: Raids occurring at Lakemba homes in south west Sydney. It's unknown if raids are related to siege underway in Sydney's CBD. #g8m", 
             "points": [
                 {
@@ -3104,15 +3457,19 @@
                     "popularity": 11214
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544301557211078660, 
             "user": {
+                "verified": false, 
                 "screen_name": "terresamonroe", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/528287316503064577/J5wckuhJ_normal.jpeg", 
+                "followers_count": 9009, 
                 "id": 21582436, 
                 "name": "NoisyRoom"
-            }
+            }, 
+            "id": 544301557211078660, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "Reports police raiding addresses in Lakemba suggest hostage taker(s) possibly identified. Pic: David Gray for Reuters http://t.co/I5uH1Wbd4O", 
             "points": [
                 {
@@ -3120,15 +3477,19 @@
                     "popularity": 2683
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544301873264881660, 
             "user": {
+                "verified": false, 
                 "screen_name": "roddymansfield", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2876887695/9f8571391c94c07f30c91d39920eb51f_normal.png", 
+                "followers_count": 2683, 
                 "id": 353780204, 
                 "name": "Roddy Mansfield"
-            }
+            }, 
+            "id": 544301873264881660, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "#Australian #news #newsroom #breaking: JUST IN: Raids occurring at Lakemba homes in south west Sydney. It's unkn... http://t.co/CTG6exHWtk", 
             "points": [
                 {
@@ -3136,15 +3497,19 @@
                     "popularity": 364
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544302513907064800, 
             "user": {
+                "verified": false, 
                 "screen_name": "newsonaust", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/487881494384222208/HgmjyiUS_normal.png", 
+                "followers_count": 364, 
                 "id": 2373570728, 
                 "name": "Australian News"
-            }
+            }, 
+            "id": 544302513907064800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @RF_Jenkins: UPDATE #sydney #martinplace @2GB873 NSW Police confirm that there was NO raid of houses in Lakemba today.", 
             "points": [
                 {
@@ -3152,15 +3517,19 @@
                     "popularity": 1464
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544302705532239900, 
             "user": {
+                "verified": false, 
                 "screen_name": "wesleyapril", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/693433101/sacrifice_normal.jpg", 
+                "followers_count": 1464, 
                 "id": 19091128, 
                 "name": "Cal two"
-            }
+            }, 
+            "id": 544302705532239900, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "@JaneTribune Ray Hadley reports raids being carried out in Lakemba by NSW and AFP...but these are unconfirmed reports #RUOKRay #sydneysiege", 
             "points": [
                 {
@@ -3168,15 +3537,19 @@
                     "popularity": 1426
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544302984725688300, 
             "user": {
+                "verified": false, 
                 "screen_name": "bustersdah", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/3656689595/382c659b6e4d4e9023cc84af6056620b_normal.jpeg", 
+                "followers_count": 1426, 
                 "id": 93337348, 
                 "name": "Lee Skelton"
-            }
+            }, 
+            "id": 544302984725688300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#SydneySiege Predictable vendetta tweets on the Lakemba raids claim. We don't blame all Catholics for the IRA or white people for the KKK.", 
             "points": [
                 {
@@ -3188,15 +3561,19 @@
                     "popularity": 1575
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544303746688499700, 
             "user": {
+                "verified": false, 
                 "screen_name": "TallulahTangle", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/412498294066016256/feUlf1cI_normal.jpeg", 
+                "followers_count": 609, 
                 "id": 46376374, 
                 "name": "TallulahTangle"
-            }
+            }, 
+            "id": 544303746688499700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Idiotboy Ray Hadley thought 20 cops touring Lakemba Mosque was a raid. You stupid bastard. #sydneysiege", 
             "points": [
                 {
@@ -3208,15 +3585,19 @@
                     "popularity": 1433
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544303970500358140, 
             "user": {
+                "verified": false, 
                 "screen_name": "Nihilon45", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/544235918849081346/-lN8ukgW_normal.jpeg", 
+                "followers_count": 936, 
                 "id": 1573918574, 
                 "name": "LordSamidogOfMisrule"
-            }
+            }, 
+            "id": 544303970500358140, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "So apparently similar attacks are happening in Lakemba and possibly other parts of Sydney, channel 7 idk if it's true but I'm shit scared", 
             "points": [
                 {
@@ -3232,15 +3613,19 @@
                     "popularity": 1339
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544304305809813500, 
             "user": {
+                "verified": false, 
                 "screen_name": "Lina_Martinezz", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/461462911991287808/6KfOvXt3_normal.jpeg", 
+                "followers_count": 170, 
                 "id": 554279165, 
                 "name": "Lina Martinez"
-            }
+            }, 
+            "id": 544304305809813500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Affirm", 
             "text": "\"@7NewsSydney: Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/43hKD4gSNa\"", 
             "points": [
                 {
@@ -3248,15 +3633,19 @@
                     "popularity": 207
                 }
             ], 
-            "first_code": "Affirm", 
-            "id": 544305136072282100, 
             "user": {
+                "verified": false, 
                 "screen_name": "wildsushie", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/539803292599975936/RVtAKcoB_normal.jpeg", 
+                "followers_count": 207, 
                 "id": 248847685, 
                 "name": "Saroosh Abbasi"
-            }
+            }, 
+            "id": 544305136072282100, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "@hughriminton has confirmed there were no police raids in Lakemba #sydneysiege", 
             "points": [
                 {
@@ -3264,15 +3653,19 @@
                     "popularity": 651
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544305166443229200, 
             "user": {
+                "verified": false, 
                 "screen_name": "bdemy", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542313041467961344/yl7307N7_normal.jpeg", 
+                "followers_count": 651, 
                 "id": 22469584, 
                 "name": "Belinda Demy-Geroe"
-            }
+            }, 
+            "id": 544305166443229200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Uncodable", 
             "text": "geblek tuh teroris di Sydney. itu distrik Lakemba sama Tempe abis ini bisa aja diobrak abrik sama Federal Police. #SydneySiege", 
             "points": [
                 {
@@ -3280,15 +3673,19 @@
                     "popularity": 1033
                 }
             ], 
-            "first_code": "Uncodable", 
-            "id": 544305744586088450, 
             "user": {
+                "verified": false, 
                 "screen_name": "freydoh", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/503377806966128640/2Frt9Yzc_normal.jpeg", 
+                "followers_count": 1033, 
                 "id": 143704582, 
                 "name": "fr(y)dh \u2122"
-            }
+            }, 
+            "id": 544305744586088450, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "While Muslims pray for hostages in Lindt chocolate Cafe, Muslims are being rounded in Lakemba", 
             "points": [
                 {
@@ -3300,15 +3697,19 @@
                     "popularity": 2325
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544308031043817500, 
             "user": {
+                "verified": false, 
                 "screen_name": "australiwitness", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542903009403891712/FVDbSJf7_normal.jpeg", 
+                "followers_count": 1333, 
                 "id": 2835723169, 
                 "name": "Australian Witness"
-            }
+            }, 
+            "id": 544308031043817500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5012,15 +5413,19 @@
                     "popularity": 1787495
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544308531684335600, 
             "user": {
+                "verified": true, 
                 "screen_name": "AFPmedia", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/471880341741785088/QScc6ptz_normal.jpeg", 
+                "followers_count": 2569, 
                 "id": 1532402708, 
                 "name": "AFP National Media"
-            }
+            }, 
+            "id": 544308531684335600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5040,15 +5445,19 @@
                     "popularity": 11634
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544308638882758660, 
             "user": {
+                "verified": false, 
                 "screen_name": "Breaking3zero", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/500729325440618496/KGSi1bhd_normal.png", 
+                "followers_count": 7571, 
                 "id": 2730020462, 
                 "name": "Breaking 3.0"
-            }
+            }, 
+            "id": 544308638882758660, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.@SkyNewsAust", 
             "points": [
                 {
@@ -5080,15 +5489,19 @@
                     "popularity": 18826
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544308720256024600, 
             "user": {
+                "verified": false, 
                 "screen_name": "ljayes", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000229309670/570bc1d5bab03c5a125ab3c4aa2884df_normal.jpeg", 
+                "followers_count": 9464, 
                 "id": 17831767, 
                 "name": "Laura Jayes"
-            }
+            }, 
+            "id": 544308720256024600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5100,15 +5513,19 @@
                     "popularity": 16409
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544308811792543740, 
             "user": {
+                "verified": false, 
                 "screen_name": "AllMilitaryNews", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/475326661/flag-l_normal.jpg", 
+                "followers_count": 12274, 
                 "id": 82998105, 
                 "name": "Chris"
-            }
+            }, 
+            "id": 544308811792543740, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "@MariamVeiszadeh Where are all the Lakemba boys now? Still on their way in to town to help out?!?!   #sydneysiege", 
             "points": [
                 {
@@ -5116,15 +5533,19 @@
                     "popularity": 5
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544308880390385660, 
             "user": {
+                "verified": false, 
                 "screen_name": "silent_no_longr", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542819851496988673/3SpbbFYq_normal.jpeg", 
+                "followers_count": 5, 
                 "id": 2926217803, 
                 "name": "Silent Majority"
-            }
+            }, 
+            "id": 544308880390385660, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect. #MartinPlace #sydneysiege", 
             "points": [
                 {
@@ -5132,15 +5553,19 @@
                     "popularity": 509
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544308923813994500, 
             "user": {
+                "verified": false, 
                 "screen_name": "Jackitsdotcom", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/511493083137978368/fvk_C2bV_normal.jpeg", 
+                "followers_count": 509, 
                 "id": 14112718, 
                 "name": "Jack"
-            }
+            }, 
+            "id": 544308923813994500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "\"@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\" of course they are", 
             "points": [
                 {
@@ -5148,15 +5573,19 @@
                     "popularity": 396
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544309223102742500, 
             "user": {
+                "verified": false, 
                 "screen_name": "borganstein", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/514000732228296704/uoXQvs6P_normal.png", 
+                "followers_count": 396, 
                 "id": 31357439, 
                 "name": "Bj\u00f6rn"
-            }
+            }, 
+            "id": 544309223102742500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5164,15 +5593,19 @@
                     "popularity": 1
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544309647872520200, 
             "user": {
+                "verified": false, 
                 "screen_name": "newsnow2014", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/544294832177303552/GSt_dAkB_normal.jpeg", 
+                "followers_count": 1, 
                 "id": 2930356255, 
                 "name": "NEWS NOW 2014"
-            }
+            }, 
+            "id": 544309647872520200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#sydneysiege at Martin Place. RT @AFPmedia: Reports that AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5188,15 +5621,19 @@
                     "popularity": 9649
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544309800662626300, 
             "user": {
+                "verified": true, 
                 "screen_name": "MichaelSin_", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/3318438055/dfbd2acc0f26ee3e53db3cb5eb7558b5_normal.jpeg", 
+                "followers_count": 898, 
                 "id": 21640980, 
                 "name": "Michael Sin"
-            }
+            }, 
+            "id": 544309800662626300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @AFPmedia Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect. #Siege #HadleyFail", 
             "points": [
                 {
@@ -5204,15 +5641,19 @@
                     "popularity": 1418
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544310226619338750, 
             "user": {
+                "verified": false, 
                 "screen_name": "eithne52", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/462234276130349056/FAhoTHH__normal.jpeg", 
+                "followers_count": 1418, 
                 "id": 93102507, 
                 "name": "eithne"
-            }
+            }, 
+            "id": 544310226619338750, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "#MartinPlace waiting for protest Lakemba against these actions like protest against arrests of terrorists. Won't hold breath #banislam", 
             "points": [
                 {
@@ -5236,15 +5677,19 @@
                     "popularity": 9291
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544310797698994200, 
             "user": {
+                "verified": false, 
                 "screen_name": "ari_gold_99", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/3760600871/ed0a2f5cdb44b53e087f961857234f35_normal.jpeg", 
+                "followers_count": 115, 
                 "id": 352972680, 
                 "name": "ari_gold_99"
-            }
+            }, 
+            "id": 544310797698994200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @AFPmedia: \"Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\u201d", 
             "points": [
                 {
@@ -5252,15 +5697,19 @@
                     "popularity": 7026
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544310857362989060, 
             "user": {
+                "verified": false, 
                 "screen_name": "HeavenLeeOps", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/530101620407681024/dH4hVWeP_normal.jpeg", 
+                "followers_count": 7026, 
                 "id": 297106603, 
                 "name": "Dulce"
-            }
+            }, 
+            "id": 544310857362989060, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Uncodable", 
             "text": "AUSTRALIA: polic\u00eda desmiente que se est\u00e9 llevando a cabo registros en el suburbio de #Sydney, Lakemba por AFP - son inciertos", 
             "points": [
                 {
@@ -5268,15 +5717,19 @@
                     "popularity": 26549
                 }
             ], 
-            "first_code": "Uncodable", 
-            "id": 544310897003728900, 
             "user": {
+                "verified": false, 
                 "screen_name": "InfoEmerg", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/492442265730572288/hQ5pKoHd_normal.png", 
+                "followers_count": 26549, 
                 "id": 1087313888, 
                 "name": "InfoEmergencias"
-            }
+            }, 
+            "id": 544310897003728900, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Beware of misinformation \u201c@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\u201d", 
             "points": [
                 {
@@ -5284,15 +5737,19 @@
                     "popularity": 74
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544311087517032450, 
             "user": {
+                "verified": false, 
                 "screen_name": "lauraimurray", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/497373974200713216/xmAgCCxx_normal.jpeg", 
+                "followers_count": 74, 
                 "id": 303458826, 
                 "name": "Laura"
-            }
+            }, 
+            "id": 544311087517032450, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Rumors abound. #SydneySiege RT @AFPmedia Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5308,15 +5765,19 @@
                     "popularity": 117560
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544311275594186750, 
             "user": {
+                "verified": true, 
                 "screen_name": "acarvin", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/528555203360878592/RtBzJElP_normal.png", 
+                "followers_count": 105126, 
                 "id": 778057, 
                 "name": "Andy Carvin"
-            }
+            }, 
+            "id": 544311275594186750, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "Are there street parties in Lakemba celebrating the hostage taking", 
             "points": [
                 {
@@ -5328,15 +5789,19 @@
                     "popularity": 2223
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544311323798941700, 
             "user": {
+                "verified": false, 
                 "screen_name": "chalky021154", 
+                "profile_image_url": "http://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png", 
+                "followers_count": 834, 
                 "id": 90573567, 
                 "name": "chris"
-            }
+            }, 
+            "id": 544311323798941700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": ".@AFPmedia says police are NOT conducting search warrants in the Sydney suburb of Lakemba, contrary to reports", 
             "points": [
                 {
@@ -5344,15 +5809,19 @@
                     "popularity": 88
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544311363485462500, 
             "user": {
+                "verified": false, 
                 "screen_name": "EllaMareeAB", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/466029758602412032/fIEneyUa_normal.jpeg", 
+                "followers_count": 88, 
                 "id": 347713233, 
                 "name": "Ella Archibald-Binge"
-            }
+            }, 
+            "id": 544311363485462500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Quelle surprise! @GuardianAus reports no raids underway in Lakemba. Just cops touring for induction day. #hysteria #sydneysiege", 
             "points": [
                 {
@@ -5360,15 +5829,19 @@
                     "popularity": 49
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544311418917355500, 
             "user": {
+                "verified": false, 
                 "screen_name": "Rice__Cube", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542803577735892994/FOFWHQmz_normal.jpeg", 
+                "followers_count": 49, 
                 "id": 176706827, 
                 "name": "Naz Black"
-            }
+            }, 
+            "id": 544311418917355500, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT @9NewsSyd: Police say reports raids are being carried out in the #Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5384,15 +5857,19 @@
                     "popularity": 36157
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544311452517928960, 
             "user": {
+                "verified": false, 
                 "screen_name": "W7VOA", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/531405417851535360/FAI8O0wA_normal.jpeg", 
+                "followers_count": 34918, 
                 "id": 17919393, 
                 "name": "Steve Herman"
-            }
+            }, 
+            "id": 544311452517928960, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Uncodable", 
             "text": "AUSTRALIA: Polic\u00eda desmiente que se est\u00e9 llevando a cabo registros en el suburbio de #Sydney, Lakemba por AFP - son inciertos\"", 
             "points": [
                 {
@@ -5400,15 +5877,19 @@
                     "popularity": 101918
                 }
             ], 
-            "first_code": "Uncodable", 
-            "id": 544311473548587000, 
             "user": {
+                "verified": false, 
                 "screen_name": "hoy_mismo", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/511950836092514305/GuK-2JO6_normal.png", 
+                "followers_count": 101918, 
                 "id": 78416471, 
                 "name": "Noticiero Hoy Mismo"
-            }
+            }, 
+            "id": 544311473548587000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT W7VOA: RT 9NewsSyd: Police say reports raids are being carried out in the #Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5416,15 +5897,19 @@
                     "popularity": 541
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544311575554048000, 
             "user": {
+                "verified": false, 
                 "screen_name": "NowMediaScott", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542407603637080064/Il8cweSt_normal.jpeg", 
+                "followers_count": 541, 
                 "id": 275765160, 
                 "name": "Now Media News"
-            }
+            }, 
+            "id": 544311575554048000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "\"@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\" @telip1977", 
             "points": [
                 {
@@ -5432,15 +5917,19 @@
                     "popularity": 64
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544311818001207300, 
             "user": {
+                "verified": false, 
                 "screen_name": "dksreid", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/521262283830222850/p3-RS7G2_normal.jpeg", 
+                "followers_count": 64, 
                 "id": 715575432, 
                 "name": "Kim R"
-            }
+            }, 
+            "id": 544311818001207300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#Sydneysiege Police say reports raids are being carried out in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5456,15 +5945,19 @@
                     "popularity": 2862
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544311969470107650, 
             "user": {
+                "verified": false, 
                 "screen_name": "NewsOutback", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/524069303029477376/J7ag8W8L_normal.jpeg", 
+                "followers_count": 1005, 
                 "id": 2670408355, 
                 "name": "WORLD OUTBACK NEWS"
-            }
+            }, 
+            "id": 544311969470107650, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "@nswpolice say that reports of raids in Lakemba (Sydney's West) are untrue. #Sydneysiege see the dangers of speculation?", 
             "points": [
                 {
@@ -5472,15 +5965,19 @@
                     "popularity": 138
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544312097304096800, 
             "user": {
+                "verified": false, 
                 "screen_name": "Mitch_NAU", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/535181281865129984/KoKS-2DT_normal.png", 
+                "followers_count": 138, 
                 "id": 37891446, 
                 "name": "Mitchell N"
-            }
+            }, 
+            "id": 544312097304096800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Police say reports that raids are being carried out in the Sydney suburb of Lakemba are incorrect. #sydneyseige", 
             "points": [
                 {
@@ -5488,15 +5985,19 @@
                     "popularity": 1326
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544312218255233000, 
             "user": {
+                "verified": false, 
                 "screen_name": "mickeymadkid", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/429616167154491392/AOKJKKTt_normal.jpeg", 
+                "followers_count": 1326, 
                 "id": 112047917, 
                 "name": "Michael Angelo"
-            }
+            }, 
+            "id": 544312218255233000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "@AFPmedia @nswpolice A Shiite Muslim taxi driver tells me: \"lakemba mosque is the problem\" why do our politicians go brown nosing there?", 
             "points": [
                 {
@@ -5516,15 +6017,19 @@
                     "popularity": 6918
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544312458685337600, 
             "user": {
+                "verified": false, 
                 "screen_name": "MissOginy", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000332898717/885080f322ccdd7f3f3b74783133ae44_normal.png", 
+                "followers_count": 335, 
                 "id": 225970425, 
                 "name": "Rita"
-            }
+            }, 
+            "id": 544312458685337600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT \u201c@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\u201d", 
             "points": [
                 {
@@ -5540,15 +6045,19 @@
                     "popularity": 13559
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544313717018484740, 
             "user": {
+                "verified": false, 
                 "screen_name": "blastedsilver", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/533800853769957376/HZBHZ2k0_normal.jpeg", 
+                "followers_count": 9516, 
                 "id": 2502895924, 
                 "name": "JewishJihadi\u2122"
-            }
+            }, 
+            "id": 544313717018484740, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "The AFP have confirmed: NO raids in Lakemba. #sydneysiege", 
             "points": [
                 {
@@ -5664,15 +6173,19 @@
                     "popularity": 59160
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544313947902341100, 
             "user": {
+                "verified": false, 
                 "screen_name": "bkjabour", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/457143877925761024/_ODuJZkW_normal.jpeg", 
+                "followers_count": 8468, 
                 "id": 21744712, 
                 "name": "Bridie Jabour"
-            }
+            }, 
+            "id": 544313947902341100, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "RT\u201c@9NewsSyd: UPDATE: Police say reports raids are being carried out in the Sydney suburb of Lakemba are incorrect. #9News\u201d", 
             "points": [
                 {
@@ -5752,15 +6265,19 @@
                     "popularity": 168906
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544314184838565900, 
             "user": {
+                "verified": true, 
                 "screen_name": "Lisa_Wilkinson", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/1149042477/Lisa-2010_normal.JPG", 
+                "followers_count": 113883, 
                 "id": 205242337, 
                 "name": "Lisa Wilkinson"
-            }
+            }, 
+            "id": 544314184838565900, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "Waiting for George Brandis to announce our invasion of Lakemba. #sydneysiege", 
             "points": [
                 {
@@ -5768,15 +6285,19 @@
                     "popularity": 34
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544314212760039400, 
             "user": {
+                "verified": false, 
                 "screen_name": "SP74656", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/438871199557238784/00AoEVUC_normal.jpeg", 
+                "followers_count": 34, 
                 "id": 632801322, 
                 "name": "Simon Says"
-            }
+            }, 
+            "id": 544314212760039400, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "ATTN: Ray Hadley RT @bkjabour The AFP have confirmed: NO raids in Lakemba. #sydneysiege", 
             "points": [
                 {
@@ -5784,15 +6305,19 @@
                     "popularity": 844
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544314388472012800, 
             "user": {
+                "verified": false, 
                 "screen_name": "Brentus88", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/539225660082757632/pKYvaTzn_normal.jpeg", 
+                "followers_count": 844, 
                 "id": 420209564, 
                 "name": "Brent Davidson"
-            }
+            }, 
+            "id": 544314388472012800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "F%*k me, I tweeted this an hour ago rt  @adambrereton rt @bkjabour  The AFP have confirmed: NO raids in #Lakemba. #sydneysiege #auspol", 
             "points": [
                 {
@@ -5804,15 +6329,19 @@
                     "popularity": 1252
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544314466125365250, 
             "user": {
+                "verified": false, 
                 "screen_name": "Legible_M", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/524096501077663744/GTKr8WQJ_normal.jpeg", 
+                "followers_count": 752, 
                 "id": 63112335, 
                 "name": "Legible Muslim"
-            }
+            }, 
+            "id": 544314466125365250, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "Lets go fuck up Lakemba #sydneysiege", 
             "points": [
                 {
@@ -5820,15 +6349,19 @@
                     "popularity": 6
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544314541832941600, 
             "user": {
+                "verified": false, 
                 "screen_name": "sloppyschitz", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/516634591588024320/z_n0DwrI_normal.jpeg", 
+                "followers_count": 6, 
                 "id": 2637583187, 
                 "name": "\u13a0\u13a1 \u13d4\u13a7\u13e9"
-            }
+            }, 
+            "id": 544314541832941600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "Seriously? NOT what we need right now. \u201c@sloppyschitz: Lets go fuck up Lakemba #sydneysiege\u201d", 
             "points": [
                 {
@@ -5840,15 +6373,19 @@
                     "popularity": 4556
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544315260102901760, 
             "user": {
+                "verified": false, 
                 "screen_name": "HeyASIO", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/515363549539880960/sL4Dh3Eh_normal.jpeg", 
+                "followers_count": 3742, 
                 "id": 2832527047, 
                 "name": "ASIO"
-            }
+            }, 
+            "id": 544315260102901760, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "So, no Lakemba raids. Arrest not connected. Airspace not shut down. Bridge not closed. Just the facts with @bkjabour  http://t.co/TIsgo7V76a", 
             "points": [
                 {
@@ -5864,15 +6401,19 @@
                     "popularity": 3858
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544315309759660000, 
             "user": {
+                "verified": true, 
                 "screen_name": "mikewsc1", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2298643436/9s1cjpxugrtx5b7fk6fg_normal.jpeg", 
+                "followers_count": 732, 
                 "id": 338053001, 
                 "name": "Mike Ticher"
-            }
+            }, 
+            "id": 544315309759660000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "So much BS in these situations @AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5880,15 +6421,19 @@
                     "popularity": 194
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544315757543165950, 
             "user": {
+                "verified": false, 
                 "screen_name": "willie1foot", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/523278105800998912/mLV0uEUt_normal.jpeg", 
+                "followers_count": 194, 
                 "id": 289787164, 
                 "name": "Dumb (Shirt) Frunt"
-            }
+            }, 
+            "id": 544315757543165950, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "that's a criminal offence..  @HeyASIO: Seriously? NOT what we need right now. \u201c@sloppyschitz: Lets go fuck up Lakemba #sydneysiege\u201d", 
             "points": [
                 {
@@ -5896,15 +6441,19 @@
                     "popularity": 2189
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544316084497559550, 
             "user": {
+                "verified": false, 
                 "screen_name": "MarkRDuckett", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/539973442942939136/V-yVkZMh_normal.png", 
+                "followers_count": 2189, 
                 "id": 258289977, 
                 "name": "\u0442\u043e\u0432\u0430\u0440\u0438\u0449 Mark"
-            }
+            }, 
+            "id": 544316084497559550, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Ray Hadley wrong?? RT @AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.", 
             "points": [
                 {
@@ -5916,15 +6465,19 @@
                     "popularity": 3908
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544316446885437440, 
             "user": {
+                "verified": false, 
                 "screen_name": "andrewwhiteau", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/540834433935220738/7t3QGJF__normal.jpeg", 
+                "followers_count": 2484, 
                 "id": 129805651, 
                 "name": "Drew White Christmas"
-            }
+            }, 
+            "id": 544316446885437440, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "Burn the Lakemba Mosque to the fucking ground. We have tollerated those goat fucking savages for long enough #sydneysiege", 
             "points": [
                 {
@@ -5932,15 +6485,19 @@
                     "popularity": 7
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544317268360822800, 
             "user": {
+                "verified": false, 
                 "screen_name": "realtalk1488", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542197140911435776/pWkeGh7J_normal.jpeg", 
+                "followers_count": 7, 
                 "id": 2923460628, 
                 "name": "Marcus Johansson"
-            }
+            }, 
+            "id": 544317268360822800, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#australian #Federal #Police deny #Reports that they are #Conducting #Search #Warrants in #Lakemba, #Sydney, ... http://t.co/rl76VVsuBw", 
             "points": [
                 {
@@ -5948,15 +6505,19 @@
                     "popularity": 172
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544320797452808200, 
             "user": {
+                "verified": false, 
                 "screen_name": "newzlasz", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/447335443277684736/s0KjLk_a_normal.png", 
+                "followers_count": 172, 
                 "id": 2403126061, 
                 "name": "Sylps"
-            }
+            }, 
+            "id": 544320797452808200, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid hostage... http://t.co/0CFJv3CCTx", 
             "points": [
                 {
@@ -5964,15 +6525,19 @@
                     "popularity": 131
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544320862011555840, 
             "user": {
+                "verified": false, 
                 "screen_name": "GaboMataGuzman", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/528274808593608705/9xdhkh7F_normal.jpeg", 
+                "followers_count": 131, 
                 "id": 2242439771, 
                 "name": "Gabriel"
-            }
+            }, 
+            "id": 544320862011555840, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid hostage situation - @AFPmedia ...", 
             "points": [
                 {
@@ -5980,15 +6545,19 @@
                     "popularity": 3946
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544321085102391300, 
             "user": {
+                "verified": false, 
                 "screen_name": "STERLINGMHOLMES", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/538778796317368320/fOqZHkkh_normal.png", 
+                "followers_count": 3946, 
                 "id": 153876973, 
                 "name": "Sterling Holmes"
-            }
+            }, 
+            "id": 544321085102391300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#BREAKING: Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid #sydneysiege (#UNFNEWS)", 
             "points": [
                 {
@@ -6000,15 +6569,19 @@
                     "popularity": 2201
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544321203545325600, 
             "user": {
+                "verified": false, 
                 "screen_name": "KyleMazzaWUNF", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/542415824305131520/ye3bJBNq_normal.jpeg", 
+                "followers_count": 1630, 
                 "id": 2762583461, 
                 "name": "Kyle Mazza"
-            }
+            }, 
+            "id": 544321203545325600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#BREAKING: Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid #sydneysiege (#UNFNEWS)", 
             "points": [
                 {
@@ -6020,15 +6593,19 @@
                     "popularity": 1093
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544321203620818940, 
             "user": {
+                "verified": false, 
                 "screen_name": "WUNFNews", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/516717468891762688/MyPvRDAn_normal.jpeg", 
+                "followers_count": 522, 
                 "id": 2217671741, 
                 "name": "WUNFNews"
-            }
+            }, 
+            "id": 544321203620818940, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#BREAKING: Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid #sydneysiege (#UNFNEWS)", 
             "points": [
                 {
@@ -6040,15 +6617,19 @@
                     "popularity": 1308
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544321203658567700, 
             "user": {
+                "verified": false, 
                 "screen_name": "WUNFMorningShow", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/517156612814176256/JsU0NJxL_normal.jpeg", 
+                "followers_count": 737, 
                 "id": 2632367524, 
                 "name": "The WUNF MorningShow"
-            }
+            }, 
+            "id": 544321203658567700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#BREAKING: Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid #sydneysiege (#UNFNEWS)", 
             "points": [
                 {
@@ -6060,15 +6641,19 @@
                     "popularity": 665
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544321203696324600, 
             "user": {
+                "verified": false, 
                 "screen_name": "DMarainWUNF", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/516717620448755712/rlps32-Z_normal.jpeg", 
+                "followers_count": 94, 
                 "id": 2790113939, 
                 "name": "Denise Marain"
-            }
+            }, 
+            "id": 544321203696324600, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid hostage... http://t.co/WwcO1vJ6Vy", 
             "points": [
                 {
@@ -6076,15 +6661,19 @@
                     "popularity": 408
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544321758611111940, 
             "user": {
+                "verified": false, 
                 "screen_name": "newsjunkieswmo", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/482909951497490432/yvkO34Ye_normal.jpeg", 
+                "followers_count": 408, 
                 "id": 2593165068, 
                 "name": "News Junkie"
-            }
+            }, 
+            "id": 544321758611111940, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid hostage situation - @AFPmedia", 
             "points": [
                 {
@@ -6092,15 +6681,19 @@
                     "popularity": 23
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544322203031179260, 
             "user": {
+                "verified": false, 
                 "screen_name": "ChetBot", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/512672425025085440/HOir80ET_normal.jpeg", 
+                "followers_count": 23, 
                 "id": 2815553720, 
                 "name": "Chet Huntley"
-            }
+            }, 
+            "id": 544322203031179260, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid hostage... http://t.co/MFBouGvjB0", 
             "points": [
                 {
@@ -6108,15 +6701,19 @@
                     "popularity": 19575
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544322377719742460, 
             "user": {
+                "verified": false, 
                 "screen_name": "SavageNation", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/126588932/savage_nation_normal.jpg", 
+                "followers_count": 19575, 
                 "id": 27404671, 
                 "name": "SavageNation"
-            }
+            }, 
+            "id": 544322377719742460, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "ALERT: Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid hostage situation - AFPme...", 
             "points": [
                 {
@@ -6124,15 +6721,19 @@
                     "popularity": 206
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544322400519979000, 
             "user": {
+                "verified": false, 
                 "screen_name": "minewsplace", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/470339647231381504/HbH5YKEb_normal.jpeg", 
+                "followers_count": 206, 
                 "id": 2521522134, 
                 "name": "MI News Place"
-            }
+            }, 
+            "id": 544322400519979000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Australian Federal Police deny reports they are conducting search warrants in Lakemba, Sydney amid hostage situation  http://t.co/sBHFAEFXR4", 
             "points": [
                 {
@@ -6140,15 +6741,19 @@
                     "popularity": 5872
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544322665474195460, 
             "user": {
+                "verified": false, 
                 "screen_name": "TheChalkOutline", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2640078606/f5c8124a8f83cdbb4dddcd08adca98b3_normal.jpeg", 
+                "followers_count": 5872, 
                 "id": 24122822, 
                 "name": "Scott Schwebke"
-            }
+            }, 
+            "id": 544322665474195460, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid hostage situation - @AFPmedia", 
             "points": [
                 {
@@ -6156,15 +6761,19 @@
                     "popularity": 3414
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544323102797086700, 
             "user": {
+                "verified": false, 
                 "screen_name": "miliowebid", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/509543935975243776/rzqrWheJ_normal.png", 
+                "followers_count": 3414, 
                 "id": 219915030, 
                 "name": "milio.web.id"
-            }
+            }, 
+            "id": 544323102797086700, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "\u201c@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\u201d @theelaminator nah it's ok", 
             "points": [
                 {
@@ -6172,15 +6781,19 @@
                     "popularity": 191
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544324401806577660, 
             "user": {
+                "verified": false, 
                 "screen_name": "jessieeen", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/514655957821833216/y2tgaww5_normal.jpeg", 
+                "followers_count": 191, 
                 "id": 335116806, 
                 "name": "Jessie"
-            }
+            }, 
+            "id": 544324401806577660, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "\u201c@PMOnAir: SCIPIONE: The raids in Lakemba are not linked to cafe siege.#sydsiege #MartinPlaceSiege\u201d &gt; just a mosque visit hey @bkjabour", 
             "points": [
                 {
@@ -6188,15 +6801,19 @@
                     "popularity": 113
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544327181275394050, 
             "user": {
+                "verified": false, 
                 "screen_name": "MareeKLM", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/465429474742243328/mqLX20wz_normal.jpeg", 
+                "followers_count": 113, 
                 "id": 1141446830, 
                 "name": "**mlm**"
-            }
+            }, 
+            "id": 544327181275394050, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "Lakemba &amp; parramatta n all parts of Australia  ..let's show unity with this  Sydney  seige #peace #love #kindness #unity will drive out hate", 
             "points": [
                 {
@@ -6208,15 +6825,19 @@
                     "popularity": 781
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544327252033273860, 
             "user": {
+                "verified": false, 
                 "screen_name": "Glittermegangel", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/544018694297235456/oWy0jc4L_normal.jpeg", 
+                "followers_count": 372, 
                 "id": 29198219, 
                 "name": "Meg Louise Angel "
-            }
+            }, 
+            "id": 544327252033273860, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Unrelated", 
             "text": "@saraham77 @AFPmedia @nswpolice it's not Lakemba - it's Punchbowl", 
             "points": [
                 {
@@ -6224,15 +6845,19 @@
                     "popularity": 853
                 }
             ], 
-            "first_code": "Unrelated", 
-            "id": 544327564362125300, 
             "user": {
+                "verified": false, 
                 "screen_name": "mickymantell", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000231147492/93599159d5f723c05fe1296f64165f82_normal.jpeg", 
+                "followers_count": 853, 
                 "id": 455699956, 
                 "name": "Micky Mantell"
-            }
+            }, 
+            "id": 544327564362125300, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "So most reporting this am was false: no connection with arrest of man at Beecroft, no ISIS flag, no airspace closure, no raids in Lakemba", 
             "points": [
                 {
@@ -6240,15 +6865,19 @@
                     "popularity": 227
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544329545956864000, 
             "user": {
+                "verified": false, 
                 "screen_name": "jockarooo", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/538998447785791488/LZxIOShl_normal.jpeg", 
+                "followers_count": 227, 
                 "id": 171850291, 
                 "name": "Linda"
-            }
+            }, 
+            "id": 544329545956864000, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "#Australian Federal Police deny reports that they are conducting search warrants in Lakemba, Sydney, amid hostag... http://t.co/vhOvfYuZv9", 
             "points": [
                 {
@@ -6256,15 +6885,19 @@
                     "popularity": 328
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544330146304786400, 
             "user": {
+                "verified": false, 
                 "screen_name": "757LiveWorld", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/531826175099023364/eGdDkGrH_normal.jpeg", 
+                "followers_count": 328, 
                 "id": 1317792486, 
                 "name": "757Live World"
-            }
+            }, 
+            "id": 544330146304786400, 
+            "favorite_count": 0
         }, 
         {
+            "first_code": "Deny", 
             "text": "Also on NSW police twitter feed it said \"that AFP is conducting search warrants in the Sydney suburb of Lakemba are INCORRECT\" ...cont&gt;1/2", 
             "points": [
                 {
@@ -6272,13 +6905,16 @@
                     "popularity": 1312
                 }
             ], 
-            "first_code": "Deny", 
-            "id": 544330797516214300, 
             "user": {
+                "verified": false, 
                 "screen_name": "OrBVIOUS66", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/3154220822/e53d44eacddbcaf127c614faa24045a0_normal.jpeg", 
+                "followers_count": 1312, 
                 "id": 204043844, 
                 "name": "El Guapo Plethora"
-            }
+            }, 
+            "id": 544330797516214300, 
+            "favorite_count": 0
         }
     ]
 }

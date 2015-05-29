@@ -1,10 +1,26 @@
+/* PARAMS
+----------------------------------------*/
+
+$primary-color: #00B7FF;
+$link-color: #777;
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: $link-color;
+  cursor: pointer;
+}
+
+/* MIXINS
+----------------------------------------*/
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
 }
 
 
@@ -93,17 +109,14 @@ a {
 		font: 12px sans-serif;
 		display: block;
 	}
-
 	.svgContainer {
 		overflow: scroll;
 	}
-
 	.controls {
 		position: absolute;
 		top: 20px;
 		left: 100px;
 	}
-
 	.axis path,
 	.axis line {
 	    fill: none;
@@ -112,17 +125,6 @@ a {
 	}
 	.voronoi path {
 	  fill: none;
-	}
-	.clock rect {
-		fill: none;
-		stroke: #bbb;
-	}
-	.clock line {
-		stroke: #bbb;
-		stroke-width: 1;
-	}
-	.clock text {
-		fill: #333;
 	}
 	.tweet-hover {
 	    stroke-width: 4;
@@ -148,7 +150,7 @@ a {
 #leaderboard {
 	position: relative;
 	width: 100%;
-	height: 280px;
+	height: 350px;
 	background-color: #eee;
 	margin-bottom: 20px;
 }
@@ -156,11 +158,40 @@ a {
 /* TWEETLIST
 ----------------------------------------*/
 
-#tweetlist {
+#tweetview {
 	position: relative;
 	width: 100%;
-	height: 300px;
-	background-color: #eee;
+	height: 250px;
+	padding: 18px 10px 10px 75px;
+	background-color: #F7F7F7;
+
+	.username {
+		display: inline;
+		font-size: 16px;
+	}
+	.time {
+		font-size: 12px;
+	}
+	.avatar {
+		position: absolute;
+		width: 48px;
+		height: 48px;
+		top: 20px;
+		left: 15px;
+		background-size: cover;
+		background-position: center;
+		@include border-radius(5px);
+		border: 1px solid #aaa;
+	}
+	.verified {
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		top: 15px;
+		left: 56px;
+		background-color: $primary-color;
+		@include border-radius(7px);
+	}
 }
 
 /* SCRATCH -- only for development
@@ -169,7 +200,6 @@ a {
 .bg-text {
     background-color: #aaa;
     overflow: hidden;
-    padding: 20px 20px 100px 20px;
     position: relative;
     width: 400px;
 }
