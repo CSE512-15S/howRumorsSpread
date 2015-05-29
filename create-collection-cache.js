@@ -14,7 +14,16 @@ var DBServer = new Server('localhost', 27017),
     databaseName = (commandLineArgs.length == 2) ? commandLineArgs[1] : 'sydneysiege',
     collectionName = commandLineArgs[0],
     db = new DB(databaseName, DBServer),
-    timeBins = ['millisecond', 'second', 'minute'];
+    timeBins = ['millisecond', 'second', 'minute'],
+    timestampThresholds = {
+      'lakemba' : [0, 1418613549962],
+      // TODO: Compute actual thresholds for other collections
+      'airspace' : [0, 1432849717000],
+      'suicide' : [0, 1432849717000],
+      'hadley': [0, 1432849717000],
+      'flag': [0, 1432849717000],
+      'airspace': [0, 1432849717000]
+    };
 
 
 // First perform aggregation
@@ -57,6 +66,9 @@ function projectAndAggregate(db, collectionName, cb) {
         'codes.rumor' : collectionName,
         'codes.first_code' : {
           '$in' : ['Neutral', 'Affirm', 'Deny']
+        },
+        'timestamp_ms' : {
+          '$lte' : timestampThresholds[collectionName][1]
         }
       }}, projection1,
       {'$out' : 'collection-projected'}
@@ -68,11 +80,9 @@ function projectAndAggregate(db, collectionName, cb) {
       }
       createCache(db, collectionName, 'raw.json');
 
-      // fixDocumentFieldTypes(function() {
       timeBins.forEach(function(bin) {
         volumeProjections(bin);
       });
-      // })
     });
   }
 

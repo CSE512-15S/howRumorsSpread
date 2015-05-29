@@ -1,12 +1,11 @@
-
-
 var $ = require('jquery');
     global.jQuery = $; 
     bootstrap = require('bootstrap'),
     _ = require('underscore'),
     ko = require('knockout'),
     spaghetti = require('./spaghetti.js'),
-    stream = require('./stream.js');
+    stream = require('./stream.js'),
+    legend = require('./legend.js');
 
 function MainViewModel() {
   var self = this;
@@ -23,24 +22,43 @@ function MainViewModel() {
   }
 
   self.currentTime = 0;
-  function setCurrentTime(currentTime) {
+  self.setCurrentTime = function (currentTime) {
     self.currentTime = currentTime;
     // TO DO
     // - trigger change of scanlines in spaghetti / stream
     // - update leaderboards and tweetviews
   }
+
+  self.updateViewPort = function (bounds) {
+    console.log('Updating viewport with bounds: ', bounds);
+    spaghetti.updateXScale(bounds);
+  }
+
+  // Shared color scale for graphics
+  self.colorScale = d3.scale.ordinal()
+   .domain(["Affirm", "Deny", "Unrelated", "Neutral"])
+   .range(['rgb(123,50,148)','rgb(166,219,160)', 'rgb(194,165,207)', 'rgb(0,136,55)']);
+
+  self.getColorScale = function() {
+    return self.colorScale;
+  }
 }
 
+
 $(document).ready(function() {
+  mainViewModel = new MainViewModel();
+
   if($('#spaghetti').length !== 0) {
-    spaghetti.init();
+    spaghetti.init(mainViewModel);
   }
 
   if($('#stream').length !== 0) {
-    stream();
+    stream(mainViewModel);
+  }
+
+  if($('#legend').length !== 0) {
+    legend(mainViewModel);
   }
   
-  mainViewModel = new MainViewModel();
-
   ko.applyBindings(mainViewModel);
 });
