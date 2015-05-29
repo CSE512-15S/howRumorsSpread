@@ -31,8 +31,9 @@ function MainViewModel() {
   }
 
   self.updateViewPort = function (bounds) {
-    console.log('Updating viewport with bounds: ', bounds);
+    console.log('Updating charts with bounds: ', bounds);
     spaghetti.updateXScale(bounds);
+    leaderboard.updateBounds(bounds);
   }
 
   // Shared color scale for graphics

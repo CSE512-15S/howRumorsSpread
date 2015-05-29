@@ -18,10 +18,6 @@ var Spaghetti = function() {
 		yScale = { linear: d3.scale.linear(),
 				   log: d3.scale.log() };
 
-	// var linecolor = d3.scale.ordinal()
-	// 	.domain(["Affirm", "Deny", "Unrelated"])
-	// 	.range(["#2c7fb8", "#c51b8a", "#bdbdbd"]);
-
 	var line = {};
 	line.linear = d3.svg.line()
 		.x(function(d) { return xScale(d.timestamp); })
