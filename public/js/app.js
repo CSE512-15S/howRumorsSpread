@@ -22,16 +22,8 @@ function MainViewModel() {
     });
   }
 
-  self.currentTime = 0;
-  self.setCurrentTime = function (currentTime) {
-    self.currentTime = currentTime;
-    // TO DO
-    // - trigger change of scanlines in spaghetti / stream
-    // - update leaderboards and tweetviews
-  }
-
   self.updateViewPort = function (bounds) {
-    // console.log('Updating charts with bounds: ', bounds);
+    console.log('Updating charts with bounds: ', bounds);
     spaghetti.updateXScale(bounds);
     leaderboard.updateBounds(bounds);
   }
