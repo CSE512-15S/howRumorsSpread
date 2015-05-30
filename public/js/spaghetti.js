@@ -99,7 +99,7 @@ var Voronoi = function() {
 	var voronoiFunction = d3.geom.voronoi()
 		.x(function(d) { return xScale(d.timestamp); })
 		.y(function(d) { return yScale(d.popularity); })
-		.clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
+		.clipExtent([[0, 0], [width, height]]);
 
 	var voronoi = function(selection) {
 		selection.each(function(data) { 
