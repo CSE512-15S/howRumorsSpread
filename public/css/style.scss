@@ -123,9 +123,10 @@ a {
 	    stroke: #888;
 	    shape-rendering: crispEdges;
 	}
-	.voronoi.linear path {
-	  stroke: grey;
-	  stroke-width:0.2;
+	.axis rect {
+		fill: #fff;
+	}
+	.voronoi path {
 	  fill: none;
 	}
 	.tweet-hover {

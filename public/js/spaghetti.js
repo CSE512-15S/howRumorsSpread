@@ -157,15 +157,18 @@ var init = function(model) {
 
 	// General setup
 	svg.append("g")
+		.attr("class", "tweets");
+
+	svg.append("g")
 		.attr("class", "y axis")
-		.attr("transform", "translate(-10,0)");
+		.attr("transform", "translate(-10,0)")
+	  .append("rect")
+	  	.attr("width", margin.left).attr("height", (height + margin.bottom))
+	  	.attr("transform", "translate(" + -margin.left + ",0)");
 
 	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0,"+(height+10)+")");
-
-	svg.append("g")
-		.attr("class", "tweets");
 
 	svg.on("mousemove", mousemoveSVG);
 
@@ -270,6 +273,7 @@ var init = function(model) {
 		// Set pointer events
 		voronoiGroup.linear.selectAll("path").attr("pointer-events", "all");
 		voronoiGroup.log.selectAll("path").attr("pointer-events", "none");
+
 	});
 };
 

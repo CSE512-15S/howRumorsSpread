@@ -76,9 +76,9 @@ a {
     fill: none;
     stroke: #888;
     shape-rendering: crispEdges; }
-  #spaghetti .voronoi.linear path {
-    stroke: grey;
-    stroke-width: 0.2;
+  #spaghetti .axis rect {
+    fill: #fff; }
+  #spaghetti .voronoi path {
     fill: none; }
   #spaghetti .tweet-hover {
     stroke-width: 4; }
