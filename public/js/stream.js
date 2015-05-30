@@ -35,6 +35,7 @@ var StreamGraph = function(mainViewModel) {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     })
                     .on('brushend', function() {
+                      console.log("brushend");
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
 

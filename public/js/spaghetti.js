@@ -279,14 +279,14 @@ var updateXScale = function(domain) {
 		domain = xBounds;
 	}
 
-	var translate_x = -xScale(domain[0]); // Need to get translation before domain update
+	var translate_x = (domain[0] - xBounds[0]) / (xBounds[0] - xBounds[1]); // Need to get translation before domain update
 	xScale.domain(domain);
 	dataTweets.call(spaghetti);
     d3.select('.x.axis').call(xAxis);
 
-    // TO DO: Rescale voronoi diagrams
+    // Rescale voronoi diagrams
     var scale_x = (xBounds[1] - xBounds[0]) / (domain[1] - domain[0]);
-    translate_x = translate_x * scale_x;
+    translate_x = translate_x * width * scale_x;
     var matrix = "matrix(" + scale_x + ",0,0,1," + translate_x + ",0)";
     voronoiGroup.linear.attr("transform", matrix);
     voronoiGroup.log.attr("transform", matrix);

@@ -15,6 +15,5 @@ var LeaderBoard = function (mainViewModel) {
   };
 };
 
-exports.LeaderBoard = LeaderBoard;
-exports.updateBounds = LeaderBoard.updateBounds;
-module.exports = exports;
+
+module.exports = LeaderBoard;
