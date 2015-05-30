@@ -31,7 +31,7 @@ function MainViewModel() {
   }
 
   self.updateViewPort = function (bounds) {
-    console.log('Updating charts with bounds: ', bounds);
+    // console.log('Updating charts with bounds: ', bounds);
     spaghetti.updateXScale(bounds);
     leaderboard.updateBounds(bounds);
   }
