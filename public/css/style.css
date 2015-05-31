@@ -104,17 +104,15 @@ a {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%); }
   #tweetview .verified {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    top: 15px;
-    left: 56px;
-    background-color: #00B7FF;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    border-radius: 7px;
-    z-index: 150; }
+    display: inline-block;
+    width: 18px;
+    height: 16px;
+    margin-left: 3px;
+    line-height: -10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/verified.png'); }
 
 /* SCRATCH -- only for development
 ----------------------------------------*/
