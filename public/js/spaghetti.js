@@ -99,7 +99,7 @@ var Voronoi = function() {
 	var voronoiFunction = d3.geom.voronoi()
 		.x(function(d) { return xScale(d.timestamp); })
 		.y(function(d) { return yScale(d.popularity); })
-		.clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
+		.clipExtent([[0, 0], [width, height]]);
 
 	var voronoi = function(selection) {
 		selection.each(function(data) { 
@@ -157,15 +157,18 @@ var init = function(model) {
 
 	// General setup
 	svg.append("g")
+		.attr("class", "tweets");
+
+	svg.append("g")
 		.attr("class", "y axis")
-		.attr("transform", "translate(-10,0)");
+		.attr("transform", "translate(-10,0)")
+	  .append("rect")
+	  	.attr("width", margin.left).attr("height", (height + margin.bottom))
+	  	.attr("transform", "translate(" + -margin.left + ",0)");
 
 	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0,"+(height+10)+")");
-
-	svg.append("g")
-		.attr("class", "tweets");
 
 	svg.on("mousemove", mousemoveSVG);
 
@@ -173,7 +176,7 @@ var init = function(model) {
 	tweetview.username = d3.select('#tweetview .username');
 	tweetview.screenname = d3.select('#tweetview .screenname');
 	tweetview.time = d3.select('#tweetview .time');
-	tweetview.avatar = d3.select('#tweetview .avatar');
+	tweetview.avatar = d3.select('#tweetview .avatar-custom');
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
 
@@ -270,6 +273,7 @@ var init = function(model) {
 		// Set pointer events
 		voronoiGroup.linear.selectAll("path").attr("pointer-events", "all");
 		voronoiGroup.log.selectAll("path").attr("pointer-events", "none");
+
 	});
 };
 
@@ -279,14 +283,14 @@ var updateXBounds = function(domain) {
 		domain = xBounds;
 	}
 
-	var translate_x = -xScale(domain[0]); // Need to get translation before domain update
+	var translate_x = (domain[0] - xBounds[0]) / (xBounds[0] - xBounds[1]); // Need to get translation before domain update
 	xScale.domain(domain);
 	dataTweets.call(spaghetti);
     d3.select('.x.axis').call(xAxis);
 
-    // TO DO: Rescale voronoi diagrams
+    // Rescale voronoi diagrams
     var scale_x = (xBounds[1] - xBounds[0]) / (domain[1] - domain[0]);
-    translate_x = translate_x * scale_x;
+    translate_x = translate_x * width * scale_x;
     var matrix = "matrix(" + scale_x + ",0,0,1," + translate_x + ",0)";
     voronoiGroup.linear.attr("transform", matrix);
     voronoiGroup.log.attr("transform", matrix);

@@ -33,6 +33,9 @@ var StreamGraph = function(mainViewModel) {
                     .x(xScale)
                     .on('brush', function() {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                    })
+                    .on('brushend', function() {
+                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
 
   svg.append('g')

@@ -23,14 +23,6 @@ function MainViewModel() {
     });
   }
 
-  self.currentTime = 0;
-  self.setCurrentTime = function (currentTime) {
-    self.currentTime = currentTime;
-    // TO DO
-    // - trigger change of scanlines in spaghetti / stream
-    // - update leaderboards and tweetviews
-  }
-
   self.updateViewPort = function (bounds) {
     spaghetti.updateXBounds(bounds);
     leaderboard.updateXBounds(bounds);
@@ -45,7 +37,6 @@ function MainViewModel() {
     return self.colorScale;
   }
 }
-
 
 $(document).ready(function() {
   mainViewModel = new MainViewModel();

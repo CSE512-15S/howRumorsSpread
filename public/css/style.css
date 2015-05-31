@@ -22,22 +22,16 @@ a {
     overflow: scroll; }
   #spaghetti .controls {
     position: absolute;
-    top: 10px;
+    top: 20px;
     left: 100px; }
   #spaghetti .axis path, #spaghetti .axis line {
     fill: none;
     stroke: #888;
     shape-rendering: crispEdges; }
+  #spaghetti .axis rect {
+    fill: #fff; }
   #spaghetti .voronoi path {
     fill: none; }
-  #spaghetti .clock rect {
-    fill: none;
-    stroke: #bbb; }
-  #spaghetti .clock line {
-    stroke: #bbb;
-    stroke-width: 1; }
-  #spaghetti .clock text {
-    fill: #333; }
   #spaghetti .tweet-hover {
     stroke-width: 4; }
 
@@ -58,29 +52,6 @@ a {
       fill: #000;
       fill-opacity: 0.2; }
 
-/* SPAGHETTI
-----------------------------------------*/
-#spaghetti {
-  position: relative; }
-  #spaghetti svg {
-    margin: 0 auto;
-    font: 12px sans-serif;
-    display: block; }
-  #spaghetti .svgContainer {
-    overflow: scroll; }
-  #spaghetti .controls {
-    position: absolute;
-    top: 20px;
-    left: 100px; }
-  #spaghetti .axis path, #spaghetti .axis line {
-    fill: none;
-    stroke: #888;
-    shape-rendering: crispEdges; }
-  #spaghetti .voronoi path {
-    fill: none; }
-  #spaghetti .tweet-hover {
-    stroke-width: 4; }
-
 /* LEGEND
 ----------------------------------------*/
 #legend {
@@ -98,7 +69,7 @@ a {
   background-color: #eee;
   margin-bottom: 20px; }
 
-/* TWEETLIST
+/* TWEETVIEW
 ----------------------------------------*/
 #tweetview {
   position: relative;
@@ -124,6 +95,11 @@ a {
     -ms-border-radius: 5px;
     border-radius: 5px;
     border: 1px solid #aaa; }
+  #tweetview .avatar-default {
+    z-index: 0;
+    background-image: url('http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png'); }
+  #tweetview .avatar-custom {
+    z-index: 100; }
   #tweetview .verified {
     position: absolute;
     width: 14px;
@@ -134,7 +110,8 @@ a {
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
-    border-radius: 7px; }
+    border-radius: 7px;
+    z-index: 150; }
 
 /* SCRATCH -- only for development
 ----------------------------------------*/
