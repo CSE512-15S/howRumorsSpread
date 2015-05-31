@@ -176,7 +176,7 @@ var init = function(model) {
 	tweetview.username = d3.select('#tweetview .username');
 	tweetview.screenname = d3.select('#tweetview .screenname');
 	tweetview.time = d3.select('#tweetview .time');
-	tweetview.avatar = d3.select('#tweetview .avatar');
+	tweetview.avatar = d3.select('#tweetview .avatar-custom');
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
 

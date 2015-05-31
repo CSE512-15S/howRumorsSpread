@@ -38,7 +38,6 @@ function MainViewModel() {
   }
 }
 
-
 $(document).ready(function() {
   mainViewModel = new MainViewModel();
 
