@@ -1,12 +1,13 @@
 var $ = require('jquery');
-    global.jQuery = $; 
+    global.jQuery = $,
+    d3 = require('d3'),
     bootstrap = require('bootstrap'),
     _ = require('underscore'),
     ko = require('knockout'),
-    spaghetti = require('./spaghetti.js'),
-    stream = require('./stream.js'),
-    legend = require('./legend.js'),
-    leaderboard = require('./leaderboard.js');
+    spaghetti = null,
+    stream = null,
+    legend = null,
+    leaderboard = null;
 
 function MainViewModel() {
   var self = this;
@@ -31,9 +32,8 @@ function MainViewModel() {
   }
 
   self.updateViewPort = function (bounds) {
-    console.log('Updating charts with bounds: ', bounds);
-    spaghetti.updateXScale(bounds);
-    leaderboard.updateBounds(bounds);
+    spaghetti.updateXBounds(bounds);
+    leaderboard.updateXBounds(bounds);
   }
 
   // Shared color scale for graphics
@@ -51,16 +51,17 @@ $(document).ready(function() {
   mainViewModel = new MainViewModel();
 
   if($('#spaghetti').length !== 0) {
+    spaghetti = require('./spaghetti.js');
     spaghetti.init(mainViewModel);
   }
   if($('#stream').length !== 0) {
-    stream(mainViewModel);
+    stream = require('./stream.js')(mainViewModel);
   }
   if($('#legend').length !== 0) {
-    legend(mainViewModel);
+    legend = require('./legend.js')(mainViewModel);
   }
   if($('#leaderboard').length !== 0) {
-    leaderboard(mainViewModel);
+    leaderboard = require('./leaderboard.js')(mainViewModel);
   }
   
   ko.applyBindings(mainViewModel);

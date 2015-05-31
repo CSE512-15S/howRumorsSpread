@@ -274,7 +274,7 @@ var init = function(model) {
 };
 
 // Update x domain. To be called on a brush event in the stream graph
-var updateXScale = function(domain) {
+var updateXBounds = function(domain) {
 	if (!domain) {
 		domain = xBounds;
 	}
@@ -387,5 +387,5 @@ var timeStampToClockTime = function(timestamp) {
 }
 
 exports.init = init;
-exports.updateXScale = updateXScale;
+exports.updateXBounds = updateXBounds;
 module.exports = exports;
