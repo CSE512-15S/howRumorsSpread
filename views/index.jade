@@ -21,14 +21,18 @@ block content
         .col-md-4#detail
             #leaderboard.bg-text(data-bg-text="leaderboard")
             #tweetview
-                p
-                    strong.username Username
-                    span &nbsp;
-                    a.screenname(href="http://twitter.com/", target="_blank") @screenname
-                    span.verified.hidden
-                    br
-                    span.time time
-                p.tweet Tweet
-                .avatar-wrapper &nbsp;
-                    .avatar.avatar-custom &nbsp;
-                    .avatar.avatar-default.desaturate &nbsp;
+                .row
+                    .col-md-2.avatar-wrapper &nbsp;
+                        .avatar.avatar-custom &nbsp;
+                        .avatar.avatar-default.desaturate &nbsp;
+                    .col-md-10
+                        p
+                            strong.username Username
+                            span &nbsp;
+                            a.screenname(href="http://twitter.com/", target="_blank") @screenname
+                            span.verified.hidden
+                            br
+                            span.time time
+                        p.tweet Tweet
+                .retweet_list.hidden
+

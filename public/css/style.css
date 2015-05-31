@@ -72,22 +72,23 @@ a {
 /* TWEETVIEW
 ----------------------------------------*/
 #tweetview {
-  position: relative;
   width: 100%;
-  height: 250px;
-  padding: 18px 10px 10px 75px;
-  background-color: #F7F7F7; }
+  height: 265px;
+  background-color: #F7F7F7;
+  padding: 12px 0; }
   #tweetview .username {
     display: inline;
     font-size: 16px; }
   #tweetview .time {
     font-size: 12px; }
+  #tweetview .avatar-wrapper {
+    position: relative; }
   #tweetview .avatar {
-    position: absolute;
     width: 48px;
     height: 48px;
-    top: 20px;
-    left: 15px;
+    position: absolute;
+    top: 0px;
+    left: 25px;
     background-size: cover;
     background-position: center;
     -webkit-border-radius: 5px;
@@ -113,6 +114,17 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../images/verified.png'); }
+  #tweetview .retweet_list {
+    position: absolute;
+    bottom: 0;
+    height: 130px;
+    width: 93%;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-top: 1px solid #888;
+    box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); }
+    #tweetview .retweet_list .row {
+      margin: 3px 0; }
 
 /* SCRATCH -- only for development
 ----------------------------------------*/

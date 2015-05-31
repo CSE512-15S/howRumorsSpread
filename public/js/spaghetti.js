@@ -179,6 +179,7 @@ var init = function(model) {
 	tweetview.avatar = d3.select('#tweetview .avatar-custom');
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
+	tweetview.retweet_list = d3.select('#tweetview .retweet_list');
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -356,14 +357,18 @@ var clickVoronoi = function(d) {
 		// Add voronoi mouseover handler events again
 		d3.selectAll('.voronoi path').on("mouseover", mouseoverVoronoi);
 
+		// Hide retweet list
+		tweetview.retweet_list.classed('hidden', true);
+
 		tweetviewFixed = false;
 	} else {
 		// Highlight tweet path
 		d3.select(d.tweet.line).classed("tweet-hover", true);
 		d.tweet.line.parentNode.appendChild(d.tweet.line);
 
-		// Show the corresponding tweet
+		// Show the corresponding tweet & retweet list
 		showTweet(d);
+		showRetweetList(d);
 
 		// Remove voronoi mouseover handler
 		d3.selectAll('.voronoi path').on("mouseover", null);
@@ -384,6 +389,29 @@ var showTweet = function(d) {
 	tweetview.tweet.html(d.tweet.text);
 	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
 	tweetview.avatar.style("background-image", "url(" + d.tweet.user.profile_image_url + ")");
+}
+
+// Shows the retweet list attached to d in #tweetview
+var showRetweetList = function(d) {
+	var rtList = d.tweet.retweet_list;
+	tweetview.retweet_list.html('');
+	for (var i = rtList.length - 1; i >= 0; i--) {
+		var row = tweetview.retweet_list.append("div")
+			.attr("class", "row");
+		row.append("div")
+			.attr("class", "col-md-2")
+			.html(rtList[i].verified ? "<span>v</span>" : "");
+		row.append("div")
+			.attr("class", "col-md-6")
+		  .append("a")
+		.attr("href", "http://twitter.com/" + rtList[i].screen_name)
+		.attr("target", "_blank")
+		.html("@" + rtList[i].screen_name);
+		row.append("div")
+			.attr("class", "col-md-4")
+			.html(rtList[i].followers_count);
+	};
+	tweetview.retweet_list.classed('hidden', false);
 }
 
 var timeStampToClockTime = function(timestamp) {
