@@ -9,11 +9,6 @@ var StreamGraph = function(mainViewModel) {
       width = 860 - margin.left - margin.right,
       height = 150 - margin.top - margin.bottom,
       duration = 750;
-
-  function dataPath() {
-    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
-  }
-
   
   /* /Begin Chart initilization code */
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
@@ -23,6 +18,15 @@ var StreamGraph = function(mainViewModel) {
               .attr('width', width)
               .attr('height', height)
               .attr('transform', 'translate('+margin.left +','+ margin.top+')');
+
+ var vertLine = d3.select(parentDiv).append('div')
+                  .attr('class', 'time-position-line')
+                  .style('position', 'absolute')
+                  .style('width', '1px')
+                  .style('height', height + 'px')
+                  .style('left', margin.left + 'px')
+                  .style('top', '0px')
+                  .style('background', '#ccc');
 
   var xScale = d3.scale.linear()
               .range([0, width]),
@@ -39,19 +43,62 @@ var StreamGraph = function(mainViewModel) {
                     });
 
   var volumeTooltip = d3.select(parentDiv)
-                        .append("div")
-                        .attr("class", "volume-tooltip")
-                        .style("position", "absolute")
-                        .style("z-index", "20")
-                        .style("visibility", "hidden")
-                        .style("top", "30px")
-                        .style("left", "10px");
+                        .append('div')
+                        .attr('class', 'volume-tooltip')
+                        .style('position', 'absolute')
+                        .style('z-index', '20')
+                        .style('visibility', 'hidden')
+                        .style('top', '30px')
+                        .style('left', '10px');
+
+ 
 
   svg.append('g')
       .attr('class', 'viewport')
       .call(viewport)
       .selectAll('rect')
       .attr('height', height);
+
+  svg.on('mousemove', function(d, i) {
+        var mousex = d3.mouse(this)[0];
+        moveVertLine(mousex);
+        updateVolumeTooltip(mousex);
+      })
+      .on('mouseover', function(d, i) {
+        var mousex = d3.mouse(this)[0];
+        moveVertLine(mousex);
+        updateVolumeTooltip(mousex);
+      })
+      .on('mouseout', function(d, i) {
+        //TODO: Hide tooltip and vertline?
+      });
+
+  function moveVertLine(mousePosition) {
+    var position = mousePosition + margin.left + 5;
+    vertLine.style("left", position + "px");
+  }
+
+  function updateVolumeTooltip(mousePosition) {
+    var matchingTimestamp = binTimestamp(xScale.invert(mousePosition));
+    // console.log('matchingTimestamp', matchingTimestamp);
+
+    // var matching = d.values.filter(function(value, index) {
+    //   return value.timestamp == matchingTimestamp;
+    // });
+    // var volume = 1;
+    // if (matching.length > 0) {
+    //   volume = matching[0].volume;
+    // }
+
+    mainViewModel.updateCurrentVolumes({
+      'Affirm' : 1,
+      'Deny' : 2,
+      'Neutral' : 0,
+      'Unrelated' : 0
+    });
+    // volumeTooltip.html('<p>' + d.key + '<br>' + volume + '</p>' )
+    //               .style('visibility', 'visible');
+  }
 
   // Area generator for stream graph polygons
   var area = d3.svg.area()
@@ -94,39 +141,7 @@ var StreamGraph = function(mainViewModel) {
     codes.append('path')
             .attr('class', 'area')
             .style('fill', function(d) { return color(d.key); })
-            .attr('d', function(d) { return area(d.values); })
-            .attr('opacity', 1.0)
-            // Showing volume info about this code
-            .on('mouseover', function(d, i) {
-              console.log('mouseover');
-              svg.selectAll('.area').transition()
-                  .duration(250)
-                  .attr('opacity', function(d, j) {
-                    return j != i ? 0.6 : 1.0;
-                  });
-            })
-            .on('mousemove', function(d, i) {
-              var mousex = d3.mouse(this)[0];
-              var matchingTimestamp = binTimestamp(xScale.invert(mousex));
-              // console.log("matchingTimestamp", matchingTimestamp);
-
-              var matching = d.values.filter(function(value, index) {
-                return value.timestamp == matchingTimestamp;
-              });
-              var volume = 1;
-              if (matching.length > 0) {
-                volume = matching[0].volume;
-              }
-
-              volumeTooltip.html("<p>" + d.key + "<br>" + volume + "</p>" )
-                            .style('visibility', 'visible');
-            })
-          .on('mouseout', function(d, i) {
-            d3.select('.area').transition()
-              .duration(250)
-              .attr('opacity', 1.0);
-            volumeTooltip.html('').style('visibility', 'hidden');
-          });
+            .attr('d', function(d) { return area(d.values); });
 
     codes.append('path')
             .attr('class', 'line')
@@ -162,6 +177,8 @@ var StreamGraph = function(mainViewModel) {
       .attr('d', function(d) { return line(d.values); });
   }
 
+  // function()
+
   // Bins the generated timestamp into the same itnerval
   // set with var timeGrouping
   function binTimestamp(timestamp) {
@@ -185,7 +202,9 @@ var StreamGraph = function(mainViewModel) {
     return parseInt(timestamp / divVal) * divVal;
   }
 
-
+  function dataPath() {
+    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
+  }
 
   function init(collectionName, timeGrouping) {
     // Initialize by loading the data

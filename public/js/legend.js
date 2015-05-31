@@ -1,7 +1,8 @@
 var d3 = require('d3');
 
 function Legend(mainViewModel) {
-  var margin = { top: 0, right: 0, bottom: 0, left: 250 },
+  var self = this,
+      margin = { top: 0, right: 0, bottom: 0, left: 250 },
       width = 860 - margin.left - margin.right,
       height = 20,
       colorScale = mainViewModel.getColorScale(),
@@ -50,6 +51,18 @@ function Legend(mainViewModel) {
         .attr('x', rectSize + horzPadding)
         .attr('y', rectSize)
         .text(function(d) { return d; });
+
+  self.updateVolumes = function(codedVolumes) {
+    // console.log("CodedVolumes: ", codedVolumes);
+    var newDomain = [];
+    colorScale.domain().forEach(function(codeName, i) {
+      newDomain[i] = codeName + " " + codedVolumes[codeName];
+    });
+    d3.selectAll('.legend-key').data(colorScale.domain(newDomain));
+  };
+
+
+  return self;
 
 }
 
