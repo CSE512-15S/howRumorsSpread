@@ -146,6 +146,10 @@ a {
 	.avatar-custom {
 		z-index: 100;
 	}
+	.desaturate { 
+		-webkit-filter: grayscale(100%); 
+		filter: grayscale(100%); 
+	}
 	.verified {
 		position: absolute;
 		width: 14px;
