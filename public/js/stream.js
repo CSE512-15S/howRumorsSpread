@@ -10,10 +10,6 @@ var StreamGraph = function(mainViewModel) {
       height = 150 - margin.top - margin.bottom,
       duration = 750;
 
- 
-
-
-  console.log('StreamGraph', 'mainViewModel=', mainViewModel);
   function dataPath() {
     return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
   }
@@ -21,10 +17,14 @@ var StreamGraph = function(mainViewModel) {
   
   /* /Begin Chart initilization code */
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
-            .attr('width', width)
-            .attr('height', height);
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+              .attr('width', width)
+              .attr('height', height)
+              .attr('transform', 'translate('+margin.left +','+ margin.top+')');
 
-  var xScale = d3.time.scale()
+  var xScale = d3.scale.linear()
               .range([0, width]),
       yScale = d3.scale.linear()
                  .range([height, 0]),
@@ -37,6 +37,15 @@ var StreamGraph = function(mainViewModel) {
                     .on('brushend', function() {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
+
+  var volumeTooltip = d3.select(parentDiv)
+                        .append("div")
+                        .attr("class", "volume-tooltip")
+                        .style("position", "absolute")
+                        .style("z-index", "20")
+                        .style("visibility", "hidden")
+                        .style("top", "30px")
+                        .style("left", "10px");
 
   svg.append('g')
       .attr('class', 'viewport')
@@ -85,11 +94,44 @@ var StreamGraph = function(mainViewModel) {
     codes.append('path')
             .attr('class', 'area')
             .style('fill', function(d) { return color(d.key); })
-            .attr('d', function(d) { return area(d.values); });
+            .attr('d', function(d) { return area(d.values); })
+            .attr('opacity', 1.0)
+            // Showing volume info about this code
+            .on('mouseover', function(d, i) {
+              console.log('mouseover');
+              svg.selectAll('.area').transition()
+                  .duration(250)
+                  .attr('opacity', function(d, j) {
+                    return j != i ? 0.6 : 1.0;
+                  });
+            })
+            .on('mousemove', function(d, i) {
+              var mousex = d3.mouse(this)[0];
+              var matchingTimestamp = binTimestamp(xScale.invert(mousex));
+              // console.log("matchingTimestamp", matchingTimestamp);
+
+              var matching = d.values.filter(function(value, index) {
+                return value.timestamp == matchingTimestamp;
+              });
+              var volume = 1;
+              if (matching.length > 0) {
+                volume = matching[0].volume;
+              }
+
+              volumeTooltip.html("<p>" + d.key + "<br>" + volume + "</p>" )
+                            .style('visibility', 'visible');
+            })
+          .on('mouseout', function(d, i) {
+            d3.select('.area').transition()
+              .duration(250)
+              .attr('opacity', 1.0);
+            volumeTooltip.html('').style('visibility', 'hidden');
+          });
 
     codes.append('path')
             .attr('class', 'line')
             .style('stroke-opacity', 0.0001);
+
 
     
     streamgraph(data);
@@ -120,6 +162,29 @@ var StreamGraph = function(mainViewModel) {
       .attr('d', function(d) { return line(d.values); });
   }
 
+  // Bins the generated timestamp into the same itnerval
+  // set with var timeGrouping
+  function binTimestamp(timestamp) {
+    timestamp = parseInt(timestamp);
+    var divVal = null
+    switch (timeGrouping) {
+      case 'minute':
+        divVal = 1000 * 60;
+        break;
+      case 'second':
+        divVal = 1000;
+        break;
+      case 'millisecond':
+        divVal = 1;
+        break;
+      default:
+        console.warn('Binning unsupported timestamp type', timeGrouping, timestamp);
+        break;
+    }
+
+    return parseInt(timestamp / divVal) * divVal;
+  }
+
 
 
   function init(collectionName, timeGrouping) {
@@ -133,7 +198,8 @@ var StreamGraph = function(mainViewModel) {
 
       data.forEach(function(codeGroup) {
         codeGroup.values.forEach(function(d) {
-          d.date = new Date(parseInt(d.timestamp));
+          // d.date = new Date(parseInt(d.timestamp));
+          d.date = parseInt(d.timestamp);
           d.volume = tweetVolume(d);
           d.key = codeGroup.key;
         });
