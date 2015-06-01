@@ -19,14 +19,14 @@ var StreamGraph = function(mainViewModel) {
               .attr('height', height)
               .attr('transform', 'translate('+margin.left +','+ margin.top+')');
 
- var vertLine = d3.select(parentDiv).append('div')
-                  .attr('class', 'time-position-line')
-                  .style('position', 'absolute')
-                  .style('width', '1px')
-                  .style('height', height + 'px')
-                  .style('left', margin.left + 'px')
-                  .style('top', '0px')
-                  .style('background', '#ccc');
+ // var vertLine = d3.select(parentDiv).append('div')
+ //                  .attr('class', 'time-position-line')
+ //                  .style('position', 'absolute')
+ //                  .style('width', '1px')
+ //                  .style('height', height + 'px')
+ //                  .style('left', margin.left + 'px')
+ //                  .style('top', '0px')
+ //                  .style('background', '#ccc');
 
   var xScale = d3.scale.linear()
               .range([0, width]),
@@ -42,22 +42,34 @@ var StreamGraph = function(mainViewModel) {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
 
-  var volumeTooltip = d3.select(parentDiv)
-                        .append('div')
-                        .attr('class', 'volume-tooltip')
-                        .style('position', 'absolute')
-                        .style('z-index', '20')
-                        .style('visibility', 'hidden')
-                        .style('top', '30px')
-                        .style('left', '10px');
+  // var volumeTooltip = d3.select(parentDiv)
+  //                       .append('div')
+  //                       .attr('class', 'volume-tooltip')
+  //                       .style('position', 'absolute')
+  //                       .style('z-index', '20')
+  //                       .style('visibility', 'hidden')
+  //                       .style('top', '30px')
+  //                       .style('left', '10px');
 
  
+  var chart = svg.append('g')
+    .attr('class', 'chart');
+
+  var vertLine = svg.append('line')
+                    .attr('x1', 0)
+                    .attr('x2', 0)
+                    .attr('y1', 0)
+                    .attr('y2', height)
+                    .style('stroke-width', 1)
+                    .style('stroke', '#ccc')
+                    .style('fill', 'none');
 
   svg.append('g')
       .attr('class', 'viewport')
       .call(viewport)
       .selectAll('rect')
       .attr('height', height);
+  
 
   svg.on('mousemove', function(d, i) {
         var mousex = d3.mouse(this)[0];
@@ -74,8 +86,10 @@ var StreamGraph = function(mainViewModel) {
       });
 
   function moveVertLine(mousePosition) {
-    var position = mousePosition + margin.left + 5;
-    vertLine.style("left", position + "px");
+    var position = mousePosition;
+    
+    vertLine.attr("x1", position)
+            .attr("x2", position);
   }
 
   function updateVolumeTooltip(mousePosition) {
@@ -129,7 +143,7 @@ var StreamGraph = function(mainViewModel) {
     area.y0(height / 2)
         .y1(height / 2);
 
-    var g = svg.selectAll('.code')
+    var g = chart.selectAll('.code')
                 .data(data)
                 .enter();
     var codes = g.append('g')
@@ -165,7 +179,7 @@ var StreamGraph = function(mainViewModel) {
     area.y0(function(d) { return yScale(d.volume0); })
         .y1(function(d) { return yScale(d.volume0 + d.volume); });
 
-    var t = svg.selectAll('.code')
+    var t = chart.selectAll('.code')
                 .transition()
                 .duration(duration);
     t.select('path.area')
