@@ -233,8 +233,8 @@ var init = function(model) {
 		  .orient("bottom")
 		  .ticks(xTicks);
 
-		d3.select(".x.axis").call(xAxis);
-		d3.select(".y.axis").call(yAxis);
+		d3.select("#spaghetti").select(".x.axis").call(xAxis);
+		d3.select("#spaghetti").select(".y.axis").call(yAxis);
 
 		// Create spaghetti chart and bind x and y scales
 		spaghetti = Spaghetti()
@@ -300,7 +300,7 @@ var updateXBounds = function(domain) {
 	var translate_x = (domain[0] - xBounds[0]) / (xBounds[0] - xBounds[1]); // Need to get translation before domain update
 	xScale.domain(domain);
 	dataTweets.call(spaghetti);
-    d3.select('.x.axis').call(xAxis);
+    d3.select("#spaghetti").select('.x.axis').call(xAxis);
 
     // Rescale voronoi diagrams
     var scale_x = (xBounds[1] - xBounds[0]) / (domain[1] - domain[0]);
@@ -330,7 +330,7 @@ var updateYScale = function(isLinearScale) {
         	return yScale.log.tickFormat(yTicks,d3.format(",d"))(d)
 		});
 	}
-	d3.select('.y.axis').transition().duration(1000).call(yAxis);
+	d3.select("#spaghetti").select('.y.axis').transition().duration(1000).call(yAxis);
 }
 
 var mousemoveSVG = function(d) { 
