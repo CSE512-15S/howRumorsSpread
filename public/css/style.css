@@ -22,8 +22,14 @@ a {
     overflow: scroll; }
   #spaghetti .controls {
     position: absolute;
-    top: 20px;
-    left: 100px; }
+    top: 4%;
+    left: 11.5%; }
+    #spaghetti .controls .btn-group, #spaghetti .controls input {
+      margin-right: 5px; }
+    #spaghetti .controls input {
+      height: 22px;
+      font-size: 12px;
+      padding-left: 6px; }
   #spaghetti .axis path, #spaghetti .axis line {
     fill: none;
     stroke: #888;

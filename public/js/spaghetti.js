@@ -236,10 +236,6 @@ var init = function(model) {
 		d3.select(".x.axis").call(xAxis);
 		d3.select(".y.axis").call(yAxis);
 
-		// Event listeners for lin / log scale buttons
-		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
-		d3.select('#scale-log').on("click", function() { updateYScale(false) });
-
 		// Create spaghetti chart and bind x and y scales
 		spaghetti = Spaghetti()
 			.xScale(xScale)
@@ -275,6 +271,23 @@ var init = function(model) {
 		voronoiGroup.linear.selectAll("path").attr("pointer-events", "all");
 		voronoiGroup.log.selectAll("path").attr("pointer-events", "none");
 
+		// Controls
+		// Event listeners for lin / log scale buttons
+		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
+		d3.select('#scale-log').on("click", function() { updateYScale(false) });
+
+		// Setup placename-completion
+   		jQuery("#placenameInput").geocomplete()  
+   		.bind("geocode:result", function(event, result){
+    		var lat = result.geometry.location.A;
+    		var lon = result.geometry.location.F;
+    		console.log("lat: " + lat + ", lon: " + lon);
+    		url = '';
+    		/*jQuery.ajax('https://maps.googleapis.com/maps/api/timezone/outputFormat?parameters')
+		  		.done(function() {
+					alert( "success" );
+				});*/
+  		});
 	});
 };
 

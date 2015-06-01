@@ -2,6 +2,7 @@ var $ = require('jquery');
     global.jQuery = $,
     d3 = require('d3'),
     bootstrap = require('bootstrap'),
+    geocomplete = require('../components/geocomplete/jquery.geocomplete.min.js'),
     _ = require('underscore'),
     ko = require('knockout'),
     spaghetti = null,
