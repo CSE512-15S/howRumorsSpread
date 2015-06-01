@@ -42,15 +42,6 @@ var StreamGraph = function(mainViewModel) {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
 
-  // var volumeTooltip = d3.select(parentDiv)
-  //                       .append('div')
-  //                       .attr('class', 'volume-tooltip')
-  //                       .style('position', 'absolute')
-  //                       .style('z-index', '20')
-  //                       .style('visibility', 'hidden')
-  //                       .style('top', '30px')
-  //                       .style('left', '10px');
-
  
   var chart = svg.append('g')
     .attr('class', 'chart');
@@ -60,6 +51,7 @@ var StreamGraph = function(mainViewModel) {
                     .attr('x2', 0)
                     .attr('y1', 0)
                     .attr('y2', height)
+                    .style('visibility', 'hidden')
                     .style('stroke-width', 1)
                     .style('stroke', '#ccc')
                     .style('fill', 'none');
@@ -82,36 +74,44 @@ var StreamGraph = function(mainViewModel) {
         updateVolumeTooltip(mousex);
       })
       .on('mouseout', function(d, i) {
-        //TODO: Hide tooltip and vertline?
+        moveVertLine(null);
+        updateVolumeTooltip(null);
       });
 
   function moveVertLine(mousePosition) {
-    var position = mousePosition;
-    
-    vertLine.attr("x1", position)
-            .attr("x2", position);
+    if (mousePosition !== null) {
+      vertLine.style('visibility', 'visible')
+              .attr('x1', mousePosition)
+              .attr('x2', mousePosition);
+    }
+    else {
+      vertLine.style('visibility', 'hidden') 
+    }
   }
 
   function updateVolumeTooltip(mousePosition) {
     var matchingTimestamp = binTimestamp(xScale.invert(mousePosition));
-    // console.log('matchingTimestamp', matchingTimestamp);
 
-    // var matching = d.values.filter(function(value, index) {
-    //   return value.timestamp == matchingTimestamp;
-    // });
-    // var volume = 1;
-    // if (matching.length > 0) {
-    //   volume = matching[0].volume;
-    // }
+    var volumes = dataset.map(function(datum) {
+      var volume = null;
+      
+      if (mousePosition !== null) {
+        volume = 0;
+        var matching = datum.values.filter(function(value, index) {
+          return value.timestamp == matchingTimestamp;
+        });
+        if (matching.length > 0) {
+          volume = matching[0].volume;
+        }
+      }
 
-    mainViewModel.updateCurrentVolumes({
-      'Affirm' : 1,
-      'Deny' : 2,
-      'Neutral' : 0,
-      'Unrelated' : 0
+      return {
+        code : datum.key,
+        volume : volume 
+      }
     });
-    // volumeTooltip.html('<p>' + d.key + '<br>' + volume + '</p>' )
-    //               .style('visibility', 'visible');
+
+    mainViewModel.updateCurrentVolumes(volumes);
   }
 
   // Area generator for stream graph polygons
