@@ -281,12 +281,13 @@ var init = function(model) {
    		.bind("geocode:result", function(event, result){
     		var lat = result.geometry.location.A;
     		var lon = result.geometry.location.F;
-    		console.log("lat: " + lat + ", lon: " + lon);
-    		url = '';
-    		/*jQuery.ajax('https://maps.googleapis.com/maps/api/timezone/outputFormat?parameters')
-		  		.done(function() {
-					alert( "success" );
-				});*/
+    		url = 'http://api.timezonedb.com/?lat='+lat+'&lng='+lon+'&format=json&key=2PXSOPRPEFDT';
+    		jQuery.getJSON(url)
+		  		.done(function(data) {
+		  			console.log(data);
+					jQuery("#placenameInput").val("Timezone: " + data.abbreviation);
+					// TO DO: change the timezone in the MainViewModel
+				});
   		});
 	});
 };
