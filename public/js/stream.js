@@ -5,10 +5,11 @@ var StreamGraph = function(mainViewModel) {
       timeGrouping = 'minute', // TODO: variable
       collectionName = 'lakemba', // TODO: variable 
       parentDiv = '#stream',
-      margin = { top: 0, right: 70, bottom: 20, left: 90 },
-      width = 860 - margin.left - margin.right,
+      margin = { top: 0, right: 50, bottom: 40, left: 50 },
+      width = 750 - margin.left - margin.right,
       height = 150 - margin.top - margin.bottom,
-      duration = 750;
+      duration = 750,
+      xTicks = 5;
   
   /* /Begin Chart initilization code */
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
@@ -19,16 +20,7 @@ var StreamGraph = function(mainViewModel) {
               .attr('height', height)
               .attr('transform', 'translate('+margin.left +','+ margin.top+')');
 
- // var vertLine = d3.select(parentDiv).append('div')
- //                  .attr('class', 'time-position-line')
- //                  .style('position', 'absolute')
- //                  .style('width', '1px')
- //                  .style('height', height + 'px')
- //                  .style('left', margin.left + 'px')
- //                  .style('top', '0px')
- //                  .style('background', '#ccc');
-
-  var xScale = d3.scale.linear()
+  var xScale = d3.time.scale()
               .range([0, width]),
       yScale = d3.scale.linear()
                  .range([height, 0]),
@@ -41,7 +33,10 @@ var StreamGraph = function(mainViewModel) {
                     .on('brushend', function() {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
-
+  var xAxis = d3.svg.axis()
+      .scale(xScale)
+      .orient("bottom")
+      .ticks(xTicks);
  
   var chart = svg.append('g')
     .attr('class', 'chart');
@@ -56,11 +51,17 @@ var StreamGraph = function(mainViewModel) {
                     .style('stroke', '#ccc')
                     .style('fill', 'none');
 
+  // Append viewport
   svg.append('g')
       .attr('class', 'viewport')
       .call(viewport)
       .selectAll('rect')
       .attr('height', height);
+
+  // Append xAxis
+  chart.append('g')
+        .attr('class', 'x axis')
+        .attr("transform", "translate(0,"+(height+10)+")");
   
 
   svg.on('mousemove', function(d, i) {
@@ -90,7 +91,8 @@ var StreamGraph = function(mainViewModel) {
   }
 
   function updateVolumeTooltip(mousePosition) {
-    var matchingTimestamp = binTimestamp(xScale.invert(mousePosition));
+    var invertedDate = xScale.invert(mousePosition);
+    var matchingTimestamp = binTimestamp(invertedDate.getTime());
 
     var volumes = dataset.map(function(datum) {
       var volume = null;
@@ -138,6 +140,9 @@ var StreamGraph = function(mainViewModel) {
 
     // Update domain of scales with this date range
     xScale.domain([minDate, maxDate]);
+
+    // Draw X Axis
+    d3.select(parentDiv).select('.x.axis').call(xAxis);
     
     // Make streamgraph enamate from center of chart
     area.y0(height / 2)
@@ -231,8 +236,8 @@ var StreamGraph = function(mainViewModel) {
 
       data.forEach(function(codeGroup) {
         codeGroup.values.forEach(function(d) {
-          // d.date = new Date(parseInt(d.timestamp));
-          d.date = parseInt(d.timestamp);
+          d.date = new Date(parseInt(d.timestamp));
+          // d.date = parseInt(d.timestamp);
           d.volume = tweetVolume(d);
           d.key = codeGroup.key;
         });

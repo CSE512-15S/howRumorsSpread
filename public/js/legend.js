@@ -90,7 +90,7 @@ function Legend(mainViewModel) {
 
 
   self.updateVolumes = function(codedVolumes) {
-    draw(codedVolumes)
+    draw(codedVolumes);
   };
 
 
