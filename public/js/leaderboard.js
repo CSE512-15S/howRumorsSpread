@@ -7,7 +7,6 @@ var LeaderBoard = function (mainViewModel) {
 
 
   self.updateXBounds = function (newBounds) {
-    console.log('Leaderboard updating with: ', newBounds);
     // FYI, This function will get called by the mainViewModel in app.js
     // when the viewport changes on the streamgraph
     

@@ -35,7 +35,11 @@ function MainViewModel() {
 
   self.getColorScale = function() {
     return self.colorScale;
-  }
+  };
+
+  self.updateCurrentVolumes = function (codedVolumes) {
+    legend.updateVolumes(codedVolumes);
+  };
 }
 
 $(document).ready(function() {

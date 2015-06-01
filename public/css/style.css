@@ -51,6 +51,10 @@ a {
       stroke: #888;
       fill: #000;
       fill-opacity: 0.2; }
+  #stream .axis path, #stream .axis line {
+    fill: none;
+    stroke: #888;
+    shape-rendering: crispEdges; }
 
 /* LEGEND
 ----------------------------------------*/
