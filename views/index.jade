@@ -19,7 +19,14 @@ block content
                         input(type='radio') 
                         | Log
         .col-md-4#detail
-            #leaderboard.bg-text(data-bg-text="leaderboard")
+            #leaderboard
+                table#lbtable
+                    thead
+                        tr
+                            th.username Username
+                            th.screenname Screen Name
+                            th.score Score
+                    tbody#lbtablebody
             #tweetview
                 p
                     strong.username Username

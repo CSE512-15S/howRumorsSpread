@@ -10,9 +10,6 @@ var StreamGraph = function(mainViewModel) {
       height = 150 - margin.top - margin.bottom,
       duration = 750;
 
- 
-
-
   console.log('StreamGraph', 'mainViewModel=', mainViewModel);
   function dataPath() {
     return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
@@ -156,5 +153,6 @@ var StreamGraph = function(mainViewModel) {
   }
 
   init(collectionName, timeGrouping);
+
 };
 module.exports = StreamGraph;

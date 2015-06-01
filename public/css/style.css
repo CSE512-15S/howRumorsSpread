@@ -67,7 +67,25 @@ a {
   width: 100%;
   height: 350px;
   background-color: #eee;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  overflow: scroll;
+  padding: 10px; }
+
+#lbtable {
+  margin: 5px;
+  width: 100%; }
+
+#lbtable td {
+  padding: 3px; }
+
+.username {
+  width: 50%; }
+
+.screenname {
+  width: 30%; }
+
+.score {
+  width: 20%; }
 
 /* TWEETVIEW
 ----------------------------------------*/
