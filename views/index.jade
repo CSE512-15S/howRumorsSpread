@@ -22,19 +22,26 @@ block content
                     input.form-control#placenameInput(type="text" onfocus="this.value = ''"  placeholder="Enter a location" value="Timezone: UTC")
         .col-md-4#detail
             #leaderboard.bg-text(data-bg-text="leaderboard")
-            #tweetview
-                .row
-                    .col-md-2.avatar-wrapper &nbsp;
-                        .avatar.avatar-custom &nbsp;
-                        .avatar.avatar-default.desaturate &nbsp;
-                    .col-md-10
-                        p
-                            strong.username Username
-                            span &nbsp;
-                            a.screenname(href="http://twitter.com/", target="_blank") @screenname
-                            span.verified.hidden
-                            br
-                            span.time time
-                        p.tweet Tweet
-                .retweet_list.hidden
+            .detailview
+                #eventmeta
+                    .row
+                        .col-md-12
+                            h3#event-title Lakemba
+                            p#event-meta Sydney, 15. December 2015
+                            p#event-description.small This is a paragraph with some text that gives a short overview of the event. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                #tweetview.hidden
+                    .row
+                        .col-md-2.avatar-wrapper &nbsp;
+                            .avatar.avatar-custom &nbsp;
+                            .avatar.avatar-default.desaturate &nbsp;
+                        .col-md-10
+                            p
+                                strong.username Username
+                                span &nbsp;
+                                a.screenname(href="http://twitter.com/", target="_blank") @screenname
+                                span.verified.hidden
+                                br
+                                span.time time
+                            p.tweet Tweet
+                    .retweet_list.hidden
 

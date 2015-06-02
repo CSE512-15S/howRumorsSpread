@@ -79,12 +79,23 @@ a {
   background-color: #eee;
   margin-bottom: 20px; }
 
-/* TWEETVIEW
+/* EVENTMETA & TWEETVIEW
 ----------------------------------------*/
-#tweetview {
+.detailview {
+  position: relative;
+  width: 100%;
+  padding: 0; }
+
+#eventmeta, #tweetview {
+  position: absolute;
   width: 100%;
   height: 265px;
-  background-color: #F7F7F7;
+  background-color: #F7F7F7; }
+
+#eventmeta .row {
+  margin: 0; }
+
+#tweetview {
   padding: 12px 0; }
   #tweetview .username {
     display: inline;
@@ -128,13 +139,14 @@ a {
     position: absolute;
     bottom: 0;
     height: 130px;
-    width: 93%;
+    width: 100%;
     overflow-y: scroll;
     background-color: rgba(0, 0, 0, 0.05);
     border-top: 1px solid #888;
     box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); }
     #tweetview .retweet_list .row {
-      margin: 3px 0; }
+      margin-top: 3px;
+      margin-bottom: 3px; }
 
 /* SCRATCH -- only for development
 ----------------------------------------*/
