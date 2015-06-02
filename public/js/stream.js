@@ -8,8 +8,13 @@ var StreamGraph = function(mainViewModel) {
       margin = { top: 0, right: 50, bottom: 40, left: 50 },
       width = 750 - margin.left - margin.right,
       height = 150 - margin.top - margin.bottom,
-      duration = 750,
+      duration = 750;
       xTicks = 5;
+
+  console.log('StreamGraph', 'mainViewModel=', mainViewModel);
+  function dataPath() {
+    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
+  }
   
   /* /Begin Chart initilization code */
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
@@ -31,7 +36,8 @@ var StreamGraph = function(mainViewModel) {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     })
                     .on('brushend', function() {
-                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
+                      mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
   var xAxis = d3.svg.axis()
       .scale(xScale)
@@ -266,7 +272,6 @@ var StreamGraph = function(mainViewModel) {
   }
 
   init(collectionName, timeGrouping);
-
   return self;
 };
 module.exports = StreamGraph;
