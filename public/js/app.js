@@ -2,8 +2,10 @@ var $ = require('jquery');
     global.jQuery = $,
     d3 = require('d3'),
     bootstrap = require('bootstrap'),
+    geocomplete = require('../components/geocomplete/jquery.geocomplete.min.js'),
     _ = require('underscore'),
     ko = require('knockout'),
+    moment = require('moment-timezone'),
     spaghetti = null,
     stream = null,
     legend = null,
@@ -40,6 +42,13 @@ function MainViewModel() {
   self.updateCurrentVolumes = function (codedVolumes) {
     legend.updateVolumes(codedVolumes);
   };
+
+  // Time zone
+  self.timeZone = "Atlantic/Reykjavik"; // Default: UTC
+  self.setTimeZone = function(newTimeZone) {
+    self.timeZone = newTimeZone;
+    stream.updateXAxis();
+  }
 }
 
 $(document).ready(function() {
