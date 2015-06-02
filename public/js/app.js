@@ -47,6 +47,7 @@ function MainViewModel() {
   self.timeZone = "Atlantic/Reykjavik"; // Default: UTC
   self.setTimeZone = function(newTimeZone) {
     self.timeZone = newTimeZone;
+    stream.updateXAxis();
   }
 }
 

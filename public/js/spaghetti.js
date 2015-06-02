@@ -230,7 +230,6 @@ var init = function(model) {
 		  .scale(xScale)
 		  .orient("bottom")
 		  .tickFormat(offsetTimeFormat);
-		  //.ticks(10);
 
 		d3.select("#spaghetti").select(".x.axis").call(xAxis);
 		d3.select("#spaghetti").select(".y.axis").call(yAxis);
