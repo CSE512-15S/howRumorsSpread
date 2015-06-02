@@ -1,7 +1,7 @@
 /* PARAMS
 ----------------------------------------*/
 
-$primary-color: #00B7FF;
+$verified-color: #00B7FF;
 $link-color: #777;
 
 body {
@@ -40,8 +40,18 @@ a {
 	}
 	.controls {
 		position: absolute;
-		top: 20px;
-		left: 100px;
+		top: 4%;
+		left: 11.5%;
+
+		.btn-group, input {
+			margin-right: 5px;
+		}
+
+		input {
+			height: 22px;
+			font-size: 12px;
+			padding-left: 6px;
+		}
 	}
 	.axis path,
 	.axis line {
@@ -83,6 +93,13 @@ a {
 			fill : #000;
 			fill-opacity: 0.2;
 		}
+	}
+
+	.axis path,
+	.axis line {
+	    fill: none;
+	    stroke: #888;
+	    shape-rendering: crispEdges;
 	}
 
 }
@@ -138,11 +155,10 @@ a {
 ----------------------------------------*/
 
 #tweetview {
-	position: relative;
 	width: 100%;
-	height: 250px;
-	padding: 18px 10px 10px 75px;
+	height: 265px;
 	background-color: #F7F7F7;
+	padding: 12px 0; 
 
 	.username {
 		display: inline;
@@ -151,12 +167,15 @@ a {
 	.time {
 		font-size: 12px;
 	}
+	.avatar-wrapper {
+		position: relative;
+	}
 	.avatar {
-		position: absolute;
 		width: 48px;
 		height: 48px;
-		top: 20px;
-		left: 15px;
+		position: absolute;
+		top: 0px;
+		left: 25px;
 		background-size: cover;
 		background-position: center;
 		@include border-radius(5px);
@@ -169,15 +188,33 @@ a {
 	.avatar-custom {
 		z-index: 100;
 	}
+	.desaturate { 
+		-webkit-filter: grayscale(100%); 
+		filter: grayscale(100%); 
+	}
 	.verified {
+		display: inline-block;
+		width: 18px; height: 16px;
+		margin-left: 3px;
+		line-height: -10px;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-image: url('../images/verified.png');
+	}
+	.retweet_list {
 		position: absolute;
-		width: 14px;
-		height: 14px;
-		top: 15px;
-		left: 56px;
-		background-color: $primary-color;
-		@include border-radius(7px);
-		z-index: 150;
+		bottom: 0;
+		height: 130px;
+		width: 93%;
+		overflow-y: scroll;
+		background-color: rgba(0,0,0,0.05);
+		border-top: 1px solid #888;
+		box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
+
+		.row {
+			margin: 3px 0;
+		}
 	}
 }
 

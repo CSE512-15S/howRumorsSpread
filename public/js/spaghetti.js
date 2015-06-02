@@ -14,7 +14,7 @@ var Spaghetti = function() {
 
 	var isLinearScale = true;
 
-	var xScale = d3.time.scale(), 
+	var xScale = d3.time.scale.utc(), 
 		yScale = { linear: d3.scale.linear(),
 				   log: d3.scale.log() };
 
@@ -170,8 +170,6 @@ var init = function(model) {
 		.attr("class", "x axis")
 		.attr("transform", "translate(0,"+(height+10)+")");
 
-	svg.on("mousemove", mousemoveSVG);
-
 	// Set up outlets for showing tweet
 	tweetview.username = d3.select('#tweetview .username');
 	tweetview.screenname = d3.select('#tweetview .screenname');
@@ -179,6 +177,7 @@ var init = function(model) {
 	tweetview.avatar = d3.select('#tweetview .avatar-custom');
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
+	tweetview.retweet_list = d3.select('#tweetview .retweet_list');
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -230,14 +229,10 @@ var init = function(model) {
 		xAxis = d3.svg.axis()
 		  .scale(xScale)
 		  .orient("bottom")
-		  .ticks(xTicks);
+		  .tickFormat(offsetTimeFormat);
 
-		d3.select(".x.axis").call(xAxis);
-		d3.select(".y.axis").call(yAxis);
-
-		// Event listeners for lin / log scale buttons
-		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
-		d3.select('#scale-log').on("click", function() { updateYScale(false) });
+		d3.select("#spaghetti").select(".x.axis").call(xAxis);
+		d3.select("#spaghetti").select(".y.axis").call(yAxis);
 
 		// Create spaghetti chart and bind x and y scales
 		spaghetti = Spaghetti()
@@ -274,6 +269,25 @@ var init = function(model) {
 		voronoiGroup.linear.selectAll("path").attr("pointer-events", "all");
 		voronoiGroup.log.selectAll("path").attr("pointer-events", "none");
 
+		// Controls
+		// Event listeners for lin / log scale buttons
+		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
+		d3.select('#scale-log').on("click", function() { updateYScale(false) });
+
+		// Setup placename-completion
+   		jQuery("#placenameInput").geocomplete()  
+   		.bind("geocode:result", function(event, result){
+    		var lat = result.geometry.location.A;
+    		var lon = result.geometry.location.F;
+    		url = 'http://api.timezonedb.com/?lat='+lat+'&lng='+lon+'&format=json&key=2PXSOPRPEFDT';
+    		jQuery.getJSON(url)
+		  		.done(function(data) {
+		  			jQuery("#placenameInput").val("Timezone: " + data.abbreviation);
+		  			// Update the time axis
+					mainViewModel.setTimeZone(data.zoneName);
+					d3.select("#spaghetti").select('.x.axis').call(xAxis);
+				});
+  		});
 	});
 };
 
@@ -286,7 +300,7 @@ var updateXBounds = function(domain) {
 	var translate_x = (domain[0] - xBounds[0]) / (xBounds[0] - xBounds[1]); // Need to get translation before domain update
 	xScale.domain(domain);
 	dataTweets.call(spaghetti);
-    d3.select('.x.axis').call(xAxis);
+    d3.select("#spaghetti").select('.x.axis').call(xAxis);
 
     // Rescale voronoi diagrams
     var scale_x = (xBounds[1] - xBounds[0]) / (domain[1] - domain[0]);
@@ -316,16 +330,7 @@ var updateYScale = function(isLinearScale) {
         	return yScale.log.tickFormat(yTicks,d3.format(",d"))(d)
 		});
 	}
-	d3.select('.y.axis').transition().duration(1000).call(yAxis);
-}
-
-var mousemoveSVG = function(d) { 
-	var x = d3.mouse(this)[0];
-	
-	// TO DO: move scanline
-	// TO DO: Call global time update here
-	// var timestamp = spaghetti.xScale.invert(x);
-	// var timeString = timeStampToClockTime(timestamp);
+	d3.select("#spaghetti").select('.y.axis').transition().duration(1000).call(yAxis);
 }
 
 var mouseoverVoronoi = function(d) {
@@ -342,9 +347,6 @@ var mouseoutVoronoi = function(d) {
 	}
 	// Unhighlight tweet path
 	d3.select(d.tweet.line).classed("tweet-hover", false);
-	
-	// TO DO: Hide scanline
-	// scanline.attr("transform", "translate(-200,0)");
 }
 
 // Fixes tweet currently in focus to the view
@@ -356,14 +358,18 @@ var clickVoronoi = function(d) {
 		// Add voronoi mouseover handler events again
 		d3.selectAll('.voronoi path').on("mouseover", mouseoverVoronoi);
 
+		// Hide retweet list
+		tweetview.retweet_list.classed('hidden', true);
+
 		tweetviewFixed = false;
 	} else {
 		// Highlight tweet path
 		d3.select(d.tweet.line).classed("tweet-hover", true);
 		d.tweet.line.parentNode.appendChild(d.tweet.line);
 
-		// Show the corresponding tweet
+		// Show the corresponding tweet & retweet list
 		showTweet(d);
+		showRetweetList(d);
 
 		// Remove voronoi mouseover handler
 		d3.selectAll('.voronoi path').on("mouseover", null);
@@ -380,14 +386,37 @@ var showTweet = function(d) {
 	tweetview.screenname
 		.attr("href", "http://twitter.com/" + d.tweet.user.screen_name)
 		.html("@" + d.tweet.user.screen_name);
-	tweetview.time.html(timeStampToClockTime(d.tweet.points[0]["timestamp"]));
+	tweetview.time.html(offsetTimeFormat(d.tweet.points[0]["timestamp"]));
 	tweetview.tweet.html(d.tweet.text);
 	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
 	tweetview.avatar.style("background-image", "url(" + d.tweet.user.profile_image_url + ")");
 }
 
-var timeStampToClockTime = function(timestamp) {
-	return new Date(timestamp).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+// Shows the retweet list attached to d in #tweetview
+var showRetweetList = function(d) {
+	var rtList = d.tweet.retweet_list;
+	tweetview.retweet_list.html('');
+	for (var i = rtList.length - 1; i >= 0; i--) {
+		var row = tweetview.retweet_list.append("div")
+			.attr("class", "row");
+		row.append("div")
+			.attr("class", "col-md-2")
+			.html(rtList[i].verified ? "<span>v</span>" : "");
+		row.append("div")
+			.attr("class", "col-md-6")
+		  .append("a")
+		.attr("href", "http://twitter.com/" + rtList[i].screen_name)
+		.attr("target", "_blank")
+		.html("@" + rtList[i].screen_name);
+		row.append("div")
+			.attr("class", "col-md-4")
+			.html(rtList[i].followers_count);
+	};
+	tweetview.retweet_list.classed('hidden', false);
+}
+
+var offsetTimeFormat = function(d) {
+	return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
 }
 
 exports.init = init;

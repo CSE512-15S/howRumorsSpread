@@ -8,6 +8,7 @@ html(lang='en')
       link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
       link(rel='stylesheet', href='/css/style.css')
     block js
+      script(src='http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false')
       script(src='/dist/bundle.js')
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')

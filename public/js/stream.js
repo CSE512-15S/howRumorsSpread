@@ -5,21 +5,25 @@ var StreamGraph = function(mainViewModel) {
       timeGrouping = 'minute', // TODO: variable
       collectionName = 'lakemba', // TODO: variable 
       parentDiv = '#stream',
-      margin = { top: 0, right: 70, bottom: 20, left: 90 },
-      width = 860 - margin.left - margin.right,
+      margin = { top: 0, right: 50, bottom: 40, left: 50 },
+      width = 750 - margin.left - margin.right,
       height = 150 - margin.top - margin.bottom,
       duration = 750;
+      xTicks = 5;
 
   console.log('StreamGraph', 'mainViewModel=', mainViewModel);
   function dataPath() {
     return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
   }
-
   
   /* /Begin Chart initilization code */
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
-            .attr('width', width)
-            .attr('height', height);
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+              .attr('width', width)
+              .attr('height', height)
+              .attr('transform', 'translate('+margin.left +','+ margin.top+')');
 
   var xScale = d3.time.scale()
               .range([0, width]),
@@ -35,15 +39,89 @@ var StreamGraph = function(mainViewModel) {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
                       mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
-
+  var xAxis = d3.svg.axis()
+      .scale(xScale)
+      .orient("bottom")
+      .tickFormat(offsetTimeFormat)
+      .ticks(xTicks);
+ 
   var chart = svg.append('g')
     .attr('class', 'chart');
 
+  var vertLine = svg.append('line')
+                    .attr('x1', 0)
+                    .attr('x2', 0)
+                    .attr('y1', 0)
+                    .attr('y2', height)
+                    .style('visibility', 'hidden')
+                    .style('stroke-width', 1)
+                    .style('stroke', '#ccc')
+                    .style('fill', 'none');
+
+  // Append viewport
   svg.append('g')
       .attr('class', 'viewport')
       .call(viewport)
       .selectAll('rect')
       .attr('height', height);
+
+  // Append xAxis
+  chart.append('g')
+        .attr('class', 'x axis')
+        .attr("transform", "translate(0,"+(height+10)+")");
+  
+
+  svg.on('mousemove', function(d, i) {
+        var mousex = d3.mouse(this)[0];
+        moveVertLine(mousex);
+        updateVolumeTooltip(mousex);
+      })
+      .on('mouseover', function(d, i) {
+        var mousex = d3.mouse(this)[0];
+        moveVertLine(mousex);
+        updateVolumeTooltip(mousex);
+      })
+      .on('mouseout', function(d, i) {
+        moveVertLine(null);
+        updateVolumeTooltip(null);
+      });
+
+  function moveVertLine(mousePosition) {
+    if (mousePosition !== null) {
+      vertLine.style('visibility', 'visible')
+              .attr('x1', mousePosition)
+              .attr('x2', mousePosition);
+    }
+    else {
+      vertLine.style('visibility', 'hidden') 
+    }
+  }
+
+  function updateVolumeTooltip(mousePosition) {
+    var invertedDate = xScale.invert(mousePosition);
+    var matchingTimestamp = binTimestamp(invertedDate.getTime());
+
+    var volumes = dataset.map(function(datum) {
+      var volume = null;
+      
+      if (mousePosition !== null) {
+        volume = 0;
+        var matching = datum.values.filter(function(value, index) {
+          return value.timestamp == matchingTimestamp;
+        });
+        if (matching.length > 0) {
+          volume = matching[0].volume;
+        }
+      }
+
+      return {
+        code : datum.key,
+        volume : volume 
+      }
+    });
+
+    mainViewModel.updateCurrentVolumes(volumes);
+  }
 
   // Area generator for stream graph polygons
   var area = d3.svg.area()
@@ -69,6 +147,9 @@ var StreamGraph = function(mainViewModel) {
 
     // Update domain of scales with this date range
     xScale.domain([minDate, maxDate]);
+
+    // Draw X Axis
+    d3.select(parentDiv).select('.x.axis').call(xAxis);
     
     // Make streamgraph enamate from center of chart
     area.y0(height / 2)
@@ -91,6 +172,7 @@ var StreamGraph = function(mainViewModel) {
     codes.append('path')
             .attr('class', 'line')
             .style('stroke-opacity', 0.0001);
+
 
     
     streamgraph(data);
@@ -121,7 +203,42 @@ var StreamGraph = function(mainViewModel) {
       .attr('d', function(d) { return line(d.values); });
   }
 
+  // function()
 
+  // Bins the generated timestamp into the same itnerval
+  // set with var timeGrouping
+  function binTimestamp(timestamp) {
+    timestamp = parseInt(timestamp);
+    var divVal = null
+    switch (timeGrouping) {
+      case 'minute':
+        divVal = 1000 * 60;
+        break;
+      case 'second':
+        divVal = 1000;
+        break;
+      case 'millisecond':
+        divVal = 1;
+        break;
+      default:
+        console.warn('Binning unsupported timestamp type', timeGrouping, timestamp);
+        break;
+    }
+
+    return parseInt(timestamp / divVal) * divVal;
+  }
+
+  function dataPath() {
+    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
+  }
+
+  function offsetTimeFormat(d) {
+    return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
+  }
+
+  self.updateXAxis = function() {
+    d3.select('.x.axis').call(xAxis);
+  }
 
   function init(collectionName, timeGrouping) {
     // Initialize by loading the data
@@ -135,6 +252,7 @@ var StreamGraph = function(mainViewModel) {
       data.forEach(function(codeGroup) {
         codeGroup.values.forEach(function(d) {
           d.date = new Date(parseInt(d.timestamp));
+          // d.date = parseInt(d.timestamp);
           d.volume = tweetVolume(d);
           d.key = codeGroup.key;
         });
@@ -154,6 +272,6 @@ var StreamGraph = function(mainViewModel) {
   }
 
   init(collectionName, timeGrouping);
-
+  return self;
 };
 module.exports = StreamGraph;

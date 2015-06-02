@@ -22,8 +22,14 @@ a {
     overflow: scroll; }
   #spaghetti .controls {
     position: absolute;
-    top: 20px;
-    left: 100px; }
+    top: 4%;
+    left: 11.5%; }
+    #spaghetti .controls .btn-group, #spaghetti .controls input {
+      margin-right: 5px; }
+    #spaghetti .controls input {
+      height: 22px;
+      font-size: 12px;
+      padding-left: 6px; }
   #spaghetti .axis path, #spaghetti .axis line {
     fill: none;
     stroke: #888;
@@ -51,6 +57,10 @@ a {
       stroke: #888;
       fill: #000;
       fill-opacity: 0.2; }
+  #stream .axis path, #stream .axis line {
+    fill: none;
+    stroke: #888;
+    shape-rendering: crispEdges; }
 
 /* LEGEND
 ----------------------------------------*/
@@ -90,22 +100,23 @@ a {
 /* TWEETVIEW
 ----------------------------------------*/
 #tweetview {
-  position: relative;
   width: 100%;
-  height: 250px;
-  padding: 18px 10px 10px 75px;
-  background-color: #F7F7F7; }
+  height: 265px;
+  background-color: #F7F7F7;
+  padding: 12px 0; }
   #tweetview .username {
     display: inline;
     font-size: 16px; }
   #tweetview .time {
     font-size: 12px; }
+  #tweetview .avatar-wrapper {
+    position: relative; }
   #tweetview .avatar {
-    position: absolute;
     width: 48px;
     height: 48px;
-    top: 20px;
-    left: 15px;
+    position: absolute;
+    top: 0px;
+    left: 25px;
     background-size: cover;
     background-position: center;
     -webkit-border-radius: 5px;
@@ -118,18 +129,30 @@ a {
     background-image: url('http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png'); }
   #tweetview .avatar-custom {
     z-index: 100; }
+  #tweetview .desaturate {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); }
   #tweetview .verified {
+    display: inline-block;
+    width: 18px;
+    height: 16px;
+    margin-left: 3px;
+    line-height: -10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/verified.png'); }
+  #tweetview .retweet_list {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    top: 15px;
-    left: 56px;
-    background-color: #00B7FF;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    border-radius: 7px;
-    z-index: 150; }
+    bottom: 0;
+    height: 130px;
+    width: 93%;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-top: 1px solid #888;
+    box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); }
+    #tweetview .retweet_list .row {
+      margin: 3px 0; }
 
 /* SCRATCH -- only for development
 ----------------------------------------*/
