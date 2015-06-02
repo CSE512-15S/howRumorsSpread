@@ -1,6 +1,7 @@
 var d3 = require('d3');
 
 var data;
+var userIDtoUser;
 var LeaderBoard = function (mainViewModel) {
   var self = this,
       parentDiv = '#leaderboard',
@@ -10,9 +11,10 @@ var LeaderBoard = function (mainViewModel) {
   	d3.json('data/spaghetti/grouped.json', function(error, json) {
 		if (error) return console.warn(error);
 		data = json.tweets;
-
-		// add to each point a reference to the actual tweet
+		userIDtoUser = new Object();
+		// add to each point a reference to the actual tweet TODO remove lol its unnecessary
 		data.forEach(function(tweet) {
+			userIDtoUser[tweet.user.id] = tweet.user;
 			tweet.points = tweet.points.map(function(d) {
 				return {
 					tweet: tweet,
@@ -36,39 +38,31 @@ var LeaderBoard = function (mainViewModel) {
     
     var startStamp = timeBounds[0].getTime();
     var endStamp = timeBounds[1].getTime();
-    var userToTweets = new Object();
-
-    var filteredTweets = data.filter(function(tweet){
-    	// if it doesn't fall between bounds return false
-    	var tweetTime = tweet.points[0].timestamp;
-    	if(tweetTime >= startStamp && tweetTime <= endStamp){
-    		// add user -> tweet
-    		if(!(tweet.user.id in userToTweets)){
-    			userToTweets[tweet.user.id] = new Array();
-    		}
-			userToTweets[tweet.user.id].push(tweet);
-    		return true;
-    	} else {
-    		return false;
-    	}
-    });
 
 	var scoreboard = new Object();
 
 	// populate scoreboard
-	// TODO: change to meaningful function
-	for(var oneUser in userToTweets){
-  		// look at all the user's tweets, add up retweet count
-		var allTweets = userToTweets[oneUser];
-		var retweetCount = 0;
-		allTweets.forEach(function(tweet){
-			retweetCount += tweet.points[0].popularity;
-		});
-		scoreboard[oneUser] = retweetCount;
+	for(var oneTweet in data){
+		var i = 0;
+		var retweets = data[oneTweet].points;
+		if(retweets != null){
+			if(!(retweets[retweets.length - 1].timestamp < startStamp || retweets[0].timestamp > endStamp)){
+				while(i < retweets.length && retweets[i].timestamp < startStamp){
+					i++;
+				}
+				if(i < retweets.length) {
+					if(!(data[oneTweet].user.id in scoreboard)){
+						// initialize user with their follower count
+						scoreboard[data[oneTweet].user.id] = data[oneTweet].user.followers_count;
+					}
+					scoreboard[data[oneTweet].user.id] += (retweets[retweets.length - 1].popularity - retweets[i].popularity);
+				}
+			}
+		}
 	};
 
   	// sort keys
-  	var keys = Object.keys(userToTweets);
+  	var keys = Object.keys(scoreboard);
   	keys.sort(function(user1, user2){
   		if(scoreboard[user1] > scoreboard[user2]){
   			return -1;
@@ -78,11 +72,12 @@ var LeaderBoard = function (mainViewModel) {
   	});
 
   	// put things into leaderboard
-  	for(var oneUser in keys){
+  	for (var i = 0; i < keys.length; i++) {
+  		var curUserID = keys[i];
   		var tableRow = d3.select("#lbtablebody").append("tr");
-  		tableRow.append("td").text(userToTweets[keys[oneUser]][0].user.name).classed("username", true);
-  		tableRow.append("td").text(userToTweets[keys[oneUser]][0].user.screen_name).classed("screenname", true);
-  		tableRow.append("td").text(scoreboard[keys[oneUser]]).classed("score", true);
+  		tableRow.append("td").text(userIDtoUser[curUserID].name).classed("username", true);
+  		tableRow.append("td").text(userIDtoUser[curUserID].screen_name).classed("screenname", true);
+  		tableRow.append("td").text(scoreboard[curUserID]).classed("score", true);
   	};
   };
 

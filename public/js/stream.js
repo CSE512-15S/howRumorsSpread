@@ -32,7 +32,8 @@ var StreamGraph = function(mainViewModel) {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     })
                     .on('brushend', function() {
-                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
+                      mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent()); 
                     });
 
   var chart = svg.append('g')

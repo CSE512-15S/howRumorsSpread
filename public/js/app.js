@@ -25,6 +25,9 @@ function MainViewModel() {
 
   self.updateViewPort = function (bounds) {
     spaghetti.updateXBounds(bounds);
+  }
+
+  self.updateLeaderboard = function (bounds) {
     leaderboard.updateXBounds(bounds);
   }
 
