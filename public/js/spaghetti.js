@@ -229,8 +229,8 @@ var init = function(model) {
 		xAxis = d3.svg.axis()
 		  .scale(xScale)
 		  .orient("bottom")
-		  .ticks(xTicks)
 		  .tickFormat(offsetTimeFormat);
+		  //.ticks(10);
 
 		d3.select("#spaghetti").select(".x.axis").call(xAxis);
 		d3.select("#spaghetti").select(".y.axis").call(yAxis);
@@ -417,7 +417,7 @@ var showRetweetList = function(d) {
 }
 
 var offsetTimeFormat = function(d) {
-	return moment.utc(d).tz(mainViewModel.timeZone).format("HH:MM:SS");
+	return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
 }
 
 exports.init = init;
