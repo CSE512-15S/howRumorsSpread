@@ -7,6 +7,7 @@
     "components"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "ubilabs-geocomplete": "1.6.5"
   }
 }

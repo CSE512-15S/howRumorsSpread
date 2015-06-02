@@ -170,7 +170,11 @@ var init = function(model) {
 		.attr("class", "x axis")
 		.attr("transform", "translate(0,"+(height+10)+")");
 
+	svg.on("mouseenter", mouseenterSVG)
+	.on("mouseleave", mouseleaveSVG);
+
 	// Set up outlets for showing tweet
+	tweetview.view = d3.select('#tweetview');
 	tweetview.username = d3.select('#tweetview .username');
 	tweetview.screenname = d3.select('#tweetview .screenname');
 	tweetview.time = d3.select('#tweetview .time');
@@ -333,13 +337,21 @@ var updateYScale = function(isLinearScale) {
 	d3.select("#spaghetti").select('.y.axis').transition().duration(1000).call(yAxis);
 }
 
+// Event Handlers
+var mouseenterSVG = function() {
+	d3.select('#tweetview').classed('hidden', false);
+}
+var mouseleaveSVG = mouseleave = function() {
+	d3.select('#tweetview').classed('hidden', true);
+}
+
 var mouseoverVoronoi = function(d) {
 	// Highlight tweet path
 	d3.select(d.tweet.line).classed("tweet-hover", true);
 	d.tweet.line.parentNode.appendChild(d.tweet.line);
-	
+
 	showTweet(d);
-	}
+}
 
 var mouseoutVoronoi = function(d) { 
 	if (tweetviewFixed) {
@@ -355,8 +367,9 @@ var clickVoronoi = function(d) {
 		// Unhighlight tweet path
 		d3.select('.tweet-hover').classed("tweet-hover", false);
 
-		// Add voronoi mouseover handler events again
+		// Add handler events again
 		d3.selectAll('.voronoi path').on("mouseover", mouseoverVoronoi);
+		svg.on("mouseleave", mouseleaveSVG);
 
 		// Hide retweet list
 		tweetview.retweet_list.classed('hidden', true);
@@ -371,8 +384,9 @@ var clickVoronoi = function(d) {
 		showTweet(d);
 		showRetweetList(d);
 
-		// Remove voronoi mouseover handler
+		// Remove voronoi mouseover handler, svg mouseleave handler
 		d3.selectAll('.voronoi path').on("mouseover", null);
+		svg.on("mouseleave", null);
 
 		tweetviewFixed = true;
 	}
@@ -400,8 +414,8 @@ var showRetweetList = function(d) {
 		var row = tweetview.retweet_list.append("div")
 			.attr("class", "row");
 		row.append("div")
-			.attr("class", "col-md-2")
-			.html(rtList[i].verified ? "<span>v</span>" : "");
+			.attr("class", "col-md-1 col-md-offset-1")
+			.html(rtList[i].verified ? '<span class="verified"></span>' : "");
 		row.append("div")
 			.attr("class", "col-md-6")
 		  .append("a")
