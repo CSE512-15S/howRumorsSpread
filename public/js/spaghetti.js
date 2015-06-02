@@ -14,7 +14,7 @@ var Spaghetti = function() {
 
 	var isLinearScale = true;
 
-	var xScale = d3.time.scale(), 
+	var xScale = d3.time.scale.utc(), 
 		yScale = { linear: d3.scale.linear(),
 				   log: d3.scale.log() };
 
@@ -170,8 +170,6 @@ var init = function(model) {
 		.attr("class", "x axis")
 		.attr("transform", "translate(0,"+(height+10)+")");
 
-	svg.on("mousemove", mousemoveSVG);
-
 	// Set up outlets for showing tweet
 	tweetview.username = d3.select('#tweetview .username');
 	tweetview.screenname = d3.select('#tweetview .screenname');
@@ -231,7 +229,8 @@ var init = function(model) {
 		xAxis = d3.svg.axis()
 		  .scale(xScale)
 		  .orient("bottom")
-		  .ticks(xTicks);
+		  .ticks(xTicks)
+		  .tickFormat(offsetTimeFormat);
 
 		d3.select("#spaghetti").select(".x.axis").call(xAxis);
 		d3.select("#spaghetti").select(".y.axis").call(yAxis);
@@ -284,9 +283,10 @@ var init = function(model) {
     		url = 'http://api.timezonedb.com/?lat='+lat+'&lng='+lon+'&format=json&key=2PXSOPRPEFDT';
     		jQuery.getJSON(url)
 		  		.done(function(data) {
-		  			console.log(data);
-					jQuery("#placenameInput").val("Timezone: " + data.abbreviation);
-					// TO DO: change the timezone in the MainViewModel
+		  			jQuery("#placenameInput").val("Timezone: " + data.abbreviation);
+		  			// Update the time axis
+					mainViewModel.setTimeZone(data.zoneName);
+					d3.select("#spaghetti").select('.x.axis').call(xAxis);
 				});
   		});
 	});
@@ -334,15 +334,6 @@ var updateYScale = function(isLinearScale) {
 	d3.select("#spaghetti").select('.y.axis').transition().duration(1000).call(yAxis);
 }
 
-var mousemoveSVG = function(d) { 
-	var x = d3.mouse(this)[0];
-	
-	// TO DO: move scanline
-	// TO DO: Call global time update here
-	// var timestamp = spaghetti.xScale.invert(x);
-	// var timeString = timeStampToClockTime(timestamp);
-}
-
 var mouseoverVoronoi = function(d) {
 	// Highlight tweet path
 	d3.select(d.tweet.line).classed("tweet-hover", true);
@@ -357,9 +348,6 @@ var mouseoutVoronoi = function(d) {
 	}
 	// Unhighlight tweet path
 	d3.select(d.tweet.line).classed("tweet-hover", false);
-	
-	// TO DO: Hide scanline
-	// scanline.attr("transform", "translate(-200,0)");
 }
 
 // Fixes tweet currently in focus to the view
@@ -399,7 +387,7 @@ var showTweet = function(d) {
 	tweetview.screenname
 		.attr("href", "http://twitter.com/" + d.tweet.user.screen_name)
 		.html("@" + d.tweet.user.screen_name);
-	tweetview.time.html(timeStampToClockTime(d.tweet.points[0]["timestamp"]));
+	tweetview.time.html(offsetTimeFormat(d.tweet.points[0]["timestamp"]));
 	tweetview.tweet.html(d.tweet.text);
 	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
 	tweetview.avatar.style("background-image", "url(" + d.tweet.user.profile_image_url + ")");
@@ -428,8 +416,8 @@ var showRetweetList = function(d) {
 	tweetview.retweet_list.classed('hidden', false);
 }
 
-var timeStampToClockTime = function(timestamp) {
-	return new Date(timestamp).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+var offsetTimeFormat = function(d) {
+	return moment.utc(d).tz(mainViewModel.timeZone).format("HH:MM:SS");
 }
 
 exports.init = init;

@@ -20,7 +20,7 @@
     "morgan": "~1.5.0",
     "serve-favicon": "~2.2.0",
     "underscore": "^1.8.3",
-    "placecomplete": "0.1.0"
+    "moment-timezone": "0.4.0"
   },
   "devDependencies": {
     "browserify": "^10.1.3",
