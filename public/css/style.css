@@ -10,14 +10,15 @@ a {
 
 /* MIXINS
 ----------------------------------------*/
+.svgContainer svg {
+  margin: 0px auto;
+  display: block;
+  font: 12px sans-serif; }
+
 /* SPAGHETTI
 ----------------------------------------*/
 #spaghetti {
   position: relative; }
-  #spaghetti svg {
-    margin: 0 auto;
-    font: 12px sans-serif;
-    display: block; }
   #spaghetti .svgContainer {
     overflow: scroll; }
   #spaghetti .controls {
@@ -48,8 +49,7 @@ a {
   height: 150px;
   width: 100%; }
   #stream .svgContainer {
-    width: 100%;
-    font: 12px sans-serif; }
+    width: 100%; }
     #stream .svgContainer .line {
       fill: none;
       stroke: #000;
