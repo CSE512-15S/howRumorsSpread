@@ -1,23 +1,22 @@
 var d3 = require('d3');
 
 var data;
-var svg, spaghetti, dataTweets, voronoi;
+var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale, yScale, xAxis, yAxis, linecolor;
 var mainViewModel;
-var margin = { top: 20, right: 70, bottom: 60, left: 90 },
-			    width = 860 - margin.left - margin.right,
-			    height = 520 - margin.top - margin.bottom;
+var margin = { top: 0, right: 20, bottom: 50, left: 90 },
+			    width = 800 - margin.left - margin.right,
+			    height = 500 - margin.top - margin.bottom;
+var xTicks = 8, yTicks = 10;
+var tweetview = {};
+var tweetviewFixed = false; 
 
 var Spaghetti = function() {
 
 	var isLinearScale = true;
 
-	var xScale = d3.time.scale(), 
+	var xScale = d3.time.scale.utc(), 
 		yScale = { linear: d3.scale.linear(),
 				   log: d3.scale.log() };
-
-	var linecolor = d3.scale.ordinal()
-		.domain(["Affirm", "Deny", "Unrelated"])
-		.range(["#2c7fb8", "#c51b8a", "#bdbdbd"]);
 
 	var line = {};
 	line.linear = d3.svg.line()
@@ -100,35 +99,28 @@ var Voronoi = function() {
 	var voronoiFunction = d3.geom.voronoi()
 		.x(function(d) { return xScale(d.timestamp); })
 		.y(function(d) { return yScale(d.popularity); })
-		.clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
-
-	var voronoiData;
+		.clipExtent([[0, 0], [width, height]]);
 
 	var voronoi = function(selection) {
 		selection.each(function(data) { 
 			// Do data setup
-			voronoiData = voronoiFunction(d3.nest()
+			var voronoiData = voronoiFunction(d3.nest()
 		        .key(function(d) { return xScale(d.timestamp) + "," + yScale(d.popularity); })
 		        .rollup(function(v) { return v[0]; })
 		        .entries(d3.merge(data.map(function(d) { return d.points; })))
 		        .map(function(d) { return d.values; }));
+
+			d3.select(this).selectAll("path")
+				.data(voronoiData)
+			  .enter().append("path")
+				.attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+	      		.datum(function(d) { return d.point; })
+	      		.on("mouseover", mouseoverVoronoi)
+		    	.on("mouseout", mouseoutVoronoi)
+		    	.on("click", clickVoronoi);
 		});
-		selection.call(voronoi.draw);
 	}	
 	
-	// Does the actual drawing
-	voronoi.draw = function(selection) {
-		selection.each(function(data) { 
-			d3.select(this).selectAll("path")
-					.data(voronoiData)
-				  .enter().append("path")
-					.attr("d", function(d) { return "M" + d.join("L") + "Z"; })
-		      		.datum(function(d) { return d.point; })
-		      		.on("mouseover", mouseoverVoronoi)
-			    	.on("mouseout", mouseoutVoronoi);
-		});
-	}
-
 	// Setter/Getter methods
 	voronoi.xScale = function(value) {
         if (!arguments.length) {
@@ -152,6 +144,9 @@ var Voronoi = function() {
 var init = function(model) {
 	mainViewModel = model;
 
+	// Use same color scale across charts
+	linecolor = mainViewModel.getColorScale();
+
 	// One-time setup
 	svg = d3.select("#spaghetti .svgContainer")
 	  .append("svg")
@@ -162,13 +157,32 @@ var init = function(model) {
 
 	// General setup
 	svg.append("g")
-		.attr("class", "y axis")
-		.attr("transform", "translate(-10,0)");
-
-	svg.append("g")
 		.attr("class", "tweets");
 
-	svg.on("mousemove", mousemoveSVG);
+	svg.append("g")
+		.attr("class", "y axis")
+		.attr("transform", "translate(-10,0)")
+	  .append("rect")
+	  	.attr("width", margin.left).attr("height", (height + margin.bottom))
+	  	.attr("transform", "translate(" + -margin.left + ",0)");
+
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0,"+(height+10)+")");
+
+	svg.on("mouseenter", mouseenterSVG)
+	.on("mouseleave", mouseleaveSVG);
+
+	// Set up outlets for showing tweet
+	tweetview.view = d3.select('#tweetview');
+	tweetview.username = d3.select('#tweetview .username');
+	tweetview.screenname = d3.select('#tweetview .screenname');
+	tweetview.time = d3.select('#tweetview .time');
+	tweetview.avatar = d3.select('#tweetview .avatar-custom');
+	tweetview.tweet = d3.select('#tweetview .tweet');
+	tweetview.verified = d3.select('#tweetview .verified');
+	tweetview.retweetList = d3.select('#tweetview .retweetList');
+	tweetview.retweetListBody = d3.select('#tweetview .retweetListBody');
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -187,7 +201,7 @@ var init = function(model) {
 		});
 
 		// get data bounds
-		var xBounds = d3.extent(d3.merge([data.map(function(d) {
+		xBounds = d3.extent(d3.merge([data.map(function(d) {
 			return d.points[0].timestamp;
 		}), data.map(function(d) {
 			return d.points[d.points.length - 1].timestamp;
@@ -200,10 +214,10 @@ var init = function(model) {
 		})]));
 
 		// scale & axis setup
-		xScale = d3.scale.linear()
+		xScale = d3.time.scale()
 			.domain(xBounds)
 			.range([0,width]);
-		var yScale = {};
+		yScale = {};
 		yScale.linear = d3.scale.linear()
 				.domain(yBounds)
 				.range([height, 0]);
@@ -212,9 +226,18 @@ var init = function(model) {
 				.range([height, 0])
 				.nice();
 
-		var yAxis = d3.svg.axis()
+		yAxis = d3.svg.axis()
 			.scale(yScale.linear)
-			.orient("left");
+			.orient("left")
+			.ticks(yTicks);
+
+		xAxis = d3.svg.axis()
+		  .scale(xScale)
+		  .orient("bottom")
+		  .tickFormat(offsetTimeFormat);
+
+		d3.select("#spaghetti").select(".x.axis").call(xAxis);
+		d3.select("#spaghetti").select(".y.axis").call(yAxis);
 
 		// Create spaghetti chart and bind x and y scales
 		spaghetti = Spaghetti()
@@ -225,10 +248,6 @@ var init = function(model) {
 		dataTweets = d3.select('.tweets')
 			.datum(data)
 			.call(spaghetti);
-
-		// Event listeners for lin / log scale buttons
-		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
-		d3.select('#scale-log').on("click", function() { updateYScale(false) });
 
 		// Add voronoi tesselations
 		var voronoi = {};
@@ -254,14 +273,46 @@ var init = function(model) {
 		// Set pointer events
 		voronoiGroup.linear.selectAll("path").attr("pointer-events", "all");
 		voronoiGroup.log.selectAll("path").attr("pointer-events", "none");
+
+		// Controls
+		// Event listeners for lin / log scale buttons
+		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
+		d3.select('#scale-log').on("click", function() { updateYScale(false) });
+
+		// Setup placename-completion
+   		jQuery("#placenameInput").geocomplete()  
+   		.bind("geocode:result", function(event, result){
+    		var lat = result.geometry.location.A;
+    		var lon = result.geometry.location.F;
+    		url = 'http://api.timezonedb.com/?lat='+lat+'&lng='+lon+'&format=json&key=2PXSOPRPEFDT';
+    		jQuery.getJSON(url)
+		  		.done(function(data) {
+		  			jQuery("#placenameInput").val("Timezone: " + data.abbreviation);
+		  			// Update the time axis
+					mainViewModel.setTimeZone(data.zoneName);
+					d3.select("#spaghetti").select('.x.axis').call(xAxis);
+				});
+  		});
 	});
 };
 
-// Update x domain
-var updateXScale = function(domain) {
-	spaghetti.xScale().domain(domain);
+// Update x domain. To be called on a brush event in the stream graph
+var updateXBounds = function(domain) {
+	if (!domain) {
+		domain = xBounds;
+	}
+
+	var translate_x = (domain[0] - xBounds[0]) / (xBounds[0] - xBounds[1]); // Need to get translation before domain update
+	xScale.domain(domain);
 	dataTweets.call(spaghetti);
-    // TO DO: d3.select('.x.axis').call(xAxis);
+    d3.select("#spaghetti").select('.x.axis').call(xAxis);
+
+    // Rescale voronoi diagrams
+    var scale_x = (xBounds[1] - xBounds[0]) / (domain[1] - domain[0]);
+    translate_x = translate_x * width * scale_x;
+    var matrix = "matrix(" + scale_x + ",0,0,1," + translate_x + ",0)";
+    voronoiGroup.linear.attr("transform", matrix);
+    voronoiGroup.log.attr("transform", matrix);
 }
 
 // Change between lin / log scale
@@ -270,46 +321,119 @@ var updateYScale = function(isLinearScale) {
 	spaghetti.draw(dataTweets, true);
 
 	// Switch voronoi tesselations
-	voronoiLinear = d3.select('.voronoi.linear');
-	voronoiLog = d3.select('.voronoi.log');
-	var offGroup = isLinearScale ? voronoiLog : voronoiLinear;
-	var onGroup = isLinearScale ? voronoiLinear : voronoiLog;
-
+	var offGroup = isLinearScale ? voronoiGroup.log : voronoiGroup.linear;
+	var onGroup = isLinearScale ? voronoiGroup.linear : voronoiGroup.log;
 	offGroup.selectAll("path").attr("pointer-events", "none");
 	onGroup.selectAll("path").attr("pointer-events", "all");	
 
-	/*
-	// TO DO: update y Axis
+	// Update y Axis
 	yAxis.scale(isLinearScale ? yScale.linear : yScale.log);
-	d3.select('.y.axis').transition().duration(1000).call(yAxis);
-	*/
+	if (isLinearScale) {
+		yAxis.ticks(yTicks).tickFormat(d3.format(",d"));
+	} else {
+		yAxis.tickFormat(function (d) {
+        	return yScale.log.tickFormat(yTicks,d3.format(",d"))(d)
+		});
+	}
+	d3.select("#spaghetti").select('.y.axis').transition().duration(1000).call(yAxis);
 }
 
-var mousemoveSVG = function(d) { 
-	// move clock, change time
-	var x = d3.mouse(this)[0];
-	// var timestamp = spaghetti.xScale.invert(x);
-	// var timeString = new Date(timestamp).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-
-	// TO DO: move scanline
-	// TO DO: Call global time update here
+// Event Handlers
+var mouseenterSVG = function() {
+	d3.select('#tweetview').classed('hidden', false);
+}
+var mouseleaveSVG = mouseleave = function() {
+	d3.select('#tweetview').classed('hidden', true);
 }
 
 var mouseoverVoronoi = function(d) {
-	// Highlight line
+	// Highlight tweet path
 	d3.select(d.tweet.line).classed("tweet-hover", true);
 	d.tweet.line.parentNode.appendChild(d.tweet.line);
-	// Highlight corresponding tweet
-	// TO DO
+
+	showTweet(d);
 }
 
 var mouseoutVoronoi = function(d) { 
-	// Unhighlight path
+	if (tweetviewFixed) {
+		return;
+	}
+	// Unhighlight tweet path
 	d3.select(d.tweet.line).classed("tweet-hover", false);
-	// Hide scanline
-	// scanline.attr("transform", "translate(-200,0)");
+}
+
+// Fixes tweet currently in focus to the view
+var clickVoronoi = function(d) {
+	if (tweetviewFixed) {
+		// Unhighlight tweet path
+		d3.select('.tweet-hover').classed("tweet-hover", false);
+
+		// Add handler events again
+		d3.selectAll('.voronoi path').on("mouseover", mouseoverVoronoi);
+		svg.on("mouseleave", mouseleaveSVG);
+
+		// Hide retweet list
+		tweetview.retweetList.classed('hidden', true);
+
+		tweetviewFixed = false;
+	} else {
+		// Highlight tweet path
+		d3.select(d.tweet.line).classed("tweet-hover", true);
+		d.tweet.line.parentNode.appendChild(d.tweet.line);
+
+		// Show the corresponding tweet & retweet list
+		showTweet(d);
+		showRetweetList(d);
+
+		// Remove voronoi mouseover handler, svg mouseleave handler
+		d3.selectAll('.voronoi path').on("mouseover", null);
+		svg.on("mouseleave", null);
+
+		tweetviewFixed = true;
+	}
+}
+
+
+// Shows the tweet attached to d in #tweetview
+var showTweet = function(d) {
+	// Show corresponding tweet
+	tweetview.username.html(d.tweet.user.name);
+	tweetview.screenname
+		.attr("href", "http://twitter.com/" + d.tweet.user.screen_name)
+		.html("@" + d.tweet.user.screen_name);
+	tweetview.time.html(offsetTimeFormat(d.tweet.points[0]["timestamp"]));
+	tweetview.tweet.html(d.tweet.text);
+	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
+	tweetview.avatar.style("background-image", "url(" + d.tweet.user.profile_image_url + ")");
+}
+
+// Shows the retweet list attached to d in #tweetview
+var showRetweetList = function(d) {
+	var rtList = d.tweet.retweet_list;
+	tweetview.retweetListBody.html('');
+	for (var i = rtList.length - 1; i >= 0; i--) {
+		var row = tweetview.retweetListBody.append("div")
+			.attr("class", "row");
+		row.append("div")
+			.attr("class", "col-md-1 col-md-offset-1")
+			.html(rtList[i].verified ? '<span class="verified"></span>' : "");
+		row.append("div")
+			.attr("class", "col-md-6")
+		  .append("a")
+		.attr("href", "http://twitter.com/" + rtList[i].screen_name)
+		.attr("target", "_blank")
+		.html("@" + rtList[i].screen_name);
+		row.append("div")
+			.attr("class", "col-md-4")
+			.html(rtList[i].followers_count);
+	};
+	tweetview.retweetList.classed('hidden', false);
+}
+
+var offsetTimeFormat = function(d) {
+	return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
 }
 
 exports.init = init;
-exports.updateXScale = updateXScale;
+exports.updateXBounds = updateXBounds;
 module.exports = exports;

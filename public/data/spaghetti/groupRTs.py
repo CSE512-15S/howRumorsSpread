@@ -22,13 +22,22 @@ from numpy import cumsum
 #					"id": int64,
 #					"text": String,
 #					"first_code": String,
+#					"favorite_count": int,
 #					"user": { "id": int64, 	<-- id of user where tweet originated from
 #							  "name": String,
-#							  "screen_name": String
+#							  "screen_name": String,
+#							  "followers_count": int,
+#							  "profile_image_url": String,
+#							  "verified": boolean
 #							},
 #					"points": [{
 #						"timestamp": int64,
-#						"popularity": int  	<--	for now, accumulated follower count of all retweets
+#						"popularity": int  	<--	accumulated follower count of retweets
+#					}],
+#					"retweet_list": [{
+#						"verified": boolean,
+#						"screen_name": String,
+#						"followers_count": int
 #					}]
 #				}]
 #			}
@@ -56,11 +65,17 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 		id = tweet["id"]
 		text = tweet["text"]
 		first_code = tweet["codes"][0]["first_code"]
+		favorite_count = tweet["favorite_count"]
 		user = {"id": tweet["user"]["id"],\
 				"name": tweet["user"]["name"],\
-				"screen_name": tweet["user"]["screen_name"]}
+				"screen_name": tweet["user"]["screen_name"],\
+				"followers_count": tweet["user"]["followers_count"],\
+				"profile_image_url": tweet["user"]["profile_image_url"],\
+				"verified": tweet["user"]["verified"]\
+			}
 		timestamps = [tweet["created_ts"]]
 		followers = [tweet["user"]["followers_count"]]
+		retweet_list = []
 
 		# check time bounds
 		if (time_bounds[0] <= timestamps[0] <= time_bounds[1]):
@@ -68,17 +83,19 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 			# Join on tweet id
 			for retweet in retweets:
 				if id == retweet["retweeted_status"]["id"]:
+					# for points
 					ts = retweet["created_ts"]
 					fo = retweet["user"]["followers_count"]
 					if tresh_time < ts - timestamps[-1]:	
 						break # too much time passed since last retweet, stale
 					timestamps.append(ts)
 					followers.append(fo)
-			
+					# for retweet_list
+					retweet_list.append({"verified": retweet["user"]["verified"], "screen_name": retweet["user"]["screen_name"], "followers_count": fo })
+
 			popularity = list(cumsum(followers))
 			points = [{"timestamp": t, "popularity": p} for (t,p) in zip(timestamps, popularity)]
-			grouped.append({"id":id, "text":text, "user": user, "first_code":first_code, "points":points})
-
+			grouped.append({"id":id, "text":text, "user": user, "first_code":first_code, "favorite_count": favorite_count, "points":points, "retweet_list": retweet_list})
 
 	json.dump({'tweets': grouped}, outfile, indent=4)
 

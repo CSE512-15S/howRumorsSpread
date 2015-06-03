@@ -1,38 +1,44 @@
+/* PARAMS
+----------------------------------------*/
 body {
-  padding: 50px;
+  padding: 30px 40px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #777;
+  cursor: pointer; }
+
+/* MIXINS
+----------------------------------------*/
+.svgContainer svg {
+  margin: 0px auto;
+  display: block;
+  font: 12px sans-serif; }
 
 /* SPAGHETTI
 ----------------------------------------*/
 #spaghetti {
   position: relative; }
-  #spaghetti svg {
-    margin: 0 auto;
-    font: 12px sans-serif;
-    display: block; }
   #spaghetti .svgContainer {
     overflow: scroll; }
   #spaghetti .controls {
     position: absolute;
-    top: 10px;
-    left: 100px; }
+    top: 0px;
+    left: 107px; }
+    #spaghetti .controls .btn-group, #spaghetti .controls input {
+      margin-right: 7px; }
+    #spaghetti .controls input {
+      height: 22px;
+      font-size: 12px;
+      padding-left: 6px; }
   #spaghetti .axis path, #spaghetti .axis line {
     fill: none;
     stroke: #888;
     shape-rendering: crispEdges; }
+  #spaghetti .axis rect {
+    fill: #fff; }
   #spaghetti .voronoi path {
     fill: none; }
-  #spaghetti .clock rect {
-    fill: none;
-    stroke: #bbb; }
-  #spaghetti .clock line {
-    stroke: #bbb;
-    stroke-width: 1; }
-  #spaghetti .clock text {
-    fill: #333; }
   #spaghetti .tweet-hover {
     stroke-width: 4; }
 
@@ -42,67 +48,139 @@ a {
   position: relative;
   height: 150px;
   width: 100%; }
+  #stream .controls {
+    margin-top: 10px;
+    position: relative;
+    left: 45%;
+    top: 0; }
   #stream .svgContainer {
     width: 100%; }
     #stream .svgContainer .line {
       fill: none;
       stroke: #000;
       stroke-width: 2px; }
-
-/* SPAGHETTI
-----------------------------------------*/
-#spaghetti {
-  position: relative; }
-  #spaghetti svg {
-    margin: 0 auto;
-    font: 12px sans-serif;
-    display: block; }
-  #spaghetti .svgContainer {
-    overflow: scroll; }
-  #spaghetti .controls {
-    position: absolute;
-    top: 20px;
-    left: 100px; }
-  #spaghetti .axis path, #spaghetti .axis line {
+    #stream .svgContainer .viewport {
+      stroke: #888;
+      fill: #000;
+      fill-opacity: 0.2; }
+  #stream .axis path, #stream .axis line {
     fill: none;
     stroke: #888;
     shape-rendering: crispEdges; }
-  #spaghetti .voronoi path {
-    fill: none; }
-  #spaghetti .clock rect {
-    fill: none;
-    stroke: #bbb; }
-  #spaghetti .clock line {
-    stroke: #bbb;
-    stroke-width: 1; }
-  #spaghetti .clock text {
-    fill: #333; }
-  #spaghetti .tweet-hover {
-    stroke-width: 4; }
+
+/* LEGEND
+----------------------------------------*/
+#legend {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  font-size: 10px; }
 
 /* LEADERBOARD
 ----------------------------------------*/
 #leaderboard {
   position: relative;
   width: 100%;
-  height: 280px;
-  background-color: #eee;
-  margin-bottom: 20px; }
+  background-color: #F7F7F7;
+  padding: 5px 0;
+  border: 1px solid #ccc; }
+  #leaderboard .screenname {
+    padding-left: 22px; }
+  #leaderboard .score {
+    padding-right: 22px; }
 
-/* TWEETLIST
+.lbtablehead {
+  font-weight: bold;
+  padding-bottom: 5px; }
+
+.lbtablebody {
+  height: 280px;
+  overflow: scroll;
+  border-top: 1px solid #ccc;
+  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); }
+  .lbtablebody .row {
+    margin-top: 3px;
+    margin-bottom: 3px; }
+
+/* EVENTMETA & TWEETVIEW
 ----------------------------------------*/
-#tweetlist {
+.detailview {
   position: relative;
   width: 100%;
-  height: 300px;
-  background-color: #eee; }
+  padding: 0;
+  height: 320px;
+  margin-bottom: 20px; }
+
+#eventmeta, #tweetview {
+  position: absolute;
+  width: 100%;
+  height: 320px;
+  border: 1px solid #ccc;
+  background-color: #F7F7F7; }
+
+#eventmeta .row {
+  margin: 0; }
+
+#tweetview {
+  padding: 12px 0; }
+  #tweetview .username {
+    display: inline;
+    font-size: 16px; }
+  #tweetview .time {
+    font-size: 12px; }
+  #tweetview .avatar-wrapper {
+    position: relative; }
+  #tweetview .avatar {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    background-size: cover;
+    background-position: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #aaa; }
+  #tweetview .avatar-default {
+    z-index: 0;
+    background-image: url('http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png'); }
+  #tweetview .avatar-custom {
+    z-index: 100; }
+  #tweetview .desaturate {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); }
+  #tweetview .verified {
+    display: inline-block;
+    width: 18px;
+    height: 16px;
+    margin-left: 3px;
+    line-height: -10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/verified.png'); }
+  #tweetview .retweetList {
+    position: absolute;
+    bottom: 1px;
+    width: 100%; }
+    #tweetview .retweetList .retweetListHeader {
+      font-weight: bold; }
+    #tweetview .retweetList .retweetListBody {
+      height: 160px;
+      overflow-y: scroll;
+      border-top: 1px solid #ccc;
+      box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); }
+    #tweetview .retweetList .row {
+      margin-top: 3px;
+      margin-bottom: 3px; }
 
 /* SCRATCH -- only for development
 ----------------------------------------*/
 .bg-text {
   background-color: #aaa;
   overflow: hidden;
-  padding: 20px 20px 100px 20px;
   position: relative;
   width: 400px; }
 

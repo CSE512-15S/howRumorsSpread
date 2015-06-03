@@ -1,32 +1,124 @@
-var d3 = require('d3');
+var d3 = require('d3'),
+    ko = require('knockout');
 
-
-var StreamGraph = function() {
+var StreamGraph = function(mainViewModel) {
   var self = this,
-      timeGrouping = 'minute', // TODO: variable
-      collectionName = 'lakemba', // TODO: variable 
       parentDiv = '#stream',
-      margin = { top: 0, right: 70, bottom: 20, left: 90 },
-      width = 860 - margin.left - margin.right,
-      height = 150 - margin.top - margin.bottom,
+      timeGrouping = 'minute', // TODO: variable
+      collectionName = mainViewModel.activeCollection,
+      chartType = 'streamGraph',
+      margin = { top: 0, right: 0, bottom: 30, left: 90 },
+      width = 800 - margin.left - margin.right,
+      height = 130 - margin.top - margin.bottom,
       duration = 750;
-
-  var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
-              .attr('width', width)
-              .attr('height', height);
-
-  console.log('StreamGraph');
-  function dataPath() {
-    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
-  }
-
+      xTicks = 5;
   
   /* /Begin Chart initilization code */
+  var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+              .attr('width', width)
+              .attr('height', height)
+              .attr('transform', 'translate('+margin.left +','+ margin.top+')');
+
   var xScale = d3.time.scale()
               .range([0, width]),
       yScale = d3.scale.linear()
                  .range([height, 0]),
-      color  = d3.scale.category10();
+      color = mainViewModel.getColorScale(),
+      viewport = d3.svg.brush()
+                    .x(xScale)
+                    .on('brush', function() {
+                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                    })
+                    .on('brushend', function() {
+                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
+                      mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                    });
+  var xAxis = d3.svg.axis()
+      .scale(xScale)
+      .orient("bottom")
+      .tickFormat(offsetTimeFormat)
+      .ticks(xTicks);
+ 
+  var chart = svg.append('g')
+    .attr('class', 'chart');
+
+  var vertLine = svg.append('line')
+                    .attr('x1', 0)
+                    .attr('x2', 0)
+                    .attr('y1', 0)
+                    .attr('y2', height)
+                    .style('visibility', 'hidden')
+                    .style('stroke-width', 1)
+                    .style('stroke', '#ccc')
+                    .style('fill', 'none');
+
+  // Append viewport
+  svg.append('g')
+      .attr('class', 'viewport')
+      .call(viewport)
+      .selectAll('rect')
+      .attr('height', height);
+
+  // Append xAxis
+  chart.append('g')
+        .attr('class', 'x axis')
+        .attr("transform", "translate(0,"+(height+10)+")");
+  
+
+  svg.on('mousemove', function(d, i) {
+        var mousex = d3.mouse(this)[0];
+        moveVertLine(mousex);
+        updateVolumeTooltip(mousex);
+      })
+      .on('mouseover', function(d, i) {
+        var mousex = d3.mouse(this)[0];
+        moveVertLine(mousex);
+        updateVolumeTooltip(mousex);
+      })
+      .on('mouseout', function(d, i) {
+        moveVertLine(null);
+        updateVolumeTooltip(null);
+      });
+
+  function moveVertLine(mousePosition) {
+    if (mousePosition !== null) {
+      vertLine.style('visibility', 'visible')
+              .attr('x1', mousePosition)
+              .attr('x2', mousePosition);
+    }
+    else {
+      vertLine.style('visibility', 'hidden') 
+    }
+  }
+
+  function updateVolumeTooltip(mousePosition) {
+    var invertedDate = xScale.invert(mousePosition);
+    var matchingTimestamp = binTimestamp(invertedDate.getTime());
+
+    var volumes = dataset.map(function(datum) {
+      var volume = null;
+      
+      if (mousePosition !== null) {
+        volume = 0;
+        var matching = datum.values.filter(function(value, index) {
+          return value.timestamp == matchingTimestamp;
+        });
+        if (matching.length > 0) {
+          volume = matching[0].volume;
+        }
+      }
+
+      return {
+        code : datum.key,
+        volume : volume 
+      }
+    });
+
+    mainViewModel.updateCurrentVolumes(volumes);
+  }
 
   // Area generator for stream graph polygons
   var area = d3.svg.area()
@@ -46,26 +138,50 @@ var StreamGraph = function() {
                 .order('reverse');
   /* /End Chart initilization code */
 
+
+  // Switching between graph types
+  d3.select('.pick-stream-chart').selectAll('button')
+    .on('click', function() {
+      var selectedChart = this.value;
+      console.log("selectedChart: ", selectedChart);
+
+      d3.selectAll('.pick-stream-chart button').classed('active', false);
+      d3.select(this).classed('active', true);
+
+      switch(selectedChart) {
+        case 'streamGraph':
+          streamGraph(dataset);
+          break;
+        case 'areaGraph':
+          areaGraph(dataset);
+          break;
+        default:
+          console.error('Picked an unknown stream chart type {' + selectedChart +'}\n Reverting to streamGraph');
+          streamGraph(dataset);
+      }
+    });
+
+
+
   function drawChart(data) {
     var minDate = d3.min(data, function(d) { return d.values[0].date; })
         maxDate = d3.max(data, function(d) { return d.values[d.values.length - 1].date; });
 
     // Update domain of scales with this date range
     xScale.domain([minDate, maxDate]);
+
+    // Draw X Axis
+    d3.select(parentDiv).select('.x.axis').call(xAxis);
     
     // Make streamgraph enamate from center of chart
     area.y0(height / 2)
         .y1(height / 2);
 
-    var g = svg.selectAll('.code')
+    var g = chart.selectAll('.code')
                 .data(data)
                 .enter();
     var codes = g.append('g')
-                  .attr('class', 'code')
-                  .on('mouseover', function(d) {
-                    console.log(d);
-                    console.log('code=', d.key);
-                  });
+                  .attr('class', 'code');
 
     // add some paths that will
     // be used to display the lines and
@@ -78,12 +194,11 @@ var StreamGraph = function() {
     codes.append('path')
             .attr('class', 'line')
             .style('stroke-opacity', 0.0001);
-
     
-    streamgraph(data);
+    streamGraph(data);
   }
 
-  function streamgraph(data) {
+  function streamGraph(data) {
     stack.offset('silhouette');
     stack(data);
     
@@ -96,7 +211,7 @@ var StreamGraph = function() {
     area.y0(function(d) { return yScale(d.volume0); })
         .y1(function(d) { return yScale(d.volume0 + d.volume); });
 
-    var t = svg.selectAll('.code')
+    var t = chart.selectAll('.code')
                 .transition()
                 .duration(duration);
     t.select('path.area')
@@ -108,26 +223,66 @@ var StreamGraph = function() {
       .attr('d', function(d) { return line(d.values); });
   }
 
-  function init(collectionName, timeGrouping) {
-    // d3.csv('/data/test.csv', function(err, data) {
-    //   var format = d3.time.format("%m/%d/%y");
-    //   data.forEach(function(d) {
-    //     d.date = format.parse(d.date);
-    //     d.volume = +d.value;
-    //   });
+  function areaGraph(data) {
 
-    //   var nest= d3.nest().key(function(d) {
-    //     return d.key;
-    //   });
+    yScale.domain([0, d3.max(data.map(function(d) { return d.maxVolume; }))])
+          .range([height, 0]);
 
-    //   var nested = nest.entries(data);
-    //   console.log(nested);
 
-    //   drawChart(nested);
-    // });
+    area.y0(height)
+        .y1(function(d) { return yScale(d.volume); });
 
-    var path = '/data/airspace/second-total-volume.json';
+    line.y(function(d) { return yScale(d.volume); });
 
+    var t = chart.selectAll('.code')
+              .transition()
+              .duration(duration);
+
+    t.select('path.area')
+      .style('fill-opacity', 0.5)
+      .attr('d', function(d) { return area(d.values); });
+
+    t.select('path.line')
+      .style('stroke-opacity', .8)
+      .attr('d', function(d) { return line(d.values); });
+  }
+
+  // Bins the generated timestamp into the same itnerval
+  // set with var timeGrouping
+  function binTimestamp(timestamp) {
+    timestamp = parseInt(timestamp);
+    var divVal = null
+    switch (timeGrouping) {
+      case 'minute':
+        divVal = 1000 * 60;
+        break;
+      case 'second':
+        divVal = 1000;
+        break;
+      case 'millisecond':
+        divVal = 1;
+        break;
+      default:
+        console.warn('Binning unsupported timestamp type', timeGrouping, timestamp);
+        break;
+    }
+
+    return parseInt(timestamp / divVal) * divVal;
+  }
+
+  function dataPath() {
+    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
+  }
+
+  function offsetTimeFormat(d) {
+    return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
+  }
+
+  self.updateXAxis = function() {
+    d3.select('.x.axis').call(xAxis);
+  }
+
+  function init(timeGrouping) {
     // Initialize by loading the data
     d3.json(dataPath(), function(err, data) {
       if (err) return console.warn(err);
@@ -137,9 +292,9 @@ var StreamGraph = function() {
       }
 
       data.forEach(function(codeGroup) {
-        console.log('CodeGroup - ' + codeGroup.key, 'length: ', codeGroup.values.length);
         codeGroup.values.forEach(function(d) {
           d.date = new Date(parseInt(d.timestamp));
+          // d.date = parseInt(d.timestamp);
           d.volume = tweetVolume(d);
           d.key = codeGroup.key;
         });
@@ -154,11 +309,11 @@ var StreamGraph = function() {
       
       data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
       dataset = data;
-      console.log('dataset: ', dataset);
       drawChart(dataset);
     });
   }
 
-  init(collectionName, timeGrouping);
+  init(timeGrouping);
+  return self;
 };
 module.exports = StreamGraph;
