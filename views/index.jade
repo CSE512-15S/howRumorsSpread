@@ -26,13 +26,17 @@ block content
                                 br
                                 span.time time
                             p.tweet Tweet
-                    .retweet_list.hidden
+                    .retweetList.hidden
+                        .row.retweetListHeader
+                            .col-md-6.col-md-offset-2.small Screen Name
+                            .col-md-4.small Followers
+                        .retweetListBody
             #leaderboard
-                .row#lbtablehead
-                    .screenname.col-md-5 Screen Name
-                    .username.col-md-5 Username
-                    .score.col-md-2 Score
-                #lbtablebody
+                .row.lbtablehead
+                    .screenname.col-md-4.small Screen Name
+                    .username.col-md-5.small Username
+                    .score.col-md-3.small.text-right Score
+                .lbtablebody
         .col-md-8#master
                 #spaghetti
                     .svgContainer

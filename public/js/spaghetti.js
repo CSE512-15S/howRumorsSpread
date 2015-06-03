@@ -181,7 +181,8 @@ var init = function(model) {
 	tweetview.avatar = d3.select('#tweetview .avatar-custom');
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
-	tweetview.retweet_list = d3.select('#tweetview .retweet_list');
+	tweetview.retweetList = d3.select('#tweetview .retweetList');
+	tweetview.retweetListBody = d3.select('#tweetview .retweetListBody');
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -372,7 +373,7 @@ var clickVoronoi = function(d) {
 		svg.on("mouseleave", mouseleaveSVG);
 
 		// Hide retweet list
-		tweetview.retweet_list.classed('hidden', true);
+		tweetview.retweetList.classed('hidden', true);
 
 		tweetviewFixed = false;
 	} else {
@@ -409,9 +410,9 @@ var showTweet = function(d) {
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
 	var rtList = d.tweet.retweet_list;
-	tweetview.retweet_list.html('');
+	tweetview.retweetListBody.html('');
 	for (var i = rtList.length - 1; i >= 0; i--) {
-		var row = tweetview.retweet_list.append("div")
+		var row = tweetview.retweetListBody.append("div")
 			.attr("class", "row");
 		row.append("div")
 			.attr("class", "col-md-1 col-md-offset-1")
@@ -426,7 +427,7 @@ var showRetweetList = function(d) {
 			.attr("class", "col-md-4")
 			.html(rtList[i].followers_count);
 	};
-	tweetview.retweet_list.classed('hidden', false);
+	tweetview.retweetList.classed('hidden', false);
 }
 
 var offsetTimeFormat = function(d) {
