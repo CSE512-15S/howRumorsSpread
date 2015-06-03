@@ -3,9 +3,10 @@
 
 $verified-color: #00B7FF;
 $link-color: #777;
+$border-color: #ccc;
 
 body {
-  padding: 50px;
+  padding: 30px 40px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -40,11 +41,11 @@ a {
 	}
 	.controls {
 		position: absolute;
-		top: 4%;
-		left: 11.5%;
+		top: 0px;
+		left: 107px;
 
 		.btn-group, input {
-			margin-right: 5px;
+			margin-right: 7px;
 		}
 
 		input {
@@ -81,6 +82,7 @@ a {
 
 	.svgContainer {
 		width: 100%;
+		font: 12px sans-serif;
 
 		.line {
 		  fill: none;
@@ -116,39 +118,39 @@ a {
   font-size: 10px;
 }
 
-
 /* LEADERBOARD
 ----------------------------------------*/
 
 #leaderboard {
 	position: relative;
 	width: 100%;
-	height: 350px;
-	background-color: #eee;
-	margin-bottom: 20px;
+	background-color: #F7F7F7;
+	padding: 5px 0;
+	border: 1px solid $border-color;
+
+	.screenname {
+		padding-left: 22px;
+	}
+	.score {
+		padding-right: 22px;
+	}
+}
+
+.lbtablehead {
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.lbtablebody {
+	height: 280px;
 	overflow: scroll;
-	padding: 10px;
-}
-
-#lbtable {
-	margin: 5px;
-	width: 100%;
-}
-
-#lbtable td {
-	padding: 3px;
-}
-
-.username {
-	width: 50%;
-}
-
-.screenname {
-	width: 30%;
-}
-
-.score {
-	width: 20%;
+	border-top: 1px solid $border-color;
+	box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
+	
+	.row {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
 }
 
 /* EVENTMETA & TWEETVIEW
@@ -158,12 +160,15 @@ a {
 	position: relative;
 	width: 100%;
 	padding: 0; 
-
+	height: 320px;
+	margin-bottom: 20px;
 }
+
 #eventmeta, #tweetview {
 	position: absolute;
 	width: 100%;
-	height: 265px;
+	height: 320px;
+	border: 1px solid $border-color;
 	background-color: #F7F7F7;
 }
 
@@ -214,15 +219,21 @@ a {
 		background-repeat: no-repeat;
 		background-image: url('../images/verified.png');
 	}
-	.retweet_list {
+	.retweetList {
 		position: absolute;
-		bottom: 0;
-		height: 130px;
+		bottom: 1px;
 		width: 100%;
-		overflow-y: scroll;
-		background-color: rgba(0,0,0,0.05);
-		border-top: 1px solid #888;
-		box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
+		
+		.retweetListHeader {
+			font-weight: bold;
+		}
+
+		.retweetListBody {
+			height: 160px;
+			overflow-y: scroll;
+			border-top: 1px solid $border-color;
+			box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
+		}
 
 		.row {
 			margin-top: 3px;
