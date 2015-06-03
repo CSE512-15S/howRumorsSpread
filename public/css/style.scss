@@ -24,6 +24,14 @@ a {
           border-radius: $radius;
 }
 
+.svgContainer {
+	svg {
+		margin: 0px auto;
+		display: block;
+		font: 12px sans-serif;
+	}
+}
+
 
 /* SPAGHETTI
 ----------------------------------------*/
@@ -31,11 +39,6 @@ a {
 #spaghetti {
 	position: relative;
 	
-	svg {
-		margin: 0 auto;
-		font: 12px sans-serif;
-		display: block;
-	}
 	.svgContainer {
 		overflow: scroll;
 	}
@@ -80,9 +83,18 @@ a {
 	height: 150px;
 	width: 100%;
 
+	.controls {
+		margin-top: 10px;
+		position: relative;
+		left: 45%;
+		top: 0;
+	}
+
 	.svgContainer {
+		
+
 		width: 100%;
-		font: 12px sans-serif;
+		
 
 		.line {
 		  fill: none;

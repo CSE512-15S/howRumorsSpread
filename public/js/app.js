@@ -12,8 +12,9 @@ var $ = require('jquery');
     leaderboard = null;
 
 function MainViewModel() {
-  var self = this;
-  self.collectionNames = ko.observableArray();
+  var self = this
+      self.activeCollection = 'lakemba',
+      self.collectionNames = ko.observableArray();
   getCollectionNames();
 
   function getCollectionNames() {
@@ -32,6 +33,10 @@ function MainViewModel() {
   self.updateLeaderboard = function (bounds) {
     leaderboard.updateXBounds(bounds);
   }
+
+  self.updateActiveCollection = function() {
+    // TODO:
+  };
 
   // Shared color scale for graphics
   self.colorScale = d3.scale.ordinal()

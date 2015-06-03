@@ -9,7 +9,7 @@ function Legend(mainViewModel) {
       rectSize = 10,
       vertPadding = 5,
       horzPadding = 6;
-  var svg = d3.select('#legend')
+  var svg = d3.select('#legend').select('.svgContainer')
               .append('svg')
                 .attr('height', height)
                 .attr('width', width + margin.left + margin.right)
