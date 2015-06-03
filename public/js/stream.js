@@ -1,20 +1,17 @@
-var d3 = require('d3');
+var d3 = require('d3'),
+    ko = require('knockout');
 
 var StreamGraph = function(mainViewModel) {
   var self = this,
-      timeGrouping = 'minute', // TODO: variable
-      collectionName = 'lakemba', // TODO: variable 
       parentDiv = '#stream',
-      margin = { top: 0, right: 0, bottom: 30, left: 100 },
+      timeGrouping = 'minute', // TODO: variable
+      collectionName = mainViewModel.activeCollection,
+      chartType = 'streamGraph',
+      margin = { top: 0, right: 0, bottom: 30, left: 90 },
       width = 800 - margin.left - margin.right,
       height = 130 - margin.top - margin.bottom,
       duration = 750;
       xTicks = 5;
-
-  console.log('StreamGraph', 'mainViewModel=', mainViewModel);
-  function dataPath() {
-    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
-  }
   
   /* /Begin Chart initilization code */
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
@@ -141,6 +138,31 @@ var StreamGraph = function(mainViewModel) {
                 .order('reverse');
   /* /End Chart initilization code */
 
+
+  // Switching between graph types
+  d3.select('.pick-stream-chart').selectAll('button')
+    .on('click', function() {
+      var selectedChart = this.value;
+      console.log("selectedChart: ", selectedChart);
+
+      d3.selectAll('.pick-stream-chart button').classed('active', false);
+      d3.select(this).classed('active', true);
+
+      switch(selectedChart) {
+        case 'streamGraph':
+          streamGraph(dataset);
+          break;
+        case 'areaGraph':
+          areaGraph(dataset);
+          break;
+        default:
+          console.error('Picked an unknown stream chart type {' + selectedChart +'}\n Reverting to streamGraph');
+          streamGraph(dataset);
+      }
+    });
+
+
+
   function drawChart(data) {
     var minDate = d3.min(data, function(d) { return d.values[0].date; })
         maxDate = d3.max(data, function(d) { return d.values[d.values.length - 1].date; });
@@ -172,13 +194,11 @@ var StreamGraph = function(mainViewModel) {
     codes.append('path')
             .attr('class', 'line')
             .style('stroke-opacity', 0.0001);
-
-
     
-    streamgraph(data);
+    streamGraph(data);
   }
 
-  function streamgraph(data) {
+  function streamGraph(data) {
     stack.offset('silhouette');
     stack(data);
     
@@ -203,7 +223,29 @@ var StreamGraph = function(mainViewModel) {
       .attr('d', function(d) { return line(d.values); });
   }
 
-  // function()
+  function areaGraph(data) {
+
+    yScale.domain([0, d3.max(data.map(function(d) { return d.maxVolume; }))])
+          .range([height, 0]);
+
+
+    area.y0(height)
+        .y1(function(d) { return yScale(d.volume); });
+
+    line.y(function(d) { return yScale(d.volume); });
+
+    var t = chart.selectAll('.code')
+              .transition()
+              .duration(duration);
+
+    t.select('path.area')
+      .style('fill-opacity', 0.5)
+      .attr('d', function(d) { return area(d.values); });
+
+    t.select('path.line')
+      .style('stroke-opacity', .8)
+      .attr('d', function(d) { return line(d.values); });
+  }
 
   // Bins the generated timestamp into the same itnerval
   // set with var timeGrouping
@@ -240,7 +282,7 @@ var StreamGraph = function(mainViewModel) {
     d3.select('.x.axis').call(xAxis);
   }
 
-  function init(collectionName, timeGrouping) {
+  function init(timeGrouping) {
     // Initialize by loading the data
     d3.json(dataPath(), function(err, data) {
       if (err) return console.warn(err);
@@ -271,7 +313,7 @@ var StreamGraph = function(mainViewModel) {
     });
   }
 
-  init(collectionName, timeGrouping);
+  init(timeGrouping);
   return self;
 };
 module.exports = StreamGraph;
