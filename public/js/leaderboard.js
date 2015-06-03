@@ -71,10 +71,10 @@ var LeaderBoard = function (mainViewModel) {
   	// put things into leaderboard
   	for (var i = 0; i < keys.length; i++) {
   		var curUserID = keys[i];
-  		var tableRow = d3.select("#lbtablebody").append("tr");
-  		tableRow.append("td").text(userIDtoUser[curUserID].name).classed("username", true);
-  		tableRow.append("td").text(userIDtoUser[curUserID].screen_name).classed("screenname", true);
-  		tableRow.append("td").text(scoreboard[curUserID]).classed("score", true);
+  		var tableRow = d3.select("#lbtablebody").append("div").attr("class", "row");
+  		tableRow.append("div").text(userIDtoUser[curUserID].screen_name).attr("class", "col-md-5");
+  		tableRow.append("div").text(userIDtoUser[curUserID].name).attr("class", "col-md-5");
+  		tableRow.append("div").text(scoreboard[curUserID]).attr("class", "col-md-2 text-left");
   	};
   };
 

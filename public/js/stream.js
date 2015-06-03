@@ -5,9 +5,9 @@ var StreamGraph = function(mainViewModel) {
       timeGrouping = 'minute', // TODO: variable
       collectionName = 'lakemba', // TODO: variable 
       parentDiv = '#stream',
-      margin = { top: 0, right: 50, bottom: 40, left: 50 },
-      width = 750 - margin.left - margin.right,
-      height = 150 - margin.top - margin.bottom,
+      margin = { top: 0, right: 0, bottom: 30, left: 100 },
+      width = 800 - margin.left - margin.right,
+      height = 130 - margin.top - margin.bottom,
       duration = 750;
       xTicks = 5;
 

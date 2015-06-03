@@ -3,9 +3,9 @@ var d3 = require('d3');
 var data;
 var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale, yScale, xAxis, yAxis, linecolor;
 var mainViewModel;
-var margin = { top: 20, right: 70, bottom: 60, left: 90 },
-			    width = 860 - margin.left - margin.right,
-			    height = 520 - margin.top - margin.bottom;
+var margin = { top: 0, right: 20, bottom: 50, left: 90 },
+			    width = 800 - margin.left - margin.right,
+			    height = 500 - margin.top - margin.bottom;
 var xTicks = 8, yTicks = 10;
 var tweetview = {};
 var tweetviewFixed = false; 
