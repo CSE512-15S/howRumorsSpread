@@ -31,7 +31,7 @@ var LeaderBoard = function (mainViewModel) {
   self.updateXBounds = function (newBounds) {
     timeBounds = newBounds; 
     // clear current board
-    d3.select("#lbtablebody").html("");
+    d3.select("#leaderboard .lbtablebody").html("");
     
     var startStamp = timeBounds[0].getTime();
     var endStamp = timeBounds[1].getTime();
@@ -71,12 +71,14 @@ var LeaderBoard = function (mainViewModel) {
   	// put things into leaderboard
   	for (var i = 0; i < keys.length; i++) {
   		var curUserID = keys[i];
-  		var tableRow = d3.select("#leaderboard .lbtablebody").append("div").attr("class", "row");
-  		tableRow.append("a").text("@" + userIDtoUser[curUserID].screen_name).attr("class", "col-md-4 screenname")
+  		var tableRow = d3.select("#leaderboard .lbtablebody").append("tr");
+  		tableRow.append("td")
+  		  .append("a")
+  		  	.text("@" + userIDtoUser[curUserID].screen_name).attr("class", "screenname")
   			.attr("href", "http://twitter.com/" + userIDtoUser[curUserID].screen_name)
   			.attr("target", "_blank");
-  		tableRow.append("div").text(userIDtoUser[curUserID].name).attr("class", "col-md-5");
-  		tableRow.append("div").text(scoreboard[curUserID]).attr("class", "col-md-3 text-right score");
+  		tableRow.append("td").text(userIDtoUser[curUserID].name).attr("class", "username");
+  		tableRow.append("td").text(scoreboard[curUserID]).attr("class", "text-right score");
   	};
   };
 

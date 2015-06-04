@@ -33,11 +33,13 @@ block content
                             .col-md-4.small Followers
                         .retweetListBody
             #leaderboard
-                .row.lbtablehead
-                    .screenname.col-md-4.small Screen Name
-                    .username.col-md-5.small Username
-                    .score.col-md-3.small.text-right Exposure
-                .lbtablebody
+                table(data-toggle="table", data-height="280")
+                    thead
+                        tr
+                            th.screenname.small Screen Name
+                            th.username.small Username
+                            th.score.small.text-right Exposure
+                    tbody.lbtablebody
         .col-md-8#master
                 #spaghetti
                     .svgContainer

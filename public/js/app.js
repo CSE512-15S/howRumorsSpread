@@ -6,6 +6,7 @@ var $ = require('jquery');
     _ = require('underscore'),
     ko = require('knockout'),
     moment = require('moment-timezone'),
+    bsTable = require('../components/bootstrap-table/dist/bootstrap-table.min.js'),
     spaghetti = null,
     stream = null,
     legend = null,
