@@ -22,11 +22,11 @@ var Spaghetti = function() {
 	line.linear = d3.svg.line()
 		.x(function(d) { return xScale(d.timestamp); })
 		.y(function(d) { return yScale.linear(d.popularity); })
-		.interpolate("basis");
+		.interpolate("linear");
 	line.log = d3.svg.line()
 		.x(function(d) { return xScale(d.timestamp); })
 		.y(function(d) { return yScale.log(d.popularity); })		
-		.interpolate("basis");
+		.interpolate("linear");
 
 	// Sets up the chart, precomputes paths
 	var spaghetti = function(selection) {
