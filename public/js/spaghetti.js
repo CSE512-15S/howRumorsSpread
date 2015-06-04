@@ -178,6 +178,7 @@ var init = function(model) {
 	tweetview.username = d3.select('#tweetview .username');
 	tweetview.screenname = d3.select('#tweetview .screenname');
 	tweetview.time = d3.select('#tweetview .time');
+	tweetview.followercount = d3.select('#tweetview .followercount');
 	tweetview.avatar = d3.select('#tweetview .avatar-custom');
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
@@ -402,6 +403,7 @@ var showTweet = function(d) {
 		.attr("href", "http://twitter.com/" + d.tweet.user.screen_name)
 		.html("@" + d.tweet.user.screen_name);
 	tweetview.time.html(offsetTimeFormat(d.tweet.points[0]["timestamp"]));
+	tweetview.followercount.html(d.tweet.user.followers_count);
 	tweetview.tweet.html(d.tweet.text);
 	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
 	tweetview.avatar.style("background-image", "url(" + d.tweet.user.profile_image_url + ")");

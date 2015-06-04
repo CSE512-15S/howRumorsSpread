@@ -92,7 +92,6 @@ a {
 
 	.svgContainer {
 		
-
 		width: 100%;
 		
 
@@ -193,8 +192,14 @@ a {
 		display: inline;
 		font-size: 16px;
 	}
-	.time {
+	.time, .followercount {
 		font-size: 12px;
+	}
+	.time::after {
+		content: "\00a0\00b7\00a0";	
+	}
+	.followercount::after {
+		content: " followers";
 	}
 	.avatar-wrapper {
 		position: relative;

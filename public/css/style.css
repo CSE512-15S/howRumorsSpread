@@ -126,8 +126,12 @@ a {
   #tweetview .username {
     display: inline;
     font-size: 16px; }
-  #tweetview .time {
+  #tweetview .time, #tweetview .followercount {
     font-size: 12px; }
+  #tweetview .time::after {
+    content: "\00a0\00b7\00a0"; }
+  #tweetview .followercount::after {
+    content: " followers"; }
   #tweetview .avatar-wrapper {
     position: relative; }
   #tweetview .avatar {
