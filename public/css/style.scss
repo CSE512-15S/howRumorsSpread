@@ -132,7 +132,7 @@ a {
 /* LEADERBOARD
 ----------------------------------------*/
 
-#leaderboard {
+#leaderboardview {
 	position: relative;
 	width: 100%;
 	height: 290px;
@@ -140,7 +140,6 @@ a {
 	border: 1px solid $border-color;
 
 	thead th , tbody td {
-		padding: 3px 8px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;

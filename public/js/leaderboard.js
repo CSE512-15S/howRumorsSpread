@@ -2,7 +2,7 @@ var d3 = require('d3');
 
 var data;
 var xBounds;
-var userIDtoUser;
+var table;
 var LeaderBoard = function (mainViewModel) {
   var self = this,
       parentDiv = '#leaderboard',
@@ -17,6 +17,13 @@ var LeaderBoard = function (mainViewModel) {
 		}), data.map(function(d) {
 			return d.points[d.points.length - 1].timestamp;
 		})]));
+
+		table = jQuery('#leaderboard').DataTable({
+			data: [],
+			order: [[3, "desc"]],
+			paging: false,
+			searching: false
+		});
 
 		self.updateXBounds();
 	});
@@ -33,11 +40,8 @@ var LeaderBoard = function (mainViewModel) {
   		left = timeBounds[0].getTime();
     	right = timeBounds[1].getTime();
   	}
-
-    // clear current board
-    d3.select("#leaderboard .lbtablebody").html("");
     
-	var scoreboard = {};
+	var lbData = {};
 
 	// populate scoreboard
 	data.forEach(function(tweet) {
@@ -46,38 +50,26 @@ var LeaderBoard = function (mainViewModel) {
 		});
 
 		if (pointsInBounds.length > 0) {
-			scoreboard[tweet.user.id] = { 
-				screen_name: tweet.user.screen_name,
-				username: tweet.user.name,
-				exposure: pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity,
-				retweetCount: pointsInBounds.length
-			};
+			if (lbData[tweet.user.id] === undefined) {
+				lbData[tweet.user.id] = [
+					tweet.user.screen_name,
+					tweet.user.name,
+					pointsInBounds.length, // Retweet count
+					pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity // Exposure
+				];
+			} else {
+				lbData[tweet.user.id][2] += pointsInBounds.length;
+				lbData[tweet.user.id][3] += pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity;
+			}
 		}
 	});
 
-  	// sort keys TODO remove
-  	var keys = Object.keys(scoreboard);
-  	keys.sort(function(user1, user2){
-  		if(scoreboard[user1].exposure > scoreboard[user2].exposure){
-  			return -1;
-  		} else if(scoreboard[user2].exposure > scoreboard[user1].exposure){
-  			return 1;
-  		} else return 0;
-  	});
+	var values = Object.keys(lbData).map(function (key) {
+		return lbData[key];
+	});
 
-  	// put things into leaderboard
-  	for (var i = 0; i < keys.length; i++) {
-  		var curUserID = keys[i];
-  		var tableRow = d3.select("#leaderboard .lbtablebody").append("tr");
-  		tableRow.append("td").attr("class", "col-xs-3")
-  		  .append("a")
-  		  	.text("@" + scoreboard[curUserID].screen_name)
-  			.attr("href", "http://twitter.com/" + scoreboard[curUserID].screen_name)
-  			.attr("target", "_blank");
-  		tableRow.append("td").text(scoreboard[curUserID].username).attr("class", "col-xs-4");
-  		tableRow.append("td").text(scoreboard[curUserID].retweetCount).attr("class", "col-xs-2");
-  		tableRow.append("td").text(scoreboard[curUserID].exposure).attr("class", "col-xs-3");
-  	};
+	table.clear();
+	table.rows.add(values).draw();
   };
 
   init();

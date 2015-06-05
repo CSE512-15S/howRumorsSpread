@@ -78,14 +78,13 @@ a {
 
 /* LEADERBOARD
 ----------------------------------------*/
-#leaderboard {
+#leaderboardview {
   position: relative;
   width: 100%;
   height: 290px;
   overflow-y: scroll;
   border: 1px solid #ccc; }
-  #leaderboard thead th, #leaderboard tbody td {
-    padding: 3px 8px;
+  #leaderboardview thead th, #leaderboardview tbody td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
