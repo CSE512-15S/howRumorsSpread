@@ -6,7 +6,6 @@ var $ = require('jquery');
     _ = require('underscore'),
     ko = require('knockout'),
     moment = require('moment-timezone'),
-    bsTable = require('../components/bootstrap-table/dist/bootstrap-table.min.js'),
     spaghetti = null,
     stream = null,
     legend = null,
@@ -67,14 +66,14 @@ $(document).ready(function() {
     spaghetti = require('./spaghetti.js');
     spaghetti.init(mainViewModel);
   }
+  if($('#leaderboard').length !== 0) {
+    leaderboard = require('./leaderboard.js')(mainViewModel);
+  }
   if($('#stream').length !== 0) {
     stream = require('./stream.js')(mainViewModel);
   }
   if($('#legend').length !== 0) {
     legend = require('./legend.js')(mainViewModel);
-  }
-  if($('#leaderboard').length !== 0) {
-    leaderboard = require('./leaderboard.js')(mainViewModel);
   }
   
   ko.applyBindings(mainViewModel);

@@ -81,16 +81,14 @@ a {
 #leaderboard {
   position: relative;
   width: 100%;
-  height: 280px;
-  background-color: #F7F7F7; }
-
-.lbtablehead {
-  font-weight: bold;
-  padding-bottom: 5px; }
-
-.lbtablebody {
-  border-top: 1px solid #ccc;
-  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); }
+  height: 290px;
+  overflow-y: scroll;
+  border: 1px solid #ccc; }
+  #leaderboard thead th, #leaderboard tbody td {
+    padding: 3px 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
 
 /* EVENTMETA & TWEETVIEW
 ----------------------------------------*/

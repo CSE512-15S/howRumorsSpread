@@ -72,13 +72,13 @@ var LeaderBoard = function (mainViewModel) {
   	for (var i = 0; i < keys.length; i++) {
   		var curUserID = keys[i];
   		var tableRow = d3.select("#leaderboard .lbtablebody").append("tr");
-  		tableRow.append("td")
+  		tableRow.append("td").attr("class", "col-xs-4")
   		  .append("a")
-  		  	.text("@" + userIDtoUser[curUserID].screen_name).attr("class", "screenname")
+  		  	.text("@" + userIDtoUser[curUserID].screen_name)
   			.attr("href", "http://twitter.com/" + userIDtoUser[curUserID].screen_name)
   			.attr("target", "_blank");
-  		tableRow.append("td").text(userIDtoUser[curUserID].name).attr("class", "username");
-  		tableRow.append("td").text(scoreboard[curUserID]).attr("class", "text-right score");
+  		tableRow.append("td").text(userIDtoUser[curUserID].name).attr("class", "col-xs-4");
+  		tableRow.append("td").text(scoreboard[curUserID]).attr("class", "col-xs-4");
   	};
   };
 
