@@ -8,6 +8,7 @@ var margin = { top: 0, right: 20, bottom: 50, left: 90 },
 			    height = 500 - margin.top - margin.bottom;
 var xTicks = 8, yTicks = 10;
 var tweetview = {};
+var table;
 var tweetviewFixed = false; 
 
 var Spaghetti = function() {
@@ -182,8 +183,17 @@ var init = function(model) {
 	tweetview.avatar = d3.select('#tweetview .avatar-custom');
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
-	tweetview.retweetList = d3.select('#tweetview .retweetList');
-	tweetview.retweetListBody = d3.select('#tweetview .retweetListBody');
+	tweetview.retweetList = d3.select('#retweetList');
+
+	// Set up table for retweet list
+	table = jQuery('#retweetList table').DataTable({
+			data: [],
+			order: [[2, "desc"]],
+			paging: false,
+			searching: false,
+			autoWidth: false,
+			dom: '<"top">rt<"bottom"flp><"clear">'
+	});
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -411,24 +421,16 @@ var showTweet = function(d) {
 
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
-	var rtList = d.tweet.retweet_list;
-	tweetview.retweetListBody.html('');
-	for (var i = rtList.length - 1; i >= 0; i--) {
-		var row = tweetview.retweetListBody.append("div")
-			.attr("class", "row");
-		row.append("div")
-			.attr("class", "col-md-1 col-md-offset-1")
-			.html(rtList[i].verified ? '<span class="verified"></span>' : "");
-		row.append("div")
-			.attr("class", "col-md-6")
-		  .append("a")
-		.attr("href", "http://twitter.com/" + rtList[i].screen_name)
-		.attr("target", "_blank")
-		.html("@" + rtList[i].screen_name);
-		row.append("div")
-			.attr("class", "col-md-4")
-			.html(rtList[i].followers_count);
-	};
+	var rtList = d.tweet.retweet_list.map(function(d) {
+		var name = 	' <a href="http://twitter.com/' + d.screen_name + '" class="small" target="_blank">@'+d.screen_name+'</a>';
+		var verified = d.verified ? '<span class="verified"></span>' : '';
+		return [name, verified, d.followers_count];
+	});
+
+	console.log(rtList);
+
+	table.clear();
+	table.rows.add(rtList).draw();
 	tweetview.retweetList.classed('hidden', false);
 }
 

@@ -20,11 +20,13 @@ var LeaderBoard = function (mainViewModel) {
 
 		table = jQuery('#leaderboard').DataTable({
 			data: [],
-			order: [[3, "desc"]],
+			order: [[2, "desc"]],
 			paging: false,
-			searching: false
+			searching: false,
+			autoWidth: false,
+			dom: '<"top">rt<"bottom"flp><"clear">'
 		});
-
+		
 		self.updateXBounds();
 	});
   }
@@ -52,14 +54,13 @@ var LeaderBoard = function (mainViewModel) {
 		if (pointsInBounds.length > 0) {
 			if (lbData[tweet.user.id] === undefined) {
 				lbData[tweet.user.id] = [
-					tweet.user.screen_name,
-					tweet.user.name,
+					tweet.user.name + ' <a href="http://twitter.com/' + tweet.user.screen_name + '" class="small" target="_blank">@'+tweet.user.screen_name+'</a>',
 					pointsInBounds.length, // Retweet count
 					pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity // Exposure
 				];
 			} else {
-				lbData[tweet.user.id][2] += pointsInBounds.length;
-				lbData[tweet.user.id][3] += pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity;
+				lbData[tweet.user.id][1] += pointsInBounds.length;
+				lbData[tweet.user.id][2] += pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity;
 			}
 		}
 	});

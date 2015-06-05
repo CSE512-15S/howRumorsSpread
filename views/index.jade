@@ -27,17 +27,19 @@ block content
                                 span.time time
                                 span.followercount
                             p.tweet Tweet
-                    .retweetList.hidden
-                        .row.retweetListHeader
-                            .col-md-6.col-md-offset-2.small Screen Name
-                            .col-md-4.small Followers
-                        .retweetListBody
+                    #retweetList.hidden
+                        table.dataTable.table.table-striped.compact
+                            thead
+                                tr
+                                    th Name
+                                    th 
+                                    th Retweets
+                            tbody
             #leaderboardview
-                table#leaderboard.table.table-striped
+                table#leaderboard.dataTable.table.table-striped.compact
                     thead
                         tr
-                            th Screen Name
-                            th Username
+                            th Name
                             th RTs
                             th Exposure
                     tbody

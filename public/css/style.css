@@ -84,7 +84,7 @@ a {
   height: 290px;
   overflow-y: scroll;
   border: 1px solid #ccc; }
-  #leaderboardview thead th, #leaderboardview tbody td {
+  #leaderboardview table tbody th, #leaderboardview table tbody td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
@@ -152,17 +152,9 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../images/verified.png'); }
-  #tweetview .retweetList {
+  #tweetview #retweetList {
     position: absolute;
     bottom: 1px;
-    width: 100%; }
-    #tweetview .retweetList .retweetListHeader {
-      font-weight: bold; }
-    #tweetview .retweetList .retweetListBody {
-      height: 160px;
-      overflow-y: scroll;
-      border-top: 1px solid #ccc;
-      box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); }
-    #tweetview .retweetList .row {
-      margin-top: 3px;
-      margin-bottom: 3px; }
+    width: 100%;
+    height: 160px;
+    overflow-y: scroll; }
