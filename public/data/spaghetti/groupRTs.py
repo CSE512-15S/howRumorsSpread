@@ -35,6 +35,7 @@ from numpy import cumsum
 #						"popularity": int  	<--	accumulated follower count of retweets
 #					}],
 #					"retweet_list": [{
+#						"timestamp": int64,
 #						"verified": boolean,
 #						"screen_name": String,
 #						"followers_count": int
@@ -75,7 +76,7 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 			}
 		timestamps = [tweet["created_ts"]]
 		followers = [tweet["user"]["followers_count"]]
-		retweet_list = []
+		user_info = []
 
 		# check time bounds
 		if (time_bounds[0] <= timestamps[0] <= time_bounds[1]):
@@ -90,12 +91,15 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 						break # too much time passed since last retweet, stale
 					timestamps.append(ts)
 					followers.append(fo)
-					# for retweet_list
-					retweet_list.append({"verified": retweet["user"]["verified"], "screen_name": retweet["user"]["screen_name"], "followers_count": fo })
+					user_info.append({"verified": retweet["user"]["verified"], "screen_name": retweet["user"]["screen_name"], "followers_count": fo })
 
 			popularity = list(cumsum(followers))
 			points = [{"timestamp": t, "popularity": p} for (t,p) in zip(timestamps, popularity)]
-			grouped.append({"id":id, "text":text, "user": user, "first_code":first_code, "favorite_count": favorite_count, "points":points, "retweet_list": retweet_list})
+			for i in range(len(points) - 1):
+				points[i]["verified"] = user_info[i]["verified"]
+				points[i]["screen_name"] = user_info[i]["screen_name"]
+				points[i]["followers_count"] = user_info[i]["followers_count"]
+			grouped.append({"id":id, "text":text, "user": user, "first_code":first_code, "favorite_count": favorite_count, "points":points})
 
 	json.dump({'tweets': grouped}, outfile, indent=4)
 

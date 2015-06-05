@@ -1,7 +1,17 @@
 var d3 = require('d3');
 
 var data;
-var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale, yScale, xAxis, yAxis, linecolor;
+var svg, 
+	spaghetti, 
+	dataTweets, 
+	voronoiGroup, 
+	circle,
+	xBounds, 
+	xScale, 
+	yScale, 
+	xAxis, 
+	yAxis, 
+	linecolor;
 var mainViewModel;
 var margin = { top: 0, right: 20, bottom: 50, left: 90 },
 			    width = 800 - margin.left - margin.right,
@@ -174,6 +184,15 @@ var init = function(model) {
 	svg.on("mouseenter", mouseenterSVG)
 	.on("mouseleave", mouseleaveSVG);
 
+	circle = svg.append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", 4)
+      .attr("opacity", 0)
+      .attr("fill", "white")
+      .attr("stroke", "black")
+      .attr("stroke-width", "2");
+
 	// Set up outlets for showing tweet
 	tweetview.view = d3.select('#tweetview');
 	tweetview.username = d3.select('#tweetview .username');
@@ -184,16 +203,6 @@ var init = function(model) {
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
 	tweetview.retweetList = d3.select('#retweetList');
-
-	// Set up table for retweet list
-	table = jQuery('#retweetList table').DataTable({
-			data: [],
-			order: [[2, "desc"]],
-			paging: false,
-			searching: false,
-			autoWidth: false,
-			dom: '<"top">rt<"bottom"flp><"clear">'
-	});
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -206,7 +215,10 @@ var init = function(model) {
 				return {
 					tweet: tweet,
 					timestamp: d.timestamp,
-					popularity: d.popularity
+					popularity: d.popularity,
+					screen_name: d.screen_name,
+					verified: d.verified,
+					followers_count: d.followers_count
 				};
 			});
 		});
@@ -421,16 +433,29 @@ var showTweet = function(d) {
 
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
-	var rtList = d.tweet.retweet_list.map(function(d) {
-		var name = 	' <a href="http://twitter.com/' + d.screen_name + '" class="small" target="_blank">@'+d.screen_name+'</a>';
-		var verified = d.verified ? '<span class="verified"></span>' : '';
-		return [name, verified, d.followers_count];
+	d3.select("#retweetList table tbody").selectAll("tr").remove();
+
+	var rows = d3.select("#retweetList table tbody").selectAll("tr")
+		.data(d.tweet.points)
+	  .enter().append("tr");
+	  	
+	rows.append("td").html(function(d) {
+		console.log(d); 
+		return '<a href="http://twitter.com/' + d.screen_name + '" class="small" target="_blank">@'+d.screen_name+'</a>';
+	});
+	rows.append("td").html(function(d) {
+		return d.verified ? '<span class="verified"></span>' : '';
+	});
+	rows.append("td").html(function(d) {
+		return d.followers_count;
 	});
 
-	console.log(rtList);
+	rows.on("mouseover", function(d) {
+		circle.attr("opacity", 1)
+	  		.attr("cx", xScale(d.timestamp))
+	  		.attr("cy", yScale.linear(d.popularity));
+	});
 
-	table.clear();
-	table.rows.add(rtList).draw();
 	tweetview.retweetList.classed('hidden', false);
 }
 
