@@ -1,6 +1,7 @@
 var d3 = require('d3');
 
 var data;
+var xBounds;
 var userIDtoUser;
 var LeaderBoard = function (mainViewModel) {
   var self = this,
@@ -11,59 +12,55 @@ var LeaderBoard = function (mainViewModel) {
   	d3.json('data/spaghetti/grouped.json', function(error, json) {
 		if (error) return console.warn(error);
 		data = json.tweets;
-		userIDtoUser = new Object();
-		// add to each point a reference to the actual tweet TODO remove lol its unnecessary
-		data.forEach(function(tweet) {
-			userIDtoUser[tweet.user.id] = tweet.user;
-			tweet.points = tweet.points.map(function(d) {
-				return {
-					tweet: tweet,
-					timestamp: d.timestamp,
-					popularity: d.popularity
-				};
-			});
-		});
+		xBounds = d3.extent(d3.merge([data.map(function(d) {
+			return d.points[0].timestamp;
+		}), data.map(function(d) {
+			return d.points[d.points.length - 1].timestamp;
+		})]));
+
+		self.updateXBounds();
 	});
   }
 
 // This function will get called by the mainViewModel in app.js
 // when the viewport changes on the streamgraph
-  self.updateXBounds = function (newBounds) {
-    timeBounds = newBounds; 
+  self.updateXBounds = function (timeBounds) {
+  	var left, right;
+  	if (!arguments.length) {
+  		left = xBounds[0];
+  		right = xBounds[1];
+  	} else {
+  		left = timeBounds[0].getTime();
+    	right = timeBounds[1].getTime();
+  	}
+
     // clear current board
     d3.select("#leaderboard .lbtablebody").html("");
     
-    var startStamp = timeBounds[0].getTime();
-    var endStamp = timeBounds[1].getTime();
-
-	var scoreboard = new Object();
+	var scoreboard = {};
 
 	// populate scoreboard
-	for(var oneTweet in data){
-		var i = 0;
-		var retweets = data[oneTweet].points;
-		if(retweets != null){
-			if(!(retweets[retweets.length - 1].timestamp < startStamp || retweets[0].timestamp > endStamp)){
-				while(i < retweets.length && retweets[i].timestamp < startStamp){
-					i++;
-				}
-				if(i < retweets.length) {
-					if(!(data[oneTweet].user.id in scoreboard)){
-						// initialize user with their follower count
-						scoreboard[data[oneTweet].user.id] = data[oneTweet].user.followers_count;
-					}
-					scoreboard[data[oneTweet].user.id] += (retweets[retweets.length - 1].popularity - retweets[i].popularity);
-				}
-			}
-		}
-	};
+	data.forEach(function(tweet) {
+		var pointsInBounds = tweet.points.filter(function(d) {
+			return left < d.timestamp && d.timestamp < right;
+		});
 
-  	// sort keys
+		if (pointsInBounds.length > 0) {
+			scoreboard[tweet.user.id] = { 
+				screen_name: tweet.user.screen_name,
+				username: tweet.user.name,
+				exposure: pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity,
+				retweetCount: pointsInBounds.length
+			};
+		}
+	});
+
+  	// sort keys TODO remove
   	var keys = Object.keys(scoreboard);
   	keys.sort(function(user1, user2){
-  		if(scoreboard[user1] > scoreboard[user2]){
+  		if(scoreboard[user1].exposure > scoreboard[user2].exposure){
   			return -1;
-  		} else if(scoreboard[user2] > scoreboard[user1]){
+  		} else if(scoreboard[user2].exposure > scoreboard[user1].exposure){
   			return 1;
   		} else return 0;
   	});
@@ -72,13 +69,14 @@ var LeaderBoard = function (mainViewModel) {
   	for (var i = 0; i < keys.length; i++) {
   		var curUserID = keys[i];
   		var tableRow = d3.select("#leaderboard .lbtablebody").append("tr");
-  		tableRow.append("td").attr("class", "col-xs-4")
+  		tableRow.append("td").attr("class", "col-xs-3")
   		  .append("a")
-  		  	.text("@" + userIDtoUser[curUserID].screen_name)
-  			.attr("href", "http://twitter.com/" + userIDtoUser[curUserID].screen_name)
+  		  	.text("@" + scoreboard[curUserID].screen_name)
+  			.attr("href", "http://twitter.com/" + scoreboard[curUserID].screen_name)
   			.attr("target", "_blank");
-  		tableRow.append("td").text(userIDtoUser[curUserID].name).attr("class", "col-xs-4");
-  		tableRow.append("td").text(scoreboard[curUserID]).attr("class", "col-xs-4");
+  		tableRow.append("td").text(scoreboard[curUserID].username).attr("class", "col-xs-4");
+  		tableRow.append("td").text(scoreboard[curUserID].retweetCount).attr("class", "col-xs-2");
+  		tableRow.append("td").text(scoreboard[curUserID].exposure).attr("class", "col-xs-3");
   	};
   };
 

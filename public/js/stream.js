@@ -310,9 +310,6 @@ var StreamGraph = function(mainViewModel) {
       data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
       dataset = data;
       drawChart(dataset);
-
-      // Initial update of leaderboard
-      mainViewModel.updateLeaderboard(xScale.domain()); 
     });
   }
 
