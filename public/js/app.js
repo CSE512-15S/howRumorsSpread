@@ -80,20 +80,16 @@ $(document).ready(function() {
   }
   
   // Populate Timezone Selection
-  d3.csv("../data/timezone/zone.csv", function(d) {
-    return d.zone_name;
-  }, function(error, rows) {
-    var select = d3.select('#timezoneSelect');
-    var options = select.selectAll("option").data(rows.sort());
-    options.enter().append("option")
-      .text(function (d) { return d; })
-    
-    select.on("change", function() {
-      var selectedIndex = select.property('selectedIndex'),
-        data          = options[0][selectedIndex].__data__;
-      mainViewModel.setTimeZone(data);
-    });
+  var select = d3.select('#timezoneSelect');
+  var options = select.selectAll("option").data(moment.tz.names());
+  options.enter().append("option")
+    .text(function (d) { return d; })
+  
+  select.on("change", function() {
+    var selectedIndex = select.property('selectedIndex'),
+      data          = options[0][selectedIndex].__data__;
+    mainViewModel.setTimeZone(data);
   });
-
+  
   ko.applyBindings(mainViewModel);
 });
