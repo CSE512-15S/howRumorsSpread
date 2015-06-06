@@ -187,5 +187,7 @@ a {
   float: left; }
 .header-fixed tr td.col-md-6, .header-fixed tr th.col-md-6 {
   width: 50%; }
+.header-fixed tr td.col-md-3, .header-fixed tr th.col-md-3 {
+  width: 25%; }
 .header-fixed tr td.col-md-2, .header-fixed tr th.col-md-2 {
   width: 16.66667%; }

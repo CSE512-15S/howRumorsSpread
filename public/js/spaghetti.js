@@ -206,13 +206,13 @@ var init = function(model) {
 	tweetview.retweetList = d3.select('#retweetList');
 
 	// Configure table
-	retweeListTable = table()
+	retweetListTable = table()
 		.headers([{
 			column: "screen_name", 
 			text: "Name",
 			type: "String",
 			sortable: true,
-			class: "col-md-6" 
+			class: "col-md-4" 
 		},{
 			column: "verified",
 			type: "String",
@@ -220,20 +220,27 @@ var init = function(model) {
 			sortable: true,
 			class: "col-md-2" 
 		},{
+			column: "timestamp", 
+			text: "Time",
+			type: "Time",
+			sortable: true,
+			class: "col-md-3" 
+		},{
 			column: "followers_count",
 			type: "Number",
 			text: "Followers",
 			sortable: true,
-			class: "col-md-4"
+			class: "col-md-3"
 		}])
 		.sortColumn(2)
-		.sortAscending(false)
+		.sortAscending(true)
 		.rowHoverHandler(function(d) {
 			circle.attr("opacity", 1)
 				.attr("stroke", d.color)
 	  			.attr("cx", d.backprojection.x)
 	  			.attr("cy", d.backprojection.y);
-		});
+		})
+		.mainViewModel(mainViewModel);
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -288,7 +295,7 @@ var init = function(model) {
 		xAxis = d3.svg.axis()
 		  .scale(xScale)
 		  .orient("bottom")
-		  .tickFormat(offsetTimeFormat);
+		  .tickFormat(mainViewModel.offsetTimeFormat);
 
 		d3.select("#spaghetti").select(".x.axis").call(xAxis);
 		d3.select("#spaghetti").select(".y.axis").call(yAxis);
@@ -465,7 +472,7 @@ var showTweet = function(d) {
 	tweetview.screenname
 		.attr("href", "http://twitter.com/" + d.tweet.user.screen_name)
 		.html("@" + d.tweet.user.screen_name);
-	tweetview.time.html(offsetTimeFormat(d.tweet.points[0]["timestamp"]));
+	tweetview.time.html(mainViewModel.offsetTimeFormat(d.tweet.points[0]["timestamp"]));
 	tweetview.followercount.html(d.tweet.user.followers_count);
 	tweetview.tweet.html(d.tweet.text);
 	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
@@ -477,6 +484,7 @@ var showRetweetList = function(d) {
 	var retweets = d.tweet.points.map(function(d) {
 		return {
 			screen_name: d.screen_name, 
+			timestamp: d.timestamp,
 			verified: d.verified ? '✓' : '', 
 			followers_count: d.followers_count,
 			color: linecolor(d.tweet.first_code),
@@ -488,13 +496,9 @@ var showRetweetList = function(d) {
 	
 	d3.select('#retweetList table')
 		.datum(retweets)
-	  	.call(retweeListTable);
+	  	.call(retweetListTable);
 
 	tweetview.retweetList.classed('hidden', false);
-}
-
-var offsetTimeFormat = function(d) {
-	return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
 }
 
 exports.init = init;

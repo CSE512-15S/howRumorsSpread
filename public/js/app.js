@@ -57,6 +57,9 @@ function MainViewModel() {
     self.timeZone = newTimeZone;
     stream.updateXAxis();
   }
+  self.offsetTimeFormat = function(d) {
+    return moment.utc(d).tz(self.timeZone).format("HH:mm");
+  }
 }
 
 $(document).ready(function() {

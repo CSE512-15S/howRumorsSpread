@@ -39,7 +39,7 @@ var StreamGraph = function(mainViewModel) {
   var xAxis = d3.svg.axis()
       .scale(xScale)
       .orient("bottom")
-      .tickFormat(offsetTimeFormat)
+      .tickFormat(mainViewModel.offsetTimeFormat)
       .ticks(xTicks);
  
   var chart = svg.append('g')
@@ -272,10 +272,6 @@ var StreamGraph = function(mainViewModel) {
 
   function dataPath() {
     return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
-  }
-
-  function offsetTimeFormat(d) {
-    return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
   }
 
   self.updateXAxis = function() {

@@ -12,7 +12,8 @@ var d3 = require('d3');
 //				text: "Name",					-> Text will appear in the row header
 //				class:	"col-md-8 text-right",	-> These classes will be applied		
 //				type: "String",					-> Choose right compare function for sorting
-//				sortable: true },{				-> Is this column sortable?
+//				sortable: true 					-> Is this column sortable?
+//			},{				
 //				column: "age", 
 //				text: "Age",
 //				class: "col-md-4",
@@ -35,6 +36,7 @@ var Table = function() {
 	var sortColumn = null; 		// Default: No sort. Set to column for sorting
 	var sortAscending = true;
 	var rowHoverHandler = null; // Function called on row hover
+	var mainViewModel = null;	// Only needed if displaying attributes of type Time
 
 	var table = function(selection) {
 		selection.each(function(data) {
@@ -86,7 +88,7 @@ var Table = function() {
 			if (sortColumn > -1) {
 				var sortType = headers[sortColumn].type;
 				var sortAttr = headers[sortColumn].column;
-				if (sortType === "Number") {
+				if (sortType === "Number" || sortType === "Time") {
 					tr.sort(function (a, b) { return a == null || b == null ? 0 : numberCompare(a[sortAttr], b[sortAttr]); });											
 				} else {
 					tr.sort(function (a, b) { return a == null || b == null ? 0 : stringCompare(a[sortAttr], b[sortAttr]); });					
@@ -103,7 +105,12 @@ var Table = function() {
 				})
 			  .enter().append("td")
 			  	.attr("class", function(d,i) { return headers[i].class; })
-			    .text(function(d) { return d; });
+			    .text(function(d,i) { 
+			    	if (headers[i].type == "Time") {
+			    		return mainViewModel.offsetTimeFormat(d); 
+			    	}
+			    	return d; 
+			    });
 		});
 	}
 
@@ -136,6 +143,14 @@ var Table = function() {
 			return rowHoverHandler;
 		}
 		rowHoverHandler = value;
+		return table;
+	}
+
+	table.mainViewModel = function(value) {
+		if (!arguments.length) {
+			return mainViewModel;
+		}
+		mainViewModel = value;
 		return table;
 	}
 
