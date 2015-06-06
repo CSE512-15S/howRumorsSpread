@@ -78,13 +78,13 @@ a {
 
 /* LEADERBOARD
 ----------------------------------------*/
-#leaderboardview {
+#leaderboard {
   position: relative;
   width: 100%;
   height: 290px;
   overflow-y: scroll;
   border: 1px solid #ccc; }
-  #leaderboardview table tbody th, #leaderboardview table tbody td {
+  #leaderboard table tbody th, #leaderboard table tbody td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
@@ -153,9 +153,11 @@ a {
     background-repeat: no-repeat;
     background-image: url('../images/verified.png'); }
   #tweetview #retweetList {
-    position: absolute;
-    bottom: 1px;
-    width: 100%;
-    height: 160px;
-    overflow-y: scroll;
-    border-top: 1px solid #ccc; }
+    width: 100%; }
+    #tweetview #retweetList table {
+      position: absolute;
+      bottom: 1px;
+      border-top: 1px solid #ccc;
+      margin-bottom: 0; }
+      #tweetview #retweetList table tbody {
+        height: 130px; }

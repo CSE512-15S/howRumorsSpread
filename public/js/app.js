@@ -6,7 +6,6 @@ var $ = require('jquery');
     _ = require('underscore'),
     ko = require('knockout'),
     moment = require('moment-timezone'),
-    dataTables = require('../lib/datatables/media/js/jquery.dataTables.min.js'),
     spaghetti = null,
     stream = null,
     legend = null,

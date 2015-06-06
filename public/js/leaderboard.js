@@ -1,8 +1,9 @@
-var d3 = require('d3');
+var d3 = require('d3'),
+	table = require('./table.js');
 
 var data;
 var xBounds;
-var table;
+var leaderBoardTable;
 var LeaderBoard = function (mainViewModel) {
   var self = this,
       parentDiv = '#leaderboard',
@@ -18,14 +19,28 @@ var LeaderBoard = function (mainViewModel) {
 			return d.points[d.points.length - 1].timestamp;
 		})]));
 
-		table = jQuery('#leaderboard').DataTable({
-			data: [],
-			order: [[2, "desc"]],
-			paging: false,
-			searching: false,
-			autoWidth: false,
-			dom: '<"top">rt<"bottom"flp><"clear">'
-		});
+		leaderBoardTable = table()
+		.headers([{
+			column: "screen_name", 
+			text: "Name",
+			type: "String",
+			sortable: true,
+			class: "col-md-6"
+		},{
+			column: "retweets",
+			type: "Number",
+			text: "RTs",
+			sortable: true,
+			class: "col-md-2" 
+		},{
+			column: "exposure",
+			type: "Number",
+			text: "Exposure",
+			sortable: true,
+			class: "col-md-4"
+		}])
+		.sortColumn(2)
+		.sortAscending(false);
 		
 		self.updateXBounds();
 	});
@@ -53,14 +68,14 @@ var LeaderBoard = function (mainViewModel) {
 
 		if (pointsInBounds.length > 0) {
 			if (lbData[tweet.user.id] === undefined) {
-				lbData[tweet.user.id] = [
-					tweet.user.name + ' <a href="http://twitter.com/' + tweet.user.screen_name + '" class="small" target="_blank">@'+tweet.user.screen_name+'</a>',
-					pointsInBounds.length, // Retweet count
-					pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity // Exposure
-				];
+				lbData[tweet.user.id] = {
+					screen_name: tweet.user.screen_name, /*tweet.user.name + ' <a href="http://twitter.com/' + tweet.user.screen_name + '" class="small" target="_blank">@'+tweet.user.screen_name+'</a>'*/
+					retweets: pointsInBounds.length, // Retweet count
+					exposure: pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity // Exposure
+				};
 			} else {
-				lbData[tweet.user.id][1] += pointsInBounds.length;
-				lbData[tweet.user.id][2] += pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity;
+				lbData[tweet.user.id].retweets += pointsInBounds.length;
+				lbData[tweet.user.id].exposure += pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity;
 			}
 		}
 	});
@@ -69,8 +84,9 @@ var LeaderBoard = function (mainViewModel) {
 		return lbData[key];
 	});
 
-	table.clear();
-	table.rows.add(values).draw();
+	d3.select("#leaderboard table")
+		.datum(values)
+		.call(leaderBoardTable);
   };
 
   init();

@@ -18,7 +18,7 @@ var d3 = require('d3');
 //				class: "col-md-4",
 //				type: "Number",
 //				sortable: true }])	
-//			.sortingColumn(1); 			// Sorting on age 
+//			.sortingColumn(1); 			-> Sorting on age 
 //
 // 2. Bind the data to the table element and then call table on it.
 //    The data is an array of objects that correspond to the rows. 

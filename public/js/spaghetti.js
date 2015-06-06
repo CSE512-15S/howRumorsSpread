@@ -212,12 +212,14 @@ var init = function(model) {
 			text: "Name",
 			type: "String",
 			sortable: true,
-			class: "col-md-6" },{
+			class: "col-md-6" 
+		},{
 			column: "verified",
 			type: "String",
 			text: "",
 			sortable: true,
-			class: "col-md-2" },{
+			class: "col-md-2" 
+		},{
 			column: "followers_count",
 			type: "Number",
 			text: "Followers",
