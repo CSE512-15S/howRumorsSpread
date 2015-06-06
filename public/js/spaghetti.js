@@ -390,6 +390,15 @@ var updateYScale = function(isLinearScale) {
 		});
 	}
 	d3.select("#spaghetti").select('.y.axis').transition().duration(1000).call(yAxis);
+
+	// Update the backprojection if necessary
+	var tweetHover = d3.select('.tweet-hover');
+	if (!tweetHover.empty()) {
+		circle.attr("opacity", 0);
+		showRetweetList({
+			tweet: tweetHover.datum()
+		});
+	}
 }
 
 // Event Handlers
@@ -471,7 +480,7 @@ var showRetweetList = function(d) {
 			verified: d.verified ? '✓' : '', 
 			followers_count: d.followers_count,
 			color: linecolor(d.tweet.first_code),
-			backprojection: {x: xScale(d.timestamp), y: yScale.linear(d.popularity)}
+			backprojection: {x: xScale(d.timestamp), y: spaghetti.isLinearScale() ? yScale.linear(d.popularity) : yScale.log(d.popularity)}
 		};
 	});
 
@@ -480,16 +489,7 @@ var showRetweetList = function(d) {
 	d3.select('#retweetList table')
 		.datum(retweets)
 	  	.call(retweeListTable);
-/*
-	d3.select('#retweetList table tbody').selectAll('tr')
-		.data(d.tweet.points)
-		.on("mouseover", function(d) {
-			circle.attr("opacity", 1)
-				.attr("stroke", color)
-	  			.attr("cx", xScale(d.timestamp))
-	  			.attr("cy", yScale.linear(d.popularity));
-		});*/
-	
+
 	tweetview.retweetList.classed('hidden', false);
 }
 
