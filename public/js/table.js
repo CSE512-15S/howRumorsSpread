@@ -38,13 +38,13 @@ var Table = function() {
 	var table = function(selection) {
 		selection.each(function(data) {
 			var thisTable = d3.select(this);
-			
+
 			// Clear table
 			thisTable.select("thead").remove();
 			thisTable.select("tbody").remove();
 
 			// Header
-			var header = d3.select(this)
+			var header = thisTable
 			  .append("thead")
 			  .append("tr");
 
@@ -52,27 +52,26 @@ var Table = function() {
 				header.selectAll("th")
 				.data(headers)
 			  .enter().append("th")
-			  	.html(function (d) { return d.text; })
-			  	.on("click", function(d, i) {
+			  	.html(function (d, i) { 
+			  		var sortIndicator = (i == sortColumn) ? (sortAscending ? ' &uarr;' : ' &darr;') : '';
+			  		return d.text + sortIndicator; 
+			  	})
+			  	.on("click", function(d, i) { // Function to change sort order
 			  		if (sortColumn == i) {
 			  			sortAscending = !sortAscending;
 			  		} else {
 			  			sortAscending = true;
 			  			sortColumn = i;
 			  		}
+
+			  		// Redraw
 			  		thisTable.select("tbody").remove();
-			  		thisTable.call(drawRows);
+			  		thisTable.call(table);
 			  	});
 			} else {
 				alert("Please set some headers for the table");
 			}
 
-			drawRows(selection);
-		});
-	}
-
-	var drawRows = function(selection) {
-		selection.each(function(data) {
 			// Rows
 			var tr = d3.select(this)
 			  .append("tbody")
