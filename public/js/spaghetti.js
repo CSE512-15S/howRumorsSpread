@@ -191,7 +191,7 @@ var init = function(model) {
       .attr("opacity", 0)
       .attr("fill", "white")
       .attr("stroke", "black")
-      .attr("stroke-width", "2");
+      .attr("stroke-width", 3);
 
 	// Set up outlets for showing tweet
 	tweetview.view = d3.select('#tweetview');
@@ -434,13 +434,15 @@ var showTweet = function(d) {
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
 	d3.select("#retweetList table tbody").selectAll("tr").remove();
+	var color = linecolor(d.tweet.first_code);
+	var retweets = d.tweet.points;
+	retweets.shift(); // we don't want the first tweet
 
 	var rows = d3.select("#retweetList table tbody").selectAll("tr")
-		.data(d.tweet.points)
+		.data(retweets) 
 	  .enter().append("tr");
 	  	
 	rows.append("td").html(function(d) {
-		console.log(d); 
 		return '<a href="http://twitter.com/' + d.screen_name + '" class="small" target="_blank">@'+d.screen_name+'</a>';
 	});
 	rows.append("td").html(function(d) {
@@ -452,6 +454,7 @@ var showRetweetList = function(d) {
 
 	rows.on("mouseover", function(d) {
 		circle.attr("opacity", 1)
+			.attr("stroke", color)
 	  		.attr("cx", xScale(d.timestamp))
 	  		.attr("cy", yScale.linear(d.popularity));
 	});

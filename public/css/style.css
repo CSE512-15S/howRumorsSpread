@@ -103,7 +103,7 @@ a {
   width: 100%;
   height: 320px;
   border: 1px solid #ccc;
-  background-color: #F7F7F7; }
+  background-color: #fff; }
 
 #eventmeta .row {
   margin: 0; }
@@ -157,4 +157,5 @@ a {
     bottom: 1px;
     width: 100%;
     height: 160px;
-    overflow-y: scroll; }
+    overflow-y: scroll;
+    border-top: 1px solid #ccc; }

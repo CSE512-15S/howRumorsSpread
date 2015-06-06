@@ -76,7 +76,7 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 			}
 		timestamps = [tweet["created_ts"]]
 		followers = [tweet["user"]["followers_count"]]
-		user_info = []
+		user_info = [{"verified": tweet["user"]["verified"], "screen_name": tweet["user"]["screen_name"], "followers_count": tweet["user"]["followers_count"] }]
 
 		# check time bounds
 		if (time_bounds[0] <= timestamps[0] <= time_bounds[1]):
@@ -95,7 +95,7 @@ with open('data.json', 'r') as infile, open('grouped.json', 'w') as outfile:
 
 			popularity = list(cumsum(followers))
 			points = [{"timestamp": t, "popularity": p} for (t,p) in zip(timestamps, popularity)]
-			for i in range(len(points) - 1):
+			for i in range(len(points)):
 				points[i]["verified"] = user_info[i]["verified"]
 				points[i]["screen_name"] = user_info[i]["screen_name"]
 				points[i]["followers_count"] = user_info[i]["followers_count"]
