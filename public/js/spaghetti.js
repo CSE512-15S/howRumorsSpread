@@ -171,6 +171,15 @@ var init = function(model) {
 	svg.append("g")
 		.attr("class", "tweets");
 
+	circle = svg.append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", 4)
+      .attr("opacity", 0)
+      .attr("fill", "white")
+      .attr("stroke", "black")
+      .attr("stroke-width", 3);
+
 	svg.append("g")
 		.attr("class", "y axis")
 		.attr("transform", "translate(-10,0)")
@@ -184,15 +193,6 @@ var init = function(model) {
 
 	svg.on("mouseenter", mouseenterSVG)
 	.on("mouseleave", mouseleaveSVG);
-
-	circle = svg.append("circle")
-      .attr("cx", 0)
-      .attr("cy", 0)
-      .attr("r", 4)
-      .attr("opacity", 0)
-      .attr("fill", "white")
-      .attr("stroke", "black")
-      .attr("stroke-width", 3);
 
 	// Set up outlets for showing tweet
 	tweetview.view = d3.select('#tweetview');
@@ -374,6 +374,15 @@ var updateXBounds = function(domain) {
     var matrix = "matrix(" + scale_x + ",0,0,1," + translate_x + ",0)";
     voronoiGroup.linear.attr("transform", matrix);
     voronoiGroup.log.attr("transform", matrix);
+
+	// Update the backprojection if necessary
+	var tweetHover = d3.select('.tweet-hover');
+	if (!tweetHover.empty()) {
+		circle.attr("opacity", 0);
+		showRetweetList({
+			tweet: tweetHover.datum()
+		});
+	}
 }
 
 // Change between lin / log scale

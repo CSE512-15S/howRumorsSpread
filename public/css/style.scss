@@ -240,6 +240,10 @@ a {
 /* FIXED TABLE HEADER
 ----------------------------------------*/
 
+th {
+	cursor: pointer;
+}
+
 .header-fixed {
     width: 100% 
 }
