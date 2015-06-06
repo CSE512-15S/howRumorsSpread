@@ -76,5 +76,6 @@ $(document).ready(function() {
     legend = require('./legend.js')(mainViewModel);
   }
   
+
   ko.applyBindings(mainViewModel);
 });

@@ -458,6 +458,8 @@ var showTweet = function(d) {
 
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
+	var color = linecolor(d.tweet.first_code);
+
 	var retweets = d.tweet.points.map(function(d) {
 		return {
 			screen_name: d.screen_name, 
@@ -465,40 +467,22 @@ var showRetweetList = function(d) {
 			followers_count: d.followers_count
 		};
 	});
-// TO DO allow custom html
+
 	retweets.shift();
 	
 	d3.select('#retweetList table')
 		.datum(retweets)
 	  	.call(retweeListTable);
 
-	/*
-	d3.select("#retweetList table tbody").selectAll("tr").remove();
-	var color = linecolor(d.tweet.first_code);
-	var retweets = d.tweet.points;
-	retweets.shift(); // we don't want the first tweet
-
-	var rows = d3.select("#retweetList table tbody").selectAll("tr")
-		.data(retweets) 
-	  .enter().append("tr");
-	  	
-	rows.append("td").html(function(d) {
-		return '<a href="http://twitter.com/' + d.screen_name + '" class="small" target="_blank">@'+d.screen_name+'</a>';
-	});
-	rows.append("td").html(function(d) {
-		return d.verified ? '<span class="verified"></span>' : '';
-	});
-	rows.append("td").html(function(d) {
-		return d.followers_count;
-	});
-
-	rows.on("mouseover", function(d) {
-		circle.attr("opacity", 1)
-			.attr("stroke", color)
-	  		.attr("cx", xScale(d.timestamp))
-	  		.attr("cy", yScale.linear(d.popularity));
-	});
-	*/
+	d3.select('#retweetList table tbody').selectAll('tr')
+		.data(d.tweet.points)
+		.on("mouseover", function(d) {
+			circle.attr("opacity", 1)
+				.attr("stroke", color)
+	  			.attr("cx", xScale(d.timestamp))
+	  			.attr("cy", yScale.linear(d.popularity));
+		});
+	
 	tweetview.retweetList.classed('hidden', false);
 }
 
