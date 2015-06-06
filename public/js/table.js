@@ -28,14 +28,13 @@ var d3 = require('d3');
 //		dataTable = d3.select('table#myTable')
 //			.datum(data)
 //			.call(myTable);
-//
-// 3. To update...
 
 var Table = function() {
 
-	var headers = []; 		// Need to set headers
-	var sortColumn = null; 	// Default: No sort. Set to column for sorting
+	var headers = []; 			// Need to set headers
+	var sortColumn = null; 		// Default: No sort. Set to column for sorting
 	var sortAscending = true;
+	var rowHoverHandler = null; // Function called on row hover
 
 	var table = function(selection) {
 		selection.each(function(data) {
@@ -80,7 +79,8 @@ var Table = function() {
 			  .append("tbody")
 				.selectAll("tr")
 				.data(data)
-			  .enter().append("tr");
+			  .enter().append("tr")
+			  .on("mouseover", rowHoverHandler);
 
 			// Sort rows if sortColumn is set
 			if (sortColumn > -1) {
@@ -128,6 +128,14 @@ var Table = function() {
 			return sortAscending;
 		}
 		sortAscending = value;
+		return table;
+	}
+
+	table.rowHoverHandler = function(value) {
+		if (!arguments.length) {
+			return rowHoverHandler;
+		}
+		rowHoverHandler = value;
 		return table;
 	}
 

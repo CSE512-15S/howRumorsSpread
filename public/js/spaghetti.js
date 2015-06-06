@@ -227,7 +227,13 @@ var init = function(model) {
 			class: "col-md-4"
 		}])
 		.sortColumn(2)
-		.sortAscending(false);
+		.sortAscending(false)
+		.rowHoverHandler(function(d) {
+			circle.attr("opacity", 1)
+				.attr("stroke", d.color)
+	  			.attr("cx", d.backprojection.x)
+	  			.attr("cy", d.backprojection.y);
+		});
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -459,13 +465,13 @@ var showTweet = function(d) {
 
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
-	var color = linecolor(d.tweet.first_code);
-
 	var retweets = d.tweet.points.map(function(d) {
 		return {
 			screen_name: d.screen_name, 
 			verified: d.verified ? '✓' : '', 
-			followers_count: d.followers_count
+			followers_count: d.followers_count,
+			color: linecolor(d.tweet.first_code),
+			backprojection: {x: xScale(d.timestamp), y: yScale.linear(d.popularity)}
 		};
 	});
 
@@ -474,7 +480,7 @@ var showRetweetList = function(d) {
 	d3.select('#retweetList table')
 		.datum(retweets)
 	  	.call(retweeListTable);
-
+/*
 	d3.select('#retweetList table tbody').selectAll('tr')
 		.data(d.tweet.points)
 		.on("mouseover", function(d) {
@@ -482,7 +488,7 @@ var showRetweetList = function(d) {
 				.attr("stroke", color)
 	  			.attr("cx", xScale(d.timestamp))
 	  			.attr("cy", yScale.linear(d.popularity));
-		});
+		});*/
 	
 	tweetview.retweetList.classed('hidden', false);
 }
