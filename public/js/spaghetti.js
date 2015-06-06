@@ -207,8 +207,22 @@ var init = function(model) {
 
 	// Configure table
 	retweeListTable = table()
-		.headerTitles(["Name", "", "Followers"])
-		.sortColumn(2);
+		.headers([{
+			column: "screen_name", 
+			text: "Name",
+			type: "String",
+			sortable: true },{
+			column: "verified",
+			type: "String",
+			text: "",
+			sortable: true },{
+			column: "followers_count",
+			type: "Number",
+			text: "Followers",
+			sortable: true
+		}])
+		.sortColumn(2)
+		.sortAscending(false);
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -440,8 +454,13 @@ var showTweet = function(d) {
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
 	var retweets = d.tweet.points.map(function(d) {
-		return [d.screen_name, d.verified, d.popularity.toString()];
+		return {
+			screen_name: d.screen_name, 
+			verified: d.verified ? '✓' : '', 
+			followers_count: d.followers_count
+		};
 	});
+// TO DO allow custom html
 	retweets.shift();
 	
 	d3.select('#retweetList table')
@@ -484,5 +503,4 @@ var offsetTimeFormat = function(d) {
 
 exports.init = init;
 exports.updateXBounds = updateXBounds;
-exports.table = table;
 module.exports = exports;
