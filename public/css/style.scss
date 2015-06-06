@@ -144,6 +144,10 @@ a {
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
+
+	table.header-fixed > tbody {
+		height: 290px;
+	}
 }
 
 
@@ -227,5 +231,53 @@ a {
 		border-top: 1px solid $border-color;
 		margin-bottom: 0;
 		width: 100%;
+
+		table.header-fixed > tbody {
+			height: 180px;
+		}
+	}
+}
+
+/* FIXED TABLE HEADER
+----------------------------------------*/
+
+.header-fixed {
+    width: 100% 
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+    display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.header-fixed > tbody {
+    overflow-y: auto;
+    height: 150px;
+}
+
+.header-fixed tr {
+	td, th {
+	    width: 33.3333333%;
+    	float: left;
+	}
+
+	td.col-md-6, th.col-md-6 {
+		width: 50%;
+	}
+
+	td.col-md-2, th.col-md-2 {
+		width: 16.6666666%;
 	}
 }

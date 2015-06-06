@@ -88,6 +88,8 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
+  #leaderboard table.header-fixed > tbody {
+    height: 290px; }
 
 /* EVENTMETA & TWEETVIEW
 ----------------------------------------*/
@@ -160,3 +162,31 @@ a {
     border-top: 1px solid #ccc;
     margin-bottom: 0;
     width: 100%; }
+    #tweetview #retweetList table.header-fixed > tbody {
+      height: 180px; }
+
+/* FIXED TABLE HEADER
+----------------------------------------*/
+.header-fixed {
+  width: 100%; }
+
+.header-fixed > thead, .header-fixed > tbody, .header-fixed > thead > tr, .header-fixed > tbody > tr, .header-fixed > thead > tr > th, .header-fixed > tbody > tr > td {
+  display: block; }
+
+.header-fixed > tbody > tr:after, .header-fixed > thead > tr:after {
+  content: ' ';
+  display: block;
+  visibility: hidden;
+  clear: both; }
+
+.header-fixed > tbody {
+  overflow-y: auto;
+  height: 150px; }
+
+.header-fixed tr td, .header-fixed tr th {
+  width: 33.33333%;
+  float: left; }
+.header-fixed tr td.col-md-6, .header-fixed tr th.col-md-6 {
+  width: 50%; }
+.header-fixed tr td.col-md-2, .header-fixed tr th.col-md-2 {
+  width: 16.66667%; }

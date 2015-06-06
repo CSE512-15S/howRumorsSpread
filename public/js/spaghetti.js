@@ -216,7 +216,7 @@ var init = function(model) {
 		},{
 			column: "verified",
 			type: "String",
-			text: "",
+			text: "&nbsp;",
 			sortable: true,
 			class: "col-md-2" 
 		},{
@@ -420,8 +420,9 @@ var clickVoronoi = function(d) {
 		d3.selectAll('.voronoi path').on("mouseover", mouseoverVoronoi);
 		svg.on("mouseleave", mouseleaveSVG);
 
-		// Hide retweet list
+		// Hide retweet list & circle
 		tweetview.retweetList.classed('hidden', true);
+		circle.attr("opacity", 0);
 
 		tweetviewFixed = false;
 	} else {
