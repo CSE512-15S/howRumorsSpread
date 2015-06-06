@@ -1,4 +1,5 @@
-var d3 = require('d3');
+var d3 = require('d3'),
+	table = require('./table.js');
 
 var data;
 var svg, 
@@ -18,7 +19,7 @@ var margin = { top: 0, right: 20, bottom: 50, left: 90 },
 			    height = 500 - margin.top - margin.bottom;
 var xTicks = 8, yTicks = 10;
 var tweetview = {};
-var table;
+var retweeListTable;
 var tweetviewFixed = false; 
 
 var Spaghetti = function() {
@@ -203,6 +204,11 @@ var init = function(model) {
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
 	tweetview.retweetList = d3.select('#retweetList');
+
+	// Configure table
+	retweeListTable = table()
+		.headerTitles(["Name", "", "Followers"])
+		.sortColumn(2);
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -433,6 +439,16 @@ var showTweet = function(d) {
 
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
+	var retweets = d.tweet.points.map(function(d) {
+		return [d.screen_name, d.verified, d.popularity.toString()];
+	});
+	retweets.shift();
+	
+	d3.select('#retweetList table')
+		.datum(retweets)
+	  	.call(retweeListTable);
+
+	/*
 	d3.select("#retweetList table tbody").selectAll("tr").remove();
 	var color = linecolor(d.tweet.first_code);
 	var retweets = d.tweet.points;
@@ -458,7 +474,7 @@ var showRetweetList = function(d) {
 	  		.attr("cx", xScale(d.timestamp))
 	  		.attr("cy", yScale.linear(d.popularity));
 	});
-
+	*/
 	tweetview.retweetList.classed('hidden', false);
 }
 
@@ -468,4 +484,5 @@ var offsetTimeFormat = function(d) {
 
 exports.init = init;
 exports.updateXBounds = updateXBounds;
+exports.table = table;
 module.exports = exports;
