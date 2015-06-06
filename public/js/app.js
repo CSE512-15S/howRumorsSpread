@@ -2,7 +2,6 @@ var $ = require('jquery');
     global.jQuery = $,
     d3 = require('d3'),
     bootstrap = require('bootstrap'),
-    geocomplete = require('../components/ubilabs-geocomplete/jquery.geocomplete.min.js'),
     _ = require('underscore'),
     ko = require('knockout'),
     moment = require('moment-timezone'),
@@ -55,7 +54,8 @@ function MainViewModel() {
   self.timeZone = "Atlantic/Reykjavik"; // Default: UTC
   self.setTimeZone = function(newTimeZone) {
     self.timeZone = newTimeZone;
-    stream.updateXAxis();
+    spaghetti.updateTime();
+    stream.updateTime();
   }
   self.offsetTimeFormat = function(d) {
     return moment.utc(d).tz(self.timeZone).format("HH:mm");
@@ -79,6 +79,21 @@ $(document).ready(function() {
     legend = require('./legend.js')(mainViewModel);
   }
   
+  // Populate Timezone Selection
+  d3.csv("../data/timezone/zone.csv", function(d) {
+    return d.zone_name;
+  }, function(error, rows) {
+    var select = d3.select('#timezoneSelect');
+    var options = select.selectAll("option").data(rows.sort());
+    options.enter().append("option")
+      .text(function (d) { return d; })
+    
+    select.on("change", function() {
+      var selectedIndex = select.property('selectedIndex'),
+        data          = options[0][selectedIndex].__data__;
+      mainViewModel.setTimeZone(data);
+    });
+  });
 
   ko.applyBindings(mainViewModel);
 });

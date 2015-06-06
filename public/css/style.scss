@@ -1,4 +1,4 @@
-/* PARAMS
+/* PARAMS / GENERAL
 ----------------------------------------*/
 
 $verified-color: #00B7FF;
@@ -14,6 +14,10 @@ body {
 a {
   color: $link-color;
   cursor: pointer;
+}
+
+#timezoneSelect {
+	height: 22px;
 }
 
 /* MIXINS

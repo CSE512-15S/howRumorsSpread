@@ -274,7 +274,7 @@ var StreamGraph = function(mainViewModel) {
     return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
   }
 
-  self.updateXAxis = function() {
+  self.updateTime = function() {
     d3.select('.x.axis').call(xAxis);
   }
 

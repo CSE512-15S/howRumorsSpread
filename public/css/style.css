@@ -1,4 +1,4 @@
-/* PARAMS
+/* PARAMS / GENERAL
 ----------------------------------------*/
 body {
   padding: 30px 40px;
@@ -8,6 +8,9 @@ body {
 a {
   color: #777;
   cursor: pointer; }
+
+#timezoneSelect {
+  height: 22px; }
 
 /* MIXINS
 ----------------------------------------*/

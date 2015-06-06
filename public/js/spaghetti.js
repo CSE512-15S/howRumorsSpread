@@ -339,21 +339,6 @@ var init = function(model) {
 		// Event listeners for lin / log scale buttons
 		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
 		d3.select('#scale-log').on("click", function() { updateYScale(false) });
-
-		// Setup placename-completion
-   		jQuery("#placenameInput").geocomplete()  
-   		.bind("geocode:result", function(event, result){
-    		var lat = result.geometry.location.A;
-    		var lon = result.geometry.location.F;
-    		url = 'http://api.timezonedb.com/?lat='+lat+'&lng='+lon+'&format=json&key=2PXSOPRPEFDT';
-    		jQuery.getJSON(url)
-		  		.done(function(data) {
-		  			jQuery("#placenameInput").val("Timezone: " + data.abbreviation);
-		  			// Update the time axis
-					mainViewModel.setTimeZone(data.zoneName);
-					d3.select("#spaghetti").select('.x.axis').call(xAxis);
-				});
-  		});
 	});
 };
 
@@ -510,6 +495,11 @@ var showRetweetList = function(d) {
 	tweetview.retweetList.classed('hidden', false);
 }
 
+updateTime = function() {
+	svg.select('.x.axis').call(xAxis);
+}
+
 exports.init = init;
 exports.updateXBounds = updateXBounds;
+exports.updateTime = updateTime;
 module.exports = exports;
