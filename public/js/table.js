@@ -8,12 +8,14 @@ var d3 = require('d3');
 //
 //		var myTable = Table()
 //			.headers([{
-//				column: "name", 		// This is the data attribute for this column
-//				text: "Name",			// Text will appear in the row header
-//				type: "String",			// Choose right compare function for sorting
-//				sortable: true },{		// Is this column sortable?
+//				column: "name", 				-> This is the data attribute for this column
+//				text: "Name",					-> Text will appear in the row header
+//				class:	"col-md-8 text-right",	-> These classes will be applied		
+//				type: "String",					-> Choose right compare function for sorting
+//				sortable: true },{				-> Is this column sortable?
 //				column: "age", 
 //				text: "Age",
+//				class: "col-md-4",
 //				type: "Number",
 //				sortable: true }])	
 //			.sortingColumn(1); 			// Sorting on age 
@@ -52,6 +54,7 @@ var Table = function() {
 				header.selectAll("th")
 				.data(headers)
 			  .enter().append("th")
+			  	.attr("class", function(d) { return d.class; })
 			  	.html(function (d, i) { 
 			  		var sortIndicator = (i == sortColumn) ? (sortAscending ? ' &uarr;' : ' &darr;') : '';
 			  		return d.text + sortIndicator; 
@@ -99,6 +102,7 @@ var Table = function() {
 					return row; 
 				})
 			  .enter().append("td")
+			  	.attr("class", function(d,i) { return headers[i].class; })
 			    .text(function(d) { return d; });
 		});
 	}

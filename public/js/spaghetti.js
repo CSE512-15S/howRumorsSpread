@@ -211,15 +211,18 @@ var init = function(model) {
 			column: "screen_name", 
 			text: "Name",
 			type: "String",
-			sortable: true },{
+			sortable: true,
+			class: "col-md-6" },{
 			column: "verified",
 			type: "String",
 			text: "",
-			sortable: true },{
+			sortable: true,
+			class: "col-md-2" },{
 			column: "followers_count",
 			type: "Number",
 			text: "Followers",
-			sortable: true
+			sortable: true,
+			class: "col-md-4"
 		}])
 		.sortColumn(2)
 		.sortAscending(false);
