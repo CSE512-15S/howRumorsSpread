@@ -56,7 +56,7 @@ function MainViewModel() {
   self.setTimeZone = function(newTimeZone) {
     self.timeZone = newTimeZone;
     stream.updateXAxis();
-  }
+  };
 }
 
 $(document).ready(function() {
