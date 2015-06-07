@@ -15,16 +15,16 @@ function MainViewModel() {
   var self = this
       self.activeCollection = 'lakemba',
       self.collectionNames = ko.observableArray();
-  getCollectionNames();
+  // getCollectionNames();
 
-  function getCollectionNames() {
-    $.get('/list-collections', {}, function(data) {
-      self.collectionNames.removeAll();
-      _.each(JSON.parse(data), function(name) {
-        self.collectionNames.push({'name' : name});
-      });
-    });
-  }
+  // function getCollectionNames() {
+  //   $.get('/list-collections', {}, function(data) {
+  //     self.collectionNames.removeAll();
+  //     _.each(JSON.parse(data), function(name) {
+  //       self.collectionNames.push({'name' : name});
+  //     });
+  //   });
+  // }
 
   self.updateViewPort = function (bounds) {
     spaghetti.updateXBounds(bounds);
