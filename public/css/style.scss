@@ -1,4 +1,4 @@
-/* PARAMS
+/* PARAMS / GENERAL
 ----------------------------------------*/
 
 $verified-color: #00B7FF;
@@ -8,11 +8,16 @@ $border-color: #ccc;
 body {
   padding: 30px 40px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 
 a {
   color: $link-color;
   cursor: pointer;
+}
+
+#timezoneSelect {
+	height: 22px;
 }
 
 /* MIXINS
@@ -92,7 +97,6 @@ a {
 
 	.svgContainer {
 		
-
 		width: 100%;
 		
 
@@ -136,34 +140,20 @@ a {
 #leaderboard {
 	position: relative;
 	width: 100%;
-	background-color: #F7F7F7;
-	padding: 5px 0;
-	border: 1px solid $border-color;
+	height: 290px;
+	border: 2px solid $border-color;
 
-	.screenname {
-		padding-left: 22px;
+	table tbody th, table tbody td {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
-	.score {
-		padding-right: 22px;
-	}
-}
 
-.lbtablehead {
-	font-weight: bold;
-	padding-bottom: 5px;
-}
-
-.lbtablebody {
-	height: 280px;
-	overflow: scroll;
-	border-top: 1px solid $border-color;
-	box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
-	
-	.row {
-		margin-top: 3px;
-		margin-bottom: 3px;
+	table.header-fixed > tbody {
+		height: 248px;
 	}
 }
+
 
 /* EVENTMETA & TWEETVIEW
 ----------------------------------------*/
@@ -181,7 +171,7 @@ a {
 	width: 100%;
 	height: 320px;
 	border: 1px solid $border-color;
-	background-color: #F7F7F7;
+	background-color: #fff;
 }
 
 #eventmeta .row { margin: 0; }
@@ -193,8 +183,14 @@ a {
 		display: inline;
 		font-size: 16px;
 	}
-	.time {
+	.time, .followercount {
 		font-size: 12px;
+	}
+	.time::after {
+		content: "\00a0\00b7\00a0";	
+	}
+	.followercount::after {
+		content: " followers";
 	}
 	.avatar-wrapper {
 		position: relative;
@@ -231,45 +227,68 @@ a {
 		background-repeat: no-repeat;
 		background-image: url('../images/verified.png');
 	}
-	.retweetList {
+	#retweetList {
 		position: absolute;
 		bottom: 1px;
+		height: 180px;
+		border-top: 1px solid $border-color;
+		margin-bottom: 0;
 		width: 100%;
-		
-		.retweetListHeader {
-			font-weight: bold;
-		}
 
-		.retweetListBody {
-			height: 160px;
-			overflow-y: scroll;
-			border-top: 1px solid $border-color;
-			box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
-		}
-
-		.row {
-			margin-top: 3px;
-			margin-bottom: 3px;
+		table.header-fixed > tbody {
+			height: 143px;
 		}
 	}
 }
 
-/* SCRATCH -- only for development
+/* FIXED TABLE HEADER
 ----------------------------------------*/
 
-.bg-text {
-    background-color: #aaa;
-    overflow: hidden;
-    position: relative;
-    width: 400px;
+th {
+	cursor: pointer;
 }
-.bg-text::after {
-    color: #fff;
-    content: attr(data-bg-text);
+
+.header-fixed {
+    width: 100% 
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
     display: block;
-    font-size: 50px;
-    line-height: 1;
-    position: absolute;
-    bottom: 0px;
-    right: 10px;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.header-fixed > tbody {
+    overflow-y: auto;
+    height: 150px;
+}
+
+.header-fixed tr {
+	td, th {
+	    width: 33.3333333%;
+    	float: left;
+	}
+
+	td.col-md-6, th.col-md-6 {
+		width: 50%;
+	}
+
+	td.col-md-3, th.col-md-3 {
+		width: 25%;
+	}
+
+	td.col-md-2, th.col-md-2 {
+		width: 16.6666666%;
+	}
 }
