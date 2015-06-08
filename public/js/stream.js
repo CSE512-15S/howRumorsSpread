@@ -70,7 +70,7 @@ var StreamGraph = function(mainViewModel) {
   // White rectangle for hiding scanline
   svg.append("rect")
     .attr("class", "hide-scanline")
-    .attr("width", margin.left).attr("height", (height + margin.bottom))
+    .attr("width", margin.left).attr("height", (height))
     .attr("transform", "translate(" + -margin.left + ",0)");
 
   svg.on('mousemove', function(d, i) {
