@@ -70,12 +70,12 @@ var StreamGraph = function(mainViewModel) {
 
   svg.on('mousemove', function(d, i) {
         var mousex = d3.mouse(this)[0];
-        mainViewModel.updateScanlines(mousex);
+        mainViewModel.updateScanlines(xScale.invert(mousex));
         updateVolumeTooltip(mousex);
       })
       .on('mouseover', function(d, i) {
         var mousex = d3.mouse(this)[0];
-        mainViewModel.updateScanlines(mousex);
+        mainViewModel.updateScanlines(xScale.invert(mousex));
         updateVolumeTooltip(mousex);
       })
       .on('mouseout', function(d, i) {
@@ -83,10 +83,10 @@ var StreamGraph = function(mainViewModel) {
         updateVolumeTooltip(null);
       });
 
-  self.updateScanline = function(x) {
-    if (x !== null) {
+  self.updateScanline = function(timestamp) {
+    if (timestamp !== null) {
       scanline.style('visibility', 'visible')
-        .attr("transform", "translate(" + x + ",0)");
+        .attr("transform", "translate(" + xScale(timestamp) + ",0)");
     }
     else {
       scanline.style('visibility', 'hidden');

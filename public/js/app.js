@@ -33,9 +33,9 @@ function MainViewModel() {
     leaderboard.updateXBounds(bounds);
   }
 
-  self.updateScanlines = function (x) {
-    spaghetti.updateScanline(x);
-    stream.updateScanline(x);
+  self.updateScanlines = function (timestamp) {
+    spaghetti.updateScanline(timestamp);
+    stream.updateScanline(timestamp);
   }
 
   self.updateActiveCollection = function() {

@@ -184,7 +184,7 @@ var init = function(model) {
 
     scanline = svg.append("line")
    			.attr("class", "scanline")
-			.attr("x1", 0).attr("y1", 0)
+			.attr("x1", 0).attr("gy1", 0)
 			.attr("x2", 0).attr("y2", height);
 
 	svg.append("g")
@@ -411,10 +411,10 @@ var updateYScale = function(isLinearScale) {
 }
 
 // Updates scanline
-var updateScanline = function(x) {
-    if (x !== null) {
+var updateScanline = function(timestamp) {
+    if (timestamp !== null) {
       scanline.style('visibility', 'visible')
-      	.attr("transform", "translate(" + x + ",0)");
+        .attr("transform", "translate(" + xScale(timestamp) + ",0)");
     }
     else {
       scanline.style('visibility', 'hidden');
@@ -424,7 +424,7 @@ var updateScanline = function(x) {
 // Event Handlers
 var mousemoveSVG = function() {
 	var x = d3.mouse(this)[0];
-	mainViewModel.updateScanlines(x);
+	mainViewModel.updateScanlines(xScale.invert(x));
 }
 
 var mouseenterSVG = function() {
