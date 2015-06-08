@@ -2,53 +2,51 @@ extends layout
 
 block content
   .row
-    .col-md-12
-      .row
-        .col-md-4#detail
-            .detailview
-                #eventmeta
-                    .row
-                        .col-md-12
-                            h3#event-title Lakemba
-                            p#event-meta Sydney, 15. December 2015
-                            p#event-description.small This is a paragraph with some text that gives a short overview of the event. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                #tweetview.hidden
-                    .row
-                        .col-md-2.avatar-wrapper &nbsp;
-                            .avatar.avatar-custom &nbsp;
-                            .avatar.avatar-default.desaturate &nbsp;
-                        .col-md-10
-                            p
-                                strong.username Username
-                                span &nbsp;
-                                a.screenname(href="http://twitter.com/", target="_blank") @screenname
-                                span.verified.hidden
-                                br
-                                span.time time
-                                span.followercount
-                            p.tweet Tweet
-                    #retweetList.hidden
-                        table.table.table-hover.header-fixed
-            #leaderboard
-                table.table.table-hover.header-fixed
-        .col-md-8#master
-                #spaghetti
-                    .svgContainer
-                    .controls.form-inline
-                        .btn-group(data-toggle="buttons")
-                            label.btn.btn-xs.btn-default.active(id='scale-linear') 
-                                input(type='radio') 
-                                | Linear
-                            label.btn.btn-xs.btn-default(id='scale-log')
-                                input(type='radio') 
-                                | Log
-                        span.small Timezone: 
-                        select#timezoneSelect.small.form-control
-                #legend
-                    .svgContainer
-                #stream
-                    .svgContainer
-                    .controls.form-inline
-                        .btn-group.pick-stream-chart(role="group", "aria-label"="...")
-                            button(type="button", class="btn btn-xs btn-default active", value="streamGraph") Volume Graph
-                            button(type="button", class="btn btn-xs btn-default", value="areaGraph") Area Chart
+    .col-sm-4#detail
+        .detailview
+            #eventmeta
+                .row
+                    .col-sm-12
+                        h3#event-title Lakemba
+                        p#event-meta Sydney, 15. December 2015
+                        p#event-description.small Since the hostage-taker of the Sydney Siege event demanded an ISIS flag, it was largely assumed that his actions were related to Islamic terrorism. The Lakemba Raids rumor arose from the sensemaking around this assumption. This rumor claimed that the the Australian Federal Police (AFP) were carrying out home raids in Lakemba, a neighborhood with a large Muslim community, in parallel with their response to the Sydney Siege. The AFP later denied the validity of this rumor. Twenty officers had taken a pre-arranged tool of mosques in Lakemba as part of their police induction on that day, and it is possible that the rumor originated there.
+            #tweetview.hidden
+                .row
+                    .col-sm-2.avatar-wrapper &nbsp;
+                        .avatar.avatar-custom &nbsp;
+                        .avatar.avatar-default.desaturate &nbsp;
+                    .col-sm-10
+                        p
+                            strong.username Username
+                            span &nbsp;
+                            a.screenname(href="http://twitter.com/", target="_blank") @screenname
+                            span.verified.hidden
+                            br
+                            span.time time
+                            span.followercount
+                        p.tweet Tweet
+                #retweetList.hidden
+                    table.table.table-hover.header-fixed
+        #leaderboard
+            table.table.table-hover.header-fixed
+    .col-sm-8#master
+            #spaghetti
+                .controls.form-inline
+                    .btn-group(data-toggle="buttons")
+                        label.btn.btn-xs.btn-default.active(id='scale-linear') 
+                            input(type='radio') 
+                            | Linear
+                        label.btn.btn-xs.btn-default(id='scale-log')
+                            input(type='radio') 
+                            | Log
+                    span.small Timezone: 
+                    select#timezoneSelect.small.form-control
+                .svgContainer
+            #legend
+                .svgContainer
+            #stream
+                .svgContainer
+                .controls.form-inline
+                    .btn-group.pick-stream-chart(role="group", "aria-label"="...")
+                        button(type="button", class="btn btn-xs btn-default active", value="streamGraph") Volume Graph
+                        button(type="button", class="btn btn-xs btn-default", value="areaGraph") Area Chart

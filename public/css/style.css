@@ -23,12 +23,9 @@ a {
 ----------------------------------------*/
 #spaghetti {
   position: relative; }
-  #spaghetti .svgContainer {
-    overflow: scroll; }
   #spaghetti .controls {
-    position: absolute;
-    top: 0px;
-    left: 107px; }
+    width: 620px;
+    margin: 0px auto; }
     #spaghetti .controls .btn-group, #spaghetti .controls input {
       margin-right: 7px; }
     #spaghetti .controls input {
@@ -39,12 +36,14 @@ a {
     fill: none;
     stroke: #888;
     shape-rendering: crispEdges; }
-  #spaghetti .axis rect {
+  #spaghetti rect.hide-scanline {
     fill: #fff; }
   #spaghetti .voronoi path {
     fill: none; }
   #spaghetti .tweet-hover {
     stroke-width: 4; }
+  #spaghetti label {
+    font-weight: 100; }
 
 /* STREAM
 ----------------------------------------*/
@@ -71,6 +70,8 @@ a {
     fill: none;
     stroke: #888;
     shape-rendering: crispEdges; }
+  #stream rect.hide-scanline {
+    fill: #fff; }
 
 /* LEGEND
 ----------------------------------------*/
@@ -197,3 +198,9 @@ th {
   width: 25%; }
 .header-fixed tr td.col-md-2, .header-fixed tr th.col-md-2 {
   width: 16.66667%; }
+
+/* SCANLINE
+----------------------------------------*/
+line.scanline {
+  stroke: #ccc;
+  stroke-width: 1; }

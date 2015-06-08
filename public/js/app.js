@@ -33,6 +33,11 @@ function MainViewModel() {
     leaderboard.updateXBounds(bounds);
   }
 
+  self.updateScanlines = function (timestamp) {
+    spaghetti.updateScanline(timestamp);
+    stream.updateScanline(timestamp);
+  }
+
   self.updateActiveCollection = function() {
     // TODO:
   };
@@ -56,10 +61,10 @@ function MainViewModel() {
     self.timeZone = newTimeZone;
     spaghetti.updateTime();
     stream.updateTime();
-  }
+  };
   self.offsetTimeFormat = function(d) {
     return moment.utc(d).tz(self.timeZone).format("HH:mm");
-  }
+  };
 }
 
 $(document).ready(function() {
@@ -80,16 +85,20 @@ $(document).ready(function() {
   }
   
   // Populate Timezone Selection
-  var select = d3.select('#timezoneSelect');
-  var options = select.selectAll("option").data(moment.tz.names());
-  options.enter().append("option")
-    .text(function (d) { return d; })
-  
-  select.on("change", function() {
-    var selectedIndex = select.property('selectedIndex'),
-      data          = options[0][selectedIndex].__data__;
-    mainViewModel.setTimeZone(data);
+  d3.csv("../data/timezones.csv", function(error, timezones) {
+    var select = d3.select('#timezoneSelect');
+    var options = select.selectAll("option").data(timezones);
+    options.enter().append("option")
+      .text(function (d) { return d.offset; })
+    
+    select.on("change", function(d,i) {
+      var selectedIndex = select.property('selectedIndex');
+      var data          = options[0][selectedIndex].__data__;
+      mainViewModel.setTimeZone(data.abbreviation);
+    });
   });
+
+
   
   ko.applyBindings(mainViewModel);
 });
