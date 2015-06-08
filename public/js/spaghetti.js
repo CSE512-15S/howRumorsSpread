@@ -198,6 +198,15 @@ var init = function(model) {
 		.attr("class", "x axis")
 		.attr("transform", "translate(0,"+(height+10)+")");
 
+	// Y Label
+	svg.append("g")
+		.attr("class", "label")
+	  .append("text")
+	  	.attr("transform", "rotate(-90)")
+	  	.attr("x", -60).attr("y", 5)
+	  	.attr("font-size","12px").attr("font-weight", "normal")
+	  	.text("Exposure");
+
 	svg.on("mouseenter", mouseenterSVG)
 	.on("mouseleave", mouseleaveSVG)
 	.on("mousemove", mousemoveSVG);

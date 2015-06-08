@@ -42,6 +42,8 @@ a {
     fill: none; }
   #spaghetti .tweet-hover {
     stroke-width: 4; }
+  #spaghetti label {
+    font-weight: 100; }
 
 /* STREAM
 ----------------------------------------*/
