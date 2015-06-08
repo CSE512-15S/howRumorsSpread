@@ -64,7 +64,7 @@ a {
 	    stroke: #888;
 	    shape-rendering: crispEdges;
 	}
-	.axis rect {
+	rect.hide-scanline {
 		fill: #fff;
 	}
 	.voronoi path {
@@ -117,6 +117,10 @@ a {
 	    fill: none;
 	    stroke: #888;
 	    shape-rendering: crispEdges;
+	}
+
+	rect.hide-scanline {
+		fill: #fff;
 	}
 
 }

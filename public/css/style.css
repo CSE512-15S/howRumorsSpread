@@ -36,7 +36,7 @@ a {
     fill: none;
     stroke: #888;
     shape-rendering: crispEdges; }
-  #spaghetti .axis rect {
+  #spaghetti rect.hide-scanline {
     fill: #fff; }
   #spaghetti .voronoi path {
     fill: none; }
@@ -70,6 +70,8 @@ a {
     fill: none;
     stroke: #888;
     shape-rendering: crispEdges; }
+  #stream rect.hide-scanline {
+    fill: #fff; }
 
 /* LEGEND
 ----------------------------------------*/

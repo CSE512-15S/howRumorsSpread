@@ -67,6 +67,11 @@ var StreamGraph = function(mainViewModel) {
         .attr('class', 'x axis')
         .attr("transform", "translate(0,"+(height+10)+")");
   
+  // White rectangle for hiding scanline
+  svg.append("rect")
+    .attr("class", "hide-scanline")
+    .attr("width", margin.left).attr("height", (height + margin.bottom))
+    .attr("transform", "translate(" + -margin.left + ",0)");
 
   svg.on('mousemove', function(d, i) {
         var mousex = d3.mouse(this)[0];

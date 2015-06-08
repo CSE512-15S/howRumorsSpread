@@ -191,6 +191,7 @@ var init = function(model) {
 		.attr("class", "y axis")
 		.attr("transform", "translate(-10,0)")
 	  .append("rect")
+	  	.attr("class", "hide-scanline")
 	  	.attr("width", margin.left).attr("height", (height + margin.bottom))
 	  	.attr("transform", "translate(" + -margin.left + ",0)");
 
@@ -203,7 +204,7 @@ var init = function(model) {
 		.attr("class", "label")
 	  .append("text")
 	  	.attr("transform", "rotate(-90)")
-	  	.attr("x", -60).attr("y", 5)
+	  	.attr("x", -60).attr("y", 8)
 	  	.attr("font-size","12px").attr("font-weight", "normal")
 	  	.text("Exposure");
 
