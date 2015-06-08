@@ -7,6 +7,7 @@ var svg,
 	dataTweets, 
 	voronoiGroup, 
 	circle,
+	scanline,
 	xBounds, 
 	xScale, 
 	yScale, 
@@ -181,10 +182,16 @@ var init = function(model) {
       .attr("stroke", "black")
       .attr("stroke-width", 3);
 
+    scanline = svg.append("line")
+   			.attr("class", "scanline")
+			.attr("x1", 0).attr("gy1", 0)
+			.attr("x2", 0).attr("y2", height);
+
 	svg.append("g")
 		.attr("class", "y axis")
 		.attr("transform", "translate(-10,0)")
 	  .append("rect")
+	  	.attr("class", "hide-scanline")
 	  	.attr("width", margin.left).attr("height", (height + margin.bottom))
 	  	.attr("transform", "translate(" + -margin.left + ",0)");
 
@@ -192,8 +199,18 @@ var init = function(model) {
 		.attr("class", "x axis")
 		.attr("transform", "translate(0,"+(height+10)+")");
 
+	// Y Label
+	svg.append("g")
+		.attr("class", "label")
+	  .append("text")
+	  	.attr("transform", "rotate(-90)")
+	  	.attr("x", -60).attr("y", 8)
+	  	.attr("font-size","12px").attr("font-weight", "normal")
+	  	.text("Exposure");
+
 	svg.on("mouseenter", mouseenterSVG)
-	.on("mouseleave", mouseleaveSVG);
+	.on("mouseleave", mouseleaveSVG)
+	.on("mousemove", mousemoveSVG);
 
 	// Set up outlets for showing tweet
 	tweetview.view = d3.select('#tweetview');
@@ -403,12 +420,29 @@ var updateYScale = function(isLinearScale) {
 	}
 }
 
+// Updates scanline
+var updateScanline = function(timestamp) {
+    if (timestamp !== null) {
+      scanline.style('visibility', 'visible')
+        .attr("transform", "translate(" + xScale(timestamp) + ",0)");
+    }
+    else {
+      scanline.style('visibility', 'hidden');
+    }
+}
+
 // Event Handlers
+var mousemoveSVG = function() {
+	var x = d3.mouse(this)[0];
+	mainViewModel.updateScanlines(xScale.invert(x));
+}
+
 var mouseenterSVG = function() {
 	d3.select('#tweetview').classed('hidden', false);
 }
 var mouseleaveSVG = mouseleave = function() {
 	d3.select('#tweetview').classed('hidden', true);
+	mainViewModel.updateScanlines(null);
 }
 
 var mouseoverVoronoi = function(d) {
@@ -503,4 +537,5 @@ updateTime = function() {
 exports.init = init;
 exports.updateXBounds = updateXBounds;
 exports.updateTime = updateTime;
+exports.updateScanline = updateScanline;
 module.exports = exports;
