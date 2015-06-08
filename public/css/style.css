@@ -23,12 +23,9 @@ a {
 ----------------------------------------*/
 #spaghetti {
   position: relative; }
-  #spaghetti .svgContainer {
-    overflow: scroll; }
   #spaghetti .controls {
-    position: absolute;
-    top: 0px;
-    left: 107px; }
+    width: 620px;
+    margin: 0px auto; }
     #spaghetti .controls .btn-group, #spaghetti .controls input {
       margin-right: 7px; }
     #spaghetti .controls input {

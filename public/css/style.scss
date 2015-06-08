@@ -45,14 +45,9 @@ a {
 #spaghetti {
 	position: relative;
 	
-	.svgContainer {
-		overflow: scroll;
-	}
 	.controls {
-		position: absolute;
-		top: 0px;
-		left: 107px;
-
+	  	width: 620px;
+  		margin: 0px auto;
 		.btn-group, input {
 			margin-right: 7px;
 		}
