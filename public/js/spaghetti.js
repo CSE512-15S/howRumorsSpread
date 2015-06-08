@@ -172,6 +172,7 @@ var init = function(model) {
 		.attr("class", "tweets");
 
 	circle = svg.append("circle")
+	  .attr("class", "backprojection-circle")
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", 4)
@@ -236,7 +237,7 @@ var init = function(model) {
 		.sortAscending(true)
 		.rowHoverHandler(function(d) {
 			circle.attr("opacity", 1)
-				.attr("stroke", d.color)
+				// .attr("stroke", d.color)
 	  			.attr("cx", d.backprojection.x)
 	  			.attr("cy", d.backprojection.y);
 		})
