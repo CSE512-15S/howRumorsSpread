@@ -71,7 +71,7 @@ var browserifyTask = function(devMode) {
 
 }
 
-gulp.task('broswerify', function () {
+gulp.task('browserify', function () {
  return browserifyTask();
 });
 
@@ -105,7 +105,7 @@ gulp.task('develop', function () {
 
 gulp.task('default', [
   'sass',
-  'broswerify',
+  'browserify',
   'develop',
   'watch'
 ]);
