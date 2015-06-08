@@ -4,6 +4,7 @@
 $verified-color: #00B7FF;
 $link-color: #777;
 $border-color: #ccc;
+$line-color: #ccc;
 
 body {
   padding: 30px 40px;
@@ -291,4 +292,12 @@ th {
 	td.col-md-2, th.col-md-2 {
 		width: 16.6666666%;
 	}
+}
+
+
+/* SCANLINE
+----------------------------------------*/
+line.scanline {
+	stroke: $line-color;
+	stroke-width: 1;
 }

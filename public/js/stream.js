@@ -45,7 +45,7 @@ var StreamGraph = function(mainViewModel) {
   var chart = svg.append('g')
     .attr('class', 'chart');
 
-  var vertLine = svg.append('line')
+  var scanline = svg.append('line')
                     .attr('x1', 0)
                     .attr('x2', 0)
                     .attr('y1', 0)
@@ -70,27 +70,26 @@ var StreamGraph = function(mainViewModel) {
 
   svg.on('mousemove', function(d, i) {
         var mousex = d3.mouse(this)[0];
-        moveVertLine(mousex);
+        mainViewModel.updateScanlines(mousex);
         updateVolumeTooltip(mousex);
       })
       .on('mouseover', function(d, i) {
         var mousex = d3.mouse(this)[0];
-        moveVertLine(mousex);
+        mainViewModel.updateScanlines(mousex);
         updateVolumeTooltip(mousex);
       })
       .on('mouseout', function(d, i) {
-        moveVertLine(null);
+        mainViewModel.updateScanlines(null);
         updateVolumeTooltip(null);
       });
 
-  function moveVertLine(mousePosition) {
-    if (mousePosition !== null) {
-      vertLine.style('visibility', 'visible')
-              .attr('x1', mousePosition)
-              .attr('x2', mousePosition);
+  self.updateScanline = function(x) {
+    if (x !== null) {
+      scanline.style('visibility', 'visible')
+        .attr("transform", "translate(" + x + ",0)");
     }
     else {
-      vertLine.style('visibility', 'hidden') 
+      scanline.style('visibility', 'hidden');
     }
   }
 

@@ -33,6 +33,11 @@ function MainViewModel() {
     leaderboard.updateXBounds(bounds);
   }
 
+  self.updateScanlines = function (x) {
+    spaghetti.updateScanline(x);
+    stream.updateScanline(x);
+  }
+
   self.updateActiveCollection = function() {
     // TODO:
   };
