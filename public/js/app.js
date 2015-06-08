@@ -2,7 +2,6 @@ var $ = require('jquery');
     global.jQuery = $,
     d3 = require('d3'),
     bootstrap = require('bootstrap'),
-    geocomplete = require('../components/ubilabs-geocomplete/jquery.geocomplete.min.js'),
     _ = require('underscore'),
     ko = require('knockout'),
     moment = require('moment-timezone'),
@@ -15,16 +14,16 @@ function MainViewModel() {
   var self = this
       self.activeCollection = 'lakemba',
       self.collectionNames = ko.observableArray();
-  getCollectionNames();
+  // getCollectionNames();
 
-  function getCollectionNames() {
-    $.get('/list-collections', {}, function(data) {
-      self.collectionNames.removeAll();
-      _.each(JSON.parse(data), function(name) {
-        self.collectionNames.push({'name' : name});
-      });
-    });
-  }
+  // function getCollectionNames() {
+  //   $.get('/list-collections', {}, function(data) {
+  //     self.collectionNames.removeAll();
+  //     _.each(JSON.parse(data), function(name) {
+  //       self.collectionNames.push({'name' : name});
+  //     });
+  //   });
+  // }
 
   self.updateViewPort = function (bounds) {
     spaghetti.updateXBounds(bounds);
@@ -55,7 +54,11 @@ function MainViewModel() {
   self.timeZone = "Atlantic/Reykjavik"; // Default: UTC
   self.setTimeZone = function(newTimeZone) {
     self.timeZone = newTimeZone;
-    stream.updateXAxis();
+    spaghetti.updateTime();
+    stream.updateTime();
+  }
+  self.offsetTimeFormat = function(d) {
+    return moment.utc(d).tz(self.timeZone).format("HH:mm");
   }
 }
 
@@ -66,15 +69,27 @@ $(document).ready(function() {
     spaghetti = require('./spaghetti.js');
     spaghetti.init(mainViewModel);
   }
+  if($('#leaderboard').length !== 0) {
+    leaderboard = require('./leaderboard.js')(mainViewModel);
+  }
   if($('#stream').length !== 0) {
     stream = require('./stream.js')(mainViewModel);
   }
   if($('#legend').length !== 0) {
     legend = require('./legend.js')(mainViewModel);
   }
-  if($('#leaderboard').length !== 0) {
-    leaderboard = require('./leaderboard.js')(mainViewModel);
-  }
+  
+  // Populate Timezone Selection
+  var select = d3.select('#timezoneSelect');
+  var options = select.selectAll("option").data(moment.tz.names());
+  options.enter().append("option")
+    .text(function (d) { return d; })
+  
+  select.on("change", function() {
+    var selectedIndex = select.property('selectedIndex'),
+      data          = options[0][selectedIndex].__data__;
+    mainViewModel.setTimeZone(data);
+  });
   
   ko.applyBindings(mainViewModel);
 });

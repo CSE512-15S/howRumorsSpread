@@ -1,13 +1,25 @@
-var d3 = require('d3');
+var d3 = require('d3'),
+	table = require('./table.js');
 
 var data;
-var svg, spaghetti, dataTweets, voronoiGroup, xBounds, xScale, yScale, xAxis, yAxis, linecolor;
+var svg, 
+	spaghetti, 
+	dataTweets, 
+	voronoiGroup, 
+	circle,
+	xBounds, 
+	xScale, 
+	yScale, 
+	xAxis, 
+	yAxis, 
+	linecolor;
 var mainViewModel;
-var margin = { top: 0, right: 20, bottom: 50, left: 90 },
+var margin = { top: 0, right: 0, bottom: 50, left: 90 },
 			    width = 800 - margin.left - margin.right,
 			    height = 500 - margin.top - margin.bottom;
 var xTicks = 8, yTicks = 10;
 var tweetview = {};
+var retweeListTable;
 var tweetviewFixed = false; 
 
 var Spaghetti = function() {
@@ -22,11 +34,11 @@ var Spaghetti = function() {
 	line.linear = d3.svg.line()
 		.x(function(d) { return xScale(d.timestamp); })
 		.y(function(d) { return yScale.linear(d.popularity); })
-		.interpolate("basis");
+		.interpolate("linear");
 	line.log = d3.svg.line()
 		.x(function(d) { return xScale(d.timestamp); })
 		.y(function(d) { return yScale.log(d.popularity); })		
-		.interpolate("basis");
+		.interpolate("linear");
 
 	// Sets up the chart, precomputes paths
 	var spaghetti = function(selection) {
@@ -159,6 +171,15 @@ var init = function(model) {
 	svg.append("g")
 		.attr("class", "tweets");
 
+	circle = svg.append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", 4)
+      .attr("opacity", 0)
+      .attr("fill", "white")
+      .attr("stroke", "black")
+      .attr("stroke-width", 3);
+
 	svg.append("g")
 		.attr("class", "y axis")
 		.attr("transform", "translate(-10,0)")
@@ -178,11 +199,48 @@ var init = function(model) {
 	tweetview.username = d3.select('#tweetview .username');
 	tweetview.screenname = d3.select('#tweetview .screenname');
 	tweetview.time = d3.select('#tweetview .time');
+	tweetview.followercount = d3.select('#tweetview .followercount');
 	tweetview.avatar = d3.select('#tweetview .avatar-custom');
 	tweetview.tweet = d3.select('#tweetview .tweet');
 	tweetview.verified = d3.select('#tweetview .verified');
-	tweetview.retweetList = d3.select('#tweetview .retweetList');
-	tweetview.retweetListBody = d3.select('#tweetview .retweetListBody');
+	tweetview.retweetList = d3.select('#retweetList');
+
+	// Configure table
+	retweetListTable = table()
+		.headers([{
+			column: "screen_name", 
+			text: "Name",
+			type: "String",
+			sortable: true,
+			class: "col-md-4" 
+		},{
+			column: "verified",
+			type: "String",
+			text: "&nbsp;",
+			sortable: true,
+			class: "col-md-2" 
+		},{
+			column: "timestamp", 
+			text: "Time",
+			type: "Time",
+			sortable: true,
+			class: "col-md-3" 
+		},{
+			column: "followers_count",
+			type: "Number",
+			text: "Followers",
+			sortable: true,
+			class: "col-md-3"
+		}])
+		.sortColumn(2)
+		.sortAscending(true)
+		.rowHoverHandler(function(d) {
+			circle.attr("opacity", 1)
+				.attr("stroke", d.color)
+	  			.attr("cx", d.backprojection.x)
+	  			.attr("cy", d.backprojection.y);
+		})
+		.mainViewModel(mainViewModel);
 
 	// Load data
 	d3.json('data/spaghetti/grouped.json', function(error, json) {
@@ -195,7 +253,10 @@ var init = function(model) {
 				return {
 					tweet: tweet,
 					timestamp: d.timestamp,
-					popularity: d.popularity
+					popularity: d.popularity,
+					screen_name: d.screen_name,
+					verified: d.verified,
+					followers_count: d.followers_count
 				};
 			});
 		});
@@ -234,7 +295,7 @@ var init = function(model) {
 		xAxis = d3.svg.axis()
 		  .scale(xScale)
 		  .orient("bottom")
-		  .tickFormat(offsetTimeFormat);
+		  .tickFormat(mainViewModel.offsetTimeFormat);
 
 		d3.select("#spaghetti").select(".x.axis").call(xAxis);
 		d3.select("#spaghetti").select(".y.axis").call(yAxis);
@@ -278,21 +339,6 @@ var init = function(model) {
 		// Event listeners for lin / log scale buttons
 		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
 		d3.select('#scale-log').on("click", function() { updateYScale(false) });
-
-		// Setup placename-completion
-   		jQuery("#placenameInput").geocomplete()  
-   		.bind("geocode:result", function(event, result){
-    		var lat = result.geometry.location.A;
-    		var lon = result.geometry.location.F;
-    		url = 'http://api.timezonedb.com/?lat='+lat+'&lng='+lon+'&format=json&key=2PXSOPRPEFDT';
-    		jQuery.getJSON(url)
-		  		.done(function(data) {
-		  			jQuery("#placenameInput").val("Timezone: " + data.abbreviation);
-		  			// Update the time axis
-					mainViewModel.setTimeZone(data.zoneName);
-					d3.select("#spaghetti").select('.x.axis').call(xAxis);
-				});
-  		});
 	});
 };
 
@@ -313,6 +359,15 @@ var updateXBounds = function(domain) {
     var matrix = "matrix(" + scale_x + ",0,0,1," + translate_x + ",0)";
     voronoiGroup.linear.attr("transform", matrix);
     voronoiGroup.log.attr("transform", matrix);
+
+	// Update the backprojection if necessary
+	var tweetHover = d3.select('.tweet-hover');
+	if (!tweetHover.empty()) {
+		circle.attr("opacity", 0);
+		showRetweetList({
+			tweet: tweetHover.datum()
+		});
+	}
 }
 
 // Change between lin / log scale
@@ -336,6 +391,15 @@ var updateYScale = function(isLinearScale) {
 		});
 	}
 	d3.select("#spaghetti").select('.y.axis').transition().duration(1000).call(yAxis);
+
+	// Update the backprojection if necessary
+	var tweetHover = d3.select('.tweet-hover');
+	if (!tweetHover.empty()) {
+		circle.attr("opacity", 0);
+		showRetweetList({
+			tweet: tweetHover.datum()
+		});
+	}
 }
 
 // Event Handlers
@@ -372,8 +436,9 @@ var clickVoronoi = function(d) {
 		d3.selectAll('.voronoi path').on("mouseover", mouseoverVoronoi);
 		svg.on("mouseleave", mouseleaveSVG);
 
-		// Hide retweet list
+		// Hide retweet list & circle
 		tweetview.retweetList.classed('hidden', true);
+		circle.attr("opacity", 0);
 
 		tweetviewFixed = false;
 	} else {
@@ -401,7 +466,8 @@ var showTweet = function(d) {
 	tweetview.screenname
 		.attr("href", "http://twitter.com/" + d.tweet.user.screen_name)
 		.html("@" + d.tweet.user.screen_name);
-	tweetview.time.html(offsetTimeFormat(d.tweet.points[0]["timestamp"]));
+	tweetview.time.html(mainViewModel.offsetTimeFormat(d.tweet.points[0]["timestamp"]));
+	tweetview.followercount.html(d.tweet.user.followers_count);
 	tweetview.tweet.html(d.tweet.text);
 	tweetview.verified.classed("hidden", d.tweet.user.verified ? false : true);
 	tweetview.avatar.style("background-image", "url(" + d.tweet.user.profile_image_url + ")");
@@ -409,31 +475,31 @@ var showTweet = function(d) {
 
 // Shows the retweet list attached to d in #tweetview
 var showRetweetList = function(d) {
-	var rtList = d.tweet.retweet_list;
-	tweetview.retweetListBody.html('');
-	for (var i = rtList.length - 1; i >= 0; i--) {
-		var row = tweetview.retweetListBody.append("div")
-			.attr("class", "row");
-		row.append("div")
-			.attr("class", "col-md-1 col-md-offset-1")
-			.html(rtList[i].verified ? '<span class="verified"></span>' : "");
-		row.append("div")
-			.attr("class", "col-md-6")
-		  .append("a")
-		.attr("href", "http://twitter.com/" + rtList[i].screen_name)
-		.attr("target", "_blank")
-		.html("@" + rtList[i].screen_name);
-		row.append("div")
-			.attr("class", "col-md-4")
-			.html(rtList[i].followers_count);
-	};
+	var retweets = d.tweet.points.map(function(d) {
+		return {
+			screen_name: d.screen_name, 
+			timestamp: d.timestamp,
+			verified: d.verified ? '✓' : '', 
+			followers_count: d.followers_count,
+			color: linecolor(d.tweet.first_code),
+			backprojection: {x: xScale(d.timestamp), y: spaghetti.isLinearScale() ? yScale.linear(d.popularity) : yScale.log(d.popularity)}
+		};
+	});
+
+	retweets.shift();
+	
+	d3.select('#retweetList table')
+		.datum(retweets)
+	  	.call(retweetListTable);
+
 	tweetview.retweetList.classed('hidden', false);
 }
 
-var offsetTimeFormat = function(d) {
-	return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
+updateTime = function() {
+	svg.select('.x.axis').call(xAxis);
 }
 
 exports.init = init;
 exports.updateXBounds = updateXBounds;
+exports.updateTime = updateTime;
 module.exports = exports;

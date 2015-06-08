@@ -1,7 +1,9 @@
-var d3 = require('d3');
+var d3 = require('d3'),
+	table = require('./table.js');
 
 var data;
-var userIDtoUser;
+var xBounds;
+var leaderBoardTable;
 var LeaderBoard = function (mainViewModel) {
   var self = this,
       parentDiv = '#leaderboard',
@@ -11,73 +13,80 @@ var LeaderBoard = function (mainViewModel) {
   	d3.json('data/spaghetti/grouped.json', function(error, json) {
 		if (error) return console.warn(error);
 		data = json.tweets;
-		userIDtoUser = new Object();
-		// add to each point a reference to the actual tweet TODO remove lol its unnecessary
-		data.forEach(function(tweet) {
-			userIDtoUser[tweet.user.id] = tweet.user;
-			tweet.points = tweet.points.map(function(d) {
-				return {
-					tweet: tweet,
-					timestamp: d.timestamp,
-					popularity: d.popularity
-				};
-			});
-		});
+		xBounds = d3.extent(d3.merge([data.map(function(d) {
+			return d.points[0].timestamp;
+		}), data.map(function(d) {
+			return d.points[d.points.length - 1].timestamp;
+		})]));
+
+		leaderBoardTable = table()
+		.headers([{
+			column: "screen_name", 
+			text: "Name",
+			type: "String",
+			sortable: true,
+			class: "col-md-6"
+		},{
+			column: "retweets",
+			type: "Number",
+			text: "RTs",
+			sortable: true,
+			class: "col-md-2" 
+		},{
+			column: "exposure",
+			type: "Number",
+			text: "Exposure",
+			sortable: true,
+			class: "col-md-4"
+		}])
+		.sortColumn(2)
+		.sortAscending(false);
+		
+		self.updateXBounds();
 	});
   }
 
 // This function will get called by the mainViewModel in app.js
 // when the viewport changes on the streamgraph
-  self.updateXBounds = function (newBounds) {
-    timeBounds = newBounds; 
-    // clear current board
-    d3.select("#lbtablebody").html("");
+  self.updateXBounds = function (timeBounds) {
+  	var left, right;
+  	if (!arguments.length) {
+  		left = xBounds[0];
+  		right = xBounds[1];
+  	} else {
+  		left = timeBounds[0].getTime();
+    	right = timeBounds[1].getTime();
+  	}
     
-    var startStamp = timeBounds[0].getTime();
-    var endStamp = timeBounds[1].getTime();
-
-	var scoreboard = new Object();
+	var lbData = {};
 
 	// populate scoreboard
-	for(var oneTweet in data){
-		var i = 0;
-		var retweets = data[oneTweet].points;
-		if(retweets != null){
-			if(!(retweets[retweets.length - 1].timestamp < startStamp || retweets[0].timestamp > endStamp)){
-				while(i < retweets.length && retweets[i].timestamp < startStamp){
-					i++;
-				}
-				if(i < retweets.length) {
-					if(!(data[oneTweet].user.id in scoreboard)){
-						// initialize user with their follower count
-						scoreboard[data[oneTweet].user.id] = data[oneTweet].user.followers_count;
-					}
-					scoreboard[data[oneTweet].user.id] += (retweets[retweets.length - 1].popularity - retweets[i].popularity);
-				}
+	data.forEach(function(tweet) {
+		var pointsInBounds = tweet.points.filter(function(d) {
+			return left < d.timestamp && d.timestamp < right;
+		});
+
+		if (pointsInBounds.length > 0) {
+			if (lbData[tweet.user.id] === undefined) {
+				lbData[tweet.user.id] = {
+					screen_name: tweet.user.screen_name, /*tweet.user.name + ' <a href="http://twitter.com/' + tweet.user.screen_name + '" class="small" target="_blank">@'+tweet.user.screen_name+'</a>'*/
+					retweets: pointsInBounds.length, // Retweet count
+					exposure: pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity // Exposure
+				};
+			} else {
+				lbData[tweet.user.id].retweets += pointsInBounds.length;
+				lbData[tweet.user.id].exposure += pointsInBounds[pointsInBounds.length - 1].popularity - pointsInBounds[0].popularity;
 			}
 		}
-	};
+	});
 
-  	// sort keys
-  	var keys = Object.keys(scoreboard);
-  	keys.sort(function(user1, user2){
-  		if(scoreboard[user1] > scoreboard[user2]){
-  			return -1;
-  		} else if(scoreboard[user2] > scoreboard[user1]){
-  			return 1;
-  		} else return 0;
-  	});
+	var values = Object.keys(lbData).map(function (key) {
+		return lbData[key];
+	});
 
-  	// put things into leaderboard
-  	for (var i = 0; i < keys.length; i++) {
-  		var curUserID = keys[i];
-  		var tableRow = d3.select("#leaderboard .lbtablebody").append("div").attr("class", "row");
-  		tableRow.append("a").text("@" + userIDtoUser[curUserID].screen_name).attr("class", "col-md-4 screenname")
-  			.attr("href", "http://twitter.com/" + userIDtoUser[curUserID].screen_name)
-  			.attr("target", "_blank");
-  		tableRow.append("div").text(userIDtoUser[curUserID].name).attr("class", "col-md-5");
-  		tableRow.append("div").text(scoreboard[curUserID]).attr("class", "col-md-3 text-right score");
-  	};
+	d3.select("#leaderboard table")
+		.datum(values)
+		.call(leaderBoardTable);
   };
 
   init();
