@@ -31,13 +31,13 @@ var LeaderBoard = function (mainViewModel) {
 			type: "Number",
 			text: "RTs",
 			sortable: true,
-			class: "col-md-2" 
+			class: "col-md-3" 
 		},{
 			column: "exposure",
 			type: "Number",
 			text: "Exposure",
 			sortable: true,
-			class: "col-md-4"
+			class: "col-md-3"
 		}])
 		.sortColumn(2)
 		.sortAscending(false);
