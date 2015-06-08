@@ -284,8 +284,6 @@ var StreamGraph = function(mainViewModel) {
     return moment.utc(d).tz(mainViewModel.timeZone).format("HH:mm");
   }
 
-  }
-
   function init(timeGrouping) {
     // Initialize by loading the data
     d3.json(dataPath(), function(err, data) {
@@ -319,5 +317,5 @@ var StreamGraph = function(mainViewModel) {
 
   init(timeGrouping);
   return self;
-};
+}
 module.exports = StreamGraph;
