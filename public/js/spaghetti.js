@@ -2,17 +2,17 @@ var d3 = require('d3'),
 	table = require('./table.js');
 
 var data;
-var svg, 
-	spaghetti, 
-	dataTweets, 
-	voronoiGroup, 
+var svg,
+	spaghetti,
+	dataTweets,
+	voronoiGroup,
 	circle,
 	scanline,
-	xBounds, 
-	xScale, 
-	yScale, 
-	xAxis, 
-	yAxis, 
+	xBounds,
+	xScale,
+	yScale,
+	xAxis,
+	yAxis,
 	linecolor;
 var mainViewModel;
 var margin = { top: 10, right: 0, bottom: 50, left: 90 },
@@ -21,13 +21,13 @@ var margin = { top: 10, right: 0, bottom: 50, left: 90 },
 var xTicks = 8, yTicks = 10;
 var tweetview = {};
 var retweeListTable;
-var tweetviewFixed = false; 
+var tweetviewFixed = false;
 
 var Spaghetti = function() {
 
 	var isLinearScale = true;
 
-	var xScale = d3.time.scale.utc(), 
+	var xScale = d3.time.scale.utc(),
 		yScale = { linear: d3.scale.linear(),
 				   log: d3.scale.log() };
 
@@ -38,12 +38,12 @@ var Spaghetti = function() {
 		.interpolate("linear");
 	line.log = d3.svg.line()
 		.x(function(d) { return xScale(d.timestamp); })
-		.y(function(d) { return yScale.log(d.popularity); })		
+		.y(function(d) { return yScale.log(d.popularity); })
 		.interpolate("linear");
 
 	// Sets up the chart, precomputes paths
 	var spaghetti = function(selection) {
-		selection.each(function(data) { 
+		selection.each(function(data) {
 			// Data join
 			var tweets = d3.select(this).selectAll("path")
 				.data(data, function(d) { return d.id; });
@@ -53,7 +53,7 @@ var Spaghetti = function() {
 				.attr("stroke-width", 2)
 				.attr("fill", "none")
 		      	.attr("stroke", function(d) {  return linecolor(d.first_code); });
-			
+
 			// Bind line and precomputed paths to the data for fast lin / log update
 			tweets.each(function(d) {
 				d.line = this;
@@ -68,7 +68,7 @@ var Spaghetti = function() {
 
 	// Does the actual path drawing. Useful to change the scale
 	spaghetti.draw = function(selection, animate) {
-		selection.each(function(data) { 
+		selection.each(function(data) {
 			d3.select(this).selectAll("path")
 				.transition().duration(animate ? 1000 : 0)
 				.attr("d", function(d) { return isLinearScale ? d.paths.linear : d.paths.log });
@@ -106,7 +106,7 @@ var Spaghetti = function() {
 
 var Voronoi = function() {
 
-	var xScale = d3.time.scale(), 
+	var xScale = d3.time.scale(),
 		yScale = d3.scale.linear();
 
 	var voronoiFunction = d3.geom.voronoi()
@@ -115,7 +115,7 @@ var Voronoi = function() {
 		.clipExtent([[0, 0], [width, height]]);
 
 	var voronoi = function(selection) {
-		selection.each(function(data) { 
+		selection.each(function(data) {
 			// Do data setup
 			var voronoiData = voronoiFunction(d3.nest()
 		        .key(function(d) { return xScale(d.timestamp) + "," + yScale(d.popularity); })
@@ -132,8 +132,8 @@ var Voronoi = function() {
 		    	.on("mouseout", mouseoutVoronoi)
 		    	.on("click", clickVoronoi);
 		});
-	}	
-	
+	}
+
 	// Setter/Getter methods
 	voronoi.xScale = function(value) {
         if (!arguments.length) {
@@ -226,23 +226,23 @@ var init = function(model) {
 	// Configure table
 	retweetListTable = table()
 		.headers([{
-			column: "screen_name", 
+			column: "screen_name",
 			text: "Name",
 			type: "String",
 			sortable: true,
-			class: "col-md-4" 
+			class: "col-md-4"
 		},{
 			column: "verified",
 			type: "String",
 			text: "&nbsp;",
 			sortable: true,
-			class: "col-md-2" 
+			class: "col-md-2"
 		},{
-			column: "timestamp", 
+			column: "timestamp",
 			text: "Time",
 			type: "Time",
 			sortable: true,
-			class: "col-md-3" 
+			class: "col-md-3"
 		},{
 			column: "followers_count",
 			type: "Number",
@@ -397,7 +397,7 @@ var updateYScale = function(isLinearScale) {
 	var offGroup = isLinearScale ? voronoiGroup.log : voronoiGroup.linear;
 	var onGroup = isLinearScale ? voronoiGroup.linear : voronoiGroup.log;
 	offGroup.selectAll("path").attr("pointer-events", "none");
-	onGroup.selectAll("path").attr("pointer-events", "all");	
+	onGroup.selectAll("path").attr("pointer-events", "all");
 
 	// Update y Axis
 	yAxis.scale(isLinearScale ? yScale.linear : yScale.log);
@@ -453,7 +453,7 @@ var mouseoverVoronoi = function(d) {
 	showTweet(d);
 }
 
-var mouseoutVoronoi = function(d) { 
+var mouseoutVoronoi = function(d) {
 	if (tweetviewFixed) {
 		return;
 	}
@@ -512,9 +512,9 @@ var showTweet = function(d) {
 var showRetweetList = function(d) {
 	var retweets = d.tweet.points.map(function(d) {
 		return {
-			screen_name: d.screen_name, 
+			screen_name: d.screen_name,
 			timestamp: d.timestamp,
-			verified: d.verified ? '✓' : '', 
+			verified: d.verified ? '✓' : '',
 			followers_count: d.followers_count,
 			color: linecolor(d.tweet.first_code),
 			backprojection: {x: xScale(d.timestamp), y: spaghetti.isLinearScale() ? yScale.linear(d.popularity) : yScale.log(d.popularity)}
@@ -522,7 +522,7 @@ var showRetweetList = function(d) {
 	});
 
 	retweets.shift();
-	
+
 	d3.select('#retweetList table')
 		.datum(retweets)
 	  	.call(retweetListTable);

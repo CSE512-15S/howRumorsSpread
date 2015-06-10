@@ -12,7 +12,7 @@ var StreamGraph = function(mainViewModel) {
       height = 130 - margin.top - margin.bottom,
       duration = 750;
       xTicks = 5;
-  
+
   /* /Begin Chart initilization code */
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
             .attr('width', width + margin.left + margin.right)
@@ -30,18 +30,18 @@ var StreamGraph = function(mainViewModel) {
       viewport = d3.svg.brush()
                     .x(xScale)
                     .on('brush', function() {
-                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
                     })
                     .on('brushend', function() {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
-                      mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                      mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent());
                     });
   var xAxis = d3.svg.axis()
       .scale(xScale)
       .orient("bottom")
       .tickFormat(mainViewModel.offsetTimeFormat);
 
- 
+
   var chart = svg.append('g')
     .attr('class', 'chart');
 
@@ -66,7 +66,7 @@ var StreamGraph = function(mainViewModel) {
   chart.append('g')
         .attr('class', 'x axis')
         .attr("transform", "translate(0,"+(height+10)+")");
-  
+
   // White rectangle for hiding scanline
   svg.append("rect")
     .attr("class", "hide-scanline")
@@ -104,7 +104,7 @@ var StreamGraph = function(mainViewModel) {
 
     var volumes = dataset.map(function(datum) {
       var volume = null;
-      
+
       if (mousePosition !== null) {
         volume = 0;
         var matching = datum.values.filter(function(value, index) {
@@ -117,7 +117,7 @@ var StreamGraph = function(mainViewModel) {
 
       return {
         code : datum.key,
-        volume : volume 
+        volume : volume
       }
     });
 
@@ -176,7 +176,7 @@ var StreamGraph = function(mainViewModel) {
 
     // Draw X Axis
     d3.select(parentDiv).select('.x.axis').call(xAxis);
-    
+
     // Make streamgraph enamate from center of chart
     area.y0(height / 2)
         .y1(height / 2);
@@ -198,14 +198,14 @@ var StreamGraph = function(mainViewModel) {
     codes.append('path')
             .attr('class', 'line')
             .style('stroke-opacity', 0.0001);
-    
+
     streamGraph(data);
   }
 
   function streamGraph(data) {
     stack.offset('silhouette');
     stack(data);
-    
+
     var yMax = d3.max(data[0].values.map(function(d) { return d.volume0 + d.volume; }));
     yScale.domain([0, yMax])
           .range([height, 0]);
@@ -282,7 +282,7 @@ var StreamGraph = function(mainViewModel) {
   self.updateTime = function() {
     d3.select('#stream').select('.x.axis').call(xAxis);
   };
-  
+
   function init(timeGrouping) {
     // Initialize by loading the data
     d3.json(dataPath(), function(err, data) {
@@ -307,7 +307,7 @@ var StreamGraph = function(mainViewModel) {
         codeGroup.maxVolume = d3.max(codeGroup.values, function(d) { return d.volume; });
       });
 
-      
+
       data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
       dataset = data;
       drawChart(dataset);

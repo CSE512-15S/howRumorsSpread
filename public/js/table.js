@@ -1,6 +1,6 @@
 var d3 = require('d3');
 
-// This component draws a sortable table. 
+// This component draws a sortable table.
 // Clicking the header causes the sort to change
 //
 // Usage:
@@ -10,22 +10,22 @@ var d3 = require('d3');
 //			.headers([{
 //				column: "name", 				-> This is the data attribute for this column
 //				text: "Name",					-> Text will appear in the row header
-//				class:	"col-md-8 text-right",	-> These classes will be applied		
+//				class:	"col-md-8 text-right",	-> These classes will be applied
 //				type: "String",					-> Choose right compare function for sorting
 //				sortable: true 					-> Is this column sortable?
-//			},{				
-//				column: "age", 
+//			},{
+//				column: "age",
 //				text: "Age",
 //				class: "col-md-4",
 //				type: "Number",
-//				sortable: true }])	
-//			.sortingColumn(1); 			-> Sorting on age 
+//				sortable: true }])
+//			.sortingColumn(1); 			-> Sorting on age
 //
 // 2. Bind the data to the table element and then call table on it.
-//    The data is an array of objects that correspond to the rows. 
-//	  Each row will display the values specified in the headers array, 
+//    The data is an array of objects that correspond to the rows.
+//	  Each row will display the values specified in the headers array,
 //    in the order of the headers array.
-//	
+//
 //		dataTable = d3.select('table#myTable')
 //			.datum(data)
 //			.call(myTable);
@@ -56,9 +56,9 @@ var Table = function() {
 				.data(headers)
 			  .enter().append("th")
 			  	.attr("class", function(d) { return d.class; })
-			  	.html(function (d, i) { 
+			  	.html(function (d, i) {
 			  		var sortIndicator = (i == sortColumn) ? (sortAscending ? ' &uarr;' : ' &darr;') : '';
-			  		return d.text + sortIndicator; 
+			  		return d.text + sortIndicator;
 			  	})
 			  	.on("click", function(d, i) { // Function to change sort order
 			  		if (sortColumn == i) {
@@ -89,27 +89,27 @@ var Table = function() {
 				var sortType = headers[sortColumn].type;
 				var sortAttr = headers[sortColumn].column;
 				if (sortType === "Number" || sortType === "Time") {
-					tr.sort(function (a, b) { return a == null || b == null ? 0 : numberCompare(a[sortAttr], b[sortAttr]); });											
+					tr.sort(function (a, b) { return a == null || b == null ? 0 : numberCompare(a[sortAttr], b[sortAttr]); });
 				} else {
-					tr.sort(function (a, b) { return a == null || b == null ? 0 : stringCompare(a[sortAttr], b[sortAttr]); });					
+					tr.sort(function (a, b) { return a == null || b == null ? 0 : stringCompare(a[sortAttr], b[sortAttr]); });
 				}
-			} 
+			}
 
 			// Table cells
 			var td = tr.selectAll("td")
-				.data(function(d) { 
+				.data(function(d) {
 					var row = headers.map(function(h) {
 						return d[h.column];
 					});
-					return row; 
+					return row;
 				})
 			  .enter().append("td")
 			  	.attr("class", function(d,i) { return headers[i].class; })
-			    .text(function(d,i) { 
+			    .text(function(d,i) {
 			    	if (headers[i].type == "Time") {
-			    		return mainViewModel.offsetTimeFormat(d); 
+			    		return mainViewModel.offsetTimeFormat(d);
 			    	}
-			    	return d; 
+			    	return d;
 			    });
 		});
 	}
@@ -154,7 +154,7 @@ var Table = function() {
 		return table;
 	}
 
-	// Compares two numbers depending on sortAscending. 
+	// Compares two numbers depending on sortAscending.
 	function numberCompare(a, b) {
 	    if (sortAscending) {
 	    	return a - b;
@@ -163,7 +163,7 @@ var Table = function() {
 	    }
 	}
 
-	// Compares two strings depending on sortAscending. 
+	// Compares two strings depending on sortAscending.
 	function stringCompare(a, b) {
 	    a = a.toLowerCase();
 	    b = b.toLowerCase();
