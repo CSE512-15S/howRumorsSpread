@@ -9,6 +9,11 @@ function Legend(mainViewModel) {
       rectSize = 10,
       vertPadding = 5,
       horzPadding = 6;
+
+  // Clear out div first
+  d3.select('#legend').select('.svgContainer').selectAll('*').remove();
+
+
   var svg = d3.select('#legend').select('.svgContainer')
               .append('svg')
                 .attr('height', height)

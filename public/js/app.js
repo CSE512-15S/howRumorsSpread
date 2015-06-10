@@ -12,18 +12,8 @@ function MainViewModel() {
       stream = null,
       legend = null,
       leaderboard = null
-      self.activeCollection = 'lakemba',
-      self.collectionNames = ko.observableArray();
-  // getCollectionNames();
-
-  // function getCollectionNames() {
-  //   $.get('/list-collections', {}, function(data) {
-  //     self.collectionNames.removeAll();
-  //     _.each(JSON.parse(data), function(name) {
-  //       self.collectionNames.push({'name' : name});
-  //     });
-  //   });
-  // }
+      self.activeCollection = ko.observable(),
+      self.collections = ko.observableArray();
 
   self.updateViewPort = function (bounds) {
     spaghetti.updateXBounds(bounds);
@@ -66,10 +56,10 @@ function MainViewModel() {
     return moment.utc(d).tz(self.timeZone).format("HH:mm");
   };
 
-  function loadComponents() {
+  function loadComponents(forCollection) {
     if($('#spaghetti').length !== 0 || $('#leaderboard').length !== 0) {
       // Load the spaghetti and leaderboards
-      d3.json('/data/' + self.activeCollection + '/spaghetti.json', function(err, data) {
+      d3.json('/data/' + forCollection + '/spaghetti.json', function(err, data) {
         if (err) {
           return console.warn("Could not load data for spaghetti and leaderboard components", err);
         }
@@ -87,7 +77,7 @@ function MainViewModel() {
     }
 
     if($('#stream').length !== 0) {
-      d3.json('/data/' + self.activeCollection + '/minute-coded-volume.json', function(err, data) {
+      d3.json('/data/' + forCollection + '/minute-coded-volume.json', function(err, data) {
         if (err) {
           return console.warn("Could not load data from stream component", err);
         }
@@ -102,7 +92,20 @@ function MainViewModel() {
     }
   }
 
-  loadComponents();
+  function getCollections() {
+    $.get('/list-collections', {}, function(data) {
+      self.collections.removeAll();
+      _.each(JSON.parse(data), function(coll) {
+        self.collections.push(coll);
+      });
+    });
+  }
+
+  self.activeCollection.subscribe(function(newValue) {
+    loadComponents(newValue.collection_name);
+  });
+
+  getCollections();
 }
 
 $(document).ready(function() {

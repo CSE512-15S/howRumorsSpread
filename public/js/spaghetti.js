@@ -161,6 +161,8 @@ var init = function(model, dataJson) {
 	linecolor = mainViewModel.getColorScale();
 
 	// One-time setup
+	d3.select("#spaghetti .svgContainer").selectAll('*').remove();
+
 	svg = d3.select("#spaghetti .svgContainer")
 	  .append("svg")
 	  	.attr("width", width + margin.left + margin.right)

@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  .row#main-controls
+    .col-sm-12
+        .form-group
+            select("data-bind"="options: collections, optionsText: 'collection_name', value: activeCollection")
   .row
     .col-sm-4#detail
         .detailview
@@ -33,13 +37,13 @@ block content
             #spaghetti
                 .controls.form-inline
                     .btn-group(data-toggle="buttons")
-                        label.btn.btn-xs.btn-default.active(id='scale-linear') 
-                            input(type='radio') 
+                        label.btn.btn-xs.btn-default.active(id='scale-linear')
+                            input(type='radio')
                             | Linear
                         label.btn.btn-xs.btn-default(id='scale-log')
-                            input(type='radio') 
+                            input(type='radio')
                             | Log
-                    span.small Timezone: 
+                    span.small Timezone:
                     select#timezoneSelect.small.form-control
                 .svgContainer
             #legend

@@ -12,6 +12,8 @@ function StreamGraph(mainViewModel, json) {
       xTicks = 5;
 
   /* /Begin Chart initilization code */
+  d3.select(parentDiv).select('.svgContainer').selectAll('*').remove();
+
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
