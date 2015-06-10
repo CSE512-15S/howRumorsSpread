@@ -3,7 +3,8 @@ var express = require('express'),
   router = express.Router(),
   Server = require('mongodb').Server,
   mongojs = require('mongojs'),
-  _ = require('underscore');
+  _ = require('underscore'),
+  exec = require('child_process').exec;
 
 var DBServer = new Server('localhost', 27017);
 
@@ -27,6 +28,17 @@ router.get('/list-collections', function (req, res) {
     db.collection('rumors').find({}).toArray(function (err, docs) {
       res.send(JSON.stringify(docs));
     });
+  });
+});
+
+router.post('/trim-collection', function(req, res) {
+  var collectionName = 'lakemba'
+      databaseName = 'sydneysiege',
+      minBound = '0',
+      maxBound = '1418613549962';
+  var cliArgs = databaseName + " " + collectionName + " " + minBound + " " + maxBound;
+  exec('./data-collection/process-collections-cli.js' + cliArgs, function () {
+    res.send("done");
   });
 });
 

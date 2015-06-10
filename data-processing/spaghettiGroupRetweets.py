@@ -1,4 +1,5 @@
 import json
+import sys
 from numpy import cumsum
 
 # groupRTs.py
@@ -43,16 +44,22 @@ from numpy import cumsum
 #				}]
 #			}
 #
+time_bounds = [0, 1433954444000]
+defaultBounds = True
+if (len(sys.argv) == 3):
+	time_bounds[0] = int(sys.argv[1])
+	time_bounds[1] = int(sys.argv[2])
 
+
+# TODO: This needds to be examined more closely for scientific validity
 # Do not include retweets with more than
 tresh_time = 5 # minutes since last retweet
 tresh_time = tresh_time * 60 * 1000
 
 # Only include data within
 # time_bounds = [0, 1418613549962]
-time_bounds = [0, 1433954444000]
 
-with open('suicide.json', 'r') as infile, open('suicide-grouped.json', 'w') as outfile:
+with open('infile.json', 'r') as infile, open('outfile.json', 'w') as outfile:
 	data = json.load(infile)
 	tweets = data["tweets"]
 	retweets = data["retweets"]
