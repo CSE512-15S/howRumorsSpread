@@ -14,7 +14,7 @@ Early on in the project, all four team members played a part in the direction th
 ### Final Communication Deliverables
   1. [Final Project](bit.do/twitter-rumors)
   2. [Poster](final/512_poster.pdf)
-  3.
+  3. [Final Paper]()
 
 ### Initial Communication Deliverables
   1. [Initial Project Proposal](https://docs.google.com/document/d/1G6vW-GAeq-mX6US2j_Rz23d2uaMBJ6ylGfGI2mhAF5M/edit?usp=sharing)
