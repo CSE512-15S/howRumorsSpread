@@ -4,27 +4,31 @@ This project visualizes the effect that "major players" have on the spread of ru
 ![Overview](readme_images/overview.jpg)
 
 ### Team Members and Work Breakdown
-Cynthia Andrews
-Graeme Britz
-Rama Gokhale
-Zeno Koller
+Cynthia Andrews, Graeme Britz, Rama Gokhale, Zeno Koller
 
 Early on in the project, all four team members played a part in the direction that the project took. Graeme took on the role of project manager, scheduling and leading meetings. Once the initial concept was roughly figured out, Graeme and Zeno did majority of the development for this project, with Rama contributing a little as well. Rama also was primarily in charge of the project proposal slideshow and final poster. Cynthia was the primary author of both the project proposal and the final paper.
 
-### Final Communication Deliverables
+### Final Deliverables
   1. [Link to project](bit.do/twitter-rumors)
   2. [Poster](final/512_poster.pdf)
   3. [Final Paper]()
 
-### Initial Communication Deliverables
+### Initial Deliverables
   1. [Initial Project Proposal](https://docs.google.com/document/d/1G6vW-GAeq-mX6US2j_Rz23d2uaMBJ6ylGfGI2mhAF5M/edit?usp=sharing)
+
+## Installation Instructions
+  1. Install node and npm if you have not done so
+  2. If you do not have bower or gulp installed, run `sudo npm install -g bower && sudo npm install-g gulp`
+  3. Run `npm install && bower install`
+  4. Run `gulp`
 
 ## Background
 The Emerging Capacities of Mass Participation (emCOMP) Lab at the University of Washington studies the collective sense-making process that takes place on Twitter during crisis events. During an event, they collect tweets related to specific topics, or rumors, and analyze them with a variety of existing methods.
 
 They are currently investigating how specific Twitter accounts can have a large effect on the direction that a rumor spreads. They want to be able to identify which accounts are the “major players”, i.e. those who strongly influence the spread of a rumor in a certain direction, while still getting an overall sense of the rumor. Our work provides a new tool they can use to further their research.
 
-# Our Research Process
+## Process
+### Our Research Process
 One of the first things we did was to meet with Kate Starbird, our project mentor, to learn more about the specifics of what she wanted from us. After getting some initial datasets and background, we started researching for existing visualizations in this space and brainstorming some initial ideas.
 
 The current landscape of visualizations that examine rumoring on Twitter is scarce and we found only one satisfactory example that addresses rumoring on Twitter and how information spreads during crisis events. Developed by the Guardian, this visualization focuses on the spread of rumors and how the sentiment of participants changes over time and its prime directive is to “show the birth and death of rumours on Twitter”.
@@ -35,7 +39,7 @@ In this interactive example, tweet volume over time is displayed in the top pane
 
 While this was a cool visualization, we wanted to focus more on the "major players" instead of specific tweets. We showed our initial prototypes to Kate and iterated on that till we got a design both of we both liked.
 
-# Our Development Process
+### Our Development Process
 We found inspiration for this design in an exploration of the interactive capabilities of D3 made using randomly generated time series data. The bottom chart is used to navigate the main plot using the “viewport” which allows users to choose a time period of interest and investigate that data further.  This viewport is adjustable and can also be removed completely. The combination of charts paired with interaction allows users to see the relationship of the main chart to the overall data set. 
 ![Random time series data chart](readme_images/random.jpg)
 
@@ -58,11 +62,3 @@ The leaderboard allows users to view an overall summary of the most influential 
 
 Users can hover or click on a line in the main panel to get details about that tweet in the side panel. This information includes the original tweet and the names and follower counts of all accounts emitting that tweet.
 ![tweet detail](readme_images/tweet-detail.jpg)
-
-
-### Installation Instructions
-
-  1. Install node and npm if you have not done so
-  2. If you do not have bower or gulp installed, run `sudo npm install -g bower && sudo npm install-g gulp`
-  3. Run `npm install && bower install`
-  4. Run `gulp`
