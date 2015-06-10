@@ -1,17 +1,23 @@
-/* PARAMS
+/* PARAMS / GENERAL
 ----------------------------------------*/
 
 $verified-color: #00B7FF;
 $link-color: #777;
+$border-color: #ccc;
 
 body {
-  padding: 50px;
+  padding: 30px 40px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 
 a {
   color: $link-color;
   cursor: pointer;
+}
+
+#timezoneSelect {
+	height: 22px;
 }
 
 /* MIXINS
@@ -23,6 +29,14 @@ a {
           border-radius: $radius;
 }
 
+.svgContainer {
+	svg {
+		margin: 0px auto;
+		display: block;
+		font: 12px sans-serif;
+	}
+}
+
 
 /* SPAGHETTI
 ----------------------------------------*/
@@ -30,21 +44,16 @@ a {
 #spaghetti {
 	position: relative;
 	
-	svg {
-		margin: 0 auto;
-		font: 12px sans-serif;
-		display: block;
-	}
 	.svgContainer {
 		overflow: scroll;
 	}
 	.controls {
 		position: absolute;
-		top: 4%;
-		left: 11.5%;
+		top: 0px;
+		left: 107px;
 
 		.btn-group, input {
-			margin-right: 5px;
+			margin-right: 7px;
 		}
 
 		input {
@@ -79,8 +88,17 @@ a {
 	height: 150px;
 	width: 100%;
 
+	.controls {
+		margin-top: 10px;
+		position: relative;
+		left: 45%;
+		top: 0;
+	}
+
 	.svgContainer {
+		
 		width: 100%;
+		
 
 		.line {
 		  fill: none;
@@ -116,40 +134,26 @@ a {
   font-size: 10px;
 }
 
-
 /* LEADERBOARD
 ----------------------------------------*/
 
 #leaderboard {
 	position: relative;
 	width: 100%;
-	height: 350px;
-	background-color: #eee;
-	margin-bottom: 20px;
-	overflow: scroll;
-	padding: 10px;
+	height: 290px;
+	border: 2px solid $border-color;
+
+	table tbody th, table tbody td {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	table.header-fixed > tbody {
+		height: 248px;
+	}
 }
 
-#lbtable {
-	margin: 5px;
-	width: 100%;
-}
-
-#lbtable td {
-	padding: 3px;
-}
-
-.username {
-	width: 50%;
-}
-
-.screenname {
-	width: 30%;
-}
-
-.score {
-	width: 20%;
-}
 
 /* EVENTMETA & TWEETVIEW
 ----------------------------------------*/
@@ -158,13 +162,16 @@ a {
 	position: relative;
 	width: 100%;
 	padding: 0; 
-
+	height: 320px;
+	margin-bottom: 20px;
 }
+
 #eventmeta, #tweetview {
 	position: absolute;
 	width: 100%;
-	height: 265px;
-	background-color: #F7F7F7;
+	height: 320px;
+	border: 1px solid $border-color;
+	background-color: #fff;
 }
 
 #eventmeta .row { margin: 0; }
@@ -176,8 +183,14 @@ a {
 		display: inline;
 		font-size: 16px;
 	}
-	.time {
+	.time, .followercount {
 		font-size: 12px;
+	}
+	.time::after {
+		content: "\00a0\00b7\00a0";	
+	}
+	.followercount::after {
+		content: " followers";
 	}
 	.avatar-wrapper {
 		position: relative;
@@ -214,39 +227,68 @@ a {
 		background-repeat: no-repeat;
 		background-image: url('../images/verified.png');
 	}
-	.retweet_list {
+	#retweetList {
 		position: absolute;
-		bottom: 0;
-		height: 130px;
+		bottom: 1px;
+		height: 180px;
+		border-top: 1px solid $border-color;
+		margin-bottom: 0;
 		width: 100%;
-		overflow-y: scroll;
-		background-color: rgba(0,0,0,0.05);
-		border-top: 1px solid #888;
-		box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
 
-		.row {
-			margin-top: 3px;
-			margin-bottom: 3px;
+		table.header-fixed > tbody {
+			height: 143px;
 		}
 	}
 }
 
-/* SCRATCH -- only for development
+/* FIXED TABLE HEADER
 ----------------------------------------*/
 
-.bg-text {
-    background-color: #aaa;
-    overflow: hidden;
-    position: relative;
-    width: 400px;
+th {
+	cursor: pointer;
 }
-.bg-text::after {
-    color: #fff;
-    content: attr(data-bg-text);
+
+.header-fixed {
+    width: 100% 
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
     display: block;
-    font-size: 50px;
-    line-height: 1;
-    position: absolute;
-    bottom: 0px;
-    right: 10px;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.header-fixed > tbody {
+    overflow-y: auto;
+    height: 150px;
+}
+
+.header-fixed tr {
+	td, th {
+	    width: 33.3333333%;
+    	float: left;
+	}
+
+	td.col-md-6, th.col-md-6 {
+		width: 50%;
+	}
+
+	td.col-md-3, th.col-md-3 {
+		width: 25%;
+	}
+
+	td.col-md-2, th.col-md-2 {
+		width: 16.6666666%;
+	}
 }
