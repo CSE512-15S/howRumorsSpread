@@ -1,11 +1,9 @@
-var d3 = require('d3'),
-    ko = require('knockout');
+var d3 = require('d3');
 
-var StreamGraph = function(mainViewModel) {
+function StreamGraph(mainViewModel, json) {
   var self = this,
       parentDiv = '#stream',
-      timeGrouping = 'minute', // TODO: variable
-      collectionName = mainViewModel.activeCollection,
+      timeGrouping = 'minute', // TODO: variable?
       chartType = 'streamGraph',
       margin = { top: 0, right: 0, bottom: 30, left: 90 },
       width = 800 - margin.left - margin.right,
@@ -283,38 +281,34 @@ var StreamGraph = function(mainViewModel) {
     d3.select('#stream').select('.x.axis').call(xAxis);
   };
 
-  function init(timeGrouping) {
-    // Initialize by loading the data
-    d3.json(dataPath(), function(err, data) {
-      if (err) return console.warn(err);
-      var tweetVolume = function (volumeDatum) {
-        // TODO: Include favorites and/or retweet counts in here?
-        return parseInt(volumeDatum.numTweets);
-      }
+  function init(timeGrouping, data) {
+    var tweetVolume = function (volumeDatum) {
+      // TODO: Include favorites and/or retweet counts in here?
+      return parseInt(volumeDatum.numTweets);
+    }
 
-      data.forEach(function(codeGroup) {
-        codeGroup.values.forEach(function(d) {
-          d.date = new Date(parseInt(d.timestamp));
-          // d.date = parseInt(d.timestamp);
-          d.volume = tweetVolume(d);
-          d.key = codeGroup.key;
-        });
-
-        codeGroup.values.sort(function(a, b) {
-          return a.date - b.date;
-        });
-
-        codeGroup.maxVolume = d3.max(codeGroup.values, function(d) { return d.volume; });
+    data.forEach(function(codeGroup) {
+      codeGroup.values.forEach(function(d) {
+        d.date = new Date(parseInt(d.timestamp));
+        // d.date = parseInt(d.timestamp);
+        d.volume = tweetVolume(d);
+        d.key = codeGroup.key;
       });
 
+      codeGroup.values.sort(function(a, b) {
+        return a.date - b.date;
+      });
 
-      data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
-      dataset = data;
-      drawChart(dataset);
+      codeGroup.maxVolume = d3.max(codeGroup.values, function(d) { return d.volume; });
     });
+
+
+    data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
+    dataset = data;
+    drawChart(dataset);
   }
 
-  init(timeGrouping);
+  init(timeGrouping, json);
   return self;
 }
 module.exports = StreamGraph;

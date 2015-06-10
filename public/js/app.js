@@ -4,14 +4,14 @@ var $ = require('jquery');
     bootstrap = require('bootstrap'),
     _ = require('underscore'),
     ko = require('knockout'),
-    moment = require('moment-timezone'),
-    spaghetti = null,
-    stream = null,
-    legend = null,
-    leaderboard = null;
+    moment = require('moment-timezone')
 
 function MainViewModel() {
-  var self = this
+  var self = this,
+      spaghetti = null,
+      stream = null,
+      legend = null,
+      leaderboard = null
       self.activeCollection = 'lakemba',
       self.collectionNames = ko.observableArray();
   // getCollectionNames();
@@ -66,32 +66,47 @@ function MainViewModel() {
     return moment.utc(d).tz(self.timeZone).format("HH:mm");
   };
 
+  function loadComponents() {
+    if($('#spaghetti').length !== 0 || $('#leaderboard').length !== 0) {
+      // Load the spaghetti and leaderboards
+      d3.json('/data/' + self.activeCollection + '/spaghetti.json', function(err, data) {
+        if (err) {
+          return console.warn("Could not load data for spaghetti and leaderboard components", err);
+        }
 
+        if($('#spaghetti').length !== 0) {
+          spaghetti = require('./spaghetti.js');
+          spaghetti.init(self, data);
+        }
 
-  // Load the spaghetti and leaderboards
-  d3.json('/data/' + self.activeCollection + '/spaghetti.json', function(err, data) {
-    if (err) return console.warn(err);
-      if($('#spaghetti').length !== 0) {
-      spaghetti = require('./spaghetti.js');
-      spaghetti.init(mainViewModel, data);
+        if($('#leaderboard').length !== 0) {
+          var leaderboardModule = require('./leaderboard.js');
+          leaderboard = leaderboardModule(self, data);
+        }
+      });
     }
-    if($('#leaderboard').length !== 0) {
-      leaderboard = require('./leaderboard.js')(mainViewModel, data);
-    }
-  });
 
+    if($('#stream').length !== 0) {
+      d3.json('/data/' + self.activeCollection + '/minute-coded-volume.json', function(err, data) {
+        if (err) {
+          return console.warn("Could not load data from stream component", err);
+        }
+        var streamModule = require('./stream.js');
+        stream = new streamModule(self, data);
+      });
+    }
+
+    if($('#legend').length !== 0) {
+      var legendModule = require('./legend.js');
+      legend = legendModule(self);
+    }
+  }
+
+  loadComponents();
 }
 
 $(document).ready(function() {
   mainViewModel = new MainViewModel();
-
-  if($('#stream').length !== 0) {
-    stream = require('./stream.js')(mainViewModel);
-  }
-  if($('#legend').length !== 0) {
-    legend = require('./legend.js')(mainViewModel);
-  }
-
   // Populate Timezone Selection
   d3.csv("../data/timezones.csv", function(error, timezones) {
     var select = d3.select('#timezoneSelect');
