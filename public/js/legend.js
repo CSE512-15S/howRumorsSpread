@@ -12,8 +12,6 @@ function Legend(mainViewModel) {
 
   // Clear out div first
   d3.select('#legend').select('.svgContainer').selectAll('*').remove();
-
-
   var svg = d3.select('#legend').select('.svgContainer')
               .append('svg')
                 .attr('height', height)
