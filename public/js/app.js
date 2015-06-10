@@ -65,32 +65,40 @@ function MainViewModel() {
   self.offsetTimeFormat = function(d) {
     return moment.utc(d).tz(self.timeZone).format("HH:mm");
   };
+
+
+
+  // Load the spaghetti and leaderboards
+  d3.json('/data/' + self.activeCollection + '/spaghetti.json', function(err, data) {
+    if (err) return console.warn(err);
+      if($('#spaghetti').length !== 0) {
+      spaghetti = require('./spaghetti.js');
+      spaghetti.init(mainViewModel, data);
+    }
+    if($('#leaderboard').length !== 0) {
+      leaderboard = require('./leaderboard.js')(mainViewModel, data);
+    }
+  });
+
 }
 
 $(document).ready(function() {
   mainViewModel = new MainViewModel();
 
-  if($('#spaghetti').length !== 0) {
-    spaghetti = require('./spaghetti.js');
-    spaghetti.init(mainViewModel);
-  }
-  if($('#leaderboard').length !== 0) {
-    leaderboard = require('./leaderboard.js')(mainViewModel);
-  }
   if($('#stream').length !== 0) {
     stream = require('./stream.js')(mainViewModel);
   }
   if($('#legend').length !== 0) {
     legend = require('./legend.js')(mainViewModel);
   }
-  
+
   // Populate Timezone Selection
   d3.csv("../data/timezones.csv", function(error, timezones) {
     var select = d3.select('#timezoneSelect');
     var options = select.selectAll("option").data(timezones);
     options.enter().append("option")
       .text(function (d) { return d.offset; })
-    
+
     select.on("change", function(d,i) {
       var selectedIndex = select.property('selectedIndex');
       var data          = options[0][selectedIndex].__data__;
@@ -99,6 +107,6 @@ $(document).ready(function() {
   });
 
 
-  
+
   ko.applyBindings(mainViewModel);
 });

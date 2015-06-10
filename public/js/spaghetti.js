@@ -154,7 +154,7 @@ var Voronoi = function() {
 	return voronoi;
 }
 
-var init = function(model) {
+var init = function(model, dataJson) {
 	mainViewModel = model;
 
 	// Use same color scale across charts
@@ -260,9 +260,7 @@ var init = function(model) {
 		})
 		.mainViewModel(mainViewModel);
 
-	// Load data
-	d3.json('data/spaghetti/grouped.json', function(error, json) {
-		if (error) return console.warn(error);
+	function processData(json) {
 		data = json.tweets;
 
 		// add to each point a reference to the actual tweet
@@ -357,7 +355,8 @@ var init = function(model) {
 		// Event listeners for lin / log scale buttons
 		d3.select('#scale-linear').on("click", function() { updateYScale(true) });
 		d3.select('#scale-log').on("click", function() { updateYScale(false) });
-	});
+	}
+	processData(dataJson);
 };
 
 // Update x domain. To be called on a brush event in the stream graph
