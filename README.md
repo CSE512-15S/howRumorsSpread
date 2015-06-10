@@ -12,7 +12,7 @@ Zeno Koller
 Early on in the project, all four team members played a part in the direction that the project took. Graeme took on the role of project manager, scheduling and leading meetings. Once the initial concept was roughly figured out, Graeme and Zeno did majority of the development for this project, with Rama contributing a little as well. Rama also was primarily in charge of the project proposal slideshow and final poster. Cynthia was the primary author of both the project proposal and the final paper.
 
 ### Final Communication Deliverables
-  1. [Final Project](bit.do/twitter-rumors)
+  1. [Link to project](bit.do/twitter-rumors)
   2. [Poster](final/512_poster.pdf)
   3. [Final Paper]()
 
