@@ -10,8 +10,8 @@ Early on in the project, all four team members played a part in the direction th
 
 ### Final Deliverables
   1. [Link to project](bit.do/twitter-rumors) (Login information has been emailed to the course staff)
-  2. [Poster](final/512_poster.pdf)
-  3. [Final Paper]()
+  2. [Poster](final/poster-ramag-grbritz-kollerz-caandrew.pdf)
+  3. [Final Paper](final/poster-ramag-grbritz-kollerz-caandrew.pdf)
 
 ### Initial Deliverables
   1. [Initial Project Proposal](https://docs.google.com/document/d/1G6vW-GAeq-mX6US2j_Rz23d2uaMBJ6ylGfGI2mhAF5M/edit?usp=sharing)
