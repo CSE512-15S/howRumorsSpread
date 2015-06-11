@@ -8,6 +8,7 @@
     "deploy": "gulp browserify; gulp sass; git add public/dist/bundle.js; git add public/css/style.css/; git commit -m \"deploy commit\"; git push heroku master"
   },
   "dependencies": {
+    "basic-auth": "^1.0.1",
     "body-parser": "~1.12.0",
     "bootstrap": "3.3.4",
     "bower": "^1.4.1",
