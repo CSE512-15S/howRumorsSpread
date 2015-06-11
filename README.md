@@ -6,7 +6,7 @@ This project visualizes the effect that "major players" have on the spread of ru
 ### Team Members and Work Breakdown
 Cynthia Andrews, Graeme Britz, Rama Gokhale, Zeno Koller
 
-Early on in the project, all four team members played a part in the direction that the project took. Graeme took on the role of project manager, scheduling and leading meetings. Once the initial concept was roughly figured out, Graeme and Zeno did majority of the development for this project, with Rama contributing a little as well. Rama also was primarily in charge of the project proposal slideshow and final poster. Cynthia was the primary author of both the project proposal and the final paper.
+Early on in the project, all four team members played a part in the direction that the project took. Graeme took on the role of project manager, scheduling and leading meetings. Once the initial concept was roughly figured out, Graeme and Zeno did majority of the development for this project, with Rama contributing a little as well. Rama was primarily in charge of creating the project proposal slideshow and final poster as well as acting as editor for the final paper. Cynthia was the primary author of both the project proposal and the final paper.
 
 ### Final Deliverables
   1. [Link to project](bit.do/twitter-rumors) (Login information has been emailed to the course staff)
