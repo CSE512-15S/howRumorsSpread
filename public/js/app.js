@@ -97,14 +97,7 @@ function MainViewModel() {
       data.forEach(function(d) {
         self.collections.push(d);
       });
-    })
-
-    // $.get('/list-collections', {}, function(data) {
-    //   self.collections.removeAll();
-    //   _.each(JSON.parse(data), function(coll) {
-    //     self.collections.push(coll);
-    //   });
-    // });
+    });
   }
 
   self.activeCollection.subscribe(function(newValue) {

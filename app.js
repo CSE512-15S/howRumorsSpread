@@ -4,8 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var basicAuth = require('basic-auth');
 
 var app = express();
+app.use('/', function(req, res, next) {
+  var user = basicAuth(req);
+
+  if (!user || user.name !== process.env.username || user.pass !== process.env.pass) {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    return res.sendStatus(401);
+  }
+  next();
+});
 
 var routes = require('./routes.js');
 app.use('/', routes);
