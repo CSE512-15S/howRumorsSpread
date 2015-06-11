@@ -1,19 +1,19 @@
-var d3 = require('d3'),
-    ko = require('knockout');
+var d3 = require('d3');
 
-var StreamGraph = function(mainViewModel) {
+function StreamGraph(mainViewModel, json) {
   var self = this,
       parentDiv = '#stream',
-      timeGrouping = 'minute', // TODO: variable
-      collectionName = mainViewModel.activeCollection,
+      timeGrouping = 'minute', // TODO: variable?
       chartType = 'streamGraph',
       margin = { top: 0, right: 0, bottom: 30, left: 90 },
       width = 800 - margin.left - margin.right,
       height = 130 - margin.top - margin.bottom,
       duration = 750;
       xTicks = 5;
-  
+
   /* /Begin Chart initilization code */
+  d3.select(parentDiv).select('.svgContainer').selectAll('*').remove();
+
   var svg = d3.select(parentDiv).select('.svgContainer').append('svg')
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
@@ -21,6 +21,13 @@ var StreamGraph = function(mainViewModel) {
               .attr('width', width)
               .attr('height', height)
               .attr('transform', 'translate('+margin.left +','+ margin.top+')');
+
+  function logViewportBoundaries(extent) {
+    var low = extent[0].getTime() * 1000,
+        high = extent[1].getTime() * 1000;
+
+    console.log("viewport boundaries", low, high);
+  }
 
   var xScale = d3.time.scale()
               .range([0, width]),
@@ -30,18 +37,21 @@ var StreamGraph = function(mainViewModel) {
       viewport = d3.svg.brush()
                     .x(xScale)
                     .on('brush', function() {
-                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                      mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
+                      logViewportBoundaries(viewport.extent());
                     })
                     .on('brushend', function() {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
-                      mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent()); 
+                      mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent());
+
+                      logViewportBoundaries(viewport.extent());
                     });
   var xAxis = d3.svg.axis()
       .scale(xScale)
       .orient("bottom")
       .tickFormat(mainViewModel.offsetTimeFormat);
 
- 
+
   var chart = svg.append('g')
     .attr('class', 'chart');
 
@@ -66,7 +76,7 @@ var StreamGraph = function(mainViewModel) {
   chart.append('g')
         .attr('class', 'x axis')
         .attr("transform", "translate(0,"+(height+10)+")");
-  
+
   // White rectangle for hiding scanline
   svg.append("rect")
     .attr("class", "hide-scanline")
@@ -104,7 +114,7 @@ var StreamGraph = function(mainViewModel) {
 
     var volumes = dataset.map(function(datum) {
       var volume = null;
-      
+
       if (mousePosition !== null) {
         volume = 0;
         var matching = datum.values.filter(function(value, index) {
@@ -117,7 +127,7 @@ var StreamGraph = function(mainViewModel) {
 
       return {
         code : datum.key,
-        volume : volume 
+        volume : volume
       }
     });
 
@@ -176,7 +186,7 @@ var StreamGraph = function(mainViewModel) {
 
     // Draw X Axis
     d3.select(parentDiv).select('.x.axis').call(xAxis);
-    
+
     // Make streamgraph enamate from center of chart
     area.y0(height / 2)
         .y1(height / 2);
@@ -198,14 +208,14 @@ var StreamGraph = function(mainViewModel) {
     codes.append('path')
             .attr('class', 'line')
             .style('stroke-opacity', 0.0001);
-    
+
     streamGraph(data);
   }
 
   function streamGraph(data) {
     stack.offset('silhouette');
     stack(data);
-    
+
     var yMax = d3.max(data[0].values.map(function(d) { return d.volume0 + d.volume; }));
     yScale.domain([0, yMax])
           .range([height, 0]);
@@ -282,39 +292,35 @@ var StreamGraph = function(mainViewModel) {
   self.updateTime = function() {
     d3.select('#stream').select('.x.axis').call(xAxis);
   };
-  
-  function init(timeGrouping) {
-    // Initialize by loading the data
-    d3.json(dataPath(), function(err, data) {
-      if (err) return console.warn(err);
-      var tweetVolume = function (volumeDatum) {
-        // TODO: Include favorites and/or retweet counts in here?
-        return parseInt(volumeDatum.numTweets);
-      }
 
-      data.forEach(function(codeGroup) {
-        codeGroup.values.forEach(function(d) {
-          d.date = new Date(parseInt(d.timestamp));
-          // d.date = parseInt(d.timestamp);
-          d.volume = tweetVolume(d);
-          d.key = codeGroup.key;
-        });
+  function init(timeGrouping, data) {
+    var tweetVolume = function (volumeDatum) {
+      // TODO: Include favorites and/or retweet counts in here?
+      return parseInt(volumeDatum.numTweets);
+    }
 
-        codeGroup.values.sort(function(a, b) {
-          return a.date - b.date;
-        });
-
-        codeGroup.maxVolume = d3.max(codeGroup.values, function(d) { return d.volume; });
+    data.forEach(function(codeGroup) {
+      codeGroup.values.forEach(function(d) {
+        d.date = new Date(parseInt(d.timestamp));
+        // d.date = parseInt(d.timestamp);
+        d.volume = tweetVolume(d);
+        d.key = codeGroup.key;
       });
 
-      
-      data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
-      dataset = data;
-      drawChart(dataset);
+      codeGroup.values.sort(function(a, b) {
+        return a.date - b.date;
+      });
+
+      codeGroup.maxVolume = d3.max(codeGroup.values, function(d) { return d.volume; });
     });
+
+
+    data.sort(function(a, b) { return b.maxVolume - a.maxVolume; });
+    dataset = data;
+    drawChart(dataset);
   }
 
-  init(timeGrouping);
+  init(timeGrouping, json);
   return self;
 }
 module.exports = StreamGraph;

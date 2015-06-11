@@ -9,6 +9,9 @@ function Legend(mainViewModel) {
       rectSize = 10,
       vertPadding = 5,
       horzPadding = 6;
+
+  // Clear out div first
+  d3.select('#legend').select('.svgContainer').selectAll('*').remove();
   var svg = d3.select('#legend').select('.svgContainer')
               .append('svg')
                 .attr('height', height)
@@ -30,9 +33,9 @@ function Legend(mainViewModel) {
       var codes = data.map(function(d) {return d.code; }),
           charWidthScalar = 6,
           // We use 4 because its unlikely we will get more then 4 digits for a volume
-          volumeOffset = 4 * charWidthScalar, 
+          volumeOffset = 4 * charWidthScalar,
           textSize = 0;
-      // Crude method for estimating width of the text 
+      // Crude method for estimating width of the text
       // via the number of letters it has
       for (var i = 1; i <= index && i < codes.length; i++) {
         textSize += codes[i - 1].length * charWidthScalar;
@@ -62,13 +65,13 @@ function Legend(mainViewModel) {
           .style('stroke', function (d) {
             return colorScale(d.code);
           });
-    
+
     enterSelection.append('text')
           .attr('class', 'code')
           .attr('x', rectSize + horzPadding)
           .attr('y', rectSize)
           .text(function(d) { return d.code; });
-    
+
     enterSelection.append('text')
           .attr('class', 'volume')
           .attr('x', function(d, i) {
@@ -79,7 +82,7 @@ function Legend(mainViewModel) {
 
     // Enter & Update
     legend.selectAll('.volume')
-          .text(function(d) { 
+          .text(function(d) {
             // TODO: no hacks please
             var volume = data.filter(function(innerD) { return innerD.code == d.code})[0].volume;
             return volume === null ? "" : volume;

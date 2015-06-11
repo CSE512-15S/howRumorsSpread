@@ -1,15 +1,20 @@
 extends layout
 
 block content
+  .row#main-controls
+    .col-sm-12
+        h4 Choose a rumor
+        .form-group
+            select("data-bind"="options: collections, optionsText: 'collection_name', value: activeCollection")
   .row
     .col-sm-4#detail
         .detailview
             #eventmeta
                 .row
-                    .col-sm-12
-                        h3#event-title Lakemba
-                        p#event-meta Sydney, 15. December 2015
-                        p#event-description.small Since the hostage-taker of the Sydney Siege event demanded an ISIS flag, it was largely assumed that his actions were related to Islamic terrorism. The Lakemba Raids rumor arose from the sensemaking around this assumption. This rumor claimed that the the Australian Federal Police (AFP) were carrying out home raids in Lakemba, a neighborhood with a large Muslim community, in parallel with their response to the Sydney Siege. The AFP later denied the validity of this rumor. Twenty officers had taken a pre-arranged tool of mosques in Lakemba as part of their police induction on that day, and it is possible that the rumor originated there.
+                    .col-sm-12("data-bind"="with: activeCollection")
+                        h3#event-title("data-bind"="text: rumor_name")
+                        p#event-meta("data-bind"="text: date")
+                        p#event-description.small("data-bind"="text: description")
             #tweetview.hidden
                 .row
                     .col-sm-2.avatar-wrapper &nbsp;
@@ -27,19 +32,20 @@ block content
                         p.tweet Tweet
                 #retweetList.hidden
                     table.table.table-hover.header-fixed
+        h3 Leaderboard
         #leaderboard
             table.table.table-hover.header-fixed
     .col-sm-8#master
             #spaghetti
                 .controls.form-inline
                     .btn-group(data-toggle="buttons")
-                        label.btn.btn-xs.btn-default.active(id='scale-linear') 
-                            input(type='radio') 
+                        label.btn.btn-xs.btn-default.active(id='scale-linear')
+                            input(type='radio')
                             | Linear
                         label.btn.btn-xs.btn-default(id='scale-log')
-                            input(type='radio') 
+                            input(type='radio')
                             | Log
-                    span.small Timezone: 
+                    span.small Timezone:
                     select#timezoneSelect.small.form-control
                 .svgContainer
             #legend

@@ -3,7 +3,8 @@ var express = require('express'),
   router = express.Router(),
   Server = require('mongodb').Server,
   mongojs = require('mongojs'),
-  _ = require('underscore');
+  _ = require('underscore'),
+  exec = require('child_process').exec;
 
 var DBServer = new Server('localhost', 27017);
 
@@ -20,18 +21,27 @@ router.get('/stream', function(req, res) {
 });
 
 router.get('/list-collections', function (req, res) {
-  // If we use more than one database, we need to pass this in the request
+  // TODO: If we use more than one database, we need to pass this in the request
   var databaseName = 'sydneysiege';
   var db = new DB(databaseName, DBServer);
   db.open(function(err, db) {
-    db.collections(function(err, collections) {
-      var collectionNames = _.map(collections, function(obj, index) {
-        return obj.s.name;
-      });
-      res.end(JSON.stringify(collectionNames));
-      db.close();
+    db.collection('rumors').find({}).toArray(function (err, docs) {
+      res.send(JSON.stringify(docs));
     });
   });
 });
+
+// TODO: For the front end bound trimming feature
+// router.post('/trim-collection', function(req, res) {
+//   // TODO: these should all be passed in the POST body
+//   var collectionName = 'lakemba'
+//       databaseName = 'sydneysiege',
+//       minBound = '0',
+//       maxBound = '1418613549962';
+//   var cliArgs = databaseName + " " + collectionName + " " + minBound + " " + maxBound;
+//   exec('./data-collection/process-collections-cli.js' + cliArgs, function () {
+//     res.send("done");
+//   });
+// });
 
 module.exports = router;
