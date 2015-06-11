@@ -1,7 +1,7 @@
 # Visualizing the Spread of Rumors on Twitter during Disaster Events
 This project visualizes the effect that "major players" have on the spread of rumors on Twitter during disaster events.
 
-![Overview](readme_images/overview.jpg)
+![Overview](readme_images/summary.jpg)
 
 ### Team Members and Work Breakdown
 Cynthia Andrews, Graeme Britz, Rama Gokhale, Zeno Koller
