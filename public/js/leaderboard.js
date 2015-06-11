@@ -4,46 +4,43 @@ var d3 = require('d3'),
 var data;
 var xBounds;
 var leaderBoardTable;
-var LeaderBoard = function (mainViewModel) {
+var LeaderBoard = function (mainViewModel, json) {
   var self = this,
       parentDiv = '#leaderboard',
       timeBounds = [0, Date.now()];
 
   function init() {
-  	d3.json('data/spaghetti/grouped.json', function(error, json) {
-		if (error) return console.warn(error);
-		data = json.tweets;
-		xBounds = d3.extent(d3.merge([data.map(function(d) {
-			return d.points[0].timestamp;
-		}), data.map(function(d) {
-			return d.points[d.points.length - 1].timestamp;
-		})]));
+	data = json.tweets;
+	xBounds = d3.extent(d3.merge([data.map(function(d) {
+		return d.points[0].timestamp;
+	}), data.map(function(d) {
+		return d.points[d.points.length - 1].timestamp;
+	})]));
 
-		leaderBoardTable = table()
-		.headers([{
-			column: "screen_name", 
-			text: "Name",
-			type: "String",
-			sortable: true,
-			class: "col-md-6"
-		},{
-			column: "retweets",
-			type: "Number",
-			text: "RTs",
-			sortable: true,
-			class: "col-md-3" 
-		},{
-			column: "exposure",
-			type: "Number",
-			text: "Exposure",
-			sortable: true,
-			class: "col-md-3"
-		}])
-		.sortColumn(2)
-		.sortAscending(false);
-		
-		self.updateXBounds();
-	});
+	leaderBoardTable = table()
+	.headers([{
+		column: "screen_name",
+		text: "Name",
+		type: "String",
+		sortable: true,
+		class: "col-md-6"
+	},{
+		column: "retweets",
+		type: "Number",
+		text: "RTs",
+		sortable: true,
+		class: "col-md-3"
+	},{
+		column: "exposure",
+		type: "Number",
+		text: "Exposure",
+		sortable: true,
+		class: "col-md-3"
+	}])
+	.sortColumn(2)
+	.sortAscending(false);
+
+	self.updateXBounds();
   }
 
 // This function will get called by the mainViewModel in app.js
@@ -57,7 +54,7 @@ var LeaderBoard = function (mainViewModel) {
   		left = timeBounds[0].getTime();
     	right = timeBounds[1].getTime();
   	}
-    
+
 	var lbData = {};
 
 	// populate scoreboard

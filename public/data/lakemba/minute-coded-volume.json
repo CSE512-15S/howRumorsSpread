@@ -1,1 +1,2447 @@
-[{"key":"Affirm","values":[{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418603340000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418603400000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418603460000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418603520000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418604420000"},{"numFavorites":0,"numRetweets":0,"numTweets":13,"timestamp":"1418604480000"},{"numFavorites":0,"numRetweets":0,"numTweets":26,"timestamp":"1418604540000"},{"numFavorites":0,"numRetweets":0,"numTweets":17,"timestamp":"1418604660000"},{"numFavorites":0,"numRetweets":0,"numTweets":11,"timestamp":"1418604720000"},{"numFavorites":0,"numRetweets":0,"numTweets":16,"timestamp":"1418604600000"},{"numFavorites":0,"numRetweets":0,"numTweets":26,"timestamp":"1418604780000"},{"numFavorites":0,"numRetweets":0,"numTweets":17,"timestamp":"1418604840000"},{"numFavorites":0,"numRetweets":0,"numTweets":21,"timestamp":"1418604900000"},{"numFavorites":0,"numRetweets":0,"numTweets":18,"timestamp":"1418604960000"},{"numFavorites":0,"numRetweets":0,"numTweets":12,"timestamp":"1418605020000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418605080000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418605140000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418605200000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418605260000"},{"numFavorites":0,"numRetweets":0,"numTweets":30,"timestamp":"1418605320000"},{"numFavorites":0,"numRetweets":0,"numTweets":15,"timestamp":"1418605380000"},{"numFavorites":0,"numRetweets":0,"numTweets":9,"timestamp":"1418605440000"},{"numFavorites":0,"numRetweets":0,"numTweets":8,"timestamp":"1418605500000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418605560000"},{"numFavorites":0,"numRetweets":0,"numTweets":7,"timestamp":"1418605620000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418605680000"},{"numFavorites":0,"numRetweets":0,"numTweets":6,"timestamp":"1418605740000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418605800000"},{"numFavorites":0,"numRetweets":0,"numTweets":8,"timestamp":"1418605860000"},{"numFavorites":0,"numRetweets":0,"numTweets":7,"timestamp":"1418605920000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418605980000"},{"numFavorites":0,"numRetweets":0,"numTweets":11,"timestamp":"1418606040000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418606100000"},{"numFavorites":0,"numRetweets":0,"numTweets":20,"timestamp":"1418606160000"},{"numFavorites":0,"numRetweets":0,"numTweets":19,"timestamp":"1418606220000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418606280000"},{"numFavorites":0,"numRetweets":0,"numTweets":8,"timestamp":"1418606340000"},{"numFavorites":0,"numRetweets":0,"numTweets":13,"timestamp":"1418606400000"},{"numFavorites":0,"numRetweets":0,"numTweets":6,"timestamp":"1418606460000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418606520000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418606580000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418606640000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418606700000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418606760000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418606820000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418606880000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606940000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418607000000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418607060000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418607120000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607180000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607240000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418607300000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418607360000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418607420000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418607540000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418607720000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607780000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418607900000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607960000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608020000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418608140000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608200000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608260000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608320000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608380000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608440000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608500000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608560000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608620000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608680000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608740000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418608800000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608860000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608920000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608980000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609040000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609100000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609160000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609220000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609280000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418609340000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418609400000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418609460000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609520000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609580000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609640000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609700000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609760000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609820000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609880000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609940000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418610000000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610060000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418610120000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610180000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418610240000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610300000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418610360000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610420000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610480000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610540000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610660000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610720000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610840000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418610900000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610960000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611020000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611080000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611140000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611200000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611260000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611320000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611380000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611440000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418611500000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611560000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611680000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611980000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612040000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612100000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612280000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612340000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612400000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612460000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612520000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612580000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612640000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612700000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612760000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612820000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418612940000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418613240000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418613360000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418613540000"}]},{"key":"Deny","values":[{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418603340000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418603400000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418603460000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418603520000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604420000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604480000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604540000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604660000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604720000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604600000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604780000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604840000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418604900000"},{"numFavorites":0,"numRetweets":0,"numTweets":11,"timestamp":"1418604960000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418605020000"},{"numFavorites":0,"numRetweets":0,"numTweets":7,"timestamp":"1418605080000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418605140000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418605200000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418605260000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418605320000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418605380000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418605440000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418605500000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418605560000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418605620000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418605680000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418605740000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418605800000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418605860000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418605920000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605980000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418606040000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418606100000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418606160000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418606220000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418606280000"},{"numFavorites":0,"numRetweets":0,"numTweets":6,"timestamp":"1418606340000"},{"numFavorites":0,"numRetweets":0,"numTweets":6,"timestamp":"1418606400000"},{"numFavorites":0,"numRetweets":0,"numTweets":13,"timestamp":"1418606460000"},{"numFavorites":0,"numRetweets":0,"numTweets":7,"timestamp":"1418606520000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418606580000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418606640000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418606700000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418606760000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418606820000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418606880000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418606940000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607000000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418607060000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418607120000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418607180000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418607240000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607300000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418607360000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418607420000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607540000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607720000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418607780000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418607900000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418607960000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418608020000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418608140000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418608200000"},{"numFavorites":0,"numRetweets":0,"numTweets":62,"timestamp":"1418608260000"},{"numFavorites":0,"numRetweets":0,"numTweets":52,"timestamp":"1418608320000"},{"numFavorites":0,"numRetweets":0,"numTweets":36,"timestamp":"1418608380000"},{"numFavorites":0,"numRetweets":0,"numTweets":30,"timestamp":"1418608440000"},{"numFavorites":0,"numRetweets":0,"numTweets":20,"timestamp":"1418608500000"},{"numFavorites":0,"numRetweets":0,"numTweets":11,"timestamp":"1418608560000"},{"numFavorites":0,"numRetweets":0,"numTweets":14,"timestamp":"1418608620000"},{"numFavorites":0,"numRetweets":0,"numTweets":12,"timestamp":"1418608680000"},{"numFavorites":0,"numRetweets":0,"numTweets":11,"timestamp":"1418608740000"},{"numFavorites":0,"numRetweets":0,"numTweets":13,"timestamp":"1418608800000"},{"numFavorites":0,"numRetweets":0,"numTweets":20,"timestamp":"1418608860000"},{"numFavorites":0,"numRetweets":0,"numTweets":15,"timestamp":"1418608920000"},{"numFavorites":0,"numRetweets":0,"numTweets":19,"timestamp":"1418608980000"},{"numFavorites":0,"numRetweets":0,"numTweets":15,"timestamp":"1418609040000"},{"numFavorites":0,"numRetweets":0,"numTweets":9,"timestamp":"1418609100000"},{"numFavorites":0,"numRetweets":0,"numTweets":7,"timestamp":"1418609160000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418609220000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418609280000"},{"numFavorites":0,"numRetweets":0,"numTweets":14,"timestamp":"1418609340000"},{"numFavorites":0,"numRetweets":0,"numTweets":9,"timestamp":"1418609400000"},{"numFavorites":0,"numRetweets":0,"numTweets":9,"timestamp":"1418609460000"},{"numFavorites":0,"numRetweets":0,"numTweets":17,"timestamp":"1418609520000"},{"numFavorites":0,"numRetweets":0,"numTweets":24,"timestamp":"1418609580000"},{"numFavorites":0,"numRetweets":0,"numTweets":11,"timestamp":"1418609640000"},{"numFavorites":0,"numRetweets":0,"numTweets":13,"timestamp":"1418609700000"},{"numFavorites":0,"numRetweets":0,"numTweets":6,"timestamp":"1418609760000"},{"numFavorites":0,"numRetweets":0,"numTweets":7,"timestamp":"1418609820000"},{"numFavorites":0,"numRetweets":0,"numTweets":6,"timestamp":"1418609880000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418609940000"},{"numFavorites":0,"numRetweets":0,"numTweets":6,"timestamp":"1418610000000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418610060000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418610120000"},{"numFavorites":0,"numRetweets":0,"numTweets":7,"timestamp":"1418610180000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610240000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418610300000"},{"numFavorites":0,"numRetweets":0,"numTweets":5,"timestamp":"1418610360000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418610420000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418610480000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418610540000"},{"numFavorites":0,"numRetweets":0,"numTweets":6,"timestamp":"1418610660000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418610720000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418610840000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610900000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418610960000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418611020000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418611080000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418611140000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418611200000"},{"numFavorites":0,"numRetweets":0,"numTweets":10,"timestamp":"1418611260000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418611320000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418611380000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418611440000"},{"numFavorites":0,"numRetweets":0,"numTweets":4,"timestamp":"1418611500000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418611560000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418611680000"},{"numFavorites":0,"numRetweets":0,"numTweets":3,"timestamp":"1418611980000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418612040000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418612100000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418612280000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418612340000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418612400000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418612460000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418612520000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418612580000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418612640000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418612700000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418612760000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418612820000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612940000"},{"numFavorites":0,"numRetweets":0,"numTweets":2,"timestamp":"1418613240000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418613360000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418613540000"}]},{"key":"Neutral","values":[{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418603340000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418603400000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418603460000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418603520000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604420000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604480000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604540000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604660000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604720000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604600000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604780000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604840000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604900000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418604960000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605020000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605080000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605140000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605200000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418605260000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605320000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605380000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605440000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605500000"},{"numFavorites":0,"numRetweets":0,"numTweets":1,"timestamp":"1418605560000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605620000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605680000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605740000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605800000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605860000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605920000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418605980000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606040000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606100000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606160000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606220000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606280000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606340000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606400000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606460000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606520000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606580000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606640000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606700000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606760000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606820000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606880000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418606940000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607000000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607060000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607120000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607180000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607240000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607300000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607360000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607420000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607540000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607720000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607780000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607900000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418607960000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608020000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608140000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608200000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608260000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608320000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608380000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608440000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608500000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608560000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608620000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608680000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608740000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608800000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608860000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608920000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418608980000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609040000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609100000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609160000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609220000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609280000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609340000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609400000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609460000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609520000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609580000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609640000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609700000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609760000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609820000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609880000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418609940000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610000000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610060000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610120000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610180000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610240000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610300000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610360000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610420000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610480000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610540000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610660000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610720000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610840000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610900000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418610960000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611020000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611080000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611140000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611200000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611260000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611320000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611380000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611440000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611500000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611560000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611680000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418611980000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612040000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612100000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612280000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612340000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612400000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612460000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612520000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612580000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612640000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612700000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612760000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612820000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418612940000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418613240000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418613360000"},{"numFavorites":0,"numRetweets":0,"numTweets":0,"timestamp":"1418613540000"}]}]
+[
+    {
+        "key": "Deny",
+        "values": [
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418613360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418613540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 11,
+                "timestamp": "1418604960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418603340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418603400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418603460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418603520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604480000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604600000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604660000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604780000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604840000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418604900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418605020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 7,
+                "timestamp": "1418605080000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418605140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418605200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418605260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418605320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418605380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418605440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418605500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418605560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418605620000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418605680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418605740000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418605800000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418605860000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418605920000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418606040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418606100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418606160000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418606220000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418606280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 6,
+                "timestamp": "1418606340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 6,
+                "timestamp": "1418606400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 13,
+                "timestamp": "1418606460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 7,
+                "timestamp": "1418606520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418606580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418606640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418606700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418606760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418606820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418606880000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418606940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607000000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418607060000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418607120000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418607180000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418607240000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607300000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418607360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418607420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418607780000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418607900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418607960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418608140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418608200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 62,
+                "timestamp": "1418608260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 52,
+                "timestamp": "1418608320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 36,
+                "timestamp": "1418608380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 30,
+                "timestamp": "1418608440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 20,
+                "timestamp": "1418608500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 11,
+                "timestamp": "1418608560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 14,
+                "timestamp": "1418608620000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 12,
+                "timestamp": "1418608680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 11,
+                "timestamp": "1418608740000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 13,
+                "timestamp": "1418608800000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 20,
+                "timestamp": "1418608860000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 15,
+                "timestamp": "1418608920000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 19,
+                "timestamp": "1418608980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 15,
+                "timestamp": "1418609040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 9,
+                "timestamp": "1418609100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 7,
+                "timestamp": "1418609160000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418609220000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418609280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 14,
+                "timestamp": "1418609340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 9,
+                "timestamp": "1418609400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 9,
+                "timestamp": "1418609460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 17,
+                "timestamp": "1418609520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 24,
+                "timestamp": "1418609580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 11,
+                "timestamp": "1418609640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 13,
+                "timestamp": "1418609700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 6,
+                "timestamp": "1418609760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 7,
+                "timestamp": "1418609820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 6,
+                "timestamp": "1418609880000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418609940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 6,
+                "timestamp": "1418610000000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418610060000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418610120000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 7,
+                "timestamp": "1418610180000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610240000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418610300000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418610360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418610420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418610480000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418610540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 6,
+                "timestamp": "1418610660000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418610720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418610840000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418610960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418611020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418611080000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418611140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418611200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418611260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418611320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418611380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418611440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418611500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418611560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418611680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418611980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418612040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418612100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418612280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418612340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418612400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418612460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418612520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418612580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418612640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418612700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418612760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418612820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418613240000"
+            }
+        ]
+    },
+    {
+        "key": "Affirm",
+        "values": [
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418613360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418613540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 18,
+                "timestamp": "1418604960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418603340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418603400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418603460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418603520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418604420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 13,
+                "timestamp": "1418604480000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 26,
+                "timestamp": "1418604540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 16,
+                "timestamp": "1418604600000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 17,
+                "timestamp": "1418604660000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 11,
+                "timestamp": "1418604720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 26,
+                "timestamp": "1418604780000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 17,
+                "timestamp": "1418604840000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 21,
+                "timestamp": "1418604900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 12,
+                "timestamp": "1418605020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418605080000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418605140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418605200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418605260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 30,
+                "timestamp": "1418605320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 15,
+                "timestamp": "1418605380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 9,
+                "timestamp": "1418605440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 8,
+                "timestamp": "1418605500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418605560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 7,
+                "timestamp": "1418605620000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418605680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 6,
+                "timestamp": "1418605740000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418605800000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 8,
+                "timestamp": "1418605860000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 7,
+                "timestamp": "1418605920000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418605980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 11,
+                "timestamp": "1418606040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418606100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 20,
+                "timestamp": "1418606160000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 19,
+                "timestamp": "1418606220000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418606280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 8,
+                "timestamp": "1418606340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 13,
+                "timestamp": "1418606400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 6,
+                "timestamp": "1418606460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418606520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 5,
+                "timestamp": "1418606580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 10,
+                "timestamp": "1418606640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418606700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418606760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418606820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418606880000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 3,
+                "timestamp": "1418607000000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418607060000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418607120000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607180000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607240000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418607300000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418607360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 4,
+                "timestamp": "1418607420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418607540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418607720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607780000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418607900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418608140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608620000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608740000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 2,
+                "timestamp": "1418608800000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608860000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418608920000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609160000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609220000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418609340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418609400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418609460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609880000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418610000000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610060000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418610120000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610180000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418610240000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610300000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418610360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610480000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610660000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610840000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418610900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611080000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418611500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418612940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418613240000"
+            }
+        ]
+    },
+    {
+        "key": "Neutral",
+        "values": [
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418613360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418613540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418603340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418603400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418603460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418603520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604480000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604600000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604660000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604780000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604840000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418604900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605080000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418605260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 1,
+                "timestamp": "1418605560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605620000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605740000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605800000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605860000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605920000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418605980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606160000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606220000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606880000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418606940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607000000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607060000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607120000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607180000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607240000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607300000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607780000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418607960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608620000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608740000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608800000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608860000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608920000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418608980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609160000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609220000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609880000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418609940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610000000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610060000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610120000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610180000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610240000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610300000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610360000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610420000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610480000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610540000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610660000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610720000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610840000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610900000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418610960000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611020000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611080000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611140000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611200000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611260000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611320000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611380000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611440000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611500000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611560000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611680000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418611980000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612040000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612100000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612280000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612340000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612400000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612460000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612520000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612580000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612640000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612700000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612760000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612820000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418612940000"
+            },
+            {
+                "numFavorites": 0,
+                "numRetweets": 0,
+                "numTweets": 0,
+                "timestamp": "1418613240000"
+            }
+        ]
+    }
+]
