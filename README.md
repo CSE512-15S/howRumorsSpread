@@ -63,6 +63,8 @@ Users can hover or click on a line in the main panel to get details about that t
   2. If you do not have bower or gulp installed, run `npm install -g bower && npm install-g gulp`
   3. Run `npm install && bower install`
   4. Run `gulp`
+#### Password Protection
+The web server uses two environment variables `username` and `pass` for password protection. Set these variables with the desired credentials for your instance of the web server in your terminal. You can then use those credentials to login and view the visualization tool.
 
 ### Processing a new Dataset
 This project was distributed only with the SydneySiege dataset. To process a new dataset, do the following:
@@ -103,4 +105,3 @@ The `process-collection-cli.js` script can take in an lower and upper timestamp 
   6. On the command line, in the `data-processing` directory
   7. Run `node processing-collection-cli.js <database_name> <collection_name> min_number max_number`
   8. Repeat steps 2 - 7 for each collection of interest.
-
