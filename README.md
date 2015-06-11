@@ -45,7 +45,7 @@ The retweet list and the leaderboard make use of a table component written in D3
 We had two main goals when designing our tool. The first was to build visualizations that brought more emphasis to their primary task, finding the accounts that were “major players”, than existing methods. The second was to automate many of the database queries and data processing needed to analyze the data.
 
 The main panel displays the retweet lifecycle of individual tweets over time. Each line is a tweet, whose color indicates its code. A tweet travels from left to right over time on the x-axis. Its total exposure (an aggregate of the follower counts of all accounts that have emitted the tweet) is measured on the y-axis.
-![main panel](readme_images/spaghetti.jpg =100x)
+![main panel](readme_images/spaghetti.jpg)
 
 The stream graph in the main panel shows the coded tweet volumes over time. When a selection is made here, the
 other components update to reflect the new time viewport. Two views, one by area, and one by volume, are provided for a better understanding of different trends.
