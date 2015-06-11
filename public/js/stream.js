@@ -22,6 +22,13 @@ function StreamGraph(mainViewModel, json) {
               .attr('height', height)
               .attr('transform', 'translate('+margin.left +','+ margin.top+')');
 
+  function logViewportBoundaries(extent) {
+    var low = extent[0].getTime() * 1000,
+        high = extent[1].getTime() * 1000;
+
+    console.log("viewport boundaries", low, high);
+  }
+
   var xScale = d3.time.scale()
               .range([0, width]),
       yScale = d3.scale.linear()
@@ -31,10 +38,13 @@ function StreamGraph(mainViewModel, json) {
                     .x(xScale)
                     .on('brush', function() {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
+                      logViewportBoundaries(viewport.extent());
                     })
                     .on('brushend', function() {
                       mainViewModel.updateViewPort(viewport.empty() ? xScale.domain() : viewport.extent());
                       mainViewModel.updateLeaderboard(viewport.empty() ? xScale.domain() : viewport.extent());
+
+                      logViewportBoundaries(viewport.extent());
                     });
   var xAxis = d3.svg.axis()
       .scale(xScale)

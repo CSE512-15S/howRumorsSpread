@@ -9,15 +9,27 @@ var DB = require('mongodb').Db,
 
 
 function processForSpaghettiGraph(db, collectionName, timestampThreshold) {
+  var usingDefaultThres = !timestampThreshold;
+  if (usingDefaultThres) {
+    timestampThreshold = defaultThreshold();
+  }
+
+  dbConsumers +=1;
   db.collection(collectionName).find(
-    {'retweeted_status': {$exists: false}},
-    { 'id': 1, 'codes': 1, 'text': 1, 'created_ts': 1, 'favorite_count': 1, 'user.id': 1, 'user.name': 1, 'user.name': 1, 'user.screen_name': 1, 'user.followers_count': 1, 'user.profile_image_url': 1, 'user.verified': 1, 'user.favorite_count': 1 })
+    {'retweeted_status': {$exists: false},
+    'codes.rumor' : collectionName,
+    'codes.first_code' : {
+      '$in' :  ['Neutral', 'Affirm', 'Deny']
+    }},
+    { 'id': 1, 'codes': 1, 'text': 1, 'created_ts': 1, 'favorite_count': 1, 'user.id': 1, 'user.name': 1, 'user.name': 1, 'user.screen_name': 1, 'user.followers_count': 1, 'user.profile_image_url': 1, 'user.verified': 1, 'user.favorite_count': 1, 'timestamp_ms' : 1 })
   .toArray(function(err, tweets) {
       if (err) return console.error(err);
 
-      // Remove any tweet that did not recieve codes
+      // Remove any tweet that did not recieve codes and that were out of bounds
       tweets = tweets.filter(function(d) {
-        return d.hasOwnProperty("codes");
+        return (d.hasOwnProperty("codes")
+        && parseInt(d.timestamp_ms) >= timestampThreshold[0]
+        && parseInt(d.timestamp_ms) <= timestampThreshold[1]);
       });
 
       tweets = tweets.map(function(d){
@@ -29,10 +41,19 @@ function processForSpaghettiGraph(db, collectionName, timestampThreshold) {
       });
 
       db.collection(collectionName).find(
-        {retweeted_status: {$exists: true}},
-        {'created_ts': 1, 'user.followers_count': 1, 'user.verified': 1, 'user.screen_name': 1, 'retweeted_status.id': 1 })
+        {retweeted_status: {$exists: true},
+        'codes.rumor' : collectionName,
+        'codes.first_code' : {
+          '$in' :  ['Neutral', 'Affirm', 'Deny']
+        }},
+        {'created_ts': 1, 'user.followers_count': 1, 'user.verified': 1, 'user.screen_name': 1, 'retweeted_status.id': 1, 'timestamp_ms' : 1 })
       .toArray(function(err, retweets) {
           if (err) return console.error(err);
+          retweets = retweets.filter(function(d) {
+            return (parseInt(d.timestamp_ms) >= timestampThreshold[0]
+            && parseInt(d.timestamp_ms) <= timestampThreshold[1]);
+          });
+
           retweets = retweets.map(function(d){
             d._id = d._id.valueOf();
             d.created_ts = d.created_ts.valueOf();
@@ -40,6 +61,8 @@ function processForSpaghettiGraph(db, collectionName, timestampThreshold) {
             return d;
           });
 
+          dbConsumers -= 1;
+          closeDB(db);
           runPyScript(tweets, retweets, timestampThreshold);
       });
   });
@@ -214,47 +237,47 @@ function processForStreamGraph (db, collectionName, binBy, timeThreshold) {
     }];
     writeToCache(collectionName, binBy + '-total-volume.json', finalMapping, usingDefaultThres);
   }
-
+  dbConsumers += 1;
   db.collection(collectionName).find({
     'codes.rumor' : collectionName,
     'codes.first_code' : {
-      '$in' :  ['Neutral', 'Affirm', 'Deny', 'Unrelated']
-    },
-    'timestamp_ms' : {
-      '$gte' : timeThreshold[0],
-      '$lte' : timeThreshold[1]
+      '$in' :  ['Neutral', 'Affirm', 'Deny']
     }
   }).toArray(function(err, docs) {
     if (err) return console.error(err);
     docs = docs.filter(function(d) {
-      return d.hasOwnProperty("codes");
+      return (d.hasOwnProperty("codes")
+        && parseInt(d.timestamp_ms) >= timeThreshold[0]
+        && parseInt(d.timestamp_ms) <= timeThreshold[1]);
     });
 
     docs = docs.map(function(doc, index) {
       return {
         retweet_count : doc.retweet_count,
-        timestamp : doc.timestamp_ms,
+        timestamp : parseInt(doc.timestamp_ms),
         favorite_count : doc.favorite_count,
         code : doc.codes[0].first_code
       }
     });
     codedVolumeProjection(docs);
     totalVolumeProjection(docs);
-
-    db.close();
+    dbConsumers -= 1;
+    closeDB(db);
   });
 }
 
 function writeToCache(collectionName, cacheName, json, usingDefaultThres) {
   var cacheDir = '../public/data/' + collectionName +'/';
-  if (!usingDefaultThres) {
-    cacheDir += "bounded/";
-  }
+
+  // TODO:
+  // if (!usingDefaultThres) {
+  //   cacheDir += "bounded/";
+  // }
 
   var cachePath = cacheDir + cacheName;
   mkdirp(cacheDir, function(err) {
     if (err) console.err(err);
-    writeToFile(cachePath, JSON.stringify(json));
+    writeToFile(cachePath, JSON.stringify(json, null, 4));
   });
 }
 
@@ -267,6 +290,14 @@ function writeToFile(filename, string, cb) {
       cb();
     }
   });
+}
+
+var dbConsumers = 0;
+
+function closeDB(db) {
+  if (dbConsumers == 0) {
+    db.close();
+  }
 }
 
 function defaultThreshold() {

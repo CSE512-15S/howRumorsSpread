@@ -44,11 +44,11 @@ from numpy import cumsum
 #				}]
 #			}
 #
-time_bounds = [0, 1433954444000]
-defaultBounds = True
-if (len(sys.argv) == 3):
-	time_bounds[0] = int(sys.argv[1])
-	time_bounds[1] = int(sys.argv[2])
+# time_bounds = [0, 1433954444000]
+# defaultBounds = True
+# if (len(sys.argv) == 3):
+# 	time_bounds[0] = int(sys.argv[1])
+# 	time_bounds[1] = int(sys.argv[2])
 
 
 # TODO: This needds to be examined more closely for scientific validity
@@ -86,28 +86,25 @@ with open('infile.json', 'r') as infile, open('outfile.json', 'w') as outfile:
 		followers = [tweet["user"]["followers_count"]]
 		user_info = [{"verified": tweet["user"]["verified"], "screen_name": tweet["user"]["screen_name"], "followers_count": tweet["user"]["followers_count"] }]
 
-		# check time bounds
-		if (time_bounds[0] <= timestamps[0] <= time_bounds[1]):
+		# Join on tweet id
+		for retweet in retweets:
+			if id == retweet["retweeted_status"]["id"]:
+				# for points
+				ts = retweet["created_ts"]
+				fo = retweet["user"]["followers_count"]
+				if tresh_time < ts - timestamps[-1]:
+					break # too much time passed since last retweet, stale
+				timestamps.append(ts)
+				followers.append(fo)
+				user_info.append({"verified": retweet["user"]["verified"], "screen_name": retweet["user"]["screen_name"], "followers_count": fo })
 
-			# Join on tweet id
-			for retweet in retweets:
-				if id == retweet["retweeted_status"]["id"]:
-					# for points
-					ts = retweet["created_ts"]
-					fo = retweet["user"]["followers_count"]
-					if tresh_time < ts - timestamps[-1]:
-						break # too much time passed since last retweet, stale
-					timestamps.append(ts)
-					followers.append(fo)
-					user_info.append({"verified": retweet["user"]["verified"], "screen_name": retweet["user"]["screen_name"], "followers_count": fo })
-
-			popularity = list(cumsum(followers))
-			points = [{"timestamp": t, "popularity": p} for (t,p) in zip(timestamps, popularity)]
-			for i in range(len(points)):
-				points[i]["verified"] = user_info[i]["verified"]
-				points[i]["screen_name"] = user_info[i]["screen_name"]
-				points[i]["followers_count"] = user_info[i]["followers_count"]
-			grouped.append({"id":id, "text":text, "user": user, "first_code":first_code, "favorite_count": favorite_count, "points":points})
+		popularity = list(cumsum(followers))
+		points = [{"timestamp": t, "popularity": p} for (t,p) in zip(timestamps, popularity)]
+		for i in range(len(points)):
+			points[i]["verified"] = user_info[i]["verified"]
+			points[i]["screen_name"] = user_info[i]["screen_name"]
+			points[i]["followers_count"] = user_info[i]["followers_count"]
+		grouped.append({"id":id, "text":text, "user": user, "first_code":first_code, "favorite_count": favorite_count, "points":points})
 
 	json.dump({'tweets': grouped}, outfile, indent=4)
 

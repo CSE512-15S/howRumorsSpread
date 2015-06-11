@@ -17,19 +17,15 @@ function MainViewModel() {
 
   self.updateViewPort = function (bounds) {
     spaghetti.updateXBounds(bounds);
-  }
+  };
 
   self.updateLeaderboard = function (bounds) {
     leaderboard.updateXBounds(bounds);
-  }
+  };
 
   self.updateScanlines = function (timestamp) {
     spaghetti.updateScanline(timestamp);
     stream.updateScanline(timestamp);
-  }
-
-  self.updateActiveCollection = function() {
-    // TODO:
   };
 
   // Shared color scale for graphics
@@ -81,6 +77,7 @@ function MainViewModel() {
         if (err) {
           return console.warn("Could not load data from stream component", err);
         }
+
         var streamModule = require('./stream.js');
         stream = new streamModule(self, data);
       });

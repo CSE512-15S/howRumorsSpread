@@ -1,29 +1,6 @@
 {
     "tweets": [
         {
-            "first_code": "Unrelated",
-            "text": "Sydney mmg lubuk Ayrabs. Lakemba, Austin, Punchbowl... u can even get halal KFC.",
-            "points": [
-                {
-                    "timestamp": 1418603356622,
-                    "followers_count": 2980,
-                    "popularity": 2980,
-                    "verified": false,
-                    "screen_name": "napiez"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "napiez",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000680392627/09393ff0ce1eb7271ec9386876a31b30_normal.png",
-                "followers_count": 2980,
-                "id": 128507510,
-                "name": "Imam Kuda Napiez"
-            },
-            "id": 544288043549466600,
-            "favorite_count": 0
-        },
-        {
             "first_code": "Affirm",
             "text": "Ray Hadley reporting on @2GB873 homes in Lakemba are being raided by police at present #sydneysiege",
             "points": [
@@ -50,7 +27,7 @@
                 "id": 26192233,
                 "name": "Tim Dunlop"
             },
-            "id": 544288144971943940,
+            "id": "544288144971943936",
             "favorite_count": 0
         },
         {
@@ -73,7 +50,7 @@
                 "id": 1336965146,
                 "name": "The Typewriter "
             },
-            "id": 544288386614186000,
+            "id": "544288386614185984",
             "favorite_count": 0
         },
         {
@@ -96,7 +73,7 @@
                 "id": 789501139,
                 "name": "Francis Jenkins "
             },
-            "id": 544288661937094660,
+            "id": "544288661937094656",
             "favorite_count": 0
         },
         {
@@ -119,53 +96,7 @@
                 "id": 1564968534,
                 "name": "Ross Martin"
             },
-            "id": 544288874575323140,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "The flag appears to be a Shahada flag, not an Islamic State flag, but is associated with Islamist and jihadist movements. #lakemba",
-            "points": [
-                {
-                    "timestamp": 1418604041928,
-                    "followers_count": 1675,
-                    "popularity": 1675,
-                    "verified": false,
-                    "screen_name": "TheBonfireMedia"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "TheBonfireMedia",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/540328290053914624/ihwrm_xT_normal.jpeg",
-                "followers_count": 1675,
-                "id": 1304556728,
-                "name": "Jon T Dragon #JTDTBM"
-            },
-            "id": 544290917931163650,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "@PhilipKissick @Welsh58  Lakemba sold out of ISIS flags months ago - way too popular in western Sydney just can't get them anymore",
-            "points": [
-                {
-                    "timestamp": 1418604327936,
-                    "followers_count": 853,
-                    "popularity": 853,
-                    "verified": false,
-                    "screen_name": "mickymantell"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "mickymantell",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000231147492/93599159d5f723c05fe1296f64165f82_normal.jpeg",
-                "followers_count": 853,
-                "id": 455699956,
-                "name": "Micky Mantell"
-            },
-            "id": 544292117535682560,
+            "id": "544288874575323137",
             "favorite_count": 0
         },
         {
@@ -188,7 +119,7 @@
                 "id": 21859275,
                 "name": "Daniel Graham"
             },
-            "id": 544292733318213600,
+            "id": "544292733318213632",
             "favorite_count": 0
         },
         {
@@ -211,7 +142,7 @@
                 "id": 142951285,
                 "name": "Heath Aston"
             },
-            "id": 544292889799307260,
+            "id": "544292889799307265",
             "favorite_count": 0
         },
         {
@@ -514,7 +445,7 @@
                 "id": 76628896,
                 "name": "Paul Murray"
             },
-            "id": 544292904416456700,
+            "id": "544292904416456704",
             "favorite_count": 0
         },
         {
@@ -537,7 +468,7 @@
                 "id": 149867945,
                 "name": "Yoni Bashan"
             },
-            "id": 544292907508052000,
+            "id": "544292907508051968",
             "favorite_count": 0
         },
         {
@@ -1449,12 +1380,12 @@
                 "id": 16834659,
                 "name": "Sky News Australia"
             },
-            "id": 544292910578278400,
+            "id": "544292910578278400",
             "favorite_count": 0
         },
         {
             "first_code": "Affirm",
-            "text": "\u201c@yoni_bashan:  Ray Hadley reporting NSW Police and AFP currently executing warrant at a home in Sydney suburb of Lakemba.\u201d",
+            "text": "“@yoni_bashan:  Ray Hadley reporting NSW Police and AFP currently executing warrant at a home in Sydney suburb of Lakemba.”",
             "points": [
                 {
                     "timestamp": 1418604593615,
@@ -1472,7 +1403,7 @@
                 "id": 2313204931,
                 "name": "Lillian Saleh"
             },
-            "id": 544293231874162700,
+            "id": "544293231874162688",
             "favorite_count": 0
         },
         {
@@ -1495,7 +1426,7 @@
                 "id": 2609462570,
                 "name": "Curious"
             },
-            "id": 544293616336633860,
+            "id": "544293616336633856",
             "favorite_count": 0
         },
         {
@@ -1525,7 +1456,7 @@
                 "id": 54489465,
                 "name": "Afroz Ali"
             },
-            "id": 544293981715054600,
+            "id": "544293981715054592",
             "favorite_count": 0
         },
         {
@@ -1618,7 +1549,7 @@
                 "id": 19178668,
                 "name": "Mamamia"
             },
-            "id": 544294020994699260,
+            "id": "544294020994699264",
             "favorite_count": 0
         },
         {
@@ -1641,7 +1572,7 @@
                 "id": 2742532806,
                 "name": "DarrenWilson"
             },
-            "id": 544294385903755260,
+            "id": "544294385903755265",
             "favorite_count": 0
         },
         {
@@ -1895,7 +1826,7 @@
                 "id": 214007688,
                 "name": "Breaking News"
             },
-            "id": 544294485208104960,
+            "id": "544294485208104961",
             "favorite_count": 0
         },
         {
@@ -1930,9 +1861,9 @@
                 "profile_image_url": "http://pbs.twimg.com/profile_images/542410101219278851/w4eV-oNz_normal.jpeg",
                 "followers_count": 4181,
                 "id": 1913804996,
-                "name": "\u03b1\u03b7\u03b9s"
+                "name": "αηιs"
             },
-            "id": 544294668427862000,
+            "id": "544294668427862016",
             "favorite_count": 0
         },
         {
@@ -1953,9 +1884,9 @@
                 "profile_image_url": "http://pbs.twimg.com/profile_images/513627318590255107/XKcJ3QWL_normal.jpeg",
                 "followers_count": 312,
                 "id": 1265962213,
-                "name": "Jerem\u03b3"
+                "name": "Jeremγ"
             },
-            "id": 544294735058186240,
+            "id": "544294735058186241",
             "favorite_count": 0
         },
         {
@@ -2335,7 +2266,7 @@
                 "id": 581726235,
                 "name": "Michael Safi"
             },
-            "id": 544294755035660300,
+            "id": "544294755035660288",
             "favorite_count": 0
         },
         {
@@ -2358,7 +2289,7 @@
                 "id": 14443299,
                 "name": "kimmar"
             },
-            "id": 544294781346537500,
+            "id": "544294781346537472",
             "favorite_count": 0
         },
         {
@@ -2381,7 +2312,7 @@
                 "id": 33826635,
                 "name": "Micheal Hay"
             },
-            "id": 544294805153402900,
+            "id": "544294805153402882",
             "favorite_count": 0
         },
         {
@@ -2404,7 +2335,7 @@
                 "id": 268124085,
                 "name": "James Stillone"
             },
-            "id": 544294936774852600,
+            "id": "544294936774852609",
             "favorite_count": 0
         },
         {
@@ -2427,7 +2358,7 @@
                 "id": 1486577036,
                 "name": "ULTIMATE TEAM"
             },
-            "id": 544294948309200900,
+            "id": "544294948309200896",
             "favorite_count": 0
         },
         {
@@ -2450,7 +2381,7 @@
                 "id": 403516709,
                 "name": "Sam Lewis"
             },
-            "id": 544294958618800100,
+            "id": "544294958618800128",
             "favorite_count": 0
         },
         {
@@ -2494,7 +2425,7 @@
                 "id": 21282561,
                 "name": "Rupert Myers"
             },
-            "id": 544295014080466940,
+            "id": "544295014080466944",
             "favorite_count": 0
         },
         {
@@ -2552,7 +2483,7 @@
                 "id": 28376011,
                 "name": "David Wyllie"
             },
-            "id": 544295035228143600,
+            "id": "544295035228143616",
             "favorite_count": 0
         },
         {
@@ -2582,7 +2513,7 @@
                 "id": 115239442,
                 "name": "Gloria de Jesus"
             },
-            "id": 544295191142608900,
+            "id": "544295191142608896",
             "favorite_count": 0
         },
         {
@@ -2605,30 +2536,7 @@
                 "id": 268786860,
                 "name": "Neil Doyle"
             },
-            "id": 544295495766908900,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "13 Hostages that are the full responsibility of the Sydney Lakemba Mullah, who needs to be prosecuted if he cannot garner",
-            "points": [
-                {
-                    "timestamp": 1418605231318,
-                    "followers_count": 116,
-                    "popularity": 116,
-                    "verified": false,
-                    "screen_name": "death_to_Swifts"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "death_to_Swifts",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/526114589797130240/GPcU2FUo_normal.png",
-                "followers_count": 116,
-                "id": 2540411900,
-                "name": "Guy Faminely"
-            },
-            "id": 544295906594402300,
+            "id": "544295495766908928",
             "favorite_count": 0
         },
         {
@@ -2649,9 +2557,9 @@
                 "profile_image_url": "http://pbs.twimg.com/profile_images/532377121599934464/LOQG_RmQ_normal.jpeg",
                 "followers_count": 1815,
                 "id": 568119166,
-                "name": "Mi\u0646i "
+                "name": "Miنi "
             },
-            "id": 544295931210772500,
+            "id": "544295931210772480",
             "favorite_count": 0
         },
         {
@@ -2681,7 +2589,7 @@
                 "id": 9507342,
                 "name": "Brian Ries"
             },
-            "id": 544296058642526200,
+            "id": "544296058642526208",
             "favorite_count": 0
         },
         {
@@ -2704,7 +2612,7 @@
                 "id": 47874155,
                 "name": "James O'Doherty"
             },
-            "id": 544296065017450500,
+            "id": "544296065017450496",
             "favorite_count": 0
         },
         {
@@ -2727,30 +2635,7 @@
                 "id": 16307090,
                 "name": "Kate Doak"
             },
-            "id": 544296206201917440,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "#auspoI #siege Muslim's should take and hold hostages in Lakemba mosque ,then they could all be bombed safely without affecting others?..",
-            "points": [
-                {
-                    "timestamp": 1418605303173,
-                    "followers_count": 33,
-                    "popularity": 33,
-                    "verified": false,
-                    "screen_name": "gtperkins"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "gtperkins",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000603367513/7a79f03fe8cc44731533fa82028afdac_normal.jpeg",
-                "followers_count": 33,
-                "id": 1371167210,
-                "name": "George"
-            },
-            "id": 544296207976116200,
+            "id": "544296206201917440",
             "favorite_count": 0
         },
         {
@@ -2780,7 +2665,7 @@
                 "id": 269581619,
                 "name": "7News Adelaide"
             },
-            "id": 544296292369694700,
+            "id": "544296292369694720",
             "favorite_count": 0
         },
         {
@@ -2831,7 +2716,7 @@
                 "id": 121639467,
                 "name": "7NewsMelbourne"
             },
-            "id": 544296292386476000,
+            "id": "544296292386476034",
             "favorite_count": 0
         },
         {
@@ -3043,7 +2928,7 @@
                 "id": 156464691,
                 "name": "7 News Sydney"
             },
-            "id": 544296292399083500,
+            "id": "544296292399083520",
             "favorite_count": 0
         },
         {
@@ -3073,7 +2958,7 @@
                 "id": 74382140,
                 "name": "7News Brisbane"
             },
-            "id": 544296292411662340,
+            "id": "544296292411662336",
             "favorite_count": 0
         },
         {
@@ -3278,12 +3163,12 @@
                 "id": 63362429,
                 "name": "7News Yahoo!7 "
             },
-            "id": 544296292424224800,
+            "id": "544296292424224769",
             "favorite_count": 0
         },
         {
             "first_code": "Affirm",
-            "text": "Meanwhile @cnni @CNN is a disgrace \u2014reporting 'reports' of raids in Lakemba and multiple packages across Sydney. Arseclowns",
+            "text": "Meanwhile @cnni @CNN is a disgrace —reporting 'reports' of raids in Lakemba and multiple packages across Sydney. Arseclowns",
             "points": [
                 {
                     "timestamp": 1418605334510,
@@ -3301,7 +3186,7 @@
                 "id": 139315424,
                 "name": "Liam Gammon"
             },
-            "id": 544296339413008400,
+            "id": "544296339413008386",
             "favorite_count": 0
         },
         {
@@ -3331,7 +3216,7 @@
                 "id": 979302511,
                 "name": "Meir Taub"
             },
-            "id": 544296343465115650,
+            "id": "544296343465115648",
             "favorite_count": 0
         },
         {
@@ -3368,30 +3253,7 @@
                 "id": 282977213,
                 "name": "Amro Ali"
             },
-            "id": 544296402772185100,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "I URGE DRIVERS passing the lakemba Mosque to demand \"STOP THE TERRORIST HOSTAGE TAKERS NOW!\"",
-            "points": [
-                {
-                    "timestamp": 1418605351491,
-                    "followers_count": 116,
-                    "popularity": 116,
-                    "verified": false,
-                    "screen_name": "death_to_Swifts"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "death_to_Swifts",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/526114589797130240/GPcU2FUo_normal.png",
-                "followers_count": 116,
-                "id": 2540411900,
-                "name": "Guy Faminely"
-            },
-            "id": 544296410636492800,
+            "id": "544296402772185088",
             "favorite_count": 0
         },
         {
@@ -3414,7 +3276,7 @@
                 "id": 975220500,
                 "name": "Lady Pong de XMAS "
             },
-            "id": 544296415308951550,
+            "id": "544296415308951552",
             "favorite_count": 0
         },
         {
@@ -3437,12 +3299,12 @@
                 "id": 385567371,
                 "name": "Michael Baggs"
             },
-            "id": 544296440705855500,
+            "id": "544296440705855490",
             "favorite_count": 0
         },
         {
             "first_code": "Affirm",
-            "text": "\u201c@Y7News: Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/exeV5arZXO\u201d",
+            "text": "“@Y7News: Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/exeV5arZXO”",
             "points": [
                 {
                     "timestamp": 1418605371488,
@@ -3486,14 +3348,14 @@
                 "profile_image_url": "http://pbs.twimg.com/profile_images/533800853769957376/HZBHZ2k0_normal.jpeg",
                 "followers_count": 9508,
                 "id": 2502895924,
-                "name": "JewishJihadi\u2122"
+                "name": "JewishJihadi™"
             },
-            "id": 544296494510006300,
+            "id": "544296494510006272",
             "favorite_count": 0
         },
         {
             "first_code": "Affirm",
-            "text": "Sydney \"raids of homes in Lakemba, which has a large Muslim population were taking place now. \u2026\" http://t.co/UCsdgDXO7G",
+            "text": "Sydney \"raids of homes in Lakemba, which has a large Muslim population were taking place now. …\" http://t.co/UCsdgDXO7G",
             "points": [
                 {
                     "timestamp": 1418605372000,
@@ -3525,7 +3387,7 @@
                 "id": 18176907,
                 "name": "DanRiehl"
             },
-            "id": 544296496657485800,
+            "id": "544296496657485824",
             "favorite_count": 0
         },
         {
@@ -3546,14 +3408,14 @@
                 "profile_image_url": "http://pbs.twimg.com/profile_images/529060954621739009/iuiT1GW4_normal.jpeg",
                 "followers_count": 259,
                 "id": 597543632,
-                "name": "b\u00fdfluga"
+                "name": "býfluga"
             },
-            "id": 544296513984151550,
+            "id": "544296513984151553",
             "favorite_count": 0
         },
         {
             "first_code": "Affirm",
-            "text": "Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/LLy87qdjxU\u201d",
+            "text": "Reports of police raids at #Lakemba, south-west of Sydney. Rolling coverage on #siege situation: http://t.co/LLy87qdjxU”",
             "points": [
                 {
                     "timestamp": 1418605413090,
@@ -3571,7 +3433,7 @@
                 "id": 2878831764,
                 "name": "Kyle Mason "
             },
-            "id": 544296669001441300,
+            "id": "544296669001441281",
             "favorite_count": 0
         },
         {
@@ -3594,12 +3456,12 @@
                 "id": 171850291,
                 "name": "Linda"
             },
-            "id": 544296730863222800,
+            "id": "544296730863222784",
             "favorite_count": 0
         },
         {
             "first_code": "Affirm",
-            "text": "NSW Police + AFP are raiding several homes in Lakemba right now. More  #martinplacesiege #sydneysiege #sydneycafesiege (@PMOnAir)\u201d",
+            "text": "NSW Police + AFP are raiding several homes in Lakemba right now. More  #martinplacesiege #sydneysiege #sydneycafesiege (@PMOnAir)”",
             "points": [
                 {
                     "timestamp": 1418605441268,
@@ -3617,7 +3479,7 @@
                 "id": 2930356255,
                 "name": "NEWS NOW 2014"
             },
-            "id": 544296787188531200,
+            "id": "544296787188531201",
             "favorite_count": 0
         },
         {
@@ -3640,7 +3502,7 @@
                 "id": 52388885,
                 "name": "Nathanael Brayne"
             },
-            "id": 544296808483401700,
+            "id": "544296808483401728",
             "favorite_count": 0
         },
         {
@@ -3663,7 +3525,7 @@
                 "id": 62210011,
                 "name": "James Hyams"
             },
-            "id": 544296898228523000,
+            "id": "544296898228523008",
             "favorite_count": 0
         },
         {
@@ -3684,9 +3546,9 @@
                 "profile_image_url": "http://pbs.twimg.com/profile_images/448696291518709760/Cdce_cF2_normal.jpeg",
                 "followers_count": 571,
                 "id": 239345481,
-                "name": "Laura MillanLombra\u00f1a"
+                "name": "Laura MillanLombraña"
             },
-            "id": 544297015299956740,
+            "id": "544297015299956736",
             "favorite_count": 0
         },
         {
@@ -3737,7 +3599,7 @@
                 "id": 22837285,
                 "name": "Nova 96.9"
             },
-            "id": 544297044869783550,
+            "id": "544297044869783553",
             "favorite_count": 0
         },
         {
@@ -3760,7 +3622,7 @@
                 "id": 2652580129,
                 "name": "Shannon S"
             },
-            "id": 544297090545758200,
+            "id": "544297090545758208",
             "favorite_count": 0
         },
         {
@@ -3783,30 +3645,7 @@
                 "id": 152264447,
                 "name": "Mike Elgan "
             },
-            "id": 544297134816645100,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Uncodable",
-            "text": "Descentes de police signal\u00e9es dans le sud ouest de #Sydney #Lakemba",
-            "points": [
-                {
-                    "timestamp": 1418605561917,
-                    "followers_count": 2080,
-                    "popularity": 2080,
-                    "verified": false,
-                    "screen_name": "nanotousch"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "nanotousch",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/512230417081303040/eOowRXHD_normal.jpeg",
-                "followers_count": 2080,
-                "id": 40301992,
-                "name": "Arnaud Tousch"
-            },
-            "id": 544297293227520000,
+            "id": "544297134816645120",
             "favorite_count": 0
         },
         {
@@ -3829,37 +3668,7 @@
                 "id": 22749203,
                 "name": "Tom"
             },
-            "id": 544297437955751940,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Uncodable",
-            "text": "Hay reportes de raids policiales en Lakemba,en los suburbios de Sydney",
-            "points": [
-                {
-                    "timestamp": 1418605617242,
-                    "followers_count": 6269,
-                    "popularity": 6269,
-                    "verified": false,
-                    "screen_name": "GilVidalJose"
-                },
-                {
-                    "timestamp": 1418605638661,
-                    "followers_count": 583,
-                    "popularity": 6852,
-                    "verified": false,
-                    "screen_name": "FrancoM96"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "GilVidalJose",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/456139063523676160/BFHC4hNT_normal.jpeg",
-                "followers_count": 6269,
-                "id": 291862667,
-                "name": "Jos\u00e9 Gil Vidal"
-            },
-            "id": 544297525277384700,
+            "id": "544297437955751936",
             "favorite_count": 0
         },
         {
@@ -3882,7 +3691,7 @@
                 "id": 286604009,
                 "name": "Mike Barlow"
             },
-            "id": 544297564565012500,
+            "id": "544297564565012481",
             "favorite_count": 0
         },
         {
@@ -3933,7 +3742,7 @@
                 "id": 1853558432,
                 "name": "Greg Benson"
             },
-            "id": 544297632978706400,
+            "id": "544297632978706432",
             "favorite_count": 0
         },
         {
@@ -3963,30 +3772,7 @@
                 "id": 53464284,
                 "name": "Aru Sivananthan"
             },
-            "id": 544297685897850900,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "@bendepear @w0tn0t ignorant assholes. You want to be the hostages. Ur the reason we r in this situation. #Lakemba will burn.",
-            "points": [
-                {
-                    "timestamp": 1418605698431,
-                    "followers_count": 116,
-                    "popularity": 116,
-                    "verified": false,
-                    "screen_name": "Aussiewill2"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "Aussiewill2",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/493058415652921345/HMV7PKhe_normal.jpeg",
-                "followers_count": 116,
-                "id": 516103610,
-                "name": "Aussiewill"
-            },
-            "id": 544297865808314400,
+            "id": "544297685897850880",
             "favorite_count": 0
         },
         {
@@ -4009,7 +3795,7 @@
                 "id": 420092533,
                 "name": "deanna"
             },
-            "id": 544297935949672450,
+            "id": "544297935949672449",
             "favorite_count": 0
         },
         {
@@ -4032,7 +3818,7 @@
                 "id": 2470392102,
                 "name": "Chris Georgakopoulos"
             },
-            "id": 544298362195824640,
+            "id": "544298362195824640",
             "favorite_count": 0
         },
         {
@@ -4055,7 +3841,7 @@
                 "id": 395237223,
                 "name": "Kim Vuga"
             },
-            "id": 544298812404023300,
+            "id": "544298812404023296",
             "favorite_count": 0
         },
         {
@@ -4078,30 +3864,7 @@
                 "id": 789501139,
                 "name": "Francis Jenkins "
             },
-            "id": 544298970047336450,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "@Eruptifyy Aslong as its not darling harbour, greenacre, martin place, lakemba or bankstown she should be right.",
-            "points": [
-                {
-                    "timestamp": 1418606020721,
-                    "followers_count": 1341,
-                    "popularity": 1341,
-                    "verified": false,
-                    "screen_name": "StitchzStyle"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "StitchzStyle",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/535318896786432000/ks8Yl3QT_normal.png",
-                "followers_count": 1341,
-                "id": 1455651955,
-                "name": "Red Stitch BS"
-            },
-            "id": 544299217590579200,
+            "id": "544298970047336449",
             "favorite_count": 0
         },
         {
@@ -4201,7 +3964,7 @@
                 "id": 25692368,
                 "name": "Omri Ceren"
             },
-            "id": 544299406808584200,
+            "id": "544299406808584192",
             "favorite_count": 0
         },
         {
@@ -4224,7 +3987,7 @@
                 "id": 365381134,
                 "name": "Jim Little"
             },
-            "id": 544299482557329400,
+            "id": "544299482557329408",
             "favorite_count": 0
         },
         {
@@ -4247,7 +4010,7 @@
                 "id": 598897494,
                 "name": "SGS"
             },
-            "id": 544299494867619840,
+            "id": "544299494867619840",
             "favorite_count": 0
         },
         {
@@ -4270,42 +4033,12 @@
                 "id": 275765160,
                 "name": "Now Media News"
             },
-            "id": 544299524983103500,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "Lakemba Mosque needs to to be shown the virtues of a good old fashioned Aussie BBQ  #sydneysiege",
-            "points": [
-                {
-                    "timestamp": 1418606108704,
-                    "followers_count": 1341,
-                    "popularity": 1341,
-                    "verified": false,
-                    "screen_name": "Vassa42"
-                },
-                {
-                    "timestamp": 1418606179065,
-                    "followers_count": 467,
-                    "popularity": 1808,
-                    "verified": false,
-                    "screen_name": "AnitaTeguh"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "Vassa42",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/530079480002265089/J3V3AWiW_normal.jpeg",
-                "followers_count": 1341,
-                "id": 228924029,
-                "name": "Team Australia- Bill"
-            },
-            "id": 544299586618019840,
+            "id": "544299524983103488",
             "favorite_count": 0
         },
         {
             "first_code": "Deny",
-            "text": "RT \u201c@ChrisGeorgak: #Campsie police confirm no raids are happening in #Lakemba. #sydneysiege\u201d",
+            "text": "RT “@ChrisGeorgak: #Campsie police confirm no raids are happening in #Lakemba. #sydneysiege”",
             "points": [
                 {
                     "timestamp": 1418606109460,
@@ -4330,7 +4063,7 @@
                 "id": 17796830,
                 "name": "Jessica Clement"
             },
-            "id": 544299589788905500,
+            "id": "544299589788905472",
             "favorite_count": 0
         },
         {
@@ -4367,7 +4100,7 @@
                 "id": 1118527543,
                 "name": "Mildred.Co"
             },
-            "id": 544299594411036700,
+            "id": "544299594411036672",
             "favorite_count": 0
         },
         {
@@ -4404,37 +4137,7 @@
                 "id": 63218040,
                 "name": "Vasco"
             },
-            "id": 544299695385100300,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Uncodable",
-            "text": "Hay reportes de redadas policiales en Lakemba,en los suburbios de Sydney ubicado a 15 Km del centro de Syndey",
-            "points": [
-                {
-                    "timestamp": 1418606168106,
-                    "followers_count": 4372,
-                    "popularity": 4372,
-                    "verified": false,
-                    "screen_name": "taxicba"
-                },
-                {
-                    "timestamp": 1418606272121,
-                    "followers_count": 4483,
-                    "popularity": 8855,
-                    "verified": false,
-                    "screen_name": "FedeHooft"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "taxicba",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/2337716262/jsrhee7pqmxl85v5vbpf_normal.jpeg",
-                "followers_count": 4372,
-                "id": 444106180,
-                "name": "TaxiCba \u00ae "
-            },
-            "id": 544299835768451100,
+            "id": "544299695385100290",
             "favorite_count": 0
         },
         {
@@ -4457,7 +4160,7 @@
                 "id": 2740426550,
                 "name": "o_rips"
             },
-            "id": 544300123908341760,
+            "id": "544300123908341760",
             "favorite_count": 0
         },
         {
@@ -4480,7 +4183,7 @@
                 "id": 20494827,
                 "name": "Saso Virag"
             },
-            "id": 544300353714266100,
+            "id": "544300353714266113",
             "favorite_count": 0
         },
         {
@@ -4503,7 +4206,7 @@
                 "id": 469958169,
                 "name": "Mark@Knowfirst"
             },
-            "id": 544300370260795400,
+            "id": "544300370260795392",
             "favorite_count": 0
         },
         {
@@ -4533,7 +4236,7 @@
                 "id": 6848772,
                 "name": "Valerio Veo"
             },
-            "id": 544300432730751000,
+            "id": "544300432730750976",
             "favorite_count": 0
         },
         {
@@ -4878,7 +4581,7 @@
                 "id": 514019413,
                 "name": "Mohamed Taha"
             },
-            "id": 544300755893497860,
+            "id": "544300755893497856",
             "favorite_count": 0
         },
         {
@@ -4901,7 +4604,7 @@
                 "id": 59089593,
                 "name": "Sophie Scoot"
             },
-            "id": 544300934759587840,
+            "id": "544300934759587842",
             "favorite_count": 0
         },
         {
@@ -4938,7 +4641,7 @@
                 "id": 252452455,
                 "name": "Kernaghan Associates"
             },
-            "id": 544301030242934800,
+            "id": "544301030242934784",
             "favorite_count": 0
         },
         {
@@ -4961,7 +4664,7 @@
                 "id": 176706827,
                 "name": "Naz Black"
             },
-            "id": 544301426646605800,
+            "id": "544301426646605824",
             "favorite_count": 0
         },
         {
@@ -4998,7 +4701,7 @@
                 "id": 21582436,
                 "name": "NoisyRoom"
             },
-            "id": 544301557211078660,
+            "id": "544301557211078656",
             "favorite_count": 0
         },
         {
@@ -5021,7 +4724,7 @@
                 "id": 353780204,
                 "name": "Roddy Mansfield"
             },
-            "id": 544301873264881660,
+            "id": "544301873264881664",
             "favorite_count": 0
         },
         {
@@ -5044,7 +4747,7 @@
                 "id": 2373570728,
                 "name": "Australian News"
             },
-            "id": 544302513907064800,
+            "id": "544302513907064833",
             "favorite_count": 0
         },
         {
@@ -5067,7 +4770,7 @@
                 "id": 19091128,
                 "name": "Cal two"
             },
-            "id": 544302705532239900,
+            "id": "544302705532239873",
             "favorite_count": 0
         },
         {
@@ -5090,7 +4793,7 @@
                 "id": 93337348,
                 "name": "Lee Skelton"
             },
-            "id": 544302984725688300,
+            "id": "544302984725688320",
             "favorite_count": 0
         },
         {
@@ -5120,7 +4823,7 @@
                 "id": 46376374,
                 "name": "TallulahTangle"
             },
-            "id": 544303746688499700,
+            "id": "544303746688499712",
             "favorite_count": 0
         },
         {
@@ -5150,44 +4853,7 @@
                 "id": 1573918574,
                 "name": "LordSamidogOfMisrule"
             },
-            "id": 544303970500358140,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "So apparently similar attacks are happening in Lakemba and possibly other parts of Sydney, channel 7 idk if it's true but I'm shit scared",
-            "points": [
-                {
-                    "timestamp": 1418607233847,
-                    "followers_count": 170,
-                    "popularity": 170,
-                    "verified": false,
-                    "screen_name": "Lina_Martinezz"
-                },
-                {
-                    "timestamp": 1418607264316,
-                    "followers_count": 931,
-                    "popularity": 1101,
-                    "verified": false,
-                    "screen_name": "Tetrisnet"
-                },
-                {
-                    "timestamp": 1418607383853,
-                    "followers_count": 238,
-                    "popularity": 1339,
-                    "verified": false,
-                    "screen_name": "turnerrmeon"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "Lina_Martinezz",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/461462911991287808/6KfOvXt3_normal.jpeg",
-                "followers_count": 170,
-                "id": 554279165,
-                "name": "Lina Martinez"
-            },
-            "id": 544304305809813500,
+            "id": "544303970500358144",
             "favorite_count": 0
         },
         {
@@ -5210,7 +4876,7 @@
                 "id": 248847685,
                 "name": "Saroosh Abbasi"
             },
-            "id": 544305136072282100,
+            "id": "544305136072282113",
             "favorite_count": 0
         },
         {
@@ -5233,60 +4899,7 @@
                 "id": 22469584,
                 "name": "Belinda Demy-Geroe"
             },
-            "id": 544305166443229200,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Uncodable",
-            "text": "geblek tuh teroris di Sydney. itu distrik Lakemba sama Tempe abis ini bisa aja diobrak abrik sama Federal Police. #SydneySiege",
-            "points": [
-                {
-                    "timestamp": 1418607576878,
-                    "followers_count": 1033,
-                    "popularity": 1033,
-                    "verified": false,
-                    "screen_name": "freydoh"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "freydoh",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/503377806966128640/2Frt9Yzc_normal.jpeg",
-                "followers_count": 1033,
-                "id": 143704582,
-                "name": "fr(y)dh \u2122"
-            },
-            "id": 544305744586088450,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "While Muslims pray for hostages in Lindt chocolate Cafe, Muslims are being rounded in Lakemba",
-            "points": [
-                {
-                    "timestamp": 1418608122012,
-                    "followers_count": 1333,
-                    "popularity": 1333,
-                    "verified": false,
-                    "screen_name": "australiwitness"
-                },
-                {
-                    "timestamp": 1418608170292,
-                    "followers_count": 992,
-                    "popularity": 2325,
-                    "verified": false,
-                    "screen_name": "Restorer999"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "australiwitness",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/542903009403891712/FVDbSJf7_normal.jpeg",
-                "followers_count": 1333,
-                "id": 2835723169,
-                "name": "Australian Witness"
-            },
-            "id": 544308031043817500,
+            "id": "544305166443229184",
             "favorite_count": 0
         },
         {
@@ -8277,7 +7890,7 @@
                 "id": 1532402708,
                 "name": "AFP National Media"
             },
-            "id": 544308531684335600,
+            "id": "544308531684335617",
             "favorite_count": 0
         },
         {
@@ -8321,7 +7934,7 @@
                 "id": 2730020462,
                 "name": "Breaking 3.0"
             },
-            "id": 544308638882758660,
+            "id": "544308638882758656",
             "favorite_count": 0
         },
         {
@@ -8386,7 +7999,7 @@
                 "id": 17831767,
                 "name": "Laura Jayes"
             },
-            "id": 544308720256024600,
+            "id": "544308720256024578",
             "favorite_count": 0
         },
         {
@@ -8416,30 +8029,7 @@
                 "id": 82998105,
                 "name": "Chris"
             },
-            "id": 544308811792543740,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "@MariamVeiszadeh Where are all the Lakemba boys now? Still on their way in to town to help out?!?!   #sydneysiege",
-            "points": [
-                {
-                    "timestamp": 1418608324512,
-                    "followers_count": 5,
-                    "popularity": 5,
-                    "verified": false,
-                    "screen_name": "silent_no_longr"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "silent_no_longr",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/542819851496988673/3SpbbFYq_normal.jpeg",
-                "followers_count": 5,
-                "id": 2926217803,
-                "name": "Silent Majority"
-            },
-            "id": 544308880390385660,
+            "id": "544308811792543744",
             "favorite_count": 0
         },
         {
@@ -8462,7 +8052,7 @@
                 "id": 14112718,
                 "name": "Jack"
             },
-            "id": 544308923813994500,
+            "id": "544308923813994496",
             "favorite_count": 0
         },
         {
@@ -8483,9 +8073,9 @@
                 "profile_image_url": "http://pbs.twimg.com/profile_images/514000732228296704/uoXQvs6P_normal.png",
                 "followers_count": 396,
                 "id": 31357439,
-                "name": "Bj\u00f6rn"
+                "name": "Björn"
             },
-            "id": 544309223102742500,
+            "id": "544309223102742528",
             "favorite_count": 0
         },
         {
@@ -8508,7 +8098,7 @@
                 "id": 2930356255,
                 "name": "NEWS NOW 2014"
             },
-            "id": 544309647872520200,
+            "id": "544309647872520192",
             "favorite_count": 0
         },
         {
@@ -8545,7 +8135,7 @@
                 "id": 21640980,
                 "name": "Michael Sin"
             },
-            "id": 544309800662626300,
+            "id": "544309800662626304",
             "favorite_count": 0
         },
         {
@@ -8568,63 +8158,12 @@
                 "id": 93102507,
                 "name": "eithne"
             },
-            "id": 544310226619338750,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "#MartinPlace waiting for protest Lakemba against these actions like protest against arrests of terrorists. Won't hold breath #banislam",
-            "points": [
-                {
-                    "timestamp": 1418608781634,
-                    "followers_count": 115,
-                    "popularity": 115,
-                    "verified": false,
-                    "screen_name": "ari_gold_99"
-                },
-                {
-                    "timestamp": 1418608975814,
-                    "followers_count": 1679,
-                    "popularity": 1794,
-                    "verified": false,
-                    "screen_name": "jewelsparkle3"
-                },
-                {
-                    "timestamp": 1418609029219,
-                    "followers_count": 5834,
-                    "popularity": 7628,
-                    "verified": false,
-                    "screen_name": "h_appleby"
-                },
-                {
-                    "timestamp": 1418609046401,
-                    "followers_count": 1239,
-                    "popularity": 8867,
-                    "verified": false,
-                    "screen_name": "OZzSue"
-                },
-                {
-                    "timestamp": 1418609071999,
-                    "followers_count": 424,
-                    "popularity": 9291,
-                    "verified": false,
-                    "screen_name": "michael83537389"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "ari_gold_99",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/3760600871/ed0a2f5cdb44b53e087f961857234f35_normal.jpeg",
-                "followers_count": 115,
-                "id": 352972680,
-                "name": "ari_gold_99"
-            },
-            "id": 544310797698994200,
+            "id": "544310226619338753",
             "favorite_count": 0
         },
         {
             "first_code": "Deny",
-            "text": "RT @AFPmedia: \"Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\u201d",
+            "text": "RT @AFPmedia: \"Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.”",
             "points": [
                 {
                     "timestamp": 1418608795859,
@@ -8642,35 +8181,12 @@
                 "id": 297106603,
                 "name": "Dulce"
             },
-            "id": 544310857362989060,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Uncodable",
-            "text": "AUSTRALIA: polic\u00eda desmiente que se est\u00e9 llevando a cabo registros en el suburbio de #Sydney, Lakemba por AFP - son inciertos",
-            "points": [
-                {
-                    "timestamp": 1418608805310,
-                    "followers_count": 26549,
-                    "popularity": 26549,
-                    "verified": false,
-                    "screen_name": "InfoEmerg"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "InfoEmerg",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/492442265730572288/hQ5pKoHd_normal.png",
-                "followers_count": 26549,
-                "id": 1087313888,
-                "name": "InfoEmergencias"
-            },
-            "id": 544310897003728900,
+            "id": "544310857362989057",
             "favorite_count": 0
         },
         {
             "first_code": "Deny",
-            "text": "Beware of misinformation \u201c@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\u201d",
+            "text": "Beware of misinformation “@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.”",
             "points": [
                 {
                     "timestamp": 1418608850732,
@@ -8688,7 +8204,7 @@
                 "id": 303458826,
                 "name": "Laura"
             },
-            "id": 544311087517032450,
+            "id": "544311087517032449",
             "favorite_count": 0
         },
         {
@@ -8725,37 +8241,7 @@
                 "id": 778057,
                 "name": "Andy Carvin"
             },
-            "id": 544311275594186750,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "Are there street parties in Lakemba celebrating the hostage taking",
-            "points": [
-                {
-                    "timestamp": 1418608907066,
-                    "followers_count": 834,
-                    "popularity": 834,
-                    "verified": false,
-                    "screen_name": "chalky021154"
-                },
-                {
-                    "timestamp": 1418609060937,
-                    "followers_count": 1389,
-                    "popularity": 2223,
-                    "verified": false,
-                    "screen_name": "AbrennaBrennan"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "chalky021154",
-                "profile_image_url": "http://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png",
-                "followers_count": 834,
-                "id": 90573567,
-                "name": "chris"
-            },
-            "id": 544311323798941700,
+            "id": "544311275594186752",
             "favorite_count": 0
         },
         {
@@ -8778,7 +8264,7 @@
                 "id": 347713233,
                 "name": "Ella Archibald-Binge"
             },
-            "id": 544311363485462500,
+            "id": "544311363485462528",
             "favorite_count": 0
         },
         {
@@ -8801,7 +8287,7 @@
                 "id": 176706827,
                 "name": "Naz Black"
             },
-            "id": 544311418917355500,
+            "id": "544311418917355521",
             "favorite_count": 0
         },
         {
@@ -8838,30 +8324,7 @@
                 "id": 17919393,
                 "name": "Steve Herman"
             },
-            "id": 544311452517928960,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Uncodable",
-            "text": "AUSTRALIA: Polic\u00eda desmiente que se est\u00e9 llevando a cabo registros en el suburbio de #Sydney, Lakemba por AFP - son inciertos\"",
-            "points": [
-                {
-                    "timestamp": 1418608942769,
-                    "followers_count": 101918,
-                    "popularity": 101918,
-                    "verified": false,
-                    "screen_name": "hoy_mismo"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "hoy_mismo",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/511950836092514305/GuK-2JO6_normal.png",
-                "followers_count": 101918,
-                "id": 78416471,
-                "name": "Noticiero Hoy Mismo"
-            },
-            "id": 544311473548587000,
+            "id": "544311452517928961",
             "favorite_count": 0
         },
         {
@@ -8884,7 +8347,7 @@
                 "id": 275765160,
                 "name": "Now Media News"
             },
-            "id": 544311575554048000,
+            "id": "544311575554048001",
             "favorite_count": 0
         },
         {
@@ -8907,7 +8370,7 @@
                 "id": 715575432,
                 "name": "Kim R"
             },
-            "id": 544311818001207300,
+            "id": "544311818001207296",
             "favorite_count": 0
         },
         {
@@ -8944,7 +8407,7 @@
                 "id": 2670408355,
                 "name": "WORLD OUTBACK NEWS"
             },
-            "id": 544311969470107650,
+            "id": "544311969470107648",
             "favorite_count": 0
         },
         {
@@ -8967,7 +8430,7 @@
                 "id": 37891446,
                 "name": "Mitchell N"
             },
-            "id": 544312097304096800,
+            "id": "544312097304096770",
             "favorite_count": 0
         },
         {
@@ -8990,56 +8453,12 @@
                 "id": 112047917,
                 "name": "Michael Angelo"
             },
-            "id": 544312218255233000,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "@AFPmedia @nswpolice A Shiite Muslim taxi driver tells me: \"lakemba mosque is the problem\" why do our politicians go brown nosing there?",
-            "points": [
-                {
-                    "timestamp": 1418609177644,
-                    "followers_count": 335,
-                    "popularity": 335,
-                    "verified": false,
-                    "screen_name": "MissOginy"
-                },
-                {
-                    "timestamp": 1418609358921,
-                    "followers_count": 2053,
-                    "popularity": 2388,
-                    "verified": false,
-                    "screen_name": "BruhnRose"
-                },
-                {
-                    "timestamp": 1418609451405,
-                    "followers_count": 3291,
-                    "popularity": 5679,
-                    "verified": false,
-                    "screen_name": "XxPLWxX"
-                },
-                {
-                    "timestamp": 1418609485807,
-                    "followers_count": 1239,
-                    "popularity": 6918,
-                    "verified": false,
-                    "screen_name": "OZzSue"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "MissOginy",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000332898717/885080f322ccdd7f3f3b74783133ae44_normal.png",
-                "followers_count": 335,
-                "id": 225970425,
-                "name": "Rita"
-            },
-            "id": 544312458685337600,
+            "id": "544312218255233025",
             "favorite_count": 0
         },
         {
             "first_code": "Deny",
-            "text": "RT \u201c@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\u201d",
+            "text": "RT “@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.”",
             "points": [
                 {
                     "timestamp": 1418609477654,
@@ -9069,9 +8488,9 @@
                 "profile_image_url": "http://pbs.twimg.com/profile_images/533800853769957376/HZBHZ2k0_normal.jpeg",
                 "followers_count": 9516,
                 "id": 2502895924,
-                "name": "JewishJihadi\u2122"
+                "name": "JewishJihadi™"
             },
-            "id": 544313717018484740,
+            "id": "544313717018484736",
             "favorite_count": 0
         },
         {
@@ -9283,12 +8702,12 @@
                 "id": 21744712,
                 "name": "Bridie Jabour"
             },
-            "id": 544313947902341100,
+            "id": "544313947902341120",
             "favorite_count": 0
         },
         {
             "first_code": "Deny",
-            "text": "RT\u201c@9NewsSyd: UPDATE: Police say reports raids are being carried out in the Sydney suburb of Lakemba are incorrect. #9News\u201d",
+            "text": "RT“@9NewsSyd: UPDATE: Police say reports raids are being carried out in the Sydney suburb of Lakemba are incorrect. #9News”",
             "points": [
                 {
                     "timestamp": 1418609589191,
@@ -9432,30 +8851,7 @@
                 "id": 205242337,
                 "name": "Lisa Wilkinson"
             },
-            "id": 544314184838565900,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "Waiting for George Brandis to announce our invasion of Lakemba. #sydneysiege",
-            "points": [
-                {
-                    "timestamp": 1418609595848,
-                    "followers_count": 34,
-                    "popularity": 34,
-                    "verified": false,
-                    "screen_name": "SP74656"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "SP74656",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/438871199557238784/00AoEVUC_normal.jpeg",
-                "followers_count": 34,
-                "id": 632801322,
-                "name": "Simon Says"
-            },
-            "id": 544314212760039400,
+            "id": "544314184838565888",
             "favorite_count": 0
         },
         {
@@ -9478,7 +8874,7 @@
                 "id": 420209564,
                 "name": "Brent Davidson"
             },
-            "id": 544314388472012800,
+            "id": "544314388472012800",
             "favorite_count": 0
         },
         {
@@ -9508,60 +8904,7 @@
                 "id": 63112335,
                 "name": "Legible Muslim"
             },
-            "id": 544314466125365250,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "Lets go fuck up Lakemba #sydneysiege",
-            "points": [
-                {
-                    "timestamp": 1418609674305,
-                    "followers_count": 6,
-                    "popularity": 6,
-                    "verified": false,
-                    "screen_name": "sloppyschitz"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "sloppyschitz",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/516634591588024320/z_n0DwrI_normal.jpeg",
-                "followers_count": 6,
-                "id": 2637583187,
-                "name": "\u13a0\u13a1 \u13d4\u13a7\u13e9"
-            },
-            "id": 544314541832941600,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "Seriously? NOT what we need right now. \u201c@sloppyschitz: Lets go fuck up Lakemba #sydneysiege\u201d",
-            "points": [
-                {
-                    "timestamp": 1418609845554,
-                    "followers_count": 3742,
-                    "popularity": 3742,
-                    "verified": false,
-                    "screen_name": "HeyASIO"
-                },
-                {
-                    "timestamp": 1418609976992,
-                    "followers_count": 814,
-                    "popularity": 4556,
-                    "verified": false,
-                    "screen_name": "Prufrockery"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "HeyASIO",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/515363549539880960/sL4Dh3Eh_normal.jpeg",
-                "followers_count": 3742,
-                "id": 2832527047,
-                "name": "ASIO"
-            },
-            "id": 544315260102901760,
+            "id": "544314466125365248",
             "favorite_count": 0
         },
         {
@@ -9598,7 +8941,7 @@
                 "id": 338053001,
                 "name": "Mike Ticher"
             },
-            "id": 544315309759660000,
+            "id": "544315309759660032",
             "favorite_count": 0
         },
         {
@@ -9621,30 +8964,7 @@
                 "id": 289787164,
                 "name": "Dumb (Shirt) Frunt"
             },
-            "id": 544315757543165950,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "that's a criminal offence..  @HeyASIO: Seriously? NOT what we need right now. \u201c@sloppyschitz: Lets go fuck up Lakemba #sydneysiege\u201d",
-            "points": [
-                {
-                    "timestamp": 1418610042105,
-                    "followers_count": 2189,
-                    "popularity": 2189,
-                    "verified": false,
-                    "screen_name": "MarkRDuckett"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "MarkRDuckett",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/539973442942939136/V-yVkZMh_normal.png",
-                "followers_count": 2189,
-                "id": 258289977,
-                "name": "\u0442\u043e\u0432\u0430\u0440\u0438\u0449 Mark"
-            },
-            "id": 544316084497559550,
+            "id": "544315757543165952",
             "favorite_count": 0
         },
         {
@@ -9674,30 +8994,7 @@
                 "id": 129805651,
                 "name": "Drew White Christmas"
             },
-            "id": 544316446885437440,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "Burn the Lakemba Mosque to the fucking ground. We have tollerated those goat fucking savages for long enough #sydneysiege",
-            "points": [
-                {
-                    "timestamp": 1418610324360,
-                    "followers_count": 7,
-                    "popularity": 7,
-                    "verified": false,
-                    "screen_name": "realtalk1488"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "realtalk1488",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/542197140911435776/pWkeGh7J_normal.jpeg",
-                "followers_count": 7,
-                "id": 2923460628,
-                "name": "Marcus Johansson"
-            },
-            "id": 544317268360822800,
+            "id": "544316446885437440",
             "favorite_count": 0
         },
         {
@@ -9720,7 +9017,7 @@
                 "id": 2403126061,
                 "name": "Sylps"
             },
-            "id": 544320797452808200,
+            "id": "544320797452808193",
             "favorite_count": 0
         },
         {
@@ -9743,7 +9040,7 @@
                 "id": 2242439771,
                 "name": "Gabriel"
             },
-            "id": 544320862011555840,
+            "id": "544320862011555840",
             "favorite_count": 0
         },
         {
@@ -9766,7 +9063,7 @@
                 "id": 153876973,
                 "name": "Sterling Holmes"
             },
-            "id": 544321085102391300,
+            "id": "544321085102391296",
             "favorite_count": 0
         },
         {
@@ -9796,7 +9093,7 @@
                 "id": 2762583461,
                 "name": "Kyle Mazza"
             },
-            "id": 544321203545325600,
+            "id": "544321203545325568",
             "favorite_count": 0
         },
         {
@@ -9826,7 +9123,7 @@
                 "id": 2217671741,
                 "name": "WUNFNews"
             },
-            "id": 544321203620818940,
+            "id": "544321203620818944",
             "favorite_count": 0
         },
         {
@@ -9856,7 +9153,7 @@
                 "id": 2632367524,
                 "name": "The WUNF MorningShow"
             },
-            "id": 544321203658567700,
+            "id": "544321203658567680",
             "favorite_count": 0
         },
         {
@@ -9886,7 +9183,7 @@
                 "id": 2790113939,
                 "name": "Denise Marain"
             },
-            "id": 544321203696324600,
+            "id": "544321203696324608",
             "favorite_count": 0
         },
         {
@@ -9909,7 +9206,7 @@
                 "id": 2593165068,
                 "name": "News Junkie"
             },
-            "id": 544321758611111940,
+            "id": "544321758611111936",
             "favorite_count": 0
         },
         {
@@ -9932,7 +9229,7 @@
                 "id": 2815553720,
                 "name": "Chet Huntley"
             },
-            "id": 544322203031179260,
+            "id": "544322203031179264",
             "favorite_count": 0
         },
         {
@@ -9955,7 +9252,7 @@
                 "id": 27404671,
                 "name": "SavageNation"
             },
-            "id": 544322377719742460,
+            "id": "544322377719742464",
             "favorite_count": 0
         },
         {
@@ -9978,7 +9275,7 @@
                 "id": 2521522134,
                 "name": "MI News Place"
             },
-            "id": 544322400519979000,
+            "id": "544322400519979008",
             "favorite_count": 0
         },
         {
@@ -10001,7 +9298,7 @@
                 "id": 24122822,
                 "name": "Scott Schwebke"
             },
-            "id": 544322665474195460,
+            "id": "544322665474195456",
             "favorite_count": 0
         },
         {
@@ -10024,12 +9321,12 @@
                 "id": 219915030,
                 "name": "milio.web.id"
             },
-            "id": 544323102797086700,
+            "id": "544323102797086720",
             "favorite_count": 0
         },
         {
             "first_code": "Deny",
-            "text": "\u201c@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.\u201d @theelaminator nah it's ok",
+            "text": "“@AFPmedia: Reports that the AFP is conducting search warrants in the Sydney suburb of Lakemba are incorrect.” @theelaminator nah it's ok",
             "points": [
                 {
                     "timestamp": 1418612025106,
@@ -10047,12 +9344,12 @@
                 "id": 335116806,
                 "name": "Jessie"
             },
-            "id": 544324401806577660,
+            "id": "544324401806577665",
             "favorite_count": 0
         },
         {
             "first_code": "Deny",
-            "text": "\u201c@PMOnAir: SCIPIONE: The raids in Lakemba are not linked to cafe siege.#sydsiege #MartinPlaceSiege\u201d &gt; just a mosque visit hey @bkjabour",
+            "text": "“@PMOnAir: SCIPIONE: The raids in Lakemba are not linked to cafe siege.#sydsiege #MartinPlaceSiege” &gt; just a mosque visit hey @bkjabour",
             "points": [
                 {
                     "timestamp": 1418612687783,
@@ -10070,60 +9367,7 @@
                 "id": 1141446830,
                 "name": "**mlm**"
             },
-            "id": 544327181275394050,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "Lakemba &amp; parramatta n all parts of Australia  ..let's show unity with this  Sydney  seige #peace #love #kindness #unity will drive out hate",
-            "points": [
-                {
-                    "timestamp": 1418612704653,
-                    "followers_count": 372,
-                    "popularity": 372,
-                    "verified": false,
-                    "screen_name": "Glittermegangel"
-                },
-                {
-                    "timestamp": 1418612808842,
-                    "followers_count": 409,
-                    "popularity": 781,
-                    "verified": false,
-                    "screen_name": "chrisjackis"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "Glittermegangel",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/544018694297235456/oWy0jc4L_normal.jpeg",
-                "followers_count": 372,
-                "id": 29198219,
-                "name": "Meg Louise Angel "
-            },
-            "id": 544327252033273860,
-            "favorite_count": 0
-        },
-        {
-            "first_code": "Unrelated",
-            "text": "@saraham77 @AFPmedia @nswpolice it's not Lakemba - it's Punchbowl",
-            "points": [
-                {
-                    "timestamp": 1418612779118,
-                    "followers_count": 853,
-                    "popularity": 853,
-                    "verified": false,
-                    "screen_name": "mickymantell"
-                }
-            ],
-            "user": {
-                "verified": false,
-                "screen_name": "mickymantell",
-                "profile_image_url": "http://pbs.twimg.com/profile_images/378800000231147492/93599159d5f723c05fe1296f64165f82_normal.jpeg",
-                "followers_count": 853,
-                "id": 455699956,
-                "name": "Micky Mantell"
-            },
-            "id": 544327564362125300,
+            "id": "544327181275394049",
             "favorite_count": 0
         },
         {
@@ -10146,7 +9390,7 @@
                 "id": 171850291,
                 "name": "Linda"
             },
-            "id": 544329545956864000,
+            "id": "544329545956864001",
             "favorite_count": 0
         },
         {
@@ -10169,7 +9413,7 @@
                 "id": 1317792486,
                 "name": "757Live World"
             },
-            "id": 544330146304786400,
+            "id": "544330146304786432",
             "favorite_count": 0
         },
         {
@@ -10192,7 +9436,7 @@
                 "id": 204043844,
                 "name": "El Guapo Plethora"
             },
-            "id": 544330797516214300,
+            "id": "544330797516214272",
             "favorite_count": 0
         }
     ]

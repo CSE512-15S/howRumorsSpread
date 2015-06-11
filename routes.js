@@ -31,15 +31,17 @@ router.get('/list-collections', function (req, res) {
   });
 });
 
-router.post('/trim-collection', function(req, res) {
-  var collectionName = 'lakemba'
-      databaseName = 'sydneysiege',
-      minBound = '0',
-      maxBound = '1418613549962';
-  var cliArgs = databaseName + " " + collectionName + " " + minBound + " " + maxBound;
-  exec('./data-collection/process-collections-cli.js' + cliArgs, function () {
-    res.send("done");
-  });
-});
+// TODO: For the front end bound trimming feature
+// router.post('/trim-collection', function(req, res) {
+//   // TODO: these should all be passed in the POST body
+//   var collectionName = 'lakemba'
+//       databaseName = 'sydneysiege',
+//       minBound = '0',
+//       maxBound = '1418613549962';
+//   var cliArgs = databaseName + " " + collectionName + " " + minBound + " " + maxBound;
+//   exec('./data-collection/process-collections-cli.js' + cliArgs, function () {
+//     res.send("done");
+//   });
+// });
 
 module.exports = router;
