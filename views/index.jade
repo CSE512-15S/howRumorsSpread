@@ -1,58 +1,64 @@
 extends layout
 
 block content
-  .row#main-controls
-    .col-sm-12
-        h4 Choose a rumor
-        .form-group
-            select("data-bind"="options: collections, optionsText: 'collection_name', value: activeCollection")
-  .row
-    .col-sm-4#detail
-        .detailview
-            #eventmeta
-                .row
-                    .col-sm-12("data-bind"="with: activeCollection")
-                        h3#event-title("data-bind"="text: rumor_name")
-                        p#event-meta("data-bind"="text: date")
-                        p#event-description.small("data-bind"="text: description")
-            #tweetview.hidden
-                .row
-                    .col-sm-2.avatar-wrapper &nbsp;
-                        .avatar.avatar-custom &nbsp;
-                        .avatar.avatar-default.desaturate &nbsp;
-                    .col-sm-10
-                        p
-                            strong.username Username
-                            span &nbsp;
-                            a.screenname(href="http://twitter.com/", target="_blank") @screenname
-                            span.verified.hidden
-                            br
-                            span.time time
-                            span.followercount
-                        p.tweet Tweet
-                #retweetList.hidden
-                    table.table.table-hover.header-fixed
-        h3 Leaderboard
-        #leaderboard
-            table.table.table-hover.header-fixed
-    .col-sm-8#master
-            #spaghetti
-                .controls.form-inline
-                    .btn-group(data-toggle="buttons")
-                        label.btn.btn-xs.btn-default.active(id='scale-linear')
-                            input(type='radio')
-                            | Linear
-                        label.btn.btn-xs.btn-default(id='scale-log')
-                            input(type='radio')
-                            | Log
-                    span.small Timezone:
-                    select#timezoneSelect.small.form-control
-                .svgContainer
-            #legend
-                .svgContainer
-            #stream
-                .svgContainer
-                .controls.form-inline
-                    .btn-group.pick-stream-chart(role="group", "aria-label"="...")
-                        button(type="button", class="btn btn-xs btn-default active", value="streamGraph") Volume Graph
-                        button(type="button", class="btn btn-xs btn-default", value="areaGraph") Area Chart
+    #modal("data-bind"="visible: showLoadingModal")
+        .modal-content
+            h4 Loading...
+            .progress
+                .progress-bar.progress-bar-striped.active("aria-valuenow"="45", "aria-valuemin"="0", "aria-valuemax"="100", style="width: 100%")
+    .row#main-controls
+        .col-sm-12
+            h4 Choose a rumor
+            .form-group
+                select("data-bind"="options: collections, optionsText: 'collection_name', value: activeCollection")
+    .row
+        .col-sm-4#detail
+            .detailview
+                #eventmeta
+                    .row
+                        .col-sm-12("data-bind"="with: activeCollection")
+                            h3#event-title("data-bind"="text: rumor_name")
+                            p#event-meta("data-bind"="text: date")
+                            p#event-description.small("data-bind"="text: description")
+                #tweetview.hidden
+                    .row
+                        .col-sm-2.avatar-wrapper &nbsp;
+                            .avatar.avatar-custom &nbsp;
+                            .avatar.avatar-default.desaturate &nbsp;
+                        .col-sm-10
+                            p
+                                strong.username Username
+                                span &nbsp;
+                                a.screenname(href="http://twitter.com/", target="_blank") @screenname
+                                span.verified.hidden
+                                br
+                                span.time time
+                                span.followercount
+                            p.tweet Tweet
+                    #retweetList.hidden
+                        table.table.table-hover.header-fixed
+            h3 Leaderboard
+            #leaderboard
+                table.table.table-hover.header-fixed
+        .col-sm-8#master
+                #spaghetti
+                    .controls.form-inline
+                        .btn-group(data-toggle="buttons")
+                            label.btn.btn-xs.btn-default.active(id='scale-linear')
+                                input(type='radio')
+                                | Linear
+                            label.btn.btn-xs.btn-default(id='scale-log')
+                                input(type='radio')
+                                | Log
+                        span.small Timezone:
+                        select#timezoneSelect.small.form-control
+                    .svgContainer
+                #legend
+                    .svgContainer
+                #stream
+                    .svgContainer
+                    .controls.form-inline
+                        .btn-group.pick-stream-chart(role="group", "aria-label"="...")
+                            button(type="button", class="btn btn-xs btn-default active", value="streamGraph") Volume Graph
+                            button(type="button", class="btn btn-xs btn-default", value="areaGraph") Area Chart
+

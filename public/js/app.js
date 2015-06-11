@@ -13,7 +13,12 @@ function MainViewModel() {
       legend = null,
       leaderboard = null
       self.activeCollection = ko.observable(),
-      self.collections = ko.observableArray();
+      self.collections = ko.observableArray(),
+      self.numAsyncLoading = ko.observable(0);
+
+  self.showLoadingModal = ko.computed(function() {
+    return self.numAsyncLoading() != 0;
+  });
 
   self.updateViewPort = function (bounds) {
     spaghetti.updateXBounds(bounds);
@@ -52,10 +57,13 @@ function MainViewModel() {
     return moment.utc(d).tz(self.timeZone).format("HH:mm");
   };
 
+
   function loadComponents(forCollection) {
     if($('#spaghetti').length !== 0 || $('#leaderboard').length !== 0) {
       // Load the spaghetti and leaderboards
+      self.numAsyncLoading(self.numAsyncLoading() + 1);
       d3.json('/data/' + forCollection + '/spaghetti.json', function(err, data) {
+        self.numAsyncLoading(self.numAsyncLoading() - 1);
         if (err) {
           return console.warn("Could not load data for spaghetti and leaderboard components", err);
         }
@@ -73,7 +81,9 @@ function MainViewModel() {
     }
 
     if($('#stream').length !== 0) {
+      self.numAsyncLoading(self.numAsyncLoading() + 1);
       d3.json('/data/' + forCollection + '/minute-coded-volume.json', function(err, data) {
+        self.numAsyncLoading(self.numAsyncLoading() - 1);
         if (err) {
           return console.warn("Could not load data from stream component", err);
         }
@@ -105,6 +115,10 @@ function MainViewModel() {
   });
 
   getCollections();
+}
+
+function showLoadingModal (argument) {
+  // body...
 }
 
 $(document).ready(function() {

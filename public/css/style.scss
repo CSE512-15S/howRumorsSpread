@@ -44,7 +44,7 @@ a {
 
 #spaghetti {
 	position: relative;
-	
+
 	.controls {
 	  	width: 620px;
   		margin: 0px auto;
@@ -95,9 +95,9 @@ a {
 	}
 
 	.svgContainer {
-		
+
 		width: 100%;
-		
+
 
 		.line {
 		  fill: none;
@@ -105,7 +105,7 @@ a {
 		  stroke-width: 2px;
 		}
 
-		.viewport { 
+		.viewport {
 			stroke : #888;
 			fill : #000;
 			fill-opacity: 0.2;
@@ -164,7 +164,7 @@ a {
 .detailview {
 	position: relative;
 	width: 100%;
-	padding: 0; 
+	padding: 0;
 	height: 320px;
 	margin-bottom: 20px;
 }
@@ -180,7 +180,7 @@ a {
 #eventmeta .row { margin: 0; }
 
 #tweetview {
-	padding: 12px 0; 
+	padding: 12px 0;
 
 	.username {
 		display: inline;
@@ -190,7 +190,7 @@ a {
 		font-size: 12px;
 	}
 	.time::after {
-		content: "\00a0\00b7\00a0";	
+		content: "\00a0\00b7\00a0";
 	}
 	.followercount::after {
 		content: " followers";
@@ -212,13 +212,13 @@ a {
 	.avatar-default {
 		z-index: 0;
 		background-image: url('http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png');
-	}	
+	}
 	.avatar-custom {
 		z-index: 100;
 	}
-	.desaturate { 
-		-webkit-filter: grayscale(100%); 
-		filter: grayscale(100%); 
+	.desaturate {
+		-webkit-filter: grayscale(100%);
+		filter: grayscale(100%);
 	}
 	.verified {
 		display: inline-block;
@@ -252,7 +252,7 @@ th {
 }
 
 .header-fixed {
-    width: 100% 
+    width: 100%
 }
 
 .header-fixed > thead,
@@ -302,4 +302,30 @@ th {
 line.scanline {
 	stroke: $line-color;
 	stroke-width: 1;
+}
+
+/* MODAL
+----------------------------------------*/
+#modal {
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	.modal-content {
+		position: absolute;
+		top: 40%;
+		right: 25%;
+		left: 25%;
+		text-align: center;
+		padding-bottom:15px;
+	}
+
+	.progress {
+		width: 90%;
+		margin: 0px auto;
+	}
 }
