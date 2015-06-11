@@ -88,7 +88,7 @@ Once your machine has the database in MongoDB, assuming that each rumor is in it
   1. `cd data-processing`
   2. For each collection, run:
     1. `node process-collection-cli.js <database_name> <collection_name>`
-  3. You will now data in the format the visualization tool expects, but you may want to trim the data to focus on a timescale with high activity.
+  3. You will now have data in the format the visualization tool expects, but you may want to trim the data to focus on a timescale with high activity.
 
 #### Processing the data with Time Boundaries
 The `process-collection-cli.js` script can take in an lower and upper timestamp to trim the data within those bounds. In the future you will be able to trim the timescale within the visualization interface, but until then, you have to use a combination of that interface and the command line tools. Follow these instructions to determine boundaries and reprocess the data using them:
