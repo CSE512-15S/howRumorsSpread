@@ -90,12 +90,21 @@ function MainViewModel() {
   }
 
   function getCollections() {
-    $.get('/list-collections', {}, function(data) {
+    d3.json('/data/rumors.json', function (err, data) {
+      if(err) console.error(err);
+      console.log(data);
       self.collections.removeAll();
-      _.each(JSON.parse(data), function(coll) {
-        self.collections.push(coll);
+      data.forEach(function(d) {
+        self.collections.push(d);
       });
-    });
+    })
+
+    // $.get('/list-collections', {}, function(data) {
+    //   self.collections.removeAll();
+    //   _.each(JSON.parse(data), function(coll) {
+    //     self.collections.push(coll);
+    //   });
+    // });
   }
 
   self.activeCollection.subscribe(function(newValue) {

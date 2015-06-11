@@ -284,10 +284,6 @@ function StreamGraph(mainViewModel, json) {
     return parseInt(timestamp / divVal) * divVal;
   }
 
-  function dataPath() {
-    return '/data/' + collectionName + '/' + timeGrouping + '-coded-volume.json';
-  }
-
 
   self.updateTime = function() {
     d3.select('#stream').select('.x.axis').call(xAxis);
